@@ -689,14 +689,14 @@ npm install jshint gulp-jshint  --save-dev
 
 
 ## 12 项目实战
-### 12.1 打开yeoman官网寻找生成器`gulp-webapp`
+### 12.1 安装生成器`gulp-webapp`
 [yeoman](http://yeoman.io)
 
 ### 12.2 生成项目
 ```
 $    mkdir gulpstart
 $    cd gulpstart
-$    npm install generator-gulp-webapp -g
+$    npm install generator-gulp-webapp@0.2.0 -g
 $    yo gulp-webapp gulpstart
 ```
 
@@ -934,7 +934,7 @@ gulp.task('default', ['clean'], function () {
 [深入理解Promise实现细节](http://segmentfault.com/a/1190000002591145)
 [Promise实现原理](http://www.tuicool.com/articles/fe6Jbyz)
 [异步编程 promise模式的简单实现](http://segmentfault.com/a/1190000003028634)
-[gulp插件](http://gulpjs.com/plugins/)
+[gulp插件](http://gulpjs.com/plugins/)   
 [jshint](http://jshint.com/docs/options/)
 
 
