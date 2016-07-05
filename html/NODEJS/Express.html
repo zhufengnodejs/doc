@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>珠峰JS全栈</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                珠峰JS全栈
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>前端工程化</a><ul></ul></li><li><a href="#"><span></span>前端框架</a><ul></ul></li><li><a href="#"><span></span>数据库</a><ul></ul></li><li><a href="#"><span></span>CSS</a><ul></ul></li><li><a href="#"><span></span>Git</a><ul><li><a href="../../html/Git/git安装.html">git安装</a></li><li><a href="../../html/Git/git.html">git</a></li></ul></li><li><a href="#"><span></span>HTML</a><ul><li><a href="../../html/HTML/webstorage.html">webstorage</a></li></ul></li><li><a href="#"><span></span>JAVASCRIPT</a><ul><li><a href="../../html/JAVASCRIPT/ES6.html">ES6</a></li><li><a href="../../html/JAVASCRIPT/webpack.html">webpack</a></li><li><a href="../../html/JAVASCRIPT/javascript.html">javascript</a></li><li><a href="../../html/JAVASCRIPT/react.html">react</a></li><li><a href="../../html/JAVASCRIPT/babel.html">babel</a></li><li><a href="../../html/JAVASCRIPT/react基础应用.html">react基础应用</a></li><li><a href="../../html/JAVASCRIPT/缓存.html">缓存</a></li><li><a href="../../html/JAVASCRIPT/react-router.html">react-router</a></li><li><a href="../../html/JAVASCRIPT/react路由应用.html">react路由应用</a></li><li><a href="../../html/JAVASCRIPT/jquery同步和异步.html">jquery同步和异步</a></li><li><a href="../../html/JAVASCRIPT/属性设置.html">属性设置</a></li></ul></li><li><a href="#"><span></span>NODEJS</a><ul><li><a href="../../html/NODEJS/加密.html">加密</a></li><li><a href="../../html/NODEJS/动态服务器.html">动态服务器</a></li><li><a href="../../html/NODEJS/压缩.html">压缩</a></li><li><a href="../../html/NODEJS/静态文件服务器.html">静态文件服务器</a></li><li><a href="../../html/NODEJS/cookie.html">cookie</a></li><li class="active"><a href="../../html/NODEJS/Express.html">Express</a></li><li><a href="../../html/NODEJS/session.html">session</a></li></ul></li><li><a href="#"><span></span>工具</a><ul></ul></li><li><a href="#"><span></span>微信</a><ul><li><a href="../../html/微信/微信入门.html">微信入门</a></li></ul></li></ul>    
+        </div>
+        
+        
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0Express介绍">Express介绍</a></li><li><a href="#t1安装">安装</a></li><li><a href="#t2创建应用">创建应用</a></li><li><a href="#t3get请求">get请求</a></li><li><a href="#t4中间件">中间件</a><ul><li><a href="#t5记录日志的">记录日志的</a></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h2 id="t0Express&#x4ECB;&#x7ECD;">Express&#x4ECB;&#x7ECD; <a href="#t0Express&#x4ECB;&#x7ECD;"> # </a></h2>
+<p>Express&#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x6D01;&#x3001;&#x7075;&#x6D3B;&#x7684;node.js Web&#x5E94;&#x7528;&#x5F00;&#x53D1;&#x6846;&#x67B6;, &#x5B83;&#x63D0;&#x4F9B;&#x4E00;&#x7CFB;&#x5217;&#x5F3A;&#x5927;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;&#x6A21;&#x677F;&#x89E3;&#x6790;&#x3001;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x670D;&#x52A1;&#x3001;&#x4E2D;&#x95F4;&#x4EF6;&#x3001;&#x8DEF;&#x7531;&#x63A7;&#x5236;&#x7B49;&#x7B49;,&#x5E76;&#x4E14;&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x63D2;&#x4EF6;&#x6216;&#x6574;&#x5408;&#x5176;&#x4ED6;&#x6A21;&#x5757;&#x6765;&#x5E2E;&#x52A9;&#x4F60;&#x521B;&#x5EFA;&#x5404;&#x79CD; Web&#x548C;&#x79FB;&#x52A8;&#x8BBE;&#x5907;&#x5E94;&#x7528;,&#x662F;&#x76EE;&#x524D;&#x6700;&#x6D41;&#x884C;&#x7684;&#x57FA;&#x4E8E;Node.js&#x7684;Web&#x5F00;&#x53D1;&#x6846;&#x67B6;&#xFF0C;&#x5E76;&#x4E14;&#x652F;&#x6301;Ejs&#x3001;jade&#x7B49;&#x591A;&#x79CD;&#x6A21;&#x677F;&#xFF0C;&#x53EF;&#x4EE5;&#x5FEB;&#x901F;&#x5730;&#x642D;&#x5EFA;&#x4E00;&#x4E2A;&#x5177;&#x6709;&#x5B8C;&#x6574;&#x529F;&#x80FD;&#x7684;&#x7F51;&#x7AD9;&#x3002;</p>
+<h2 id="t1&#x5B89;&#x88C5;">&#x5B89;&#x88C5; <a href="#t1&#x5B89;&#x88C5;"> # </a></h2>
+<pre><code>$ npm install express
+</code></pre><h2 id="t2&#x521B;&#x5EFA;&#x5E94;&#x7528;">&#x521B;&#x5EFA;&#x5E94;&#x7528; <a href="#t2&#x521B;&#x5EFA;&#x5E94;&#x7528;"> # </a></h2>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;express&apos;</span>);<span class="hljs-comment">//&#x5F15;&#x5165;express</span>
+<span class="hljs-keyword">var</span> app = express();
+app.get(<span class="hljs-string">&apos;/&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req,res</span>)</span>{
+    res.send(<span class="hljs-string">&apos;Hello World&apos;</span>);
+});
+app.listen(<span class="hljs-number">3000</span>);
+</code></pre>
+<h2 id="t3get&#x8BF7;&#x6C42;">get&#x8BF7;&#x6C42; <a href="#t3get&#x8BF7;&#x6C42;"> # </a></h2>
+<p>&#x6839;&#x636E;&#x8BF7;&#x6C42;&#x8DEF;&#x5F84;&#x6765;&#x5904;&#x7406;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x51FA;&#x7684;GET&#x8BF7;&#x6C42;</p>
+<pre><code class="lang-javascript">app.get(path,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">request, response</span>));
+</span></code></pre>
+<ul>
+<li>path&#x4E3A;&#x8BF7;&#x6C42;&#x7684;&#x8DEF;&#x5F84;</li>
+<li>&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x4E3A;&#x5904;&#x7406;&#x8BF7;&#x6C42;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x6709;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x5206;&#x522B;&#x662F;request&#x548C;response&#xFF0C;&#x4EE3;&#x8868;&#x8BF7;&#x6C42;&#x4FE1;&#x606F;&#x548C;&#x54CD;&#x5E94;&#x4FE1;&#x606F;</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;express&apos;</span>);<span class="hljs-comment">//&#x5F15;&#x5165;express</span>
+<span class="hljs-keyword">var</span> app = express();
+app.get(<span class="hljs-string">&apos;/&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req,res</span>)</span>{
+    res.end(<span class="hljs-string">&apos;welcome to  homepage&apos;</span>);
+});
+app.get(<span class="hljs-string">&apos;/about&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req,res</span>)</span>{
+ res.end(<span class="hljs-string">&apos;welcome to about page&apos;</span>);
+})
+app.get(<span class="hljs-string">&quot;*&quot;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req,res</span>)</span>{
+ res.end(<span class="hljs-string">&quot;404&quot;</span>);
+})
+app.listen(<span class="hljs-number">3000</span>);
+</code></pre>
+<h2 id="t4&#x4E2D;&#x95F4;&#x4EF6;">&#x4E2D;&#x95F4;&#x4EF6; <a href="#t4&#x4E2D;&#x95F4;&#x4EF6;"> # </a></h2>
+<p>&#x4E2D;&#x95F4;&#x4EF6;&#x5C31;&#x662F;&#x5904;&#x7406;HTTP&#x8BF7;&#x6C42;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x7528;&#x6765;&#x5B8C;&#x6210;&#x5404;&#x79CD;&#x7279;&#x5B9A;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;&#x6BD4;&#x5982;&#x68C0;&#x67E5;&#x7528;&#x6237;&#x662F;&#x5426;&#x767B;&#x5F55;&#x4EE5;&#x53CA;&#x5176;&#x4ED6;&#x5728;&#x9700;&#x8981;&#x6700;&#x7EC8;&#x5C06;&#x6570;&#x636E;&#x53D1;&#x9001;&#x7ED9;&#x7528;&#x6237;&#x4E4B;&#x524D;&#x5B8C;&#x6210;&#x7684;&#x4EFB;&#x52A1;&#x3002; &#x5B83;&#x6700;&#x5927;&#x7684;&#x7279;&#x70B9;&#x5C31;&#x662F;&#xFF0C;&#x4E00;&#x4E2A;&#x4E2D;&#x95F4;&#x4EF6;&#x5904;&#x7406;&#x5B8C;&#xFF0C;&#x53EF;&#x4EE5;&#x628A;&#x76F8;&#x5E94;&#x6570;&#x636E;&#x518D;&#x4F20;&#x9012;&#x7ED9;&#x4E0B;&#x4E00;&#x4E2A;&#x4E2D;&#x95F4;&#x4EF6;&#x3002;</p>
+<h3 id="t5&#x8BB0;&#x5F55;&#x65E5;&#x5FD7;&#x7684;">&#x8BB0;&#x5F55;&#x65E5;&#x5FD7;&#x7684; <a href="#t5&#x8BB0;&#x5F55;&#x65E5;&#x5FD7;&#x7684;"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">filter</span>(<span class="hljs-params">req,res,next</span>)</span>{
+ next();
+}
+app.use(<span class="hljs-string">&apos;/&apos;</span>,filter);
+</code></pre>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    .markdown-body pre code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h2,h3").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+</script>
+</body>
+</html>

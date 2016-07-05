@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>珠峰JS全栈</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                珠峰JS全栈
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>前端工程化</a><ul></ul></li><li><a href="#"><span></span>前端框架</a><ul></ul></li><li><a href="#"><span></span>数据库</a><ul></ul></li><li><a href="#"><span></span>CSS</a><ul></ul></li><li><a href="#"><span></span>Git</a><ul><li><a href="../../html/Git/git安装.html">git安装</a></li><li><a href="../../html/Git/git.html">git</a></li></ul></li><li><a href="#"><span></span>HTML</a><ul><li><a href="../../html/HTML/webstorage.html">webstorage</a></li></ul></li><li><a href="#"><span></span>JAVASCRIPT</a><ul><li><a href="../../html/JAVASCRIPT/ES6.html">ES6</a></li><li><a href="../../html/JAVASCRIPT/webpack.html">webpack</a></li><li><a href="../../html/JAVASCRIPT/javascript.html">javascript</a></li><li><a href="../../html/JAVASCRIPT/react.html">react</a></li><li><a href="../../html/JAVASCRIPT/babel.html">babel</a></li><li><a href="../../html/JAVASCRIPT/react基础应用.html">react基础应用</a></li><li><a href="../../html/JAVASCRIPT/缓存.html">缓存</a></li><li><a href="../../html/JAVASCRIPT/react-router.html">react-router</a></li><li><a href="../../html/JAVASCRIPT/react路由应用.html">react路由应用</a></li><li><a href="../../html/JAVASCRIPT/jquery同步和异步.html">jquery同步和异步</a></li><li><a href="../../html/JAVASCRIPT/属性设置.html">属性设置</a></li></ul></li><li><a href="#"><span></span>NODEJS</a><ul><li><a href="../../html/NODEJS/加密.html">加密</a></li><li><a href="../../html/NODEJS/动态服务器.html">动态服务器</a></li><li><a href="../../html/NODEJS/压缩.html">压缩</a></li><li class="active"><a href="../../html/NODEJS/静态文件服务器.html">静态文件服务器</a></li><li><a href="../../html/NODEJS/cookie.html">cookie</a></li><li><a href="../../html/NODEJS/Express.html">Express</a></li><li><a href="../../html/NODEJS/session.html">session</a></li></ul></li><li><a href="#"><span></span>工具</a><ul></ul></li><li><a href="#"><span></span>微信</a><ul><li><a href="../../html/微信/微信入门.html">微信入门</a></li></ul></li></ul>    
+        </div>
+        
+        
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0功能分析">功能分析</a></li><li><a href="#t1建立静态文件服务器">建立静态文件服务器</a></li><li><a href="#t2实现路由">实现路由</a></li><li><a href="#t3读取静态文件">读取静态文件</a></li><li><a href="#t4MIME类型支持">MIME类型支持</a></li><li><a href="#t5缓存支持">缓存支持</a></li><li><a href="#t6启用gzip">启用gzip</a></li><li><a href="#t7指定默认页面">指定默认页面</a></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h2 id="t0&#x529F;&#x80FD;&#x5206;&#x6790;">&#x529F;&#x80FD;&#x5206;&#x6790; <a href="#t0&#x529F;&#x80FD;&#x5206;&#x6790;"> # </a></h2>
+<ul>
+<li>&#x6D4F;&#x89C8;&#x5668;&#x53D1;&#x9001;<code>URL</code>&#xFF0C;&#x670D;&#x52A1;&#x7AEF;&#x89E3;&#x6790;<code>URL</code>&#xFF0C;&#x5BF9;&#x5E94;&#x5230;&#x786C;&#x76D8;&#x4E0A;&#x7684;&#x6587;&#x4EF6;&#x3002;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x5B58;&#x5728;&#xFF0C;&#x8FD4;&#x56DE;<code>200</code>&#x72B6;&#x6001;&#x7801;&#xFF0C;&#x5E76;&#x53D1;&#x9001;&#x6587;&#x4EF6;&#x5230;&#x6D4F;&#x89C8;&#x5668;&#x7AEF;&#xFF1B;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x8FD4;&#x56DE;<code>404</code>&#x72B6;&#x6001;&#x7801;&#xFF0C;&#x53D1;&#x9001;&#x4E00;&#x4E2A;<code>404</code>&#x7684;&#x6587;&#x4EF6;&#x5230;&#x6D4F;&#x89C8;&#x5668;&#x7AEF;
+<a href="https://github.com/zhufengnodejs/static-server">&#x4EE3;&#x7801;</a></li>
+</ul>
+<h2 id="t1&#x5EFA;&#x7ACB;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x670D;&#x52A1;&#x5668;">&#x5EFA;&#x7ACB;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x670D;&#x52A1;&#x5668; <a href="#t1&#x5EFA;&#x7ACB;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x670D;&#x52A1;&#x5668;"> # </a></h2>
+<p><a href="https://github.com/zhufengnodejs/static-server/commit/e4825f387b5922f265c745ebb63354710560373b">commit</a></p>
+<h2 id="t2&#x5B9E;&#x73B0;&#x8DEF;&#x7531;">&#x5B9E;&#x73B0;&#x8DEF;&#x7531; <a href="#t2&#x5B9E;&#x73B0;&#x8DEF;&#x7531;"> # </a></h2>
+<p>&#x5411;&#x6D4F;&#x89C8;&#x5668;&#x8FD4;&#x56DE;&#x8BF7;&#x6C42;&#x7684;&#x8DEF;&#x5F84;
+<a href="https://github.com/zhufengnodejs/static-server/commit/59b1861c88b0f001ab51b15867c0b8a12772f7d7">commit</a></p>
+<h2 id="t3&#x8BFB;&#x53D6;&#x9759;&#x6001;&#x6587;&#x4EF6;">&#x8BFB;&#x53D6;&#x9759;&#x6001;&#x6587;&#x4EF6; <a href="#t3&#x8BFB;&#x53D6;&#x9759;&#x6001;&#x6587;&#x4EF6;"> # </a></h2>
+<p>&#x4ECE;<code>public</code>&#x76EE;&#x5F55;&#x4E0B;&#x8BFB;&#x53D6;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x5E76;&#x8FD4;&#x56DE;
+<a href="https://github.com/zhufengnodejs/static-server/commit/f5bc315ad32a1e6a1cf60f3ec585828dde487ba6">commit</a></p>
+<h2 id="t4MIME&#x7C7B;&#x578B;&#x652F;&#x6301;">MIME&#x7C7B;&#x578B;&#x652F;&#x6301; <a href="#t4MIME&#x7C7B;&#x578B;&#x652F;&#x6301;"> # </a></h2>
+<p>&#x4E0D;&#x540C;&#x7684;&#x6587;&#x4EF6;&#x7C7B;&#x578B;&#x5BF9;&#x5E94;&#x4E0D;&#x540C;&#x7684;&#x5185;&#x5BB9;&#x7C7B;&#x578B;</p>
+<pre><code>$ npm install mime
+</code></pre><p><a href="https://github.com/zhufengnodejs/static-server/commit/945793ac3aa455ee97cecdb898ccd7b6189d5059">commit</a></p>
+<h2 id="t5&#x7F13;&#x5B58;&#x652F;&#x6301;">&#x7F13;&#x5B58;&#x652F;&#x6301; <a href="#t5&#x7F13;&#x5B58;&#x652F;&#x6301;"> # </a></h2>
+<p><img src="http://7xjf2l.com1.z0.glb.clouddn.com/cache.png" class="img-responsive">
+<a href="https://github.com/zhufengnodejs/static-server/commit/f061b3bf90907174ee066c7e61cdbe55f1153e13">commit</a></p>
+<h2 id="t6&#x542F;&#x7528;gzip">&#x542F;&#x7528;gzip <a href="#t6&#x542F;&#x7528;gzip"> # </a></h2>
+<p>Gzip&#x538B;&#x7F29;&#x6587;&#x4EF6;&#x53EF;&#x4EE5;&#x51CF;&#x5C11;&#x54CD;&#x5E94;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x80FD;&#x591F;&#x8FBE;&#x5230;&#x8282;&#x7701;&#x5E26;&#x5BBD;&#x7684;&#x76EE;&#x7684;
+<a href="https://github.com/zhufengnodejs/static-server/commit/64f32c2d34b2d4fcb35fda2300fbd36a34b5f2bb">commit</a></p>
+<h2 id="t7&#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x9875;&#x9762;">&#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x9875;&#x9762; <a href="#t7&#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x9875;&#x9762;"> # </a></h2>
+<p><a href="https://github.com/zhufengnodejs/static-server/commit/12f62bb72bb950b476a25476409dc111c9aa4859">commit</a></p>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    .markdown-body pre code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h2,h3").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+</script>
+</body>
+</html>

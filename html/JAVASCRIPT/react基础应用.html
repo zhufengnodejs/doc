@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>珠峰JS全栈</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                珠峰JS全栈
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>前端工程化</a><ul></ul></li><li><a href="#"><span></span>前端框架</a><ul></ul></li><li><a href="#"><span></span>数据库</a><ul></ul></li><li><a href="#"><span></span>CSS</a><ul></ul></li><li><a href="#"><span></span>Git</a><ul><li><a href="../../html/Git/git安装.html">git安装</a></li><li><a href="../../html/Git/git.html">git</a></li></ul></li><li><a href="#"><span></span>HTML</a><ul><li><a href="../../html/HTML/webstorage.html">webstorage</a></li></ul></li><li><a href="#"><span></span>JAVASCRIPT</a><ul><li><a href="../../html/JAVASCRIPT/ES6.html">ES6</a></li><li><a href="../../html/JAVASCRIPT/webpack.html">webpack</a></li><li><a href="../../html/JAVASCRIPT/javascript.html">javascript</a></li><li><a href="../../html/JAVASCRIPT/react.html">react</a></li><li><a href="../../html/JAVASCRIPT/babel.html">babel</a></li><li class="active"><a href="../../html/JAVASCRIPT/react基础应用.html">react基础应用</a></li><li><a href="../../html/JAVASCRIPT/缓存.html">缓存</a></li><li><a href="../../html/JAVASCRIPT/react-router.html">react-router</a></li><li><a href="../../html/JAVASCRIPT/react路由应用.html">react路由应用</a></li><li><a href="../../html/JAVASCRIPT/jquery同步和异步.html">jquery同步和异步</a></li><li><a href="../../html/JAVASCRIPT/属性设置.html">属性设置</a></li></ul></li><li><a href="#"><span></span>NODEJS</a><ul><li><a href="../../html/NODEJS/加密.html">加密</a></li><li><a href="../../html/NODEJS/动态服务器.html">动态服务器</a></li><li><a href="../../html/NODEJS/压缩.html">压缩</a></li><li><a href="../../html/NODEJS/静态文件服务器.html">静态文件服务器</a></li><li><a href="../../html/NODEJS/cookie.html">cookie</a></li><li><a href="../../html/NODEJS/Express.html">Express</a></li><li><a href="../../html/NODEJS/session.html">session</a></li></ul></li><li><a href="#"><span></span>工具</a><ul></ul></li><li><a href="#"><span></span>微信</a><ul><li><a href="../../html/微信/微信入门.html">微信入门</a></li></ul></li></ul>    
+        </div>
+        
+        
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul><li><a href="#t01.留言版">1.留言版</a></li><li><a href="#t12.创建第一个组件CommentBox">2.创建第一个组件CommentBox</a><ul><li><a href="#t22.1 新建 webpack.config.js">2.1 新建 webpack.config.js</a></li><li><a href="#t32.2 配置package.json">2.2 配置package.json</a></li><li><a href="#t42.3 创建app/main.js">2.3 创建app/main.js</a></li><li><a href="#t52.4 创建 app/components/CommentBox.js">2.4 创建 app/components/CommentBox.js</a></li><li><a href="#t62.5 创建build/index.html">2.5 创建build/index.html</a></li></ul></li><li><a href="#t73.复合组件">3.复合组件</a><ul><li><a href="#t83.1 CommentBox">3.1 CommentBox</a></li><li><a href="#t93.2 CommentForm">3.2 CommentForm</a></li><li><a href="#t103.3 CommentList.js">3.3 CommentList.js</a></li></ul></li><li><a href="#t114. 从父组件传递属性给子组件">4. 从父组件传递属性给子组件</a><ul><li><a href="#t124.1 app/components/Comment.js">4.1 app/components/Comment.js</a></li><li><a href="#t134.2 app/components/CommentList.js">4.2 app/components/CommentList.js</a></li></ul></li><li><a href="#t145. 从外界初始化数据">5. 从外界初始化数据</a><ul><li><a href="#t155.1 app/main.js">5.1 app/main.js</a></li><li><a href="#t165.2 app/components/CommentBox.js">5.2 app/components/CommentBox.js</a></li><li><a href="#t175.3 app/components/CommentList.js">5.3 app/components/CommentList.js</a></li><li><a href="#t185.4 app/components/Comment.js">5.4 app/components/Comment.js</a></li></ul></li><li><a href="#t196.从远程接口获取数据并改变状态">6.从远程接口获取数据并改变状态</a><ul><li><a href="#t206.1 app/components/CommentBox.js">6.1 app/components/CommentBox.js</a></li></ul></li><li><a href="#t217.处理事件并提交给父组件显示">7.处理事件并提交给父组件显示</a><ul><li><a href="#t227.1 app/components/CommentForm.js">7.1 app/components/CommentForm.js</a></li><li><a href="#t237.2  app/components/CommentBox.js">7.2  app/components/CommentBox.js</a></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h2 id="t01.&#x7559;&#x8A00;&#x7248;">1.&#x7559;&#x8A00;&#x7248; <a href="#t01.&#x7559;&#x8A00;&#x7248;"> # </a></h2>
+<p><img src="http://7xjf2l.com1.z0.glb.clouddn.com/comment.png" class="img-responsive"></p>
+<h2 id="t12.&#x521B;&#x5EFA;&#x7B2C;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;CommentBox">2.&#x521B;&#x5EFA;&#x7B2C;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;CommentBox <a href="#t12.&#x521B;&#x5EFA;&#x7B2C;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;CommentBox"> # </a></h2>
+<h3 id="t22.1 &#x65B0;&#x5EFA; webpack.config.js">2.1 &#x65B0;&#x5EFA; webpack.config.js <a href="#t22.1 &#x65B0;&#x5EFA; webpack.config.js"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;path&apos;</span>);
+<span class="hljs-built_in">module</span>.exports = {
+    entry: path.resolve(__dirname,<span class="hljs-string">&apos;app/main.js&apos;</span>),
+    output: {
+        path: <span class="hljs-string">&apos;./build&apos;</span>,
+        filename: <span class="hljs-string">&apos;bundle.js&apos;</span>
+    },
+    devServer:{
+      inline:<span class="hljs-literal">true</span>,
+      contentBase:<span class="hljs-string">&apos;build&apos;</span>
+    },
+    resolve:{
+        extensions:[<span class="hljs-string">&quot;&quot;</span>,<span class="hljs-string">&quot;.js&quot;</span>,<span class="hljs-string">&quot;.jsx&quot;</span>,<span class="hljs-string">&quot;.css&quot;</span>]
+    },
+    <span class="hljs-built_in">module</span>: {
+        loaders: [
+            {
+                test: <span class="hljs-regexp">/\.jsx?$/</span>,
+                loader: <span class="hljs-string">&apos;babel&apos;</span>,
+                exclude:<span class="hljs-regexp">/node_modules/</span>,
+                include:path.resolve(__dirname,<span class="hljs-string">&apos;app&apos;</span>)
+            },
+            {
+                test:<span class="hljs-regexp">/\.css$/</span>,
+                loader:<span class="hljs-string">&apos;style!css&apos;</span>
+            },
+            {
+                test:<span class="hljs-regexp">/\.(eot|svg|ttf|woff|woff2)/</span>,
+                loader:<span class="hljs-string">&apos;url&apos;</span>
+            }
+        ]
+    }
+}
+</code></pre>
+<h3 id="t32.2 &#x914D;&#x7F6E;package.json">2.2 &#x914D;&#x7F6E;package.json <a href="#t32.2 &#x914D;&#x7F6E;package.json"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-string">&quot;dependencies&quot;</span>: {
+    <span class="hljs-string">&quot;babel-loader&quot;</span>: <span class="hljs-string">&quot;^6.2.4&quot;</span>,
+    <span class="hljs-string">&quot;babel-preset-react&quot;</span>: <span class="hljs-string">&quot;^6.5.0&quot;</span>,
+    <span class="hljs-string">&quot;babel-preset-stage-0&quot;</span>: <span class="hljs-string">&quot;^6.5.0&quot;</span>,
+    <span class="hljs-string">&quot;bootstrap&quot;</span>: <span class="hljs-string">&quot;^3.3.6&quot;</span>,
+    <span class="hljs-string">&quot;css-loader&quot;</span>: <span class="hljs-string">&quot;^0.23.1&quot;</span>,
+    <span class="hljs-string">&quot;file-loader&quot;</span>: <span class="hljs-string">&quot;^0.8.5&quot;</span>,
+    <span class="hljs-string">&quot;jquery&quot;</span>: <span class="hljs-string">&quot;^3.0.0&quot;</span>,
+    <span class="hljs-string">&quot;react&quot;</span>: <span class="hljs-string">&quot;^15.1.0&quot;</span>,
+    <span class="hljs-string">&quot;react-dom&quot;</span>: <span class="hljs-string">&quot;^15.1.0&quot;</span>,
+    <span class="hljs-string">&quot;react-loader&quot;</span>: <span class="hljs-string">&quot;^2.4.0&quot;</span>,
+    <span class="hljs-string">&quot;style-loader&quot;</span>: <span class="hljs-string">&quot;^0.13.1&quot;</span>,
+    <span class="hljs-string">&quot;url-loader&quot;</span>: <span class="hljs-string">&quot;^0.5.7&quot;</span>,
+    <span class="hljs-string">&quot;webpack&quot;</span>: <span class="hljs-string">&quot;^1.13.1&quot;</span>,
+    <span class="hljs-string">&quot;webpack-dev-server&quot;</span>: <span class="hljs-string">&quot;^1.14.1&quot;</span>
+  }
+</code></pre>
+<h3 id="t42.3 &#x521B;&#x5EFA;app/main.js">2.3 &#x521B;&#x5EFA;app/main.js <a href="#t42.3 &#x521B;&#x5EFA;app/main.js"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> React = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;react&apos;</span>);
+
+<span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react-dom&apos;</span>;
+<span class="hljs-keyword">import</span> CommentBox <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./components/CommentBox.js&apos;</span>;
+
+
+ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">CommentBox</span> /&gt;</span>, document.querySelector(&apos;#app&apos;));
+</span></code></pre>
+<h3 id="t52.4 &#x521B;&#x5EFA; app/components/CommentBox.js">2.4 &#x521B;&#x5EFA; app/components/CommentBox.js <a href="#t52.4 &#x521B;&#x5EFA; app/components/CommentBox.js"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CommentBox</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    render() {
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;row&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;col-xs-12&quot;</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;page-header&quot;</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>&#x8BC4;&#x8BBA;<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        )</span>
+    }
+}
+
+<span class="hljs-keyword">export</span> {CommentBox <span class="hljs-keyword">as</span> <span class="hljs-keyword">default</span>}
+</code></pre>
+<h3 id="t62.5 &#x521B;&#x5EFA;build/index.html">2.5 &#x521B;&#x5EFA;build/index.html <a href="#t62.5 &#x521B;&#x5EFA;build/index.html"> # </a></h3>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot; class=&quot;container&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;script src=&quot;bundle.js&quot;&gt;&lt;/script&gt;
+&lt;/html&gt;
+</code></pre><h2 id="t73.&#x590D;&#x5408;&#x7EC4;&#x4EF6;">3.&#x590D;&#x5408;&#x7EC4;&#x4EF6; <a href="#t73.&#x590D;&#x5408;&#x7EC4;&#x4EF6;"> # </a></h2>
+<h3 id="t83.1 CommentBox">3.1 CommentBox <a href="#t83.1 CommentBox"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-pi">&apos;use strict&apos;</span>
+
+<span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
+<span class="hljs-keyword">import</span> CommentList <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./CommentList.js&apos;</span>;
+<span class="hljs-keyword">import</span> CommentForm <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./CommentForm.js&apos;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;bootstrap/dist/css/bootstrap.css&apos;</span>;
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CommentBox</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    render() {
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;row&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;col-xs-12&quot;</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;page-header&quot;</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>&#x8BC4;&#x8BBA;<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">CommentList</span>/&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;col-xs-12&quot;</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">CommentForm</span>/&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        )</span>
+    }
+}
+
+<span class="hljs-keyword">export</span> {CommentBox <span class="hljs-keyword">as</span> <span class="hljs-keyword">default</span>}
+</code></pre>
+<h3 id="t93.2 CommentForm">3.2 CommentForm <a href="#t93.2 CommentForm"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CommentForm</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    render() {
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">form</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;form-group&quot;</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text&quot;</span> <span class="hljs-attribute">ref</span>=<span class="hljs-value">&quot;author&quot;</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;form-control&quot;</span> <span class="hljs-attribute">defaultValue</span>=<span class="hljs-value">&quot;&#x59D3;&#x540D;&quot;</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;author&quot;</span>/&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;form-group&quot;</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">textarea</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;form-control&quot;</span> <span class="hljs-attribute">ref</span>=<span class="hljs-value">&quot;text&quot;</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;content&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;text&quot;</span> <span class="hljs-attribute">cols</span>=<span class="hljs-value">&quot;60&quot;</span> <span class="hljs-attribute">rows</span>=<span class="hljs-value">&quot;7&quot;</span> <span class="hljs-attribute">defaultValue</span>=<span class="hljs-value">&quot;&#x7559;&#x8A00;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">textarea</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;form-group&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;submit&quot;</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;btn btn-primary&quot;</span>&gt;</span>&#x53D1;&#x8868;&#x8BC4;&#x8BBA;<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">form</span>&gt;</span>
+        )</span>
+    }
+}
+
+<span class="hljs-keyword">export</span> {CommentForm <span class="hljs-keyword">as</span> <span class="hljs-keyword">default</span>}
+</code></pre>
+<h3 id="t103.3 CommentList.js">3.3 CommentList.js <a href="#t103.3 CommentList.js"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>
+class CommentList extends React.Component {
+    render(){
+        return(
+            &lt;div className=<span class="hljs-string">&quot;list-group&quot;</span>&gt;
+                &lt;div className=<span class="hljs-string">&quot;list-group-item&quot;</span>&gt;&#x5F20;&#x4E09;:&#x4F60;&#x597D;&lt;/div&gt;
+                &lt;div className=<span class="hljs-string">&quot;list-group-item&quot;</span>&gt;&#x674E;&#x56DB;:&#x4F60;&#x4E5F;&#x597D;&lt;/div&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+
+export {CommentList <span class="hljs-keyword">as</span> default}
+</code></pre>
+<h2 id="t114. &#x4ECE;&#x7236;&#x7EC4;&#x4EF6;&#x4F20;&#x9012;&#x5C5E;&#x6027;&#x7ED9;&#x5B50;&#x7EC4;&#x4EF6;">4. &#x4ECE;&#x7236;&#x7EC4;&#x4EF6;&#x4F20;&#x9012;&#x5C5E;&#x6027;&#x7ED9;&#x5B50;&#x7EC4;&#x4EF6; <a href="#t114. &#x4ECE;&#x7236;&#x7EC4;&#x4EF6;&#x4F20;&#x9012;&#x5C5E;&#x6027;&#x7ED9;&#x5B50;&#x7EC4;&#x4EF6;"> # </a></h2>
+<h3 id="t124.1 app/components/Comment.js">4.1 app/components/Comment.js <a href="#t124.1 app/components/Comment.js"> # </a></h3>
+<pre><code>
+import React from &apos;react&apos;;
+class Comment extends React.Component{
+    constructor(){
+        super();
+    }
+    render(){
+        return (
+            &lt;div className=&quot;list-group-item&quot;&gt;
+                {this.props.author}:
+                {this.props.date}:
+                {this.props.children}
+            &lt;/div&gt;
+        )
+    }
+}
+export {Comment as default}
+</code></pre><h3 id="t134.2 app/components/CommentList.js">4.2 app/components/CommentList.js <a href="#t134.2 app/components/CommentList.js"> # </a></h3>
+<pre><code class="lang-diff">    render(){
+        return(
+            &lt;div className=&quot;list-group&quot;&gt;
+<span class="hljs-addition">+                &lt;Comment author=&quot;&#x5F20;&#x4E09;&quot; date=&quot;10&#x5206;&#x524D;&quot;&gt;&#x4F60;&#x597D;&lt;/Comment&gt;</span>
+<span class="hljs-addition">+                &lt;Comment author=&quot;&#x674E;&#x56DB;&quot; date=&quot;5&#x5206;&#x524D;&quot;&gt;&#x4F60;&#x4E5F;&#x597D;&#x554A;&lt;/Comment&gt;</span>
+            &lt;/div&gt;
+        )
+    }
+</code></pre>
+<h2 id="t145. &#x4ECE;&#x5916;&#x754C;&#x521D;&#x59CB;&#x5316;&#x6570;&#x636E;">5. &#x4ECE;&#x5916;&#x754C;&#x521D;&#x59CB;&#x5316;&#x6570;&#x636E; <a href="#t145. &#x4ECE;&#x5916;&#x754C;&#x521D;&#x59CB;&#x5316;&#x6570;&#x636E;"> # </a></h2>
+<h3 id="t155.1 app/main.js">5.1 app/main.js <a href="#t155.1 app/main.js"> # </a></h3>
+<pre><code class="lang-diff"><span class="hljs-addition">+ var data = [</span>
+<span class="hljs-addition">+     {name:&apos;&#x5F20;&#x4E09;&apos;,date:&apos;10&#x5206;&#x949F;&#x524D;&apos;,text:&quot;&#x4F60;&#x597D;&quot;},</span>
+<span class="hljs-addition">+     {name:&apos;&#x674E;&#x56DB;&apos;,date:&apos;5&#x5206;&#x949F;&#x524D;&apos;,text:&quot;&#x4F60;&#x4E5F;&#x597D;&quot;}</span>
+<span class="hljs-addition">+ ]</span>
+<span class="hljs-addition">+ ReactDOM.render(&lt;CommentBox data={data} /&gt;, document.querySelector(&apos;#app&apos;));</span>
+</code></pre>
+<h3 id="t165.2 app/components/CommentBox.js">5.2 app/components/CommentBox.js <a href="#t165.2 app/components/CommentBox.js"> # </a></h3>
+<pre><code class="lang-diff"><span class="hljs-addition">+   &lt;CommentList data={this.props.data}/&gt;</span>
+</code></pre>
+<h3 id="t175.3 app/components/CommentList.js">5.3 app/components/CommentList.js <a href="#t175.3 app/components/CommentList.js"> # </a></h3>
+<pre><code class="lang-diff">&lt;div className=&quot;list-group&quot;&gt;
+<span class="hljs-addition">+                {</span>
+<span class="hljs-addition">+                    this.props.data.map((item,index)=&gt;{</span>
+<span class="hljs-addition">+                        return &lt;Comment key={index} author={item.name} date={item.date}&gt;{item.children}&lt;/Comment&gt;</span>
+<span class="hljs-addition">+                    })</span>
+<span class="hljs-addition">+                }</span>
+            &lt;/div&gt;
+</code></pre>
+<h3 id="t185.4 app/components/Comment.js">5.4 app/components/Comment.js <a href="#t185.4 app/components/Comment.js"> # </a></h3>
+<pre><code class="lang-diff">            &lt;div className=&quot;list-group-item&quot;&gt;
+<span class="hljs-addition">+                {this.props.author}:</span>
+<span class="hljs-addition">+                {this.props.date}:</span>
+<span class="hljs-addition">+                {this.props.children}</span>
+            &lt;/div&gt;
+</code></pre>
+<h2 id="t196.&#x4ECE;&#x8FDC;&#x7A0B;&#x63A5;&#x53E3;&#x83B7;&#x53D6;&#x6570;&#x636E;&#x5E76;&#x6539;&#x53D8;&#x72B6;&#x6001;">6.&#x4ECE;&#x8FDC;&#x7A0B;&#x63A5;&#x53E3;&#x83B7;&#x53D6;&#x6570;&#x636E;&#x5E76;&#x6539;&#x53D8;&#x72B6;&#x6001; <a href="#t196.&#x4ECE;&#x8FDC;&#x7A0B;&#x63A5;&#x53E3;&#x83B7;&#x53D6;&#x6570;&#x636E;&#x5E76;&#x6539;&#x53D8;&#x72B6;&#x6001;"> # </a></h2>
+<h3 id="t206.1 app/components/CommentBox.js">6.1 app/components/CommentBox.js <a href="#t206.1 app/components/CommentBox.js"> # </a></h3>
+<pre><code class="lang-diff"><span class="hljs-addition">+ import $ from &apos;jquery&apos;;</span>
+
+<span class="hljs-addition">+ constructor(props){</span>
+<span class="hljs-addition">+        super(props);</span>
+<span class="hljs-addition">+        this.state = {comments:[]};</span>
+<span class="hljs-addition">+        this.getComments();</span>
+<span class="hljs-addition">+    }</span>
+
+<span class="hljs-addition">+    getComments(){</span>
+<span class="hljs-addition">+        $.ajax({</span>
+<span class="hljs-addition">+            url:this.props.url,</span>
+<span class="hljs-addition">+            dataType:&apos;json&apos;,</span>
+<span class="hljs-addition">+           cache:false,</span>
+<span class="hljs-addition">+            success:data =&gt;{</span>
+<span class="hljs-addition">+                this.setState({comments:data});</span>
+<span class="hljs-addition">+            },</span>
+<span class="hljs-addition">+            error:(xhr,status,error)=&gt;{</span>
+<span class="hljs-addition">+                console.error(error);</span>
+<span class="hljs-addition">+            }</span>
+<span class="hljs-addition">+        })</span>
+<span class="hljs-addition">+    }</span>
+<span class="hljs-addition">+      &lt;CommentList data={this.state.comments}/&gt;</span>
+</code></pre>
+<h2 id="t217.&#x5904;&#x7406;&#x4E8B;&#x4EF6;&#x5E76;&#x63D0;&#x4EA4;&#x7ED9;&#x7236;&#x7EC4;&#x4EF6;&#x663E;&#x793A;">7.&#x5904;&#x7406;&#x4E8B;&#x4EF6;&#x5E76;&#x63D0;&#x4EA4;&#x7ED9;&#x7236;&#x7EC4;&#x4EF6;&#x663E;&#x793A; <a href="#t217.&#x5904;&#x7406;&#x4E8B;&#x4EF6;&#x5E76;&#x63D0;&#x4EA4;&#x7ED9;&#x7236;&#x7EC4;&#x4EF6;&#x663E;&#x793A;"> # </a></h2>
+<h3 id="t227.1 app/components/CommentForm.js">7.1 app/components/CommentForm.js <a href="#t227.1 app/components/CommentForm.js"> # </a></h3>
+<pre><code class="lang-diff"><span class="hljs-addition">+ handleSubmit(event){</span>
+<span class="hljs-addition">+        event.preventDefault();</span>
+<span class="hljs-addition">+        var author = this.refs.author.value;</span>
+<span class="hljs-addition">+        var text = this.refs.text.value;</span>
+<span class="hljs-addition">+        this.props.handleCommentSubmit({author,text,date:&quot;&#x521A;&#x521A;&quot;});</span>
+<span class="hljs-addition">+    }</span>
+
+<span class="hljs-addition">+ &lt;form onSubmit={this.handleSubmit.bind(this)}&gt;</span>
+</code></pre>
+<h3 id="t237.2  app/components/CommentBox.js">7.2  app/components/CommentBox.js <a href="#t237.2  app/components/CommentBox.js"> # </a></h3>
+<pre><code class="lang-diff"><span class="hljs-addition">+      handleCommentSubmit(comment){</span>
+<span class="hljs-addition">+        this.setState({comments:this.state.comments.concat(comment)});</span>
+<span class="hljs-addition">+      }</span>
+<span class="hljs-addition">+     &lt;CommentForm handleCommentSubmit={this.handleCommentSubmit.bind(this)}/&gt;</span>
+</code></pre>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    .markdown-body pre code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h2,h3").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+</script>
+</body>
+</html>

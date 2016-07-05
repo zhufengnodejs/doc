@@ -1,0 +1,3 @@
+Wechat.prototype.createGroup = function(){
+
+}
