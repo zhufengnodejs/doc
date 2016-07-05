@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>珠峰JS全栈</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                珠峰JS全栈
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>前端工程化</a><ul></ul></li><li><a href="#"><span></span>前端框架</a><ul></ul></li><li><a href="#"><span></span>数据库</a><ul></ul></li><li><a href="#"><span></span>CSS</a><ul></ul></li><li><a href="#"><span></span>Git</a><ul><li><a href="../../html/Git/git安装.html">git安装</a></li><li><a href="../../html/Git/git.html">git</a></li></ul></li><li><a href="#"><span></span>HTML</a><ul><li><a href="../../html/HTML/webstorage.html">webstorage</a></li></ul></li><li><a href="#"><span></span>JAVASCRIPT</a><ul><li><a href="../../html/JAVASCRIPT/ES6.html">ES6</a></li><li><a href="../../html/JAVASCRIPT/webpack.html">webpack</a></li><li><a href="../../html/JAVASCRIPT/javascript.html">javascript</a></li><li><a href="../../html/JAVASCRIPT/react.html">react</a></li><li><a href="../../html/JAVASCRIPT/babel.html">babel</a></li><li><a href="../../html/JAVASCRIPT/react基础应用.html">react基础应用</a></li><li><a href="../../html/JAVASCRIPT/缓存.html">缓存</a></li><li><a href="../../html/JAVASCRIPT/react-router.html">react-router</a></li><li><a href="../../html/JAVASCRIPT/react路由应用.html">react路由应用</a></li><li><a href="../../html/JAVASCRIPT/jquery同步和异步.html">jquery同步和异步</a></li><li><a href="../../html/JAVASCRIPT/属性设置.html">属性设置</a></li></ul></li><li><a href="#"><span></span>NODEJS</a><ul><li><a href="../../html/NODEJS/加密.html">加密</a></li><li><a href="../../html/NODEJS/动态服务器.html">动态服务器</a></li><li><a href="../../html/NODEJS/压缩.html">压缩</a></li><li><a href="../../html/NODEJS/静态文件服务器.html">静态文件服务器</a></li><li><a href="../../html/NODEJS/cookie.html">cookie</a></li><li><a href="../../html/NODEJS/Express.html">Express</a></li><li><a href="../../html/NODEJS/session.html">session</a></li><li><a href="../../html/NODEJS/gulp.html">gulp</a></li></ul></li><li><a href="#"><span></span>工具</a><ul></ul></li><li><a href="#"><span></span>微信</a><ul><li><a href="../../html/微信/微信入门.html">微信入门</a></li></ul></li><li><a href="#"><span></span>面试</a><ul><li class="active"><a href="../../html/面试/CSS.html">CSS</a></li><li><a href="../../html/面试/JAVASCRIPT.html">JAVASCRIPT</a></li><li><a href="../../html/面试/其它.html">其它</a></li><li><a href="../../html/面试/性能优化.html">性能优化</a></li></ul></li></ul>    
+        </div>
+        
+        
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0CSS的英文全拼是什么？">CSS的英文全拼是什么？</a></li><li><a href="#t1在JS中如何调用CSS的属性名? 如 font-family,-moz-border-radius">在JS中如何调用CSS的属性名? 如 font-family,-moz-border-radius</a></li><li><a href="#t2CSS布局: 两列,左边宽度自适应，右边宽度固定200px">CSS布局: 两列,左边宽度自适应，右边宽度固定200px</a></li><li><a href="#t3CSS引入的方式有哪些?link和@import的区别是?">CSS引入的方式有哪些?link和@import的区别是?</a></li><li><a href="#t4行内元素有哪些?块级元素有哪些?CSS的盒模型?">行内元素有哪些?块级元素有哪些?CSS的盒模型?</a></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h2 id="t0CSS&#x7684;&#x82F1;&#x6587;&#x5168;&#x62FC;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;">CSS&#x7684;&#x82F1;&#x6587;&#x5168;&#x62FC;&#x662F;&#x4EC0;&#x4E48;&#xFF1F; <a href="#t0CSS&#x7684;&#x82F1;&#x6587;&#x5168;&#x62FC;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;"> # </a></h2>
+<p>Cascading Style Sheets</p>
+<h2 id="t1&#x5728;JS&#x4E2D;&#x5982;&#x4F55;&#x8C03;&#x7528;CSS&#x7684;&#x5C5E;&#x6027;&#x540D;? &#x5982; font-family,-moz-border-radius">&#x5728;JS&#x4E2D;&#x5982;&#x4F55;&#x8C03;&#x7528;CSS&#x7684;&#x5C5E;&#x6027;&#x540D;? &#x5982; font-family,-moz-border-radius <a href="#t1&#x5728;JS&#x4E2D;&#x5982;&#x4F55;&#x8C03;&#x7528;CSS&#x7684;&#x5C5E;&#x6027;&#x540D;? &#x5982; font-family,-moz-border-radius"> # </a></h2>
+<h2 id="t2CSS&#x5E03;&#x5C40;: &#x4E24;&#x5217;,&#x5DE6;&#x8FB9;&#x5BBD;&#x5EA6;&#x81EA;&#x9002;&#x5E94;&#xFF0C;&#x53F3;&#x8FB9;&#x5BBD;&#x5EA6;&#x56FA;&#x5B9A;200px">CSS&#x5E03;&#x5C40;: &#x4E24;&#x5217;,&#x5DE6;&#x8FB9;&#x5BBD;&#x5EA6;&#x81EA;&#x9002;&#x5E94;&#xFF0C;&#x53F3;&#x8FB9;&#x5BBD;&#x5EA6;&#x56FA;&#x5B9A;200px <a href="#t2CSS&#x5E03;&#x5C40;: &#x4E24;&#x5217;,&#x5DE6;&#x8FB9;&#x5BBD;&#x5EA6;&#x81EA;&#x9002;&#x5E94;&#xFF0C;&#x53F3;&#x8FB9;&#x5BBD;&#x5EA6;&#x56FA;&#x5B9A;200px"> # </a></h2>
+<h2 id="t3CSS&#x5F15;&#x5165;&#x7684;&#x65B9;&#x5F0F;&#x6709;&#x54EA;&#x4E9B;?link&#x548C;@import&#x7684;&#x533A;&#x522B;&#x662F;?">CSS&#x5F15;&#x5165;&#x7684;&#x65B9;&#x5F0F;&#x6709;&#x54EA;&#x4E9B;?link&#x548C;@import&#x7684;&#x533A;&#x522B;&#x662F;? <a href="#t3CSS&#x5F15;&#x5165;&#x7684;&#x65B9;&#x5F0F;&#x6709;&#x54EA;&#x4E9B;?link&#x548C;@import&#x7684;&#x533A;&#x522B;&#x662F;?"> # </a></h2>
+<h2 id="t4&#x884C;&#x5185;&#x5143;&#x7D20;&#x6709;&#x54EA;&#x4E9B;?&#x5757;&#x7EA7;&#x5143;&#x7D20;&#x6709;&#x54EA;&#x4E9B;?CSS&#x7684;&#x76D2;&#x6A21;&#x578B;?">&#x884C;&#x5185;&#x5143;&#x7D20;&#x6709;&#x54EA;&#x4E9B;?&#x5757;&#x7EA7;&#x5143;&#x7D20;&#x6709;&#x54EA;&#x4E9B;?CSS&#x7684;&#x76D2;&#x6A21;&#x578B;? <a href="#t4&#x884C;&#x5185;&#x5143;&#x7D20;&#x6709;&#x54EA;&#x4E9B;?&#x5757;&#x7EA7;&#x5143;&#x7D20;&#x6709;&#x54EA;&#x4E9B;?CSS&#x7684;&#x76D2;&#x6A21;&#x578B;?"> # </a></h2>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    .markdown-body pre code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h2,h3").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+</script>
+</body>
+</html>

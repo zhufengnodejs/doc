@@ -2,7 +2,7 @@
 HTTP1.0中协议是无状态的，但在WEB应用中，在多个请求之间共享会话是非常必要的，所以出现了Cookie  
 cookie是为了辩别用户身份，进行会话跟踪而*存储在客户端*上的数据
 ## Cookie的处理流程
-<img src="http://7xjf2l.com1.z0.glb.clouddn.com/cookie.png" class="img-responsive">
+<img src="http://7xjf2l.com1.z0.glb.clouddn.com/cookies.png" class="img-responsive">
 
 ## 使用步骤
 1. 客户端第一次访问服务器的时候服务器通过响应头向客户端发送Cookie,属性之间用分号空格分隔
