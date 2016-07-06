@@ -5,7 +5,7 @@
 2. 安全性问题：由于在HTTP请求中的cookie是明文传递的带来的安全性问题。
 3. 网络负担：我们知道cookie会被附加在每个HTTP请求中，在请求和响应的`header`中都是要被传输的，所以会消耗额外的网络流量。
 
-## 2. WebStorge
+## 2. WebStorage
 WebStorage是HTML新增的本地存储解决方案之一，但并不是为了取代cookie而制定的标准，cookie作为HTTP协议的一部分用来处理客户端和服务器通信是不可或缺的，session正是依赖于实现的客户端状态保持。WebStorage的意图在于解决本来不应该cookie做，却不得不用cookie的本地存储。
 ### 2.1 localStorage
 用于持久化的本地存储，浏览器窗口关闭后，localStorage存储的数据仍然可以被访问。所有浏览器窗口可以共享localStorage的数据，保存的数据永远不会过期，只能手动删除。
