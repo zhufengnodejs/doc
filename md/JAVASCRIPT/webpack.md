@@ -390,7 +390,7 @@ $ npm install style-loader css-loader less-loader --save-dev
 ### 7.1 安装bootstrap和相应的loader
 ```
 $ npm install bootstrap --save
-$ npm install file-loader url-loader --save-de
+$ npm install file-loader url-loader --save-dev
 ```
 
 
