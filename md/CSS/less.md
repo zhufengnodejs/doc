@@ -2,8 +2,10 @@
 Less 是一门一种<span class="text-danger">动态</span>样式 语言，它扩充了CSS语言，增加了诸如<span class="text-danger">变量</span>、<span class="text-danger">混合（mixin）</span>、<span class="text-danger">函数</span>等功能，让 CSS 更易维护、方便制作主题、扩充。
 
 ## 客户端使用
-https://github.com/less/less.js/archive/master.zip
-### 外联样式：引入你的 .less 样式文件的时候要设置 rel 属性值为 “stylesheet/less”:
+[下载地址](https://github.com/less/less.js/archive/master.zip)
+
+### 外联样式
+引入你的 .less 样式文件的时候要设置 rel 属性值为 “stylesheet/less”:
 ```css
 <link rel="stylesheet/less" type="text/css" href="styles.less">
 ```
