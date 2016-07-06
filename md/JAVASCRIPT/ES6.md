@@ -1,10 +1,33 @@
 ## ECMAScript6
 ECMAScript 简称就是 ES ，你可以把它看成是一套标准， JavaScript 就是实施了这套标准的一门语言。 现在主流浏览器使用的是 ECMASciprt 5 。  
 
-## 1. 级块作用域变量-let
-作用域就是一个变量的为作用范围。也就是你声明一个变量以后，这个变量可以在什么场合下使用    
-以前的*JavaScript*只有全局作用域，还有一个函数作用域    
-现在*JavaScript*也有了块级作用域,用一组大括号定义一个块,使用 let 定义的变量在大括号的外面是访问不到的   
+## 1. 作用域变量
+作用域就是一个变量的为作用范围。也就是你声明一个变量以后,这个变量可以在什么场合下使用  
+以前的*JavaScript*只有全局作用域，还有一个函数作用域   
+### 1.1 var的问题
+
+1. var没有块级作用域，定义后在当前闭包中都可以访问，如果变量名重复，就会覆盖前面定义的变量，并且也有可能被其他人更改。
+```javascript
+if (true) {
+        var a = "a"; // 期望a是某一个值
+    }
+console.log(a);    
+```
+
+2. var在for循环标记变量共享，一般在循环中使用的i会被共享，其本质上也是由于没有块级作用域造成的
+```javascript
+for (var i = 0; i < 3; i++) {
+        setTimeout(function () {
+            alert(i);
+        }, 0);
+    }
+```
+   
+### 1.2 块级作用域
+在用var定义变量的时候，变量是通过闭包进行隔离的，现在用了let，不仅仅可以通过闭包隔离，还增加了一些块级作用域隔离。
+块级作用用一组大括号定义一个块,使用 let 定义的变量在大括号的外面是访问不到的  
+
+#### 1.2.1 实现块级作用域 
 ```javascript
 if(true){
     let name = 'zfpx';
@@ -12,13 +35,66 @@ if(true){
 console.log(name);// ReferenceError: name is not defined
 ```
 
-## 2. 常量-const
-使用`const`我们可以去声明一个常量，常量一旦赋值就不能再修改了
+#### 1.2.2 不会污染全局对象
 ```javascript
-const fruit = 'zfpx';
-fruit = 'zfpx2';//Assignment to constant variable
+if(true){
+    let name = 'zfpx';
+}
+console.log(window.name);
 ```
 
+#### 1.2.3 for循环中也可以使用i
+```javascript
+// 嵌套循环不会相互影响
+    for (let i = 0; i < 3; i++) {
+        console.log("out", i);
+        for (let i = 0; i < 2; i++) {
+            console.log("in", i);
+        }
+    }
+```
+
+#### 1.2.4 重复定义会报错
+```javascript
+if(true){
+    let a = 1;
+    let a = 2; //Identifier 'a' has already been declared
+}
+```
+
+#### 1.2.5 不存在变量的预解释
+```javascript
+console.log(a);
+if(true){
+    let a = 'a';
+}
+```
+
+#### 1.2.6 闭包的新写法
+以前
+```javascript
+;(function () {
+
+})();
+```
+
+现在
+```javascript
+{
+}
+```
+
+
+## 2. 常量
+使用`const`我们可以去声明一个常量，常量一旦赋值就不能再修改了
+
+### 2.1 常量不能重新赋值
+```javascript
+const MY_NAME = 'zfpx';
+MY_NAME = 'zfpx2';//Assignment to constant variable
+```
+
+### 2.2 变量值可改变
 > 注意`const`限制的是不能给变量重新赋值，而变量的值本身是可以改变的,下面的操作是可以的
 
 ```javascript
@@ -27,13 +103,35 @@ names.push('zfpx2');
 console.log(names);
 ```
 
+### 2.3 不同的块级作用域可以多次定义
+```javascript
+const A = "0";
+{
+    const A = "A";
+    console.log(A)
+}
+{
+    const A = "B";
+    console.log(A)
+}
+console.log(A)
+```
 ## 3. 解构
 ### 3.1 解析数组
-解构意思就是分解一个东西的结构,可以用解构把数组中的值依次赋值给一组变量
+解构意思就是分解一个东西的结构,可以用一种类似数组的方式定义N个变量，可以将一个数组中的值按照规则赋值过去。
 
 ```javascript
 var [name,age] = ['zfpx',8];
 console.log(name,age);
+```
+
+### 3.2 嵌套赋值
+```javascript
+    let [x, [y], z] = [1, [2.1, 2.2]];
+    console.log(x, y, z);
+
+    let [x, [y,z]] = [1, [2.1, 2.2]];
+    console.log(x,y,z);
 ```
 
 > 这样数组里的第一个项目就会交给前面`name`这个变量，第二个项目的值会分配给`age`这个变量
@@ -41,12 +139,37 @@ console.log(name,age);
 ### 3.2 解构对象
 对象也可以被解构
 ```javascript
-var {name,age} = {name:'zfpx',age:8};
-console.log(name,age);
+var obj = {name:'zfpx',age:8};
+//对象里的name属性的值会交给name这个变量，age的值会交给age这个变量
+var {name,age} = obj;
+//对象里的name属性的值会交给myname这个变量，age的值会交给myage这个变量
+let {name: myname, age: myage} = obj;
+console.log(name,age,myname,myage);
 ```
-> 对象里的name属性的值会交给name这个变量，age的值会交给age这个变量
 
-## 4. 模板字符串
+### 3.3 默认值
+在赋值和传参的时候可以使用默认值
+```javascript
+let [a = "a", b = "b", c = "c"] = [1, , 3];
+console.log(a, b, c);
+
+function ajax (options) {
+    var method = options.method || "get";
+    var data = options.data || {};
+    //.....
+}
+function ajax ({method = "get", data}) {
+    console.log(arguments);
+}
+ajax({
+    method: "post",
+    data: {"name": "zfpx"}
+});
+
+```
+
+
+## 4. 字符串
 ### 4.1 模板字符串
 模板字符串用反引号(数字1左边的那个键)包含，其中的变量用`${}`括起来
 ```javascript
@@ -75,6 +198,7 @@ let desc = 'zfpx is 8 years old';
 console.log(desc.endsWith('old')); //字符串是否以`old`结尾
 console.log(desc.startsWith('zfpx'));// 字符串是否以`zfpx`开头
 console.log(desc.includes('is'));//字符串是否包含`is`
+console.log('hello', 'hello'.repeat(3));//repeat 就是将字符串重复后的数值返回,并不会改变原来的字符串
 ```
 
 ## 5. 函数
@@ -140,6 +264,51 @@ var person = {
 person.getName();
 ```
 
+### 5.6 函数新方法
+### 5.6.1 from
+将一个数组或者类数组变成数组,会复制一份
+```javascript
+let newArr = Array.from(oldArr); 
+```
+
+### 5.6.2 Array.of
+of是为了将一组数值,转换为数组
+```javascript
+console.log(Array(3, 4), Array(3, 4).length,
+Array.of(3, 4), Array.of(3, 4).length);
+```
+
+### 5.6.3 copyWithin
+Array.prototype.copyWithin(target, start = 0, end = this.length)
+盖目标的下标 开始的下标 结束的后一个的下标
+```javascript
+[1, 2, 3, 4, 5].copyWithin(0, 1, 2);
+```
+
+### 5.6.4 find
+查到对应的元素和索引
+```
+let arr = [1, 2 ,3, 3, 4, 5];
+    let find = arr.find((item, index, arr) => {
+        return item === 3;
+    });
+    let findIndex = arr.findIndex((item, index, arr) => {
+        return item === 3;
+    });
+
+    console.log(find, findIndex);
+```
+
+### 5.6.5 fill
+就是填充数组的意思 会更改原数组
+Array.prototype.fill(value, start, end = this.length);
+```
+ let arr = [1, 2, 3, 4, 5, 6];
+ arr.fill('a', 1, 2);
+ console.log(arr);
+```
+
+
 ## 6. 对象
 ### 6.1 对象字面量
 如果你想在对象里添加跟变量名一样的属性，并且属性的值就是变量表示的值就可以直接在对象里加上这些属性
@@ -171,6 +340,11 @@ var ageObj = {age:8};
 var obj = {};
 Object.assign(obj,nameObj,ageObj);
 console.log(obj);
+
+//克隆对象
+function clone (obj) {
+  return Object.assign({}, obj);
+}
 ```
 
 ### 6.4 Object.setPrototypeOf
@@ -257,6 +431,41 @@ do {
     curr = buying.next();
     console.log(curr);
 } while (!curr.done);
+```
+
+### 7.3 co
+co用于自动执行迭代器
+```javascript
+var fs = require('fs');
+function read(val) {
+    return function(fn){
+        setTimeout(function(){
+            fn(val*val);
+        },1000);
+    }
+}
+co(function *(){
+    var a = yield read(1);
+    console.log(a);
+
+    var b = yield read(2);
+    console.log(b);
+})();
+
+function co(fn) {
+    return function() {
+        var gen = fn();
+        var it = null;
+        function _next(err, res) {
+            if(err) res = err;
+            it = gen.next(res);
+            if(!it.done){
+                it.value(_next);
+            }
+        }
+        _next();
+    }
+}
 ```
 
 ## 8. 类
@@ -413,3 +622,4 @@ export default function say(){
 ```javascript
 import say from './school.js';
 ```
+

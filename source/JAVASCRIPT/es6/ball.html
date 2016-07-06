@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>move</title>
+    <style>
+        .square{
+            width:40px;
+            height:40px;
+        }
+        .square1{
+            background-color: red;
+        }
+        .square2{
+            background-color: yellow;
+        }
+        .square3{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+<div class="square square1" style="margin-left: 0"></div>
+<div class="square square2" style="margin-left: 0"></div>
+<div class="square square3" style="margin-left: 0"></div>
+</body>
+<script>
+    var square1 = document.querySelector('.square1');
+    var square2 = document.querySelector('.square2');
+    var square3 = document.querySelector('.square3');
+    function move(element,target,cb){
+        setTimeout(function () {
+            var marginLeft = parseInt(element.style.marginLeft, 10);
+            if(marginLeft == target){
+                cb();
+            }else{
+                element.style.marginLeft = ++marginLeft+'px';
+                move(element,target,cb);
+            }
+        },13);
+    }
+    move(square1,100,function(){
+        move(square2,100,function(){
+            move(square3,100);
+        });
+    });
+</script>
+</html>

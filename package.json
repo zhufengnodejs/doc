@@ -54,7 +54,10 @@
                     "react路由应用.md",
                     "jquery同步和异步.md",
                     "属性设置.md",
-                    "promise.md"
+                    "promise.md",
+                    "bower.md",
+                    "NPM.md",
+                    "模块化开发.md"
                 ]
             },
             {
