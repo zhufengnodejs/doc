@@ -3,7 +3,7 @@ Less 是一门一种<span class="text-danger">动态</span>样式 语言，它�
 
 ## 客户端使用
 https://github.com/less/less.js/archive/master.zip
-###外联样式：引入你的 .less 样式文件的时候要设置 rel 属性值为 “stylesheet/less”:
+### 外联样式：引入你的 .less 样式文件的时候要设置 rel 属性值为 “stylesheet/less”:
 ```css
 <link rel="stylesheet/less" type="text/css" href="styles.less">
 ```

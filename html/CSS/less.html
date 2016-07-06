@@ -35,7 +35,7 @@
 <div class="container">
 
     <div class="page-toc">
-        <ul><li><a href="#t0less">less</a></li><li><a href="#t1客户端使用">客户端使用</a><ul><li><a href="#t2内联样式如下：">内联样式如下：</a></li></ul></li><li><a href="#t3变量">变量</a></li><li><a href="#t4混合">混合</a></li><li><a href="#t5带参数混合">带参数混合</a></li><li><a href="#t6arguments">arguments</a></li><li><a href="#t7模式匹配">模式匹配</a></li><li><a href="#t8导引表达式">导引表达式</a></li><li><a href="#t9嵌套规则">嵌套规则</a></li></ul>
+        <ul><li><a href="#t0less">less</a></li><li><a href="#t1客户端使用">客户端使用</a><ul><li><a href="#t2外联样式：引入你的 .less 样式文件的时候要设置 rel 属性值为 “stylesheet/less”:">外联样式：引入你的 .less 样式文件的时候要设置 rel 属性值为 “stylesheet/less”:</a></li><li><a href="#t3内联样式如下：">内联样式如下：</a></li></ul></li><li><a href="#t4变量">变量</a></li><li><a href="#t5混合">混合</a></li><li><a href="#t6带参数混合">带参数混合</a></li><li><a href="#t7arguments">arguments</a></li><li><a href="#t8模式匹配">模式匹配</a></li><li><a href="#t9导引表达式">导引表达式</a></li><li><a href="#t10嵌套规则">嵌套规则</a></li></ul>
     </div>
     
     <div class="content markdown-body">
@@ -43,10 +43,10 @@
 <p>Less &#x662F;&#x4E00;&#x95E8;&#x4E00;&#x79CD;<span class="text-danger">&#x52A8;&#x6001;</span>&#x6837;&#x5F0F; &#x8BED;&#x8A00;&#xFF0C;&#x5B83;&#x6269;&#x5145;&#x4E86;CSS&#x8BED;&#x8A00;&#xFF0C;&#x589E;&#x52A0;&#x4E86;&#x8BF8;&#x5982;<span class="text-danger">&#x53D8;&#x91CF;</span>&#x3001;<span class="text-danger">&#x6DF7;&#x5408;&#xFF08;mixin&#xFF09;</span>&#x3001;<span class="text-danger">&#x51FD;&#x6570;</span>&#x7B49;&#x529F;&#x80FD;&#xFF0C;&#x8BA9; CSS &#x66F4;&#x6613;&#x7EF4;&#x62A4;&#x3001;&#x65B9;&#x4FBF;&#x5236;&#x4F5C;&#x4E3B;&#x9898;&#x3001;&#x6269;&#x5145;&#x3002;</p>
 <h2 id="t1&#x5BA2;&#x6237;&#x7AEF;&#x4F7F;&#x7528;">&#x5BA2;&#x6237;&#x7AEF;&#x4F7F;&#x7528; <a href="#t1&#x5BA2;&#x6237;&#x7AEF;&#x4F7F;&#x7528;"> # </a></h2>
 <p><a href="https://github.com/less/less.js/archive/master.zip">https://github.com/less/less.js/archive/master.zip</a></p>
-<p>###&#x5916;&#x8054;&#x6837;&#x5F0F;&#xFF1A;&#x5F15;&#x5165;&#x4F60;&#x7684; .less &#x6837;&#x5F0F;&#x6587;&#x4EF6;&#x7684;&#x65F6;&#x5019;&#x8981;&#x8BBE;&#x7F6E; rel &#x5C5E;&#x6027;&#x503C;&#x4E3A; &#x201C;stylesheet/less&#x201D;:</p>
+<h3 id="t2&#x5916;&#x8054;&#x6837;&#x5F0F;&#xFF1A;&#x5F15;&#x5165;&#x4F60;&#x7684; .less &#x6837;&#x5F0F;&#x6587;&#x4EF6;&#x7684;&#x65F6;&#x5019;&#x8981;&#x8BBE;&#x7F6E; rel &#x5C5E;&#x6027;&#x503C;&#x4E3A; &#x201C;stylesheet/less&#x201D;:">&#x5916;&#x8054;&#x6837;&#x5F0F;&#xFF1A;&#x5F15;&#x5165;&#x4F60;&#x7684; .less &#x6837;&#x5F0F;&#x6587;&#x4EF6;&#x7684;&#x65F6;&#x5019;&#x8981;&#x8BBE;&#x7F6E; rel &#x5C5E;&#x6027;&#x503C;&#x4E3A; &#x201C;stylesheet/less&#x201D;: <a href="#t2&#x5916;&#x8054;&#x6837;&#x5F0F;&#xFF1A;&#x5F15;&#x5165;&#x4F60;&#x7684; .less &#x6837;&#x5F0F;&#x6587;&#x4EF6;&#x7684;&#x65F6;&#x5019;&#x8981;&#x8BBE;&#x7F6E; rel &#x5C5E;&#x6027;&#x503C;&#x4E3A; &#x201C;stylesheet/less&#x201D;:"> # </a></h3>
 <pre><code class="lang-css">&lt;link rel=&quot;stylesheet/less&quot; type=&quot;text/css&quot; href=&quot;styles.less&quot;&gt;
 </code></pre>
-<h3 id="t2&#x5185;&#x8054;&#x6837;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;">&#x5185;&#x8054;&#x6837;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A; <a href="#t2&#x5185;&#x8054;&#x6837;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;"> # </a></h3>
+<h3 id="t3&#x5185;&#x8054;&#x6837;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;">&#x5185;&#x8054;&#x6837;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A; <a href="#t3&#x5185;&#x8054;&#x6837;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;"> # </a></h3>
 <pre><code class="lang-css">&lt;style type=&quot;text/less&quot;&gt;
   // less &#x4EE3;&#x7801;
 &lt;/style&gt;
@@ -57,12 +57,12 @@
 <blockquote>
 <p>&#x6CE8;&#x610F;&#xFF1A;&#x4F60;&#x7684;less&#x6837;&#x5F0F;&#x6587;&#x4EF6;&#x4E00;&#x5B9A;&#x8981;&#x5728;&#x5F15;&#x5165;less.js&#x524D;&#x5148;&#x5F15;&#x5165;&#x3002;</p>
 </blockquote>
-<h2 id="t3&#x53D8;&#x91CF;">&#x53D8;&#x91CF; <a href="#t3&#x53D8;&#x91CF;"> # </a></h2>
+<h2 id="t4&#x53D8;&#x91CF;">&#x53D8;&#x91CF; <a href="#t4&#x53D8;&#x91CF;"> # </a></h2>
 <p>Less&#x4E2D;&#x7684;&#x53D8;&#x91CF;&#x5141;&#x8BB8;&#x4F60;&#x5728;&#x6837;&#x5F0F;&#x4E2D;&#x7684;&#x67D0;&#x4E2A;&#x5730;&#x65B9;&#x5BF9;&#x5E38;&#x7528;&#x503C;&#x8FDB;&#x884C;&#x5B9A;&#x4E49;&#xFF0C;&#x7136;&#x540E;&#x5E94;&#x7528;&#x5230;&#x6837;&#x5F0F;&#x4E2D;&#xFF0C;&#x8FD9;&#x6837;&#x53EA;&#x8981;&#x6539;&#x53D8;&#x4F60;&#x5B9A;&#x4E49;&#x7684;&#x53D8;&#x91CF;&#x53C2;&#x6570;&#x503C;&#x5C31;&#x53EF;&#x4EE5;&#x8FBE;&#x5230;&#x6539;&#x53D8;&#x5168;&#x5C40;&#x7684;&#x6548;&#x679C;</p>
 <pre><code class="lang-css"><span class="hljs-at_rule">@<span class="hljs-keyword">base:red;</span>
 body</span>{<span class="hljs-tag">color</span>:<span class="hljs-at_rule">@<span class="hljs-keyword">base}</span>
 </span></code></pre>
-<h2 id="t4&#x6DF7;&#x5408;">&#x6DF7;&#x5408; <a href="#t4&#x6DF7;&#x5408;"> # </a></h2>
+<h2 id="t5&#x6DF7;&#x5408;">&#x6DF7;&#x5408; <a href="#t5&#x6DF7;&#x5408;"> # </a></h2>
 <p>&#x5728;LESS&#x4E2D;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x4E00;&#x4E9B;&#x901A;&#x7528;&#x7684;&#x5C5E;&#x6027;&#x96C6;&#x4E3A;&#x4E00;&#x4E2A;class&#xFF0C;&#x7136;&#x540E;&#x5728;&#x53E6;&#x4E00;&#x4E2A;class&#x4E2D;&#x53BB;&#x8C03;&#x7528;&#x8FD9;&#x4E9B;&#x5C5E;&#x6027;</p>
 <pre><code class="lang-css">.bordered {
   border-top: solid 1px red;
@@ -79,7 +79,7 @@ body</span>{<span class="hljs-tag">color</span>:<span class="hljs-at_rule">@<spa
   .bordered;
 }
 </code></pre>
-<h2 id="t5&#x5E26;&#x53C2;&#x6570;&#x6DF7;&#x5408;">&#x5E26;&#x53C2;&#x6570;&#x6DF7;&#x5408; <a href="#t5&#x5E26;&#x53C2;&#x6570;&#x6DF7;&#x5408;"> # </a></h2>
+<h2 id="t6&#x5E26;&#x53C2;&#x6570;&#x6DF7;&#x5408;">&#x5E26;&#x53C2;&#x6570;&#x6DF7;&#x5408; <a href="#t6&#x5E26;&#x53C2;&#x6570;&#x6DF7;&#x5408;"> # </a></h2>
 <p>&#x5728;LESS&#x4E2D;&#xFF0C;&#x4F60;&#x8FD8;&#x53EF;&#x4EE5;&#x50CF;&#x51FD;&#x6570;&#x4E00;&#x6837;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x5E26;&#x53C2;&#x6570;&#x7684;&#x5C5E;&#x6027;&#x96C6;&#x5408;</p>
 <pre><code class="lang-css">.border-radius (@radius: 5px) {
      border:1px solid red;
@@ -96,7 +96,7 @@ body</span>{<span class="hljs-tag">color</span>:<span class="hljs-at_rule">@<spa
     .border-radius(20px);
 }
 </code></pre>
-<h2 id="t6arguments">arguments <a href="#t6arguments"> # </a></h2>
+<h2 id="t7arguments">arguments <a href="#t7arguments"> # </a></h2>
 <p>@arguments&#x5728;Mixins&#x4E2D;&#x5177;&#x662F;&#x4E00;&#x4E2A;&#x5F88;&#x7279;&#x522B;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5F53;Mixins&#x5F15;&#x7528;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x65F6;&#xFF0C;&#x4ED6;&#x5C06;&#x8868;&#x793A;&#x6240;&#x6709;&#x7684;&#x53D8;&#x91CF;</p>
 <pre><code class="lang-css"><span class="hljs-class">.pad</span>(<span class="hljs-at_rule">@<span class="hljs-keyword">top,@right,@bottom,@left)</span> </span>{
   <span class="hljs-tag">padding</span>:<span class="hljs-at_rule">@<span class="hljs-keyword">arguments;</span>
@@ -111,7 +111,7 @@ div</span>{
   <span class="hljs-rule"><span class="hljs-attribute">background-color</span>:<span class="hljs-value"> green</span></span>;
 }</span>
 </code></pre>
-<h2 id="t7&#x6A21;&#x5F0F;&#x5339;&#x914D;">&#x6A21;&#x5F0F;&#x5339;&#x914D; <a href="#t7&#x6A21;&#x5F0F;&#x5339;&#x914D;"> # </a></h2>
+<h2 id="t8&#x6A21;&#x5F0F;&#x5339;&#x914D;">&#x6A21;&#x5F0F;&#x5339;&#x914D; <a href="#t8&#x6A21;&#x5F0F;&#x5339;&#x914D;"> # </a></h2>
 <p>&#x6709;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x60F3;&#x6839;&#x636E;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x6765;&#x6539;&#x53D8;&#x6DF7;&#x5408;&#x7684;&#x9ED8;&#x8BA4;&#x5448;&#x73B0;</p>
 <pre><code class="lang-css">.mixin (red, @color) {
     color: red;
@@ -127,7 +127,7 @@ div</span>{
     .mixin(@switch, #888);
 }
 </code></pre>
-<h2 id="t8&#x5BFC;&#x5F15;&#x8868;&#x8FBE;&#x5F0F;">&#x5BFC;&#x5F15;&#x8868;&#x8FBE;&#x5F0F; <a href="#t8&#x5BFC;&#x5F15;&#x8868;&#x8FBE;&#x5F0F;"> # </a></h2>
+<h2 id="t9&#x5BFC;&#x5F15;&#x8868;&#x8FBE;&#x5F0F;">&#x5BFC;&#x5F15;&#x8868;&#x8FBE;&#x5F0F; <a href="#t9&#x5BFC;&#x5F15;&#x8868;&#x8FBE;&#x5F0F;"> # </a></h2>
 <p>&#x5F53;&#x6211;&#x4EEC;&#x60F3;&#x6839;&#x636E;&#x8868;&#x8FBE;&#x5F0F;&#x8FDB;&#x884C;&#x5339;&#x914D;&#xFF0C;&#x800C;&#x975E;&#x6839;&#x636E;&#x503C;&#x548C;&#x53C2;&#x6570;&#x5339;&#x914D;&#x65F6;&#xFF0C;&#x5BFC;&#x5F15;&#x5C31;&#x663E;&#x5F97;&#x975E;&#x5E38;&#x6709;&#x7528;</p>
 <pre><code class="lang-css">.mixin (@a) when (@a =red) {
   background-color: red;
@@ -141,7 +141,7 @@ div</span>{
 .red { .mixin(red) }
 .green { .mixin(green) }
 </code></pre>
-<h2 id="t9&#x5D4C;&#x5957;&#x89C4;&#x5219;">&#x5D4C;&#x5957;&#x89C4;&#x5219; <a href="#t9&#x5D4C;&#x5957;&#x89C4;&#x5219;"> # </a></h2>
+<h2 id="t10&#x5D4C;&#x5957;&#x89C4;&#x5219;">&#x5D4C;&#x5957;&#x89C4;&#x5219; <a href="#t10&#x5D4C;&#x5957;&#x89C4;&#x5219;"> # </a></h2>
 <p>LESS &#x53EF;&#x4EE5;&#x8BA9;&#x6211;&#x4EEC;&#x4EE5;&#x5D4C;&#x5957;&#x7684;&#x65B9;&#x5F0F;&#x7F16;&#x5199;&#x5C42;&#x53E0;&#x6837;&#x5F0F;</p>
 <pre><code class="lang-css">#dvi1 {
   color: red;

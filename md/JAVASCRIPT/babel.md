@@ -80,7 +80,7 @@ npm install --save-dev babel-preset-stage-2
 ```
 > 以上每种预设都依赖于紧随的后期阶段预设。例如，babel-preset-stage-1 依赖 babel-preset-stage-2，后者又依赖 babel-preset-stage-3。
 
-# babel-polyfill 
+## babel-polyfill 
 执行`Babel`生成的代码
 Babel默认只转换新的JavaScript句法，而不转换新的API
 ```javascript
@@ -99,15 +99,7 @@ $ npm install --save babel-polyfill
 $ import "babel-polyfill";
 ```
 
-
-
-
-
-
-
-
-
-#资源链接
+## 资源链接
 * https://babeljs.io/
 * https://www.npmjs.com/package/babel-core
 * https://github.com/thejameskyle/babel-handbook/blob/master/translations/en/user-handbook.md
