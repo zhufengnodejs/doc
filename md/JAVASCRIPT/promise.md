@@ -84,7 +84,7 @@ promise.then(Fulfilled,Rejected)
 
 ## 5. promise 做为函数的返回值
 ```
-function ajax (queryUrl) {
+function ajaxPromise (queryUrl) {
   return new Promise((resolve, reject) => {
     let xhr = new XMLHttpRequest();
     xhr.open('GET', queryUrl, true);
