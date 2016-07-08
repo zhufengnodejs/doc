@@ -1,30 +1,28 @@
-var fs = require('fs');
-function read(file) {
-    return function(fn){
-        fs.readFile(file, 'utf8', fn);
+var mongoose = require("mongoose");
+mongoose.connect("mongodb://123.57.143.189:27017/zfpx");
+var PersonSchema = new mongoose.Schema({
+    name: {type: String},
+    age: {type: Number, default: 0},
+    time: {type: Date, default: Date.now()},
+    email: {type: String, default: ''}
+});
+var PersonSchema = new mongoose.Schema({
+    address: {
+        country: String,
+        province: String,
+        area: String
     }
-}
-co(function *(){
-    var a = yield read('1.txt');
-    console.log(a);
+});
+PersonSchema.virtual('name.address').get(function () {
+    return this.name.country + ' ' + this.name.province + ' ' + this.name.area;
+});
+var PersonModel = mongoose.model('Person', PersonSchema);
+var zfpx = new PersonModel({
+    name: {country: '中国', province: '北京', area: '昌平'}
+});
 
-    var b = yield read('2.txt');
-    console.log(b);
-})();
+console.log(zfpx.name.country + ' ' + zfpx.name.province + ' ' + zfpx.name.area);
+console.log(zfpx.address);
 
-function co(fn) {
-    return function(done) {
-        var ctx = this;
-        var gen = fn.call(ctx);
-        var it = null;
-        function _next(err, res) {
-            if(err) res = err;
-            it = gen.next(res);
-            //{value:function(){},done:false}
-            if(!it.done){
-                it.value(_next);
-            }
-        }
-        _next();
-    }
-}
+
+
