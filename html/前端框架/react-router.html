@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>珠峰JS全栈</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                珠峰JS全栈
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>前端工程化</a><ul></ul></li><li><a href="#"><span></span>前端框架</a><ul><li><a href="../../html/前端框架/bower.html">bower</a></li><li><a href="../../html/前端框架/NPM.html">NPM</a></li><li><a href="../../html/前端框架/promise.html">promise</a></li><li class="active"><a href="../../html/前端框架/react-router.html">react-router</a></li><li><a href="../../html/前端框架/react.html">react</a></li><li><a href="../../html/前端框架/react基础应用.html">react基础应用</a></li><li><a href="../../html/前端框架/react路由应用.html">react路由应用</a></li><li><a href="../../html/前端框架/webpack.html">webpack</a></li><li><a href="../../html/前端框架/babel.html">babel</a></li><li><a href="../../html/前端框架/gulp.html">gulp</a></li></ul></li><li><a href="#"><span></span>数据库</a><ul></ul></li><li><a href="#"><span></span>CSS</a><ul><li><a href="../../html/CSS/less.html">less</a></li></ul></li><li><a href="#"><span></span>Git</a><ul><li><a href="../../html/Git/git安装.html">git安装</a></li><li><a href="../../html/Git/git.html">git</a></li></ul></li><li><a href="#"><span></span>HTML</a><ul></ul></li><li><a href="#"><span></span>JAVASCRIPT</a><ul><li><a href="../../html/JAVASCRIPT/ES6.html">ES6</a></li><li><a href="../../html/JAVASCRIPT/缓存.html">缓存</a></li><li><a href="../../html/JAVASCRIPT/jquery同步和异步.html">jquery同步和异步</a></li><li><a href="../../html/JAVASCRIPT/属性设置.html">属性设置</a></li><li><a href="../../html/JAVASCRIPT/模块化开发.html">模块化开发</a></li><li><a href="../../html/JAVASCRIPT/js常用方法.html">js常用方法</a></li><li><a href="../../html/JAVASCRIPT/初识JS.html">初识JS</a></li><li><a href="../../html/JAVASCRIPT/原型链.html">原型链</a></li><li><a href="../../html/JAVASCRIPT/预解析作用域闭包this.html">预解析作用域闭包this</a></li><li><a href="../../html/JAVASCRIPT/webstorage.html">webstorage</a></li></ul></li><li><a href="#"><span></span>NODEJS</a><ul><li><a href="../../html/NODEJS/加密.html">加密</a></li><li><a href="../../html/NODEJS/动态服务器.html">动态服务器</a></li><li><a href="../../html/NODEJS/压缩.html">压缩</a></li><li><a href="../../html/NODEJS/静态文件服务器.html">静态文件服务器</a></li><li><a href="../../html/NODEJS/cookie.html">cookie</a></li><li><a href="../../html/NODEJS/Express.html">Express</a></li><li><a href="../../html/NODEJS/session.html">session</a></li><li><a href="../../html/NODEJS/珠峰博客.html">珠峰博客</a></li></ul></li><li><a href="#"><span></span>工具</a><ul></ul></li><li><a href="#"><span></span>微信</a><ul><li><a href="../../html/微信/微信入门.html">微信入门</a></li></ul></li><li><a href="#"><span></span>面试</a><ul><li><a href="../../html/面试/CSS.html">CSS</a></li><li><a href="../../html/面试/JAVASCRIPT.html">JAVASCRIPT</a></li><li><a href="../../html/面试/其它.html">其它</a></li><li><a href="../../html/面试/性能优化.html">性能优化</a></li></ul></li></ul>
+        </div>
+        
+        <!---->
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+    
+        <div class="page-toc">
+            <ul><li><a href="#t01. 路由">1. 路由</a></li><li><a href="#t12. 安装路由">2. 安装路由</a></li><li><a href="#t23. 定义路由">3. 定义路由</a><ul><li><a href="#t33.1 app/components/Home/index.js">3.1 app/components/Home/index.js</a></li><li><a href="#t43.2 app/components/Profile/index.js">3.2 app/components/Profile/index.js</a></li><li><a href="#t53.3 app/components/User/index.js">3.3 app/components/User/index.js</a></li><li><a href="#t63.4 app/components/index.js">3.4 app/components/index.js</a></li><li><a href="#t73.5 app/containers/App/index.js">3.5 app/containers/App/index.js</a></li><li><a href="#t83.6 app/index.js">3.6 app/index.js</a></li><li><a href="#t93.7 package.json">3.7 package.json</a></li></ul></li><li><a href="#t104. 得到请求中的参数">4. 得到请求中的参数</a><ul><li><a href="#t114.1 app/components/User/index.js">4.1 app/components/User/index.js</a></li><li><a href="#t124.2 app/components/UserAdd/index.js">4.2 app/components/UserAdd/index.js</a></li><li><a href="#t134.3 app/components/UserDetail/index.js">4.3 app/components/UserDetail/index.js</a></li><li><a href="#t144.4 app/components/UserList/index.js">4.4 app/components/UserList/index.js</a></li><li><a href="#t154.5  app/components/index.js">4.5  app/components/index.js</a></li><li><a href="#t164.6 app/index.js">4.6 app/index.js</a></li><li><a href="#t174.7 package.json">4.7 package.json</a></li></ul></li><li><a href="#t185. 指定默认路由和绝对路径和重定向">5. 指定默认路由和绝对路径和重定向</a><ul><li><a href="#t195.1 app/index.js">5.1 app/index.js</a></li></ul></li><li><a href="#t206. 进入或退出路由">6. 进入或退出路由</a><ul><li><a href="#t216.1 app/index.js">6.1 app/index.js</a></li></ul></li><li><a href="#t227. 获取查询字符串参数">7. 获取查询字符串参数</a><ul><li><a href="#t237.1 app/components/User/index.js">7.1 app/components/User/index.js</a></li><li><a href="#t247.2 app/components/UserList/index.js">7.2 app/components/UserList/index.js</a></li></ul></li><li><a href="#t258. activeStyle和activeClassName">8. activeStyle和activeClassName</a><ul><li><a href="#t268.1 pp/containers/App/index.js">8.1 pp/containers/App/index.js</a></li></ul></li></ul>
+        </div>
+
+        <div class="content markdown-body">
+
+            <h2 id="t01. &#x8DEF;&#x7531;">1. &#x8DEF;&#x7531; <a href="#t01. &#x8DEF;&#x7531;"> # </a></h2>
+<p><code>React Router</code>&#x53EF;&#x4EE5;&#x8BA9;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x8FD9;&#x6837;&#x7684;&#x8DEF;&#x7531;&#xFF0C;&#x7136;&#x540E;&#x6307;&#x5B9A;&#x8BBF;&#x95EE;&#x8FD9;&#x4E9B;&#x8DEF;&#x7531;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x54EA;&#x4E2A;<code>react</code>&#x7EC4;&#x4EF6;&#x3002;</p>
+<h2 id="t12. &#x5B89;&#x88C5;&#x8DEF;&#x7531;">2. &#x5B89;&#x88C5;&#x8DEF;&#x7531; <a href="#t12. &#x5B89;&#x88C5;&#x8DEF;&#x7531;"> # </a></h2>
+<pre><code class="lang-diff">$ npm install react-router --save
+</code></pre>
+<h2 id="t23. &#x5B9A;&#x4E49;&#x8DEF;&#x7531;">3. &#x5B9A;&#x4E49;&#x8DEF;&#x7531; <a href="#t23. &#x5B9A;&#x4E49;&#x8DEF;&#x7531;"> # </a></h2>
+<h3 id="t33.1 app/components/Home/index.js">3.1 app/components/Home/index.js <a href="#t33.1 app/components/Home/index.js"> # </a></h3>
+<pre><code class="lang-diff"><span class="hljs-addition">+ import React from &apos;react&apos;;</span>
+<span class="hljs-addition">+</span>
+<span class="hljs-addition">+ export default class Home extends React.Component {</span>
+<span class="hljs-addition">+</span>
+<span class="hljs-addition">+    render() {</span>
+<span class="hljs-addition">+        return (</span>
+<span class="hljs-addition">+            &lt;div&gt;</span>
+<span class="hljs-addition">+                Home</span>
+<span class="hljs-addition">+            &lt;/div&gt;</span>
+<span class="hljs-addition">+        );</span>
+<span class="hljs-addition">+    }</span>
+<span class="hljs-addition">+ }</span>
+<span class="hljs-addition">+</span>
+</code></pre>
+<h3 id="t43.2 app/components/Profile/index.js">3.2 app/components/Profile/index.js <a href="#t43.2 app/components/Profile/index.js"> # </a></h3>
+<pre><code class="lang-diff"><span class="hljs-addition">+ import React from &apos;react&apos;;</span>
+<span class="hljs-addition">+</span>
+<span class="hljs-addition">+ export default class Profile extends React.Component {</span>
+<span class="hljs-addition">+</span>
+<span class="hljs-addition">+    render() {</span>
+<span class="hljs-addition">+        return (</span>
+<span class="hljs-addition">+            &lt;div&gt;</span>
+<span class="hljs-addition">+                profile</span>
+<span class="hljs-addition">+            &lt;/div&gt;</span>
+<span class="hljs-addition">+        );</span>
+<span class="hljs-addition">+    }</span>
+<span class="hljs-addition">+ }</span>
+</code></pre>
+<h3 id="t53.3 app/components/User/index.js">3.3 app/components/User/index.js <a href="#t53.3 app/components/User/index.js"> # </a></h3>
+<pre><code class="lang-diff"><span class="hljs-addition">+ import React from &apos;react&apos;;</span>
+<span class="hljs-addition">+</span>
+<span class="hljs-addition">+ export default class User extends React.Component {</span>
+<span class="hljs-addition">+</span>
+<span class="hljs-addition">+    render() {</span>
+<span class="hljs-addition">+        return (</span>
+<span class="hljs-addition">+            &lt;div&gt;</span>
+<span class="hljs-addition">+                User</span>
+<span class="hljs-addition">+            &lt;/div&gt;</span>
+<span class="hljs-addition">+        );</span>
+<span class="hljs-addition">+    }</span>
+<span class="hljs-addition">+ }</span>
+</code></pre>
+<h3 id="t63.4 app/components/index.js">3.4 app/components/index.js <a href="#t63.4 app/components/index.js"> # </a></h3>
+<pre><code class="lang-diff"><span class="hljs-addition">+ export Profile from &apos;./Profile&apos;;</span>
+<span class="hljs-addition">+ export User from &apos;./User&apos;;</span>
+<span class="hljs-addition">+ export Home from &apos;./Home&apos;;</span>
+</code></pre>
+<h3 id="t73.5 app/containers/App/index.js">3.5 app/containers/App/index.js <a href="#t73.5 app/containers/App/index.js"> # </a></h3>
+<pre><code class="lang-diff">import React from &apos;react&apos;;
+<span class="hljs-deletion">-</span>
+<span class="hljs-addition">+ import {Link} from &apos;react-router&apos;;</span>
+  class App extends React.Component {
+<span class="hljs-deletion">-  constructor(props) {</span>
+<span class="hljs-deletion">-    super(props);</span>
+<span class="hljs-deletion">-  }</span>
+<span class="hljs-deletion">-</span>
+   render() {
+      return (
+        &lt;div&gt;
+<span class="hljs-deletion">-        &lt;p&gt;</span>
+<span class="hljs-deletion">-          &#x6B22;&#x8FCE;&#x5149;&#x4E34;</span>
+<span class="hljs-deletion">-        &lt;/p&gt;</span>
+<span class="hljs-addition">+          &lt;nav className=&quot;navbar navbar-default&quot;&gt;</span>
+<span class="hljs-addition">+              &lt;div className=&quot;container-fluid&quot;&gt;</span>
+<span class="hljs-addition">+                  &lt;div&gt;</span>
+<span class="hljs-addition">+                      &lt;ul className=&quot;nav navbar-nav&quot;&gt;</span>
+<span class="hljs-addition">+                          &lt;li&gt;&lt;Link to=&quot;/home&quot; &gt;&#x9996;&#x9875;&lt;/Link&gt;&lt;/li&gt;</span>
+<span class="hljs-addition">+                          &lt;li&gt;&lt;Link to=&quot;/user&quot; &gt;&#x7528;&#x6237;&#x7BA1;&#x7406;&lt;/Link&gt;&lt;/li&gt;</span>
+<span class="hljs-addition">+                          &lt;li&gt;&lt;Link to=&quot;/profile&quot; &gt;&#x4E2A;&#x4EBA;&#x8BBE;&#x7F6E;&lt;/Link&gt;&lt;/li&gt;</span>
+<span class="hljs-addition">+                      &lt;/ul&gt;</span>
+<span class="hljs-addition">+                  &lt;/div&gt;</span>
+<span class="hljs-addition">+              &lt;/div&gt;</span>
+<span class="hljs-addition">+          &lt;/nav&gt;</span>
+<span class="hljs-addition">+          &lt;div className=&quot;container&quot;&gt;</span>
+<span class="hljs-addition">+              {this.props.children}</span>
+<span class="hljs-addition">+          &lt;/div&gt;</span>
+        &lt;/div&gt;
+      );
+    }
+</code></pre>
+<h3 id="t83.6 app/index.js">3.6 app/index.js <a href="#t83.6 app/index.js"> # </a></h3>
+<pre><code class="lang-diff">  import React from &apos;react&apos;;
+  import { render } from &apos;react-dom&apos;;
+<span class="hljs-addition">+ import {Router,Route,hashHistory,Link} from &apos;react-router&apos;;</span>
+  import { App } from &apos;./containers&apos;;
+<span class="hljs-addition">+ import { Home,User,Profile } from &apos;./components&apos;;</span>
+  import &apos;bootstrap/dist/css/bootstrap.css&apos;;
+
+  let root = document.getElementById(&apos;app&apos;);
+<span class="hljs-deletion">- render( &lt;App /&gt;, root );</span>
+<span class="hljs-addition">+ render(</span>
+<span class="hljs-addition">+    &lt;Router history={hashHistory} &gt;</span>
+<span class="hljs-addition">+        &lt;Route path=&quot;/&quot; component={App}&gt;</span>
+<span class="hljs-addition">+            &lt;Route path=&quot;home&quot; component={Home}/&gt;</span>
+<span class="hljs-addition">+            &lt;Route path=&quot;user&quot; component={User}/&gt;</span>
+<span class="hljs-addition">+            &lt;Route path=&quot;profile&quot; component={Profile}/&gt;</span>
+<span class="hljs-addition">+        &lt;/Route&gt;</span>
+<span class="hljs-addition">+    &lt;/Router&gt;</span>
+<span class="hljs-addition">+    ,root);</span>
+</code></pre>
+<h3 id="t93.7 package.json">3.7 package.json <a href="#t93.7 package.json"> # </a></h3>
+<pre><code class="lang-diff"><span class="hljs-addition">+    &quot;react-router&quot;: &quot;^2.4.1&quot;</span>
+</code></pre>
+<h2 id="t104. &#x5F97;&#x5230;&#x8BF7;&#x6C42;&#x4E2D;&#x7684;&#x53C2;&#x6570;">4. &#x5F97;&#x5230;&#x8BF7;&#x6C42;&#x4E2D;&#x7684;&#x53C2;&#x6570; <a href="#t104. &#x5F97;&#x5230;&#x8BF7;&#x6C42;&#x4E2D;&#x7684;&#x53C2;&#x6570;"> # </a></h2>
+<h3 id="t114.1 app/components/User/index.js">4.1 app/components/User/index.js <a href="#t114.1 app/components/User/index.js"> # </a></h3>
+<pre><code class="lang-diff">  import React from &apos;react&apos;;
+<span class="hljs-addition">+ import {Link} from &apos;react-router&apos;;</span>
+  export default class User extends React.Component {
+
+      render() {
+          return (
+<span class="hljs-deletion">-            &lt;div&gt;</span>
+<span class="hljs-deletion">-                User</span>
+<span class="hljs-addition">+            &lt;div className=&quot;row&quot;&gt;</span>
+<span class="hljs-addition">+                &lt;div className=&quot;col-xs-4&quot;&gt;</span>
+<span class="hljs-addition">+                    &lt;ul className=&quot;nav nav-tabs nav-stacked&quot;&gt;</span>
+<span class="hljs-addition">+                        &lt;li&gt;&lt;Link to=&quot;/user/list&quot; &gt;&#x7528;&#x6237;&#x5217;&#x8868;&lt;/Link&gt;&lt;/li&gt;</span>
+<span class="hljs-addition">+                        &lt;li&gt;&lt;Link to=&quot;/user/add&quot; &gt;&#x65B0;&#x589E;&#x7528;&#x6237;&lt;/Link&gt;&lt;/li&gt;</span>
+<span class="hljs-addition">+                    &lt;/ul&gt;</span>
+<span class="hljs-addition">+                &lt;/div&gt;</span>
+<span class="hljs-addition">+                &lt;div className=&quot;col-xs-8&quot;&gt;</span>
+<span class="hljs-addition">+                    {this.props.children}</span>
+<span class="hljs-addition">+                &lt;/div&gt;</span>
+              &lt;/div&gt;
+          );
+      }
+</code></pre>
+<h3 id="t124.2 app/components/UserAdd/index.js">4.2 app/components/UserAdd/index.js <a href="#t124.2 app/components/UserAdd/index.js"> # </a></h3>
+<pre><code class="lang-diff"><span class="hljs-addition">+ import React from &apos;react&apos;;</span>
+<span class="hljs-addition">+</span>
+<span class="hljs-addition">+ export default class UserAdd extends React.Component {</span>
+<span class="hljs-addition">+</span>
+<span class="hljs-addition">+    render() {</span>
+<span class="hljs-addition">+        return (</span>
+<span class="hljs-addition">+            &lt;div&gt;</span>
+<span class="hljs-addition">+                UserAdd</span>
+<span class="hljs-addition">+            &lt;/div&gt;</span>
+<span class="hljs-addition">+        );</span>
+<span class="hljs-addition">+    }</span>
+<span class="hljs-addition">+ }</span>
+<span class="hljs-addition">+</span>
+</code></pre>
+<h3 id="t134.3 app/components/UserDetail/index.js">4.3 app/components/UserDetail/index.js <a href="#t134.3 app/components/UserDetail/index.js"> # </a></h3>
+<pre><code class="lang-diff"><span class="hljs-addition">+ import React from &apos;react&apos;;</span>
+<span class="hljs-addition">+ import $ from &apos;jquery&apos;;</span>
+<span class="hljs-addition">+</span>
+<span class="hljs-addition">+ export default class UserDetail extends React.Component {</span>
+<span class="hljs-addition">+    constructor(props){</span>
+<span class="hljs-addition">+      super(props);</span>
+<span class="hljs-addition">+      this.state = {name:&apos;&apos;};</span>
+<span class="hljs-addition">+      $.get(&apos;/users.json&apos;).then((data)=&gt;{</span>
+<span class="hljs-addition">+          var id = this.props.params.id;</span>
+<span class="hljs-addition">+          this.setState({name:data[id]?data[id].name:&apos;&apos;});</span>
+<span class="hljs-addition">+      })</span>
+<span class="hljs-addition">+    }</span>
+<span class="hljs-addition">+</span>
+<span class="hljs-addition">+    render() {</span>
+<span class="hljs-addition">+        return (</span>
+<span class="hljs-addition">+            &lt;div&gt;</span>
+<span class="hljs-addition">+                {this.state.name}</span>
+<span class="hljs-addition">+            &lt;/div&gt;</span>
+<span class="hljs-addition">+        );</span>
+<span class="hljs-addition">+    }</span>
+<span class="hljs-addition">+ }</span>
+<span class="hljs-addition">+</span>
+</code></pre>
+<h3 id="t144.4 app/components/UserList/index.js">4.4 app/components/UserList/index.js <a href="#t144.4 app/components/UserList/index.js"> # </a></h3>
+<pre><code class="lang-diff"><span class="hljs-addition">+ import React from &apos;react&apos;;</span>
+<span class="hljs-addition">+ import {Link} from &apos;react-router&apos;;</span>
+<span class="hljs-addition">+ export default class UserList extends React.Component {</span>
+<span class="hljs-addition">+</span>
+<span class="hljs-addition">+    render() {</span>
+<span class="hljs-addition">+        return (</span>
+<span class="hljs-addition">+            &lt;div&gt;</span>
+<span class="hljs-addition">+                &lt;ul className=&quot;list-group&quot;&gt;</span>
+<span class="hljs-addition">+                    &lt;li className=&quot;list-group-item&quot;&gt;</span>
+<span class="hljs-addition">+                        &lt;Link to=&quot;/user/detail/1&quot;&gt;&#x7528;&#x6237;1&lt;/Link&gt;</span>
+<span class="hljs-addition">+                    &lt;/li&gt;</span>
+<span class="hljs-addition">+                    &lt;li className=&quot;list-group-item&quot;&gt;</span>
+<span class="hljs-addition">+                        &lt;Link to=&quot;/user/detail/2&quot;&gt;&#x7528;&#x6237;2&lt;/Link&gt;</span>
+<span class="hljs-addition">+                    &lt;/li&gt;</span>
+<span class="hljs-addition">+                &lt;/ul&gt;</span>
+<span class="hljs-addition">+            &lt;/div&gt;</span>
+<span class="hljs-addition">+        );</span>
+<span class="hljs-addition">+    }</span>
+<span class="hljs-addition">+ }</span>
+<span class="hljs-addition">+</span>
+</code></pre>
+<h3 id="t154.5  app/components/index.js">4.5  app/components/index.js <a href="#t154.5  app/components/index.js"> # </a></h3>
+<pre><code class="lang-diff"><span class="hljs-addition">+ export UserList from &apos;./UserList&apos;;</span>
+<span class="hljs-addition">+ export UserAdd from &apos;./UserAdd&apos;;</span>
+<span class="hljs-addition">+ export UserDetail from &apos;./UserDetail&apos;;</span>
+</code></pre>
+<h3 id="t164.6 app/index.js">4.6 app/index.js <a href="#t164.6 app/index.js"> # </a></h3>
+<pre><code class="lang-diff">import { render } from &apos;react-dom&apos;;
+  import {Router,Route,hashHistory,Link} from &apos;react-router&apos;;
+  import { App } from &apos;./containers&apos;;
+<span class="hljs-deletion">- import { Home,User,Profile } from &apos;./components&apos;;</span>
+<span class="hljs-addition">+ import { Home,User,Profile,UserList,UserAdd,UserDetail } from &apos;./components&apos;;</span>
+  import &apos;bootstrap/dist/css/bootstrap.css&apos;;
+
+  let root = document.getElementById(&apos;app&apos;);
+  render(
+      &lt;Router history={hashHistory} &gt;
+          &lt;Route path=&quot;/&quot; component={App}&gt;
+              &lt;Route path=&quot;home&quot; component={Home}/&gt;
+            &lt;Route path=&quot;user&quot; component={User}&gt;
+<span class="hljs-addition">+                &lt;Route path=&quot;list&quot; component={UserList}/&gt;</span>
+<span class="hljs-addition">+                &lt;Route path=&quot;add&quot; component={UserAdd}/&gt;</span>
+<span class="hljs-addition">+                &lt;Route path=&quot;detail/:id&quot; component={UserDetail}/&gt;</span>
+<span class="hljs-addition">+            &lt;/Route&gt;</span>
+              &lt;Route path=&quot;profile&quot; component={Profile}/&gt;
+          &lt;/Route&gt;
+      &lt;/Router&gt;
+</code></pre>
+<h3 id="t174.7 package.json">4.7 package.json <a href="#t174.7 package.json"> # </a></h3>
+<pre><code class="lang-diff"><span class="hljs-addition">+    &quot;jquery&quot;: &quot;^3.0.0&quot;,</span>
+</code></pre>
+<h2 id="t185. &#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x8DEF;&#x7531;&#x548C;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x548C;&#x91CD;&#x5B9A;&#x5411;">5. &#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x8DEF;&#x7531;&#x548C;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x548C;&#x91CD;&#x5B9A;&#x5411; <a href="#t185. &#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x8DEF;&#x7531;&#x548C;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x548C;&#x91CD;&#x5B9A;&#x5411;"> # </a></h2>
+<h3 id="t195.1 app/index.js">5.1 app/index.js <a href="#t195.1 app/index.js"> # </a></h3>
+<pre><code class="lang-diff"> import React from &apos;react&apos;;
+  import { render } from &apos;react-dom&apos;;
+<span class="hljs-deletion">- import {Router,Route,hashHistory,Link} from &apos;react-router&apos;;</span>
+<span class="hljs-addition">+ import {Router,Route,hashHistory,Link,IndexRoute,Redirect} from &apos;react-router&apos;;</span>
+  import { App } from &apos;./containers&apos;;
+  import { Home,User,Profile,UserList,UserAdd,UserDetail } from &apos;./components&apos;;
+  import &apos;bootstrap/dist/css/bootstrap.css&apos;;
+ @@ -9,11 +9,14 @@ let root = document.getElementById(&apos;app&apos;);
+  render(
+      &lt;Router history={hashHistory} &gt;
+          &lt;Route path=&quot;/&quot; component={App}&gt;
+<span class="hljs-addition">+            &lt;IndexRoute component={Home}/&gt;</span>
+              &lt;Route path=&quot;home&quot; component={Home}/&gt;
+              &lt;Route path=&quot;user&quot; component={User}&gt;
+<span class="hljs-addition">+                &lt;IndexRoute component={UserList}/&gt;</span>
+                  &lt;Route path=&quot;list&quot; component={UserList}/&gt;
+                  &lt;Route path=&quot;add&quot; component={UserAdd}/&gt;
+<span class="hljs-deletion">-                &lt;Route path=&quot;detail/:id&quot; component={UserDetail}/&gt;</span>
+<span class="hljs-addition">+                &lt;Route path=&quot;/detail/:id&quot; component={UserDetail}/&gt;</span>
+<span class="hljs-addition">+                &lt;Redirect from=&quot;detail/:id&quot; to=&quot;/detail/:id&quot;/&gt;</span>
+              &lt;/Route&gt;
+              &lt;Route path=&quot;profile&quot; component={Profile}/&gt;
+          &lt;/Route&gt;
+</code></pre>
+<h2 id="t206. &#x8FDB;&#x5165;&#x6216;&#x9000;&#x51FA;&#x8DEF;&#x7531;">6. &#x8FDB;&#x5165;&#x6216;&#x9000;&#x51FA;&#x8DEF;&#x7531; <a href="#t206. &#x8FDB;&#x5165;&#x6216;&#x9000;&#x51FA;&#x8DEF;&#x7531;"> # </a></h2>
+<h3 id="t216.1 app/index.js">6.1 app/index.js <a href="#t216.1 app/index.js"> # </a></h3>
+<pre><code class="lang-diff"><span class="hljs-addition">+ function handleEnter(){</span>
+<span class="hljs-addition">+    console.log(&apos;handleEnter&apos;,arguments);</span>
+<span class="hljs-addition">+ }</span>
+<span class="hljs-addition">+ function handleLeave(){</span>
+<span class="hljs-addition">+    console.log(&apos;handleLeave&apos;,arguments);</span>
+<span class="hljs-addition">+ }</span>
+  let root = document.getElementById(&apos;app&apos;);
+  render(
+      &lt;Router history={hashHistory} &gt;
+ @@ -14,7 +19,7 @@ render(
+              &lt;Route path=&quot;user&quot; component={User}&gt;
+                  &lt;IndexRoute component={UserList}/&gt;
+                  &lt;Route path=&quot;list&quot; component={UserList}/&gt;
+<span class="hljs-deletion">-                &lt;Route path=&quot;add&quot; component={UserAdd}/&gt;</span>
+<span class="hljs-addition">+                &lt;Route path=&quot;add&quot; component={UserAdd} onEnter={handleEnter} onLeave={handleLeave}/&gt;</span>
+                  &lt;Route path=&quot;/detail/:id&quot; component={UserDetail}/&gt;
+                  &lt;Redirect from=&quot;detail/:id&quot; to=&quot;/detail/:id&quot;/&gt;
+              &lt;/Route&gt;
+</code></pre>
+<h2 id="t227. &#x83B7;&#x53D6;&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#x53C2;&#x6570;">7. &#x83B7;&#x53D6;&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#x53C2;&#x6570; <a href="#t227. &#x83B7;&#x53D6;&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#x53C2;&#x6570;"> # </a></h2>
+<h3 id="t237.1 app/components/User/index.js">7.1 app/components/User/index.js <a href="#t237.1 app/components/User/index.js"> # </a></h3>
+<pre><code class="lang-diff">             &lt;div className=&quot;row&quot;&gt;
+                  &lt;div className=&quot;col-xs-4&quot;&gt;
+                      &lt;ul className=&quot;nav nav-tabs nav-stacked&quot;&gt;
+<span class="hljs-deletion">-                        &lt;li&gt;&lt;Link to=&quot;/user/list&quot; &gt;&#x7528;&#x6237;&#x5217;&#x8868;&lt;/Link&gt;&lt;/li&gt;</span>
+<span class="hljs-addition">+                        &lt;li&gt;&lt;Link to=&quot;/user/list&quot; query={{orderBy:&apos;id&apos;}} &gt;&#x7528;&#x6237;&#x5217;&#x8868;&lt;/Link&gt;&lt;/li&gt;</span>
+                          &lt;li&gt;&lt;Link to=&quot;/user/add&quot; &gt;&#x65B0;&#x589E;&#x7528;&#x6237;&lt;/Link&gt;&lt;/li&gt;
+                      &lt;/ul&gt;
+                  &lt;/div&gt;
+</code></pre>
+<h3 id="t247.2 app/components/UserList/index.js">7.2 app/components/UserList/index.js <a href="#t247.2 app/components/UserList/index.js"> # </a></h3>
+<pre><code class="lang-diff"> import React from &apos;react&apos;;
+  import {Link} from &apos;react-router&apos;;
+  export default class UserList extends React.Component {
+<span class="hljs-addition">+    constructor(props){</span>
+<span class="hljs-addition">+        super(props);</span>
+<span class="hljs-addition">+        console.log(this.props);</span>
+<span class="hljs-addition">+        var data = [{id:3,name:&apos;&#x5F20;&#x4E09;&apos;},{id:2,name:&apos;&#x674E;&#x56DB;&apos;},{id:1,name:&apos;&#x738B;&#x4E94;&apos;}];</span>
+<span class="hljs-addition">+        let {query} = this.props.location;</span>
+<span class="hljs-addition">+        data = data.sort((a,b)=&gt;{</span>
+<span class="hljs-addition">+            return a[query.orderBy] - b[query.orderBy];</span>
+<span class="hljs-addition">+        });</span>
+<span class="hljs-addition">+        this.state = {data:data};</span>
+<span class="hljs-addition">+    }</span>
+
+      render() {
+          return (
+              &lt;div&gt;
+                  &lt;ul className=&quot;list-group&quot;&gt;
+<span class="hljs-deletion">-                    &lt;li className=&quot;list-group-item&quot;&gt;</span>
+<span class="hljs-deletion">-                        &lt;Link to=&quot;/user/detail/1&quot;&gt;&#x7528;&#x6237;1&lt;/Link&gt;</span>
+<span class="hljs-deletion">-                    &lt;/li&gt;</span>
+<span class="hljs-deletion">-                    &lt;li className=&quot;list-group-item&quot;&gt;</span>
+<span class="hljs-deletion">-                        &lt;Link to=&quot;/user/detail/2&quot;&gt;&#x7528;&#x6237;2&lt;/Link&gt;</span>
+<span class="hljs-deletion">-                    &lt;/li&gt;</span>
+<span class="hljs-addition">+                    {</span>
+<span class="hljs-addition">+                        this.state.data.map((item,index)=&gt;{</span>
+<span class="hljs-addition">+                            return &lt;li key={index} className=&quot;list-group-item&quot;&gt;</span>
+<span class="hljs-addition">+                                &lt;Link to={&quot;/user/detail/&quot;+item.id}&gt;{item.id}:{item.name}&lt;/Link&gt;</span>
+<span class="hljs-addition">+                            &lt;/li&gt;</span>
+<span class="hljs-addition">+                        })</span>
+<span class="hljs-addition">+                    }</span>
+                  &lt;/ul&gt;
+              &lt;/div&gt;
+          );
+</code></pre>
+<h2 id="t258. activeStyle&#x548C;activeClassName">8. activeStyle&#x548C;activeClassName <a href="#t258. activeStyle&#x548C;activeClassName"> # </a></h2>
+<h3 id="t268.1 pp/containers/App/index.js">8.1 pp/containers/App/index.js <a href="#t268.1 pp/containers/App/index.js"> # </a></h3>
+<pre><code class="lang-diff">               &lt;div className=&quot;container-fluid&quot;&gt;
+                    &lt;div&gt;
+                        &lt;ul className=&quot;nav navbar-nav&quot;&gt;
+<span class="hljs-deletion">-                          &lt;li&gt;&lt;Link to=&quot;/home&quot; &gt;&#x9996;&#x9875;&lt;/Link&gt;&lt;/li&gt;</span>
+<span class="hljs-deletion">-                          &lt;li&gt;&lt;Link to=&quot;/user&quot; &gt;&#x7528;&#x6237;&#x7BA1;&#x7406;&lt;/Link&gt;&lt;/li&gt;</span>
+<span class="hljs-deletion">-                          &lt;li&gt;&lt;Link to=&quot;/profile&quot; &gt;&#x4E2A;&#x4EBA;&#x8BBE;&#x7F6E;&lt;/Link&gt;&lt;/li&gt;</span>
+<span class="hljs-addition">+                          &lt;li&gt;&lt;Link activeStyle={{color:&apos;red&apos;}} to=&quot;/home&quot; &gt;&#x9996;&#x9875;&lt;/Link&gt;&lt;/li&gt;</span>
+<span class="hljs-addition">+                          &lt;li&gt;&lt;Link activeStyle={{color:&apos;red&apos;}}  to=&quot;/user&quot; &gt;&#x7528;&#x6237;&#x7BA1;&#x7406;&lt;/Link&gt;&lt;/li&gt;</span>
+<span class="hljs-addition">+                          &lt;li&gt;&lt;Link activeStyle={{color:&apos;red&apos;}}  to=&quot;/profile&quot; &gt;&#x4E2A;&#x4EBA;&#x8BBE;&#x7F6E;&lt;/Link&gt;&lt;/li&gt;</span>
+                        &lt;/ul&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+</code></pre>
+<p>#&#x8D44;&#x6E90;</p>
+<p><a href="https://github.com/zhufengnodejs/react-router-lesson">&#x9879;&#x76EE;&#x4EE3;&#x7801;</a></p>
+
+
+        </div>
+    
+</div>
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    /*url("/static/img/banner.jpg") no-repeat*/
+    .bs-docs-header{
+        background:linear-gradient(to right ,#333333 50%,#0d0b0c 50%) ;
+        padding: 0;
+    }
+    .new-back{
+        background-image: url("static/img/banner.jpg") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 88px;
+    }
+    .markdown-body pre code,.markdown-body code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .markdown-body code{
+      line-height: inherit;
+    }
+    .markdown-body h3{
+        font-size:1.4em;
+    }
+    .markdown-body h4{
+        font-size:1em;
+    }
+
+
+
+    /*index*/
+    .jw-style{
+        font-size: 1.75em;
+        color: #1d3e81;
+        line-height: 2em;
+    }
+
+    .understand-me {
+        text-align: center;
+        margin: 100px auto 0;
+    }
+
+    .understand-me li {
+        vertical-align: top;
+        width: 33.3333%;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+    }
+
+    .understand-me li span {
+        color: #1a1a1a;
+        font-size: 1.6em;
+
+    }
+
+    .understand-me p {
+        margin: 0 auto;
+        width: 90%;
+        text-align: left;
+        color: #4c4c4c;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    .understand-me img {
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .footers{
+        background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px
+    }
+    .understand-me img:hover {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    @media screen and (max-width: 479px) {
+        .understand-me li{
+            width: 100%;
+            margin-bottom: 2em;
+        }
+        .new-back{
+            padding: 28px;
+        }
+        .understand-me p {
+            width: 60%;
+        }
+        .footers{
+            height: 80px;
+            background-size:auto 100%;;
+        }
+    }
+
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+if(!$('.understand-me').length){
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h1,h2,h3,h4,h5,h6").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+}
+</script>
+
+</body>
+</html>
+
+
+<script>
+
+</script>

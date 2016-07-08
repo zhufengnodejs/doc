@@ -20,9 +20,6 @@
                 "前端工程化": []
             },
             {
-                "前端框架": []
-            },
-            {
                 "数据库": []
             },
             {
@@ -37,27 +34,20 @@
                 ]
             },
             {
-                "HTML": [
-                    "webstorage.md"
-                ]
+                "HTML": []
             },
             {
                 "JAVASCRIPT": [
                     "ES6.md",
-                    "webpack.md",
-                    "javascript.md",
-                    "react.md",
-                    "babel.md",
-                    "react基础应用.md",
                     "缓存.md",
-                    "react-router.md",
-                    "react路由应用.md",
                     "jquery同步和异步.md",
                     "属性设置.md",
-                    "promise.md",
-                    "bower.md",
-                    "NPM.md",
-                    "模块化开发.md"
+                    "模块化开发.md",
+                    "js常用方法.md",
+                    "初识JS.md",
+                    "原型链.md",
+                    "预解析作用域闭包this.md",
+                    "webstorage.md"
                 ]
             },
             {
@@ -69,7 +59,7 @@
                     "cookie.md",
                     "Express.md",
                     "session.md",
-                    "gulp.md"
+                    "珠峰博客.md"
                 ]
             },
             {
@@ -86,6 +76,20 @@
                     "JAVASCRIPT.md",
                     "其它.md",
                     "性能优化.md"
+                ]
+            },
+            {
+                "框架和库": [
+                    "babel.md",
+                    "bower.md",
+                    "gulp.md",
+                    "NPM.md",
+                    "promise.md",
+                    "react-router.md",
+                    "react.md",
+                    "react基础应用.md",
+                    "react路由应用.md",
+                    "webpack.md"
                 ]
             }
         ]

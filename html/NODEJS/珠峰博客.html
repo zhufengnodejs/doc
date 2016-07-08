@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>珠峰JS全栈</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                珠峰JS全栈
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>前端工程化</a><ul></ul></li><li><a href="#"><span></span>数据库</a><ul></ul></li><li><a href="#"><span></span>CSS</a><ul><li><a href="../../html/CSS/less.html">less</a></li></ul></li><li><a href="#"><span></span>Git</a><ul><li><a href="../../html/Git/git安装.html">git安装</a></li><li><a href="../../html/Git/git.html">git</a></li></ul></li><li><a href="#"><span></span>HTML</a><ul></ul></li><li><a href="#"><span></span>JAVASCRIPT</a><ul><li><a href="../../html/JAVASCRIPT/ES6.html">ES6</a></li><li><a href="../../html/JAVASCRIPT/缓存.html">缓存</a></li><li><a href="../../html/JAVASCRIPT/jquery同步和异步.html">jquery同步和异步</a></li><li><a href="../../html/JAVASCRIPT/属性设置.html">属性设置</a></li><li><a href="../../html/JAVASCRIPT/模块化开发.html">模块化开发</a></li><li><a href="../../html/JAVASCRIPT/js常用方法.html">js常用方法</a></li><li><a href="../../html/JAVASCRIPT/初识JS.html">初识JS</a></li><li><a href="../../html/JAVASCRIPT/原型链.html">原型链</a></li><li><a href="../../html/JAVASCRIPT/预解析作用域闭包this.html">预解析作用域闭包this</a></li><li><a href="../../html/JAVASCRIPT/webstorage.html">webstorage</a></li></ul></li><li><a href="#"><span></span>NODEJS</a><ul><li><a href="../../html/NODEJS/加密.html">加密</a></li><li><a href="../../html/NODEJS/动态服务器.html">动态服务器</a></li><li><a href="../../html/NODEJS/压缩.html">压缩</a></li><li><a href="../../html/NODEJS/静态文件服务器.html">静态文件服务器</a></li><li><a href="../../html/NODEJS/cookie.html">cookie</a></li><li><a href="../../html/NODEJS/Express.html">Express</a></li><li><a href="../../html/NODEJS/session.html">session</a></li><li class="active"><a href="../../html/NODEJS/珠峰博客.html">珠峰博客</a></li></ul></li><li><a href="#"><span></span>工具</a><ul></ul></li><li><a href="#"><span></span>微信</a><ul><li><a href="../../html/微信/微信入门.html">微信入门</a></li></ul></li><li><a href="#"><span></span>面试</a><ul><li><a href="../../html/面试/CSS.html">CSS</a></li><li><a href="../../html/面试/JAVASCRIPT.html">JAVASCRIPT</a></li><li><a href="../../html/面试/其它.html">其它</a></li><li><a href="../../html/面试/性能优化.html">性能优化</a></li></ul></li><li><a href="#"><span></span>框架和库</a><ul><li><a href="../../html/框架和库/babel.html">babel</a></li><li><a href="../../html/框架和库/bower.html">bower</a></li><li><a href="../../html/框架和库/gulp.html">gulp</a></li><li><a href="../../html/框架和库/NPM.html">NPM</a></li><li><a href="../../html/框架和库/promise.html">promise</a></li><li><a href="../../html/框架和库/react-router.html">react-router</a></li><li><a href="../../html/框架和库/react.html">react</a></li><li><a href="../../html/框架和库/react基础应用.html">react基础应用</a></li><li><a href="../../html/框架和库/react路由应用.html">react路由应用</a></li><li><a href="../../html/框架和库/webpack.html">webpack</a></li></ul></li></ul>
+        </div>
+        
+        <!---->
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+    
+        <div class="page-toc">
+            <ul><li><a href="#t01 express生成器生成生成项目">1 express生成器生成生成项目</a><ul><li><a href="#t11.1 安装 Express生成器">1.1 安装 Express生成器</a></li><li><a href="#t21.2 生成一个项目">1.2 生成一个项目</a></li></ul></li><li><a href="#t32 项目文件分析">2 项目文件分析</a><ul><li><a href="#t42.1 生成文件说明">2.1 生成文件说明</a></li><li><a href="#t52.2 app.js">2.2 app.js</a></li><li><a href="#t62.3 bin/www">2.3 bin/www</a></li><li><a href="#t72.4 routes/index.js">2.4 routes/index.js</a></li><li><a href="#t82.5 views/index.ejs">2.5 views/index.ejs</a></li></ul></li><li><a href="#t9功能与设计">功能与设计</a></li></ul>
+        </div>
+
+        <div class="content markdown-body">
+
+            <h2 id="t01 express&#x751F;&#x6210;&#x5668;&#x751F;&#x6210;&#x751F;&#x6210;&#x9879;&#x76EE;">1 express&#x751F;&#x6210;&#x5668;&#x751F;&#x6210;&#x751F;&#x6210;&#x9879;&#x76EE; <a href="#t01 express&#x751F;&#x6210;&#x5668;&#x751F;&#x6210;&#x751F;&#x6210;&#x9879;&#x76EE;"> # </a></h2>
+<h3 id="t11.1 &#x5B89;&#x88C5; Express&#x751F;&#x6210;&#x5668;">1.1 &#x5B89;&#x88C5; Express&#x751F;&#x6210;&#x5668; <a href="#t11.1 &#x5B89;&#x88C5; Express&#x751F;&#x6210;&#x5668;"> # </a></h3>
+<p>express &#x662F; Node.js &#x4E0A;&#x6700;&#x6D41;&#x884C;&#x7684; Web &#x5F00;&#x53D1;&#x6846;&#x67B6;&#xFF0C;&#x6B63;&#x5982;&#x4ED6;&#x7684;&#x540D;&#x5B57;&#x4E00;&#x6837;&#xFF0C;&#x4F7F;&#x7528;&#x5B83;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5FEB;&#x901F;&#x7684;&#x5F00;&#x53D1;&#x4E00;&#x4E2A; Web &#x5E94;&#x7528;&#x3002;&#x6211;&#x4EEC;&#x7528; express &#x6765;&#x642D;&#x5EFA;&#x6211;&#x4EEC;&#x7684;&#x535A;&#x5BA2;&#xFF0C;&#x6253;&#x5F00;&#x547D;&#x4EE4;&#x884C;&#xFF0C;&#x8F93;&#x5165;&#xFF1A;</p>
+<pre><code>$ npm install -g express-generator
+</code></pre><p>&#x5B89;&#x88C5; express &#x547D;&#x4EE4;&#x884C;&#x5DE5;&#x5177;&#xFF0C;&#x4F7F;&#x7528;&#x5B83;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A; express &#x9879;&#x76EE;&#x3002;</p>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/express.png" class="img-responsive"></p>
+<h3 id="t21.2 &#x751F;&#x6210;&#x4E00;&#x4E2A;&#x9879;&#x76EE;">1.2 &#x751F;&#x6210;&#x4E00;&#x4E2A;&#x9879;&#x76EE; <a href="#t21.2 &#x751F;&#x6210;&#x4E00;&#x4E2A;&#x9879;&#x76EE;"> # </a></h3>
+<p>&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x8F93;&#x5165;&#xFF1A;</p>
+<pre><code>$ express -e zhufengpeixunblog
+$ cd zhufengpeixunblog &amp;&amp; npm install
+</code></pre><p>&#x6267;&#x884C;&#x7ED3;&#x679C;&#x4E2D;&#x4F1A;&#x663E;&#x793A;&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x5E76;&#x63D0;&#x793A;&#x540E;&#x7EED;&#x7684;&#x547D;&#x4EE4;</p>
+<pre><code>    E:\&gt;express -e zhufengpeixunblog
+
+       create : zhufengpeixunblog
+       create : zhufengpeixunblog/package.json
+       create : zhufengpeixunblog/app.js
+       create : zhufengpeixunblog/public
+       create : zhufengpeixunblog/routes
+       create : zhufengpeixunblog/routes/index.js
+       create : zhufengpeixunblog/routes/users.js
+       create : zhufengpeixunblog/public/images
+       create : zhufengpeixunblog/public/javascripts
+       create : zhufengpeixunblog/views
+       create : zhufengpeixunblog/views/index.ejs
+       create : zhufengpeixunblog/views/error.ejs
+       create : zhufengpeixunblog/public/stylesheets
+       create : zhufengpeixunblog/public/stylesheets/style.css
+       create : zhufengpeixunblog/bin
+       create : zhufengpeixunblog/bin/www
+
+       install dependencies:
+         &gt; cd zhufengpeixunblog &amp;&amp; npm install
+
+       run the app:
+         &gt; SET DEBUG=zhufengpeixunblog:* &amp; npm start
+</code></pre><p>&#x8FDB;&#x5165;&#x751F;&#x6210;&#x7684;&#x76EE;&#x5F55;&#x5E76;&#x5B89;&#x88C5;&#x4F9D;&#x8D56;   </p>
+<pre><code>    E:\&gt;cd zhufengpeixunblog &amp;&amp; npm install
+
+    debug@2.2.0 node_modules\debug
+    &#x2514;&#x2500;&#x2500; ms@0.7.1
+
+    morgan@1.6.1 node_modules\morgan
+    &#x251C;&#x2500;&#x2500; on-headers@1.0.1
+    &#x251C;&#x2500;&#x2500; basic-auth@1.0.3
+    &#x251C;&#x2500;&#x2500; depd@1.0.1
+    &#x2514;&#x2500;&#x2500; on-finished@2.3.0 (ee-first@1.1.1)
+
+    cookie-parser@1.3.5 node_modules\cookie-parser
+    &#x251C;&#x2500;&#x2500; cookie@0.1.3
+    &#x2514;&#x2500;&#x2500; cookie-signature@1.0.6
+
+    serve-favicon@2.3.0 node_modules\serve-favicon
+    &#x251C;&#x2500;&#x2500; ms@0.7.1
+    &#x251C;&#x2500;&#x2500; etag@1.7.0
+    &#x251C;&#x2500;&#x2500; fresh@0.3.0
+    &#x2514;&#x2500;&#x2500; parseurl@1.3.0
+
+    body-parser@1.13.3 node_modules\body-parser
+    &#x251C;&#x2500;&#x2500; bytes@2.1.0
+    &#x251C;&#x2500;&#x2500; content-type@1.0.1
+    &#x251C;&#x2500;&#x2500; depd@1.0.1
+    &#x251C;&#x2500;&#x2500; on-finished@2.3.0 (ee-first@1.1.1)
+    &#x251C;&#x2500;&#x2500; qs@4.0.0
+    &#x251C;&#x2500;&#x2500; iconv-lite@0.4.11
+    &#x251C;&#x2500;&#x2500; http-errors@1.3.1 (statuses@1.2.1, inherits@2.0.1)
+    &#x251C;&#x2500;&#x2500; type-is@1.6.9 (media-typer@0.3.0, mime-types@2.1.7)
+    &#x2514;&#x2500;&#x2500; raw-body@2.1.4 (unpipe@1.0.0, iconv-lite@0.4.12)
+
+    express@4.13.3 node_modules\express
+    &#x251C;&#x2500;&#x2500; escape-html@1.0.2
+    &#x251C;&#x2500;&#x2500; array-flatten@1.1.1
+    &#x251C;&#x2500;&#x2500; path-to-regexp@0.1.7
+    &#x251C;&#x2500;&#x2500; merge-descriptors@1.0.0
+    &#x251C;&#x2500;&#x2500; content-type@1.0.1
+    &#x251C;&#x2500;&#x2500; methods@1.1.1
+    &#x251C;&#x2500;&#x2500; utils-merge@1.0.0
+    &#x251C;&#x2500;&#x2500; content-disposition@0.5.0
+    &#x251C;&#x2500;&#x2500; range-parser@1.0.3
+    &#x251C;&#x2500;&#x2500; serve-static@1.10.0
+    &#x251C;&#x2500;&#x2500; vary@1.0.1
+    &#x251C;&#x2500;&#x2500; depd@1.0.1
+    &#x251C;&#x2500;&#x2500; cookie@0.1.3
+    &#x251C;&#x2500;&#x2500; cookie-signature@1.0.6
+    &#x251C;&#x2500;&#x2500; fresh@0.3.0
+    &#x251C;&#x2500;&#x2500; etag@1.7.0
+    &#x251C;&#x2500;&#x2500; on-finished@2.3.0 (ee-first@1.1.1)
+    &#x251C;&#x2500;&#x2500; parseurl@1.3.0
+    &#x251C;&#x2500;&#x2500; qs@4.0.0
+    &#x251C;&#x2500;&#x2500; finalhandler@0.4.0 (unpipe@1.0.0)
+    &#x251C;&#x2500;&#x2500; accepts@1.2.13 (negotiator@0.5.3, mime-types@2.1.7)
+    &#x251C;&#x2500;&#x2500; type-is@1.6.9 (media-typer@0.3.0, mime-types@2.1.7)
+    &#x251C;&#x2500;&#x2500; proxy-addr@1.0.8 (forwarded@0.1.0, ipaddr.js@1.0.1)
+    &#x2514;&#x2500;&#x2500; send@0.13.0 (destroy@1.0.3, ms@0.7.1, statuses@1.2.1, mime@1.3.4, http-errors@1.3.1)
+
+    E:\zhufengpeixunblog&gt;
+</code></pre><p>&#x8BBE;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x5E76;&#x542F;&#x52A8;&#x670D;&#x52A1;&#x5668;,&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x6267;&#x884C;&#x4E0B;&#x5217;&#x547D;&#x4EE4;</p>
+<pre><code>     SET DEBUG=zhufengpeixunblog:* &amp; npm start
+</code></pre><p>&#x6267;&#x884C;&#x5B8C;&#x6210;&#x540E;&#x4F1A;&#x663E;&#x793A;</p>
+<pre><code>    zhufengpeixunblog:server Listening on port 3000 +0ms
+</code></pre><p>&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x91CC;&#x8BBF;&#x95EE; <a href="http://localhost:3000">http://localhost:3000</a> &#x5C31;&#x53EF;&#x4EE5;&#x663E;&#x793A;&#x6B22;&#x8FCE;&#x9875;&#x9762;</p>
+<pre><code>    Express
+    Welcome to Express
+</code></pre><p>&#x521A;&#x624D;&#x6211;&#x4EEC;&#x5C31;&#x7528;express&#x751F;&#x6210;&#x5668;&#x751F;&#x6210;&#x4E86;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;ejs&#x6A21;&#x677F;&#x7684;&#x793A;&#x4F8B;&#x5DE5;&#x7A0B;&#x3002;</p>
+<h2 id="t32 &#x9879;&#x76EE;&#x6587;&#x4EF6;&#x5206;&#x6790;">2 &#x9879;&#x76EE;&#x6587;&#x4EF6;&#x5206;&#x6790; <a href="#t32 &#x9879;&#x76EE;&#x6587;&#x4EF6;&#x5206;&#x6790;"> # </a></h2>
+<h3 id="t42.1 &#x751F;&#x6210;&#x6587;&#x4EF6;&#x8BF4;&#x660E;">2.1 &#x751F;&#x6210;&#x6587;&#x4EF6;&#x8BF4;&#x660E; <a href="#t42.1 &#x751F;&#x6210;&#x6587;&#x4EF6;&#x8BF4;&#x660E;"> # </a></h3>
+<ul>
+<li><strong>app.js</strong>&#xFF1A;express&#x7684;&#x4E3B;&#x914D;&#x7F6E;&#x6587;&#x4EF6;   </li>
+<li><strong>package.json</strong>&#xFF1A;&#x5B58;&#x50A8;&#x7740;&#x5DE5;&#x7A0B;&#x7684;&#x4FE1;&#x606F;&#x53CA;&#x6A21;&#x5757;&#x4F9D;&#x8D56;&#xFF0C;&#x5F53;&#x5728; dependencies &#x4E2D;&#x6DFB;&#x52A0;&#x4F9D;&#x8D56;&#x7684;&#x6A21;&#x5757;&#x65F6;&#xFF0C;&#x8FD0;&#x884C; <code>npm install</code>&#xFF0C;npm &#x4F1A;&#x68C0;&#x67E5;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x4E0B;&#x7684; package.json&#xFF0C;&#x5E76;&#x81EA;&#x52A8;&#x5B89;&#x88C5;&#x6240;&#x6709;&#x6307;&#x5B9A;&#x7684;&#x6A21;&#x5757;  </li>
+<li><strong>node_modules</strong>&#xFF1A;&#x5B58;&#x653E; package.json &#x4E2D;&#x5B89;&#x88C5;&#x7684;&#x6A21;&#x5757;&#xFF0C;&#x5F53;&#x4F60;&#x5728; package.json &#x6DFB;&#x52A0;&#x4F9D;&#x8D56;&#x7684;&#x6A21;&#x5757;&#x5E76;&#x5B89;&#x88C5;&#x540E;&#xFF0C;&#x5B58;&#x653E;&#x5728;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x5939;&#x4E0B;  </li>
+<li><strong>public</strong>&#xFF1A;&#x5B58;&#x653E; image&#x3001;css&#x3001;js &#x7B49;&#x6587;&#x4EF6;  </li>
+<li><strong>routes</strong>&#xFF1A;&#x5B58;&#x653E;&#x8DEF;&#x7531;&#x6587;&#x4EF6;  </li>
+<li><strong>views</strong>&#xFF1A;&#x5B58;&#x653E;&#x89C6;&#x56FE;&#x6587;&#x4EF6;&#x6216;&#x8005;&#x8BF4;&#x6A21;&#x7248;&#x6587;&#x4EF6;  </li>
+<li><strong>bin</strong>&#xFF1A;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;&#x4ECE;&#x6B64;&#x542F;&#x52A8;&#x670D;&#x52A1;&#x5668;</li>
+</ul>
+<h3 id="t52.2 app.js">2.2 app.js <a href="#t52.2 app.js"> # </a></h3>
+<pre><code class="lang-javascript">    <span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;express&apos;</span>); &#x52A0;&#x8F7D;node_modules&#x4E0B;&#x7684;express&#x6A21;&#x5757;
+    <span class="hljs-keyword">var</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;path&apos;</span>);
+    <span class="hljs-keyword">var</span> favicon = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;serve-favicon&apos;</span>);
+    <span class="hljs-keyword">var</span> logger = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;morgan&apos;</span>);
+    <span class="hljs-keyword">var</span> cookieParser = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;cookie-parser&apos;</span>);
+    <span class="hljs-keyword">var</span> bodyParser = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;body-parser&apos;</span>);
+
+    <span class="hljs-keyword">var</span> routes = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;./routes/index&apos;</span>);
+    <span class="hljs-keyword">var</span> users = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;./routes/users&apos;</span>);
+
+    <span class="hljs-keyword">var</span> app = express(); &#x751F;&#x6210;&#x4E00;&#x4E2A;express&#x5B9E;&#x4F8B; app
+
+    <span class="hljs-comment">// view engine setup</span>
+    app.set(<span class="hljs-string">&apos;views&apos;</span>, path.join(__dirname, <span class="hljs-string">&apos;views&apos;</span>));&#x8BBE;&#x7F6E; views &#x6587;&#x4EF6;&#x5939;&#x4E3A;&#x5B58;&#x653E;&#x89C6;&#x56FE;&#x6587;&#x4EF6;&#x7684;&#x76EE;&#x5F55;, &#x5373;&#x5B58;&#x653E;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x7684;&#x5730;&#x65B9;,__dirname &#x4E3A;&#x5168;&#x5C40;&#x53D8;&#x91CF;,&#x5B58;&#x50A8;&#x5F53;&#x524D;&#x6B63;&#x5728;&#x6267;&#x884C;&#x7684;&#x811A;&#x672C;&#x6240;&#x5728;&#x7684;&#x76EE;&#x5F55;&#x3002;
+    app.set(<span class="hljs-string">&apos;view engine&apos;</span>, <span class="hljs-string">&apos;ejs&apos;</span>); &#x8BBE;&#x7F6E;&#x89C6;&#x56FE;&#x6A21;&#x677F;&#x5F15;&#x64CE;&#x4E3A; ejs&#x3002;
+
+    <span class="hljs-comment">// uncomment after placing your favicon in /public</span>
+    <span class="hljs-comment">//app.use(favicon(path.join(__dirname, &apos;public&apos;, &apos;favicon.ico&apos;))); &#x8BBE;&#x7F6E;/public/favicon.ico&#x4E3A;favicon&#x56FE;&#x6807;&#x3002;</span>
+    app.use(logger(<span class="hljs-string">&apos;dev&apos;</span>)); &#x52A0;&#x8F7D;&#x65E5;&#x5FD7;&#x4E2D;&#x95F4;&#x4EF6;&#x3002;
+    app.use(bodyParser.json()); &#x52A0;&#x8F7D;&#x89E3;&#x6790;json&#x7684;&#x4E2D;&#x95F4;&#x4EF6;&#x3002;
+    app.use(bodyParser.urlencoded({ extended: <span class="hljs-literal">false</span> })); &#x52A0;&#x8F7D;&#x89E3;&#x6790;urlencoded&#x8BF7;&#x6C42;&#x4F53;&#x7684;&#x4E2D;&#x95F4;&#x4EF6;&#x3002;
+    app.use(cookieParser()); &#x52A0;&#x8F7D;&#x89E3;&#x6790;cookie&#x7684;&#x4E2D;&#x95F4;&#x4EF6;&#x3002;
+    app.use(express.static(path.join(__dirname, <span class="hljs-string">&apos;public&apos;</span>))); &#x8BBE;&#x7F6E;public&#x6587;&#x4EF6;&#x5939;&#x4E3A;&#x5B58;&#x653E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x7684;&#x76EE;&#x5F55;&#x3002;
+
+    app.use(<span class="hljs-string">&apos;/&apos;</span>, routes); &#x6839;&#x76EE;&#x5F55;&#x7684;&#x8DEF;&#x7531;
+    app.use(<span class="hljs-string">&apos;/users&apos;</span>, users); &#x7528;&#x6237;&#x8DEF;&#x7531;
+
+    <span class="hljs-comment">// catch 404 and forward to error handler &#x6355;&#x83B7;404&#x9519;&#x8BEF;&#xFF0C;&#x5E76;&#x8F6C;&#x53D1;&#x5230;&#x9519;&#x8BEF;&#x5904;&#x7406;&#x5668;&#x3002;</span>
+    app.use(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res, next</span>) </span>{
+      <span class="hljs-keyword">var</span> err = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;Not Found&apos;</span>);
+      err.status = <span class="hljs-number">404</span>;
+      next(err);
+    });
+
+    <span class="hljs-comment">// error handlers &#x9519;&#x8BEF;&#x5904;&#x7406;&#x5668;</span>
+
+    <span class="hljs-comment">// development error handler &#x5F00;&#x53D1;&#x73AF;&#x5883;&#x4E0B;&#x7684;&#x9519;&#x8BEF;&#x5904;&#x7406;</span>
+    <span class="hljs-comment">// will print stacktrace &#x5C06;&#x6253;&#x5370;&#x51FA;&#x5806;&#x6808;&#x4FE1;&#x606F;</span>
+    <span class="hljs-keyword">if</span> (app.get(<span class="hljs-string">&apos;env&apos;</span>) === <span class="hljs-string">&apos;development&apos;</span>) {
+      app.use(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, req, res, next</span>) </span>{
+        res.status(err.status || <span class="hljs-number">500</span>);
+        res.render(<span class="hljs-string">&apos;error&apos;</span>, {
+          message: err.message,
+          error: err
+        });
+      });
+    }
+
+    <span class="hljs-comment">// production error handler &#x751F;&#x4EA7;&#x73AF;&#x5883;&#x4E0B;&#x7684;&#x9519;&#x8BEF;&#x5904;&#x7406;</span>
+    <span class="hljs-comment">// no stacktraces leaked to user &#x4E0D;&#x5411;&#x7528;&#x6237;&#x66B4;&#x9732;&#x5806;&#x6808;&#x4FE1;&#x606F;</span>
+    app.use(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, req, res, next</span>) </span>{
+      res.status(err.status || <span class="hljs-number">500</span>);
+      res.render(<span class="hljs-string">&apos;error&apos;</span>, {
+        message: err.message,
+        error: {}
+      });
+    });
+
+
+    <span class="hljs-built_in">module</span>.exports = app;  &#x5BFC;&#x51FA;app&#x4F9B; bin/www &#x4F7F;&#x7528;
+</code></pre>
+<h3 id="t62.3 bin/www">2.3 bin/www <a href="#t62.3 bin/www"> # </a></h3>
+<pre><code>    #!/usr/bin/env node  &#x8868;&#x660E;&#x662F; node &#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x3002;
+
+    /**
+     * Module dependencies.
+     */
+
+    var app = require(&apos;../app&apos;); &#x5F15;&#x5165;&#x6211;&#x4EEC;&#x4E0A;&#x9762;app.js&#x5BFC;&#x51FA;&#x7684;app&#x5B9E;&#x4F8B;
+    var debug = require(&apos;debug&apos;)(&apos;zhufengpeixunblog:server&apos;);  &#x5F15;&#x5165;&#x6253;&#x5370;&#x8C03;&#x8BD5;&#x65E5;&#x5FD7;&#x7684;debug&#x6A21;&#x5757;&#xFF0C;&#x5E76;&#x8BBE;&#x7F6E;&#x540D;&#x79F0;&#x3002;
+    var http = require(&apos;http&apos;); &#x5F15;&#x5165;http
+
+    /**
+     * Get port from environment and store in Express. &#x4ECE;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x4E2D;&#x83B7;&#x53D6;&#x7AEF;&#x53E3;&#x53F7;&#x5E76;&#x5B58;&#x653E;&#x5230;express&#x4E2D;
+     */
+
+    var port = normalizePort(process.env.PORT || &apos;3000&apos;); &#x8BBE;&#x7F6E;&#x7AEF;&#x53E3;&#x53F7;
+    app.set(&apos;port&apos;, port); &#x8BBE;&#x7F6E;&#x7AEF;&#x53E3;&#x53F7;
+
+    /**
+     * Create HTTP server. &#x521B;&#x5EFA;http&#x670D;&#x52A1;&#x5668;
+     */
+
+    var server = http.createServer(app); 
+
+    /**
+     * Listen on provided port, on all network interfaces. &#x5728;&#x6240;&#x6709;&#x7684;&#x7F51;&#x7EDC;&#x63A5;&#x53E3;&#x4E2D;&#x76D1;&#x542C;&#x63D0;&#x4F9B;&#x7684;&#x7AEF;&#x53E3;
+     */
+
+    server.listen(port);
+    server.on(&apos;error&apos;, onError); &#x76D1;&#x542C;&#x9519;&#x8BEF;&#x4E8B;&#x4EF6;
+    server.on(&apos;listening&apos;, onListening); &#x542F;&#x52A8;&#x5DE5;&#x7A0B;&#x5E76;&#x76D1;&#x542C;3000&#x7AEF;&#x53E3;&#xFF0C;&#x6210;&#x529F;&#x540E;&#x6253;&#x5370; Express server listening on port 3000&#x3002;
+
+    /**
+     * Normalize a port into a number, string, or false. &#x628A;&#x4E00;&#x4E2A;&#x7AEF;&#x53E3;&#x5904;&#x7406;&#x6210;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#x6216;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x8005;false
+     */
+
+    function normalizePort(val) {
+      var port = parseInt(val, 10); &#x5148;&#x8BD5;&#x56FE;&#x8F6C;&#x6210;10&#x8FDB;&#x5236;&#x6570;&#x5B57;
+
+      if (isNaN(port)) {
+        // named pipe &#x8F6C;&#x4E0D;&#x6210;&#x6570;&#x5B57;&#x5C31;&#x5F53;&#x4F5C;&#x547D;&#x540D;&#x7BA1;&#x9053;&#x6765;&#x5904;&#x7406;
+        return val;
+      }
+
+      if (port &gt;= 0) {
+        // port number &#x5982;&#x679C;&#x7AEF;&#x53E3;&#x5927;&#x4E8E;0&#x5C31;&#x8FD4;&#x56DE;&#x7AEF;&#x53E3;
+        return port;
+      }
+
+      return false; &#x4E0D;&#x662F;&#x547D;&#x540D;&#x7BA1;&#x9053;&#xFF0C;&#x4E5F;&#x4E0D;&#x662F;&#x6B63;&#x5E38;&#x7AEF;&#x53E3;&#x5C31;&#x8FD4;&#x56DE;false
+    }
+
+    /**
+     * Event listener for HTTP server &quot;error&quot; event. &#x670D;&#x52A1;&#x5668;&#x7684;&#x9519;&#x8BEF;&#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x5668;
+     */
+
+    function onError(error) {
+      if (error.syscall !== &apos;listen&apos;) { &#x5982;&#x679C;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x4E0D;&#x662F;&#x76D1;&#x542C;&#x5219;&#x629B;&#x51FA;&#x9519;&#x8BEF;
+        throw error;
+      }
+
+      var bind = typeof port === &apos;string&apos;
+        ? &apos;Pipe &apos; + port
+        : &apos;Port &apos; + port;
+
+      // handle specific listen errors with friendly messages &#x66F4;&#x53CB;&#x597D;&#x7684;&#x5904;&#x7406;&#x7279;&#x5B9A;&#x7684;&#x76D1;&#x542C;&#x9519;&#x8BEF;
+      switch (error.code) { &#x9519;&#x8BEF;&#x7F16;&#x7801;
+        case &apos;EACCES&apos;: &#x6CA1;&#x6709;&#x6743;&#x9650;
+          console.error(bind + &apos; requires elevated privileges&apos;); &#x6CA1;&#x6709;&#x6743;&#x9650;&#x7ED1;&#x5B9A;&#x6307;&#x5B9A;&#x7684;&#x7AEF;&#x53E3;
+          process.exit(1); &#x5F02;&#x5E38;&#x9000;&#x51FA;
+          break;
+        case &apos;EADDRINUSE&apos;: &#x7AEF;&#x53E3;&#x88AB;&#x5360;&#x7528;
+          console.error(bind + &apos; is already in use&apos;);&#x7AEF;&#x53E3;&#x88AB;&#x5360;&#x7528;
+          process.exit(1);&#x5F02;&#x5E38;&#x9000;&#x51FA;
+          break;
+        default:
+          throw error; &#x5176;&#x5B83;&#x7684;&#x60C5;&#x51B5;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#x5E76;&#x4E2D;&#x6B62;&#x8FDB;&#x7A0B;
+      }
+    }
+
+    /**
+     * Event listener for HTTP server &quot;listening&quot; event. &#x670D;&#x52A1;&#x5668;&#x7684;&#x76D1;&#x542C;&#x7AEF;&#x53E3;&#x6210;&#x529F;&#x4E8B;&#x4EF6;&#x56DE;&#x8C03;
+     */
+
+    function onListening() {
+      var addr = server.address(); &#x53D6;&#x5F97;&#x670D;&#x52A1;&#x5668;&#x7684;&#x5730;&#x5740;
+      var bind = typeof addr === &apos;string&apos; &#x76D1;&#x542C;&#x5730;&#x5740;&#x5982;&#x679C;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x8FD4;&#x56DE;&#x547D;&#x540D;&#x7BA1;&#x9053;&#x540D;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x6570;&#x5B57;&#x8FD4;&#x56DE;&#x7AEF;&#x53E3;
+        ? &apos;pipe &apos; + addr
+        : &apos;port &apos; + addr.port;
+      debug(&apos;Listening on &apos; + bind); &#x8BB0;&#x5F55;&#x65E5;&#x5FD7;
+    }
+</code></pre><h3 id="t72.4 routes/index.js">2.4 routes/index.js <a href="#t72.4 routes/index.js"> # </a></h3>
+<pre><code>var express = require(&apos;express&apos;); &#x5BFC;&#x5165;express&#x6A21;&#x5757;
+var router = express.Router(); &#x751F;&#x6210;&#x4E00;&#x4E2A;&#x8DEF;&#x7531;&#x5B9E;&#x4F8B;
+
+/* GET home page.  &#x53D6;&#x5F97;&#x4E3B;&#x9875;*/
+router.get(&apos;/&apos;, function(req, res, next) { &#x5F53;&#x7528;&#x6237;&#x8BBF;&#x95EE;&#x6839;&#x76EE;&#x5F55;&#x4E5F;&#x5C31;&#x662F; / &#x7684;&#x65F6;&#x5019;&#x6267;&#x884C;&#x6B64;&#x56DE;&#x8C03;
+  res.render(&apos;index&apos;, { title: &apos;Express&apos; }); &#x6E32;&#x67D3;views/index.ejs&#x6A21;&#x7248;&#x5E76;&#x663E;&#x793A;&#x5230;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;
+});
+
+module.exports = router; &#x5BFC;&#x51FA;&#x8FD9;&#x4E2A;&#x8DEF;&#x7531;&#x5E76;&#x5728;app.js&#x4E2D;&#x901A;&#x8FC7;app.use(&apos;/&apos;, routes); &#x52A0;&#x8F7D;
+</code></pre><h3 id="t82.5 views/index.ejs">2.5 views/index.ejs <a href="#t82.5 views/index.ejs"> # </a></h3>
+<p>&#x5728;&#x6E32;&#x67D3;&#x6A21;&#x677F;&#x65F6;&#x6211;&#x4EEC;&#x4F20;&#x5165;&#x4E86;&#x4E00;&#x4E2A;&#x53D8;&#x91CF; title &#x503C;&#x4E3A; express &#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x6A21;&#x677F;&#x5F15;&#x64CE;&#x4F1A;&#x5C06;&#x6240;&#x6709; &lt;%= title %&gt; &#x66FF;&#x6362;&#x4E3A; express &#xFF0C;&#x7136;&#x540E;&#x5C06;&#x6E32;&#x67D3;&#x540E;&#x751F;&#x6210;&#x7684;html&#x663E;&#x793A;&#x5230;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;&lt;%= title %&gt;&lt;/title&gt;
+    &lt;link rel=&apos;stylesheet&apos; href=&apos;/stylesheets/style.css&apos; /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;&lt;%= title %&gt;&lt;/h1&gt;
+    &lt;p&gt;Welcome to &lt;%= title %&gt;&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h2 id="t9&#x529F;&#x80FD;&#x4E0E;&#x8BBE;&#x8BA1;">&#x529F;&#x80FD;&#x4E0E;&#x8BBE;&#x8BA1; <a href="#t9&#x529F;&#x80FD;&#x4E0E;&#x8BBE;&#x8BA1;"> # </a></h2>
+<p>#&#x529F;&#x80FD;&#x5206;&#x6790;
+&#x642D;&#x5EFA;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x5177;&#x6709;&#x591A;&#x4EBA;&#x6CE8;&#x518C;&#x3001;&#x767B;&#x5F55;&#x3001;&#x53D1;&#x8868;&#x6587;&#x7AE0;&#x3001;&#x767B;&#x51FA;&#x529F;&#x80FD;&#x7684;&#x535A;&#x5BA2;&#x3002;</p>
+<p>#&#x8BBE;&#x8BA1;&#x76EE;&#x6807;</p>
+<ul>
+<li>&#x672A;&#x767B;&#x5F55;&#xFF1A;&#x4E3B;&#x9875;&#x5BFC;&#x822A;&#x663E;&#x793A; &#x9996;&#x9875;&#x3001;&#x6CE8;&#x518C;&#x3001;&#x767B;&#x9646;&#xFF0C;&#x4E0B;&#x9762;&#x663E;&#x793A;&#x5DF2;&#x53D1;&#x8868;&#x7684;&#x6587;&#x7AE0;&#x3001;&#x53D1;&#x8868;&#x65E5;&#x671F;&#x53CA;&#x4F5C;&#x8005;&#x3002;</li>
+<li>&#x767B;&#x9646;&#x540E;&#xFF1A;&#x4E3B;&#x9875;&#x5BFC;&#x822A;&#x663E;&#x793A; &#x9996;&#x9875;&#x3001;&#x53D1;&#x8868;&#x6587;&#x7AE0;&#x3001;&#x9000;&#x51FA;&#xFF0C;&#x4E0B;&#x9762;&#x663E;&#x793A;&#x5DF2;&#x53D1;&#x8868;&#x7684;&#x6587;&#x7AE0;&#x3001;&#x53D1;&#x8868;&#x65E5;&#x671F;&#x53CA;&#x4F5C;&#x8005;&#x3002;</li>
+<li>&#x7528;&#x6237;&#x767B;&#x5F55;&#x3001;&#x6CE8;&#x518C;&#x3001;&#x53D1;&#x8868;&#x6210;&#x529F;&#x4EE5;&#x53CA;&#x767B;&#x51FA;&#x540E;&#x90FD;&#x8FD4;&#x56DE;&#x5230;&#x4E3B;&#x9875;&#x3002;</li>
+</ul>
+<p>##&#x672A;&#x767B;&#x5F55;
+<img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/logout.jpg" class="img-responsive"></p>
+<p>##&#x767B;&#x9646;&#x540E;
+<img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/loged.jpg" class="img-responsive"></p>
+<p>##&#x53D1;&#x8868;&#x6587;&#x7AE0;
+<img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/publisharticle.jpg" class="img-responsive"></p>
+
+
+        </div>
+    
+</div>
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    /*url("/static/img/banner.jpg") no-repeat*/
+    .bs-docs-header{
+        background:linear-gradient(to right ,#333333 50%,#0d0b0c 50%) ;
+        padding: 0;
+    }
+    .new-back{
+        background-image: url("static/img/banner.jpg") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 88px;
+    }
+    .markdown-body pre code,.markdown-body code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .markdown-body code{
+      line-height: inherit;
+    }
+    .markdown-body h3{
+        font-size:1.4em;
+    }
+    .markdown-body h4{
+        font-size:1em;
+    }
+
+
+
+    /*index*/
+    .jw-style{
+        font-size: 1.75em;
+        color: #1d3e81;
+        line-height: 2em;
+    }
+
+    .understand-me {
+        text-align: center;
+        margin: 100px auto 0;
+    }
+
+    .understand-me li {
+        vertical-align: top;
+        width: 33.3333%;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+    }
+
+    .understand-me li span {
+        color: #1a1a1a;
+        font-size: 1.6em;
+
+    }
+
+    .understand-me p {
+        margin: 0 auto;
+        width: 90%;
+        text-align: left;
+        color: #4c4c4c;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    .understand-me img {
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .footers{
+        background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px
+    }
+    .understand-me img:hover {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    @media screen and (max-width: 479px) {
+        .understand-me li{
+            width: 100%;
+            margin-bottom: 2em;
+        }
+        .new-back{
+            padding: 28px;
+        }
+        .understand-me p {
+            width: 60%;
+        }
+        .footers{
+            height: 80px;
+            background-size:auto 100%;;
+        }
+    }
+
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+if(!$('.understand-me').length){
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h1,h2,h3,h4,h5,h6").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+}
+</script>
+
+</body>
+</html>
+
+
+<script>
+
+</script>

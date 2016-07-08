@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>珠峰JS全栈</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                珠峰JS全栈
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>前端工程化</a><ul></ul></li><li><a href="#"><span></span>前端框架</a><ul><li><a href="../../html/前端框架/bower.html">bower</a></li><li><a href="../../html/前端框架/NPM.html">NPM</a></li><li><a href="../../html/前端框架/promise.html">promise</a></li><li><a href="../../html/前端框架/react-router.html">react-router</a></li><li class="active"><a href="../../html/前端框架/react.html">react</a></li><li><a href="../../html/前端框架/react基础应用.html">react基础应用</a></li><li><a href="../../html/前端框架/react路由应用.html">react路由应用</a></li><li><a href="../../html/前端框架/webpack.html">webpack</a></li><li><a href="../../html/前端框架/babel.html">babel</a></li><li><a href="../../html/前端框架/gulp.html">gulp</a></li></ul></li><li><a href="#"><span></span>数据库</a><ul></ul></li><li><a href="#"><span></span>CSS</a><ul><li><a href="../../html/CSS/less.html">less</a></li></ul></li><li><a href="#"><span></span>Git</a><ul><li><a href="../../html/Git/git安装.html">git安装</a></li><li><a href="../../html/Git/git.html">git</a></li></ul></li><li><a href="#"><span></span>HTML</a><ul></ul></li><li><a href="#"><span></span>JAVASCRIPT</a><ul><li><a href="../../html/JAVASCRIPT/ES6.html">ES6</a></li><li><a href="../../html/JAVASCRIPT/缓存.html">缓存</a></li><li><a href="../../html/JAVASCRIPT/jquery同步和异步.html">jquery同步和异步</a></li><li><a href="../../html/JAVASCRIPT/属性设置.html">属性设置</a></li><li><a href="../../html/JAVASCRIPT/模块化开发.html">模块化开发</a></li><li><a href="../../html/JAVASCRIPT/js常用方法.html">js常用方法</a></li><li><a href="../../html/JAVASCRIPT/初识JS.html">初识JS</a></li><li><a href="../../html/JAVASCRIPT/原型链.html">原型链</a></li><li><a href="../../html/JAVASCRIPT/预解析作用域闭包this.html">预解析作用域闭包this</a></li><li><a href="../../html/JAVASCRIPT/webstorage.html">webstorage</a></li></ul></li><li><a href="#"><span></span>NODEJS</a><ul><li><a href="../../html/NODEJS/加密.html">加密</a></li><li><a href="../../html/NODEJS/动态服务器.html">动态服务器</a></li><li><a href="../../html/NODEJS/压缩.html">压缩</a></li><li><a href="../../html/NODEJS/静态文件服务器.html">静态文件服务器</a></li><li><a href="../../html/NODEJS/cookie.html">cookie</a></li><li><a href="../../html/NODEJS/Express.html">Express</a></li><li><a href="../../html/NODEJS/session.html">session</a></li><li><a href="../../html/NODEJS/珠峰博客.html">珠峰博客</a></li></ul></li><li><a href="#"><span></span>工具</a><ul></ul></li><li><a href="#"><span></span>微信</a><ul><li><a href="../../html/微信/微信入门.html">微信入门</a></li></ul></li><li><a href="#"><span></span>面试</a><ul><li><a href="../../html/面试/CSS.html">CSS</a></li><li><a href="../../html/面试/JAVASCRIPT.html">JAVASCRIPT</a></li><li><a href="../../html/面试/其它.html">其它</a></li><li><a href="../../html/面试/性能优化.html">性能优化</a></li></ul></li></ul>
+        </div>
+        
+        <!---->
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+    
+        <div class="page-toc">
+            <ul><li><a href="#t01. 什么是react">1. 什么是react</a></li><li><a href="#t12. 安装react">2. 安装react</a></li><li><a href="#t23. 直接在浏览器中使用React">3. 直接在浏览器中使用React</a></li><li><a href="#t34. ReactDOM.render">4. ReactDOM.render</a><ul><li><a href="#t44.1. index.html">4.1. index.html</a></li><li><a href="#t54.2. js/1.react.js">4.2. js/1.react.js</a></li></ul></li><li><a href="#t65. JSX 语法">5. JSX 语法</a></li><li><a href="#t76. 定义组件">6. 定义组件</a><ul><li><a href="#t86.1 定义组件">6.1 定义组件</a></li><li><a href="#t96.2 组件的属性">6.2 组件的属性</a></li><li><a href="#t106.3 this.props.children">6.3 this.props.children</a></li><li><a href="#t116.4 state状态">6.4 state状态</a></li><li><a href="#t126.5 表单元素双向数据绑定">6.5 表单元素双向数据绑定</a></li></ul></li><li><a href="#t137. 复合组件">7. 复合组件</a></li><li><a href="#t148. 组件的生命周期">8. 组件的生命周期</a></li><li><a href="#t159. DOM操作">9. DOM操作</a></li><li><a href="#t1610.通过Ajax获取数据">10.通过Ajax获取数据</a></li><li><a href="#t1711. mixin">11. mixin</a></li><li><a href="#t1812. 插件实现双向数据绑定">12. 插件实现双向数据绑定</a></li><li><a href="#t1913.珠峰留言版">13.珠峰留言版</a></li></ul>
+        </div>
+
+        <div class="content markdown-body">
+
+            <h2 id="t01. &#x4EC0;&#x4E48;&#x662F;react">1. &#x4EC0;&#x4E48;&#x662F;react <a href="#t01. &#x4EC0;&#x4E48;&#x662F;react"> # </a></h2>
+<p>React &#x662F;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x6784;&#x5EFA;&#x7528;&#x6237;&#x754C;&#x9762;&#x7684;JavaScript&#x5E93;</p>
+<ul>
+<li>&#x672C;&#x6587;&#x8F6C;&#x8F7D;&#x81EA; <a href="http://guoyongfeng.github.io/idoc/html/React%E8%AF%BE%E7%A8%8B%E4%B8%93%E9%A2%98/React%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB.html">&#x90ED;&#x6C38;&#x5CF0;&#x524D;&#x7AEF;&#x6280;&#x672F;&#x535A;&#x5BA2;</a></li>
+<li><a href="https://facebook.github.io/react">react&#x5B98;&#x7F51;</a></li>
+<li><a href="http://reactjs.cn">react&#x4E2D;&#x6587;&#x7F51;</a></li>
+<li><a href="http://react-china.org">react&#x4E2D;&#x6587;&#x7F51;</a></li>
+<li><a href="http://ant.design">react&#x4E2D;&#x6587;&#x7F51;</a></li>
+<li><a href="https://github.com/facebook/react">githup</a></li>
+</ul>
+<h2 id="t12. &#x5B89;&#x88C5;react">2. &#x5B89;&#x88C5;react <a href="#t12. &#x5B89;&#x88C5;react"> # </a></h2>
+<pre><code class="lang-sh">$ bower install react babel --save
+</code></pre>
+<h2 id="t23. &#x76F4;&#x63A5;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x4F7F;&#x7528;React">3. &#x76F4;&#x63A5;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x4F7F;&#x7528;React <a href="#t23. &#x76F4;&#x63A5;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x4F7F;&#x7528;React"> # </a></h2>
+<pre><code class="lang-javascript">  &lt;script src=<span class="hljs-string">&quot;../bower_components/react/react.js&quot;</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;../bower_components/react/react-dom.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;../bower_components/babel/browser.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/babel&quot;</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;index.js&quot;</span>/&gt;</span><span class="undefined">
+</span></span></code></pre>
+<ul>
+<li>react.js &#x662F; React &#x7684;<em>&#x6838;&#x5FC3;</em>&#x5E93;</li>
+<li>react-dom.js &#x662F;&#x63D0;&#x4F9B;&#x4E0E;<em>DOM</em>&#x76F8;&#x5173;&#x7684;&#x529F;&#x80FD;,&#x4F1A;&#x5728;window&#x4E0B;&#x589E;&#x52A0;<code>ReactDOM</code>&#x5C5E;&#x6027;</li>
+<li>browser.js &#x7684;&#x4F5C;&#x7528;&#x662F;&#x5C06;<code>JSX</code>&#x8BED;&#x6CD5;&#x8F6C;&#x4E3A;<code>JavaScript</code>&#x8BED;&#x6CD5;</li>
+</ul>
+<blockquote>
+<p><code>script</code>&#x4E2D;&#x7684;<code>type</code>&#x5C5E;&#x6027;&#x4E3A;<code>text/babel</code>,&#x56E0;&#x4E3A;React&#x72EC;&#x6709;&#x7684;JSX&#x8BED;&#x6CD5;,&#x8DDF;JavaScript&#x4E0D;&#x517C;&#x5BB9;</p>
+</blockquote>
+<h2 id="t34. ReactDOM.render">4. ReactDOM.render <a href="#t34. ReactDOM.render"> # </a></h2>
+<p><code>ReactDOM.render</code> &#x662F; <code>React</code> &#x7684;&#x6700;&#x57FA;&#x672C;&#x65B9;&#x6CD5;,&#x7528;&#x4E8E;&#x5C06;&#x6807;&#x7B7E;&#x6A21;&#x677F;&#x8F6C;&#x4E3A;HTML&#x8BED;&#x8A00;&#xFF0C;&#x5E76;&#x63D2;&#x5165;&#x6307;&#x5B9A;&#x7684;DOM&#x8282;&#x70B9;</p>
+<h3 id="t44.1. index.html">4.1. index.html <a href="#t44.1. index.html"> # </a></h3>
+<pre><code class="lang-diff"><span class="hljs-addition">+   &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</span>
+<span class="hljs-addition">+   &lt;script type=&quot;text/babel&quot; src=&quot;js/1.react.js&quot;/&gt;</span>
+</code></pre>
+<h3 id="t54.2. js/1.react.js">4.2. js/1.react.js <a href="#t54.2. js/1.react.js"> # </a></h3>
+<pre><code class="lang-javascript">    ReactDOM.render(
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>&#x73E0;&#x5CF0;&#x57F9;&#x8BAD;<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>,
+        document.getElementById(&apos;app&apos;)
+    );
+</span></code></pre>
+<blockquote>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x5C06;&#x4E00;&#x4E2A;h1&#x6807;&#x9898;&#xFF0C;&#x63D2;&#x5165;app&#x5143;&#x7D20;&#x5185;&#x90E8;</p>
+</blockquote>
+<h2 id="t65. JSX &#x8BED;&#x6CD5;">5. JSX &#x8BED;&#x6CD5; <a href="#t65. JSX &#x8BED;&#x6CD5;"> # </a></h2>
+<p>&#x662F;&#x4E00;&#x79CD;JS&#x548C;HTML&#x6DF7;&#x5408;&#x7684;&#x8BED;&#x6CD5;,&#x5C06;&#x7EC4;&#x4EF6;&#x7684;<em>&#x7ED3;&#x6784;</em>&#x3001;<em>&#x6570;&#x636E;</em>&#x751A;&#x81F3;<em>&#x6837;&#x5F0F;</em>&#x90FD;&#x805A;&#x5408;&#x5728;&#x4E00;&#x8D77;&#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;,&#x4F1A;&#x7F16;&#x8BD1;&#x6210;&#x666E;&#x901A;&#x7684;Javascript&#x3002;</p>
+<ul>
+<li>&#x9047;&#x5230;HTML&#x6807;&#x7B7E;(&#x4EE5; &lt; &#x5F00;&#x5934;)&#xFF0C;&#x5C31;&#x7528;<em>HTML</em>&#x89C4;&#x5219;&#x89E3;&#x6790;</li>
+<li>&#x9047;&#x5230;&#x4EE3;&#x7801;&#x5757;(&#x4EE5; { &#x5F00;&#x5934;)&#xFF0C;&#x5C31;&#x7528;<em>JavaScript</em>&#x89C4;&#x5219;&#x89E3;&#x6790;</li>
+<li>&#x4F7F;&#x7528;&#x6837;&#x5F0F;&#x65F6;&#x53EF;&#x4EE5;&#x8BA9;style&#x7B49;&#x4E8E;&#x4E00;&#x4E2A;&#x6837;&#x5F0F;&#x5BF9;&#x8C61;</li>
+<li>&#x4F7F;&#x7528;&#x6837;&#x5F0F;&#x7C7B;&#x65F6;&#x53EA;&#x80FD;&#x4F7F;&#x7528;<code>className=&#x7C7B;&#x540D;</code>,&#x56E0;&#x4E3A;class&#x662F;Javascript&#x5173;&#x952E;&#x5B57;</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> persons = [<span class="hljs-string">&apos;&#x5218;&#x5FB7;&#x534E;&apos;</span>, <span class="hljs-string">&apos;&#x8303;&#x51B0;&#x51B0;&apos;</span>, <span class="hljs-string">&apos;&#x90ED;&#x8DC3;&apos;</span>];
+<span class="hljs-keyword">var</span> style = {color:<span class="hljs-string">&apos;red&apos;</span>};
+ReactDOM.render(
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+  {
+    persons.map(function (person) {
+      return <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{style}</span>&gt;</span>Hello, {person}!<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    })
+  }
+  <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>,
+  document.getElementById(&apos;app&apos;)
+);
+</span></code></pre>
+<h2 id="t76. &#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;">6. &#x5B9A;&#x4E49;&#x7EC4;&#x4EF6; <a href="#t76. &#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;"> # </a></h2>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5F88;&#x76F4;&#x89C2;&#x7684;&#x5C06;&#x4E00;&#x4E2A;&#x590D;&#x6742;&#x7684;&#x9875;&#x9762;&#x5206;&#x5272;&#x6210;&#x82E5;&#x5E72;&#x4E2A;&#x72EC;&#x7ACB;&#x7EC4;&#x4EF6;,&#x6BCF;&#x4E2A;&#x7EC4;&#x4EF6;&#x5305;&#x542B;&#x81EA;&#x5DF1;&#x7684;&#x903B;&#x8F91;&#x548C;&#x6837;&#x5F0F;<br>&#x518D;&#x5C06;&#x8FD9;&#x4E9B;&#x72EC;&#x7ACB;&#x7EC4;&#x4EF6;&#x7EC4;&#x5408;&#x5B8C;&#x6210;&#x4E00;&#x4E2A;&#x590D;&#x6742;&#x7684;&#x9875;&#x9762;&#x3002;<br>&#x8FD9;&#x6837;&#x65E2;&#x51CF;&#x5C11;&#x4E86;&#x903B;&#x8F91;&#x590D;&#x6742;&#x5EA6;&#xFF0C;&#x53C8;&#x5B9E;&#x73B0;&#x4E86;&#x4EE3;&#x7801;&#x7684;&#x91CD;&#x7528;</p>
+<ul>
+<li>&#x53EF;&#x7EC4;&#x5408;&#xFF1A;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x53EF;&#x4EE5;&#x548C;&#x5176;&#x4ED6;&#x7684;&#x7EC4;&#x4EF6;&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#x6216;&#x8005;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5D4C;&#x5957;&#x5728;&#x53E6;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x5185;&#x90E8;</li>
+<li>&#x53EF;&#x91CD;&#x7528;&#xFF1A;&#x6BCF;&#x4E2A;&#x7EC4;&#x4EF6;&#x90FD;&#x662F;&#x5177;&#x6709;&#x72EC;&#x7ACB;&#x529F;&#x80FD;&#x7684;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x88AB;&#x4F7F;&#x7528;&#x5728;&#x591A;&#x4E2A;&#x573A;&#x666F;&#x4E2D;</li>
+<li>&#x53EF;&#x7EF4;&#x62A4;&#xFF1A;&#x6BCF;&#x4E2A;&#x5C0F;&#x7684;&#x7EC4;&#x4EF6;&#x4EC5;&#x4EC5;&#x5305;&#x542B;&#x81EA;&#x8EAB;&#x7684;&#x903B;&#x8F91;&#xFF0C;&#x66F4;&#x5BB9;&#x6613;&#x88AB;&#x7406;&#x89E3;&#x548C;&#x7EF4;&#x62A4;</li>
+</ul>
+<h3 id="t86.1 &#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;">6.1 &#x5B9A;&#x4E49;&#x7EC4;&#x4EF6; <a href="#t86.1 &#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;"> # </a></h3>
+<p>React&#x5141;&#x8BB8;&#x5C06;&#x4EE3;&#x7801;&#x5C01;&#x88C5;&#x6210;&#x7EC4;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x50CF;&#x63D2;&#x5165;&#x666E;&#x901A;HTML&#x6807;&#x7B7E;&#x4E00;&#x6837;&#xFF0C;&#x5728;&#x7F51;&#x9875;&#x4E2D;&#x63D2;&#x5165;&#x8FD9;&#x4E2A;&#x7EC4;&#x4EF6;</p>
+<ul>
+<li>&#x7EC4;&#x4EF6;&#x7C7B;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BCD;&#x5FC5;&#x987B;<em>&#x5927;&#x5199;</em></li>
+<li>&#x7EC4;&#x4EF6;&#x7C7B;<em>&#x80FD;&#x4E14;&#x53EA;&#x80FD;</em>&#x5305;&#x542B;&#x4E00;&#x4E2A;<em>&#x9876;&#x5C42;&#x6807;&#x7B7E;</em> </li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> Message = React.createClass({
+    render: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>Hello<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>;</span>
+    }
+});
+ReactDOM.render(
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Message</span>/&gt;</span>,
+    document.getElementById(&apos;app&apos;)
+);
+</span></code></pre>
+<h3 id="t96.2 &#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027;">6.2 &#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027; <a href="#t96.2 &#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027;"> # </a></h3>
+<ul>
+<li>&#x6BCF;&#x4E2A;&#x7EC4;&#x4EF6;&#x53EF;&#x4EE5;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x5C5E;&#x6027;,&#x4E00;&#x822C;&#x7528;&#x6765;&#x5B58;&#x653E;&#x7EC4;&#x4EF6;&#x521D;&#x59CB;&#x540E;&#x4E0D;&#x53D8;&#x7684;&#x6570;&#x636E;,&#x6BD4;&#x5982;&#x4EBA;&#x7684;&#x6027;&#x522B;&#xFF0C;&#x59D3;&#x540D;&#x7B49;</li>
+<li>&#x5C5E;&#x6027;&#x4E00;&#x822C;&#x7528;&#x4F5C;&#x7EC4;&#x4EF6;&#x7684;&#x6570;&#x636E;&#x6E90;&#xFF0C;&#x4E00;&#x822C;&#x7531;&#x7236;&#x7EC4;&#x4EF6;&#x4F20;&#x5165;,&#x6BD4;&#x5982;&#x4F60;&#x7684;&#x540D;&#x5B57;&#x4E00;&#x822C;&#x662F;&#x7531;&#x4F60;&#x7236;&#x6BCD;&#x53D6;&#x7684;</li>
+<li>&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>this.props</code>&#x4E2D;&#x53D6;&#x51FA;</li>
+<li><em>propTypes</em>&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5B9A;&#x4E49;&#x4F20;&#x5165;&#x7EC4;&#x4EF6;&#x5C5E;&#x6027;&#x7684;&#x540D;&#x79F0;&#x548C;&#x7C7B;&#x578B;</li>
+<li><code>getDefaultProps</code>&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5B9A;&#x4F1A;&#x5F15;&#x8D77;&#x7EC4;&#x4EF6;&#x7684;&#x9ED8;&#x8BA4;&#x5C5E;&#x6027;</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> Person = React.createClass({
+    propTypes: { <span class="hljs-comment">//&#x7C7B;&#x4F3C;&#x4E8E;&#x7EA6;&#x5B9A;&#x4E86;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#x6587;&#x6863;,&#x7528;&#x4E8E;&#x8FD9;&#x662F;&#x9A8C;&#x8BC1;&#x4F20;&#x9012;&#x7ED9;&#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027;&#xFF0C;</span>
+        name: React.PropTypes.string.isRequired, <span class="hljs-comment">//&#x5B9A;&#x4E49;msg&#x7684;&#x5C5E;&#x6027;&#x7C7B;&#x578B;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5FC5;&#x987B;&#x4F20;&#x5165;</span>
+        gender: React.PropTypes.string.isRequired,
+        age:React.PropTypes.number.isRequired
+    },
+    getDefaultProps:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-keyword">return</span> {name:<span class="hljs-string">&apos;&#x65E0;&#x540D;&#x6C0F;&apos;</span>}
+    },
+    render: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> (<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span> {this.props.name} {this.props.gender} {this.props.age}<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>)</span>;<span class="hljs-comment">//&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5C5E;&#x6027;&#x5BF9;&#x8C61;this.props&#x4E2D;&#x53D6;&#x51FA;</span>
+    }
+});
+
+<span class="hljs-keyword">var</span> props = {
+    gender:<span class="hljs-string">&apos;&#x7537;&apos;</span>,
+    age:<span class="hljs-number">18</span>
+}
+
+ReactDOM.render(
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Person</span> {<span class="hljs-attribute">...props</span>} /&gt;</span>,//&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x5728;&#x4F7F;&#x7528;&#x7EC4;&#x4EF6;&#x65F6;&#x4F20;&#x5165;
+    document.getElementById(&apos;app&apos;)
+);
+</span></code></pre>
+<h3 id="t106.3 this.props.children">6.3 this.props.children <a href="#t106.3 this.props.children"> # </a></h3>
+<p><code>this.props</code>&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x4E0E;&#x7EC4;&#x4EF6;&#x5B9E;&#x4F8B;&#x7684;&#x5C5E;&#x6027;&#x4E00;&#x4E00;&#x5BF9;&#x5E94;,&#x4F46;<code>this.props.children</code>&#x5C5E;&#x6027;&#x8868;&#x793A;&#x7EC4;&#x4EF6;&#x7684;&#x6240;&#x6709;&#x5B50;&#x8282;&#x70B9;
+<code>React.Children.map</code>&#x662F;&#x4E00;&#x4E2A;&#x5DE5;&#x5177;&#x65B9;&#x6CD5;&#xFF0C;&#x7528;&#x4E8E;&#x5B9E;&#x73B0;&#x5BF9;&#x6570;&#x7EC4;&#x5143;&#x7D20;&#x7684;&#x6620;&#x5C04;</p>
+<pre><code class="lang-javascript">var Person = React.createClass({
+    render: function() {
+        return (
+            &lt;ol&gt;
+                {
+                    React.Children.map(this.props.children, function (child) {
+                        return &lt;li&gt;{child}&lt;/li&gt;;
+                    })
+                }
+            &lt;/ol&gt;
+        );
+    }
+});
+
+ReactDOM.render(
+    &lt;Person&gt;
+        &lt;span&gt;&#x5927;&#x6BDB;&lt;/span&gt;
+        &lt;span&gt;&#x4E8C;&#x6BDB;&lt;/span&gt;
+        &lt;span&gt;&#x4E09;&#x6BDB;&lt;/span&gt;
+    &lt;/Person&gt;,
+    document.getElementById(&apos;app&apos;)
+);
+</code></pre>
+<h3 id="t116.4 state&#x72B6;&#x6001;">6.4 state&#x72B6;&#x6001; <a href="#t116.4 state&#x72B6;&#x6001;"> # </a></h3>
+<ul>
+<li>&#x7EC4;&#x4EF6;&#x7684;&#x72B6;&#x6001;&#x5C31;&#x50CF;&#x4EBA;&#x7684;&#x5FC3;&#x60C5;&#xFF0C;&#x4F1A;&#x7ECF;&#x5E38;&#x53D8;&#x5316;&#xFF0C;&#x800C;&#x4E14;&#x53EA;&#x80FD;&#x7531;&#x81EA;&#x5DF1;&#x6765;&#x6539;&#x53D8;  </li>
+<li>&#x7EC4;&#x4EF6;&#x4E00;&#x5F00;&#x59CB;&#x6709;&#x4E00;&#x4E2A;&#x521D;&#x59CB;&#x72B6;&#x6001;,&#x7136;&#x540E;&#x7528;&#x6237;&#x4E92;&#x52A8;,&#x5BFC;&#x81F4;&#x72B6;&#x6001;&#x53D8;&#x5316;&#xFF0C;&#x4ECE;&#x800C;&#x89E6;&#x53D1;&#x754C;&#x9762;&#x91CD;&#x65B0;&#x6E32;&#x67D3;</li>
+<li><code>getInitialState</code>&#x7528;&#x6765;&#x5B9A;&#x4E49;&#x521D;&#x59CB;&#x72B6;&#x6001;</li>
+<li>&#x53EF;&#x4EE5;&#x7ED9;&#x6309;&#x94AE;&#x7ED1;&#x5B9A;&#x4E8B;&#x4EF6;&#xFF0C;&#x5F53;&#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#x7684;&#x65F6;&#x5019;&#x8C03;&#x7528;&#x5BF9;&#x5E94;&#x7684;&#x65B9;&#x6CD5;&#x6539;&#x53D8;&#x7EC4;&#x4EF6;&#x7684;&#x72B6;&#x6001;</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> Person = React.createClass({
+    getInitialState: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> {happy: <span class="hljs-literal">true</span>};
+    },
+
+    getDefaultProps:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-keyword">return</span> {name:<span class="hljs-string">&apos;&#x65E0;&#x540D;&#x6C0F;&apos;</span>};
+    },
+    handleClick: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>) </span>{
+        <span class="hljs-keyword">this</span>.setState({happy: !<span class="hljs-keyword">this</span>.state.happy});
+    },
+    render: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> heart = <span class="hljs-keyword">this</span>.state.happy ? <span class="hljs-string">&apos;&#x5F00;&#x5FC3;&apos;</span> : <span class="hljs-string">&apos;&#x4E0D;&#x5F00;&#x5FC3;&apos;</span>;
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">p</span> &gt;</span>
+                 {this.props.name} {heart} <span class="hljs-tag">&lt;<span class="hljs-title">br</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{this.handleClick}</span>&gt;</span>&#x53D8;&#x5FC3;<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+        )</span>;
+    }
+});
+
+ReactDOM.render(
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Person</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;&#x6797;&#x5FD7;&#x73B2;&quot;</span> /&gt;</span>,
+    document.getElementById(&apos;app&apos;)
+);
+</span></code></pre>
+<p>&#x5E38;&#x7528;&#x7684;&#x4E8B;&#x4EF6;</p>
+<pre><code class="lang-javascript">&#x526A;&#x8D34;&#x677F;&#x4E8B;&#x4EF6; onKeyDown onKeyPress onKeyUp
+&#x952E;&#x76D8;&#x4E8B;&#x4EF6; onFocus onBlur
+&#x7126;&#x70B9;&#x4E8B;&#x4EF6; onChange onInput onSubmit
+&#x9F20;&#x6807;&#x4E8B;&#x4EF6; onClick onDoubleClick onMouseDown onMouseEnter onMouseLeave
+</code></pre>
+<h3 id="t126.5 &#x8868;&#x5355;&#x5143;&#x7D20;&#x53CC;&#x5411;&#x6570;&#x636E;&#x7ED1;&#x5B9A;">6.5 &#x8868;&#x5355;&#x5143;&#x7D20;&#x53CC;&#x5411;&#x6570;&#x636E;&#x7ED1;&#x5B9A; <a href="#t126.5 &#x8868;&#x5355;&#x5143;&#x7D20;&#x53CC;&#x5411;&#x6570;&#x636E;&#x7ED1;&#x5B9A;"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> Input = React.createClass({
+    getInitialState: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{<span class="hljs-comment">//&#x83B7;&#x53D6;&#x521D;&#x59CB;&#x72B6;&#x6001;</span>
+        <span class="hljs-keyword">return</span> {value: <span class="hljs-string">&apos;&#x73E0;&#x5CF0;&#x57F9;&#x8BAD;&apos;</span>};
+    },
+    handleChange: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>) </span>{ <span class="hljs-comment">//&#x5904;&#x7406;&#x6539;&#x53D8;&#x4E8B;&#x4EF6;</span>
+        <span class="hljs-keyword">this</span>.setState({value: event.target.value});
+    },
+    render: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> value = <span class="hljs-keyword">this</span>.state.value;
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{{color:&apos;red&apos;}}</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text&quot;</span> <span class="hljs-attribute">value</span>=<span class="hljs-value">{value}</span> <span class="hljs-attribute">onChange</span>=<span class="hljs-value">{this.handleChange}</span> /&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>{value}<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        )</span>;
+    }
+});
+
+ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Input</span>/&gt;</span>, document.getElementById(&apos;app&apos;));
+</span></code></pre>
+<blockquote>
+<p>&#x6CE8;&#x610F;: &#x5982;&#x679C;&#x7ED9;&#x8868;&#x5355;&#x5143;&#x7D20;&#x8BBE;&#x7F6E;&#x4E86;<code>value</code>&#x5C5E;&#x6027;&#xFF0C;&#x5219;&#x5FC5;&#x987B;&#x6307;&#x5B9A;<code>onChange</code>&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;&#xFF0C;&#x5426;&#x5219; &#x6B64;&#x5B57;&#x6BB5;&#x4F1A;&#x53D8;&#x6210;&#x53EA;&#x8BFB;&#x72B6;&#x6001; </p>
+</blockquote>
+<h2 id="t137. &#x590D;&#x5408;&#x7EC4;&#x4EF6;">7. &#x590D;&#x5408;&#x7EC4;&#x4EF6; <a href="#t137. &#x590D;&#x5408;&#x7EC4;&#x4EF6;"> # </a></h2>
+<p>&#x591A;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x7EC4;&#x4EF6;&#x5D4C;&#x5957;&#xFF0C;&#x53EF;&#x6784;&#x6210;&#x4E00;&#x4E2A;&#x590D;&#x6742;&#x7684;&#x590D;&#x5408;&#x7EC4;&#x4EF6;&#xFF0C;&#x4ECE;&#x800C;&#x5B8C;&#x6210;&#x590D;&#x6742;&#x7684;&#x4EA4;&#x4E92;&#x903B;&#x8F91;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> Panel = React.createClass({
+    render: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;panel panel-default&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">PanelHead</span> <span class="hljs-attribute">head</span>=<span class="hljs-value">{this.props.head}</span>/&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">PanelBody</span> <span class="hljs-attribute">body</span>=<span class="hljs-value">{this.props.body}</span>/&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        )</span>;
+    }
+});
+
+
+<span class="hljs-keyword">var</span> PanelHead = React.createClass({
+    render: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;panel-heading&quot;</span>&gt;</span>
+                {this.props.head}
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        )</span>;
+    }
+});
+
+
+<span class="hljs-keyword">var</span> PanelBody = React.createClass({
+    render: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;panel-body&quot;</span>&gt;</span>
+                {this.props.body}
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        )</span>;
+    }
+});
+
+ReactDOM.render(
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Panel</span>
+        <span class="hljs-attribute">head</span>=<span class="hljs-value">&quot;&#x5934;&#x90E8;&quot;</span>
+        <span class="hljs-attribute">body</span>=<span class="hljs-value">&quot;&#x6B63;&#x6587;&quot;</span>
+    /&gt;</span>,
+    document.getElementById(&apos;app&apos;)
+);
+</span></code></pre>
+<h2 id="t148. &#x7EC4;&#x4EF6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;">8. &#x7EC4;&#x4EF6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F; <a href="#t148. &#x7EC4;&#x4EF6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;"> # </a></h2>
+<p>React&#x4E2D;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x5728;&#x7EC4;&#x4EF6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x7684;&#x4E0D;&#x540C;&#x9636;&#x6BB5;&#x6267;&#x884C;&#x7684;&#x51FD;&#x6570;</p>
+<ul>
+<li>&#x6E32;&#x67D3;&#x524D;<ul>
+<li>getDefaultProps  &#x5728;&#x7EC4;&#x4EF6;&#x7C7B;&#x521B;&#x5EFA;&#x7684;&#x65F6;&#x5019;&#x8C03;&#x7528;&#x4E00;&#x6B21;,&#x5219;&#x6B64;&#x5904;&#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x76F8;&#x5E94;&#x5C5E;&#x6027;&#x5C06;&#x4F1A;&#x5408;&#x5E76;&#x5230;<code>this.props</code></li>
+<li>getInitialState &#x5728;&#x7EC4;&#x4EF6;&#x6302;&#x8F7D;&#x4E4B;&#x524D;&#x8C03;&#x7528;&#x4E00;&#x6B21;&#x3002;&#x8FD4;&#x56DE;&#x503C;&#x5C06;&#x4F1A;&#x4F5C;&#x4E3A;<code>this.state</code>&#x7684;&#x521D;&#x59CB;&#x503C;&#x3002;</li>
+<li>componentWillMount &#x5728;&#x9996;&#x6B21;&#x6E32;&#x67D3;&#x4E4B;&#x524D;&#x89E6;&#x53D1;</li>
+</ul>
+</li>
+<li>&#x6E32;&#x67D3;    <ul>
+<li>render &#x5F53;&#x8C03;&#x7528;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x68C0;&#x6D4B;<code>this.props</code>&#x548C;<code>this.state</code>&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;</li>
+</ul>
+</li>
+<li>&#x6E32;&#x67D3;&#x540E;    <ul>
+<li>componentDidMount &#x5728;&#x521D;&#x59CB;&#x5316;&#x6E32;&#x67D3;&#x6267;&#x884C;&#x4E4B;&#x540E;&#x7ACB;&#x523B;&#x8C03;&#x7528;&#x4E00;&#x6B21;</li>
+<li>shouldComponentUpdate &#x5728;&#x63A5;&#x6536;&#x5230;&#x65B0;&#x7684;<code>props</code>&#x6216;&#x8005;<code>state</code>&#xFF0C;&#x5C06;&#x8981;&#x6E32;&#x67D3;&#x4E4B;&#x524D;&#x8C03;&#x7528;,&#x8FD4;&#x56DE;<code>false</code>&#x5219;&#x4E0D;&#x66F4;&#x65B0;&#x7EC4;&#x4EF6;</li>
+<li>componentWillUpdate &#x505A;&#x4E00;&#x4E9B;&#x66F4;&#x65B0;&#x4E4B;&#x524D;&#x7684;&#x51C6;&#x5907;&#x5DE5;&#x4F5C;</li>
+<li>componentDidUpdate &#x66F4;&#x65B0;&#x4E4B;&#x540E;&#x89E6;&#x53D1;</li>
+<li>componentWillReceiveProps &#x5728;&#x7EC4;&#x4EF6;&#x63A5;&#x6536;&#x5230;&#x65B0;&#x7684;<code>props</code>&#x7684;&#x65F6;&#x5019;&#x8C03;&#x7528;  </li>
+</ul>
+</li>
+<li>&#x79FB;&#x9664;    <ul>
+<li>componentWillUnmount &#x5728;&#x7EC4;&#x4EF6;&#x4ECE;DOM&#x4E2D;&#x79FB;&#x9664;&#x7684;&#x65F6;&#x5019;&#x7ACB;&#x523B;&#x88AB;&#x8C03;&#x7528;</li>
+<li>componentDidUnmount &#x7EC4;&#x4EF6;&#x79FB;&#x9664;&#x4E4B;&#x540E;&#x8C03;&#x7528;</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> MessageBox = React.createClass({
+    getInitialState: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;MessageBox.getInitialState&apos;</span>);
+        <span class="hljs-keyword">return</span> {
+            count: <span class="hljs-number">0</span>,
+        }
+    },
+    getDefaultProps: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;MessageBox.getDefaultProps&apos;</span>);
+    },
+    componentWillMount: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;MessageBox.componentWillMount&apos;</span>);
+    },
+    componentDidMount: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;MessageBox.componentDidMount&apos;</span>);
+    },
+    componentWillUnmount: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;MessageBox.componentWillUnmount&apos;</span>);
+    },
+    shouldComponentUpdate: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">nextProp, nextState</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;MessageBox.shouldComponentUpdate&apos;</span>);
+        <span class="hljs-keyword">if</span> (nextState.count &gt; <span class="hljs-number">10</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    },
+    componentWillUpdate: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">nextProp, nextState</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;MessageBox.componentWillUpdate&apos;</span>);
+    },
+    componentDidUpdate: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;MessageBox.componentDidUpdate&apos;</span>);
+    },
+    killMySelf: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        ReactDOM.unmountComponentAtNode(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;app&apos;</span>));
+    },
+    doUpdate: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">this</span>.setState({
+            count: <span class="hljs-keyword">this</span>.state.count + <span class="hljs-number">1</span>,
+        });
+    },
+    render: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">h1</span> &gt;</span> &#x8BA1;&#x6570;&#xFF1A; {this.state.count}<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{this.killMySelf}</span>&gt;</span>&#x5378;&#x8F7D;&#x6389;&#x8FD9;&#x4E2A;&#x7EC4;&#x4EF6;<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{this.doUpdate}</span>&gt;</span>&#x624B;&#x52A8;&#x66F4;&#x65B0;&#x4E00;&#x4E0B;&#x7EC4;&#x4EF6;&#xFF08;&#x5305;&#x62EC;&#x5B50;&#x7EC4;&#x4EF6;&#xFF09;<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">Submessage</span> <span class="hljs-attribute">count</span>=<span class="hljs-value">{this.state.count}</span>/&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        )</span>
+    }
+});
+
+<span class="hljs-keyword">var</span> Submessage = React.createClass({
+    componentWillReceiveProps: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">nextProp</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Submessage.componentWillReceiveProps&apos;</span>);
+    },
+    shouldComponentUpdate: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">nextProp, nextState</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Submessage.shouldComponentUpdate&apos;</span>);
+        <span class="hljs-keyword">if</span> (nextProp.count &gt; <span class="hljs-number">5</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    },
+    render: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">h3</span>&gt;</span>&#x5F53;&#x524D;&#x8BA1;&#x6570;&#x662F;&#xFF1A;{this.props.count}<span class="hljs-tag">&lt;/<span class="hljs-title">h3</span>&gt;</span>
+        )</span>
+    }
+});
+
+ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">MessageBox</span>/&gt;</span>, document.getElementById(&apos;app&apos;));
+</span></code></pre>
+<blockquote>
+<p>ReactDOM.unmountComponentAtNode &#x4ECE;DOM&#x4E2D;&#x79FB;&#x9664;&#x5DF2;&#x7ECF;&#x6302;&#x8F7D;&#x7684;React&#x7EC4;&#x4EF6;</p>
+</blockquote>
+<h2 id="t159. DOM&#x64CD;&#x4F5C;">9. DOM&#x64CD;&#x4F5C; <a href="#t159. DOM&#x64CD;&#x4F5C;"> # </a></h2>
+<p>&#x7ED9;&#x7EC4;&#x4EF6;&#x52A0;&#x4E0A;<code>ref=&quot;xxx&quot;</code>&#x540E;&#xFF0C;&#x53EF;&#x5728;&#x7236;&#x7EC4;&#x4EF6;&#x4E2D;&#x901A;&#x8FC7;<code>this.refs.xxx</code>&#x83B7;&#x53D6;&#x8BE5;DOM&#x5143;&#x7D20;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> Focus = React.createClass({
+    handleClick: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">this</span>.refs.msg.focus();
+    },
+    render: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text&quot;</span> <span class="hljs-attribute">ref</span>=<span class="hljs-value">&quot;msg&quot;</span> /&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">value</span>=<span class="hljs-value">&quot;&#x83B7;&#x5F97;&#x7126;&#x70B9;&quot;</span> <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{this.handleClick}</span> /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        )</span>;
+    }
+});
+
+ReactDOM.render(
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Focus</span> /&gt;</span>,
+    document.getElementById(&apos;app&apos;)
+);
+</span></code></pre>
+<h2 id="t1610.&#x901A;&#x8FC7;Ajax&#x83B7;&#x53D6;&#x6570;&#x636E;">10.&#x901A;&#x8FC7;Ajax&#x83B7;&#x53D6;&#x6570;&#x636E; <a href="#t1610.&#x901A;&#x8FC7;Ajax&#x83B7;&#x53D6;&#x6570;&#x636E;"> # </a></h2>
+<pre><code>var Suggestion = React.createClass({
+    getInitialState:function(){
+      return {}
+    },
+    handleChange: function () {
+        var value = this.refs.input.value;
+        $.ajax({
+            url: &apos;http://www.baidu.com/su&apos;,
+            type: &apos;get&apos;,
+            jsonp: &apos;cb&apos;,
+            dataType: &apos;jsonp&apos;,
+            data: {wd: value},
+            processDate: true,
+            context:this,
+            success: function (result) {
+                var data = result.s;
+                data = data.map(function(item){
+                    return &lt;li&gt;{item}&lt;/li&gt;
+                });
+                this.setState({content:data});
+            }
+        })
+    },
+    render: function () {
+        return (
+            &lt;div&gt;
+                &lt;input type=&quot;text&quot; ref=&quot;input&quot; onChange={this.handleChange}/&gt;
+                &lt;ul&gt;
+                    {this.state.content}
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        )
+    }
+});
+
+ReactDOM.render(&lt;Suggestion&gt;&lt;/Suggestion&gt;, document.getElementById(&apos;app&apos;));
+</code></pre><h2 id="t1711. mixin">11. mixin <a href="#t1711. mixin"> # </a></h2>
+<p>&#x516C;&#x7528;&#x62BD;&#x53D6;&#x51FA;&#x6765;,&#x8BA9;&#x4E0D;&#x540C;&#x7684;&#x7EC4;&#x4EF6;&#x5171;&#x7528;&#x540C;&#x4E00;&#x90E8;&#x5206;&#x903B;&#x8F91;&#xFF0C;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#x91CD;&#x7528;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> counterMix = {
+    getInitialState:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-keyword">return</span> {count:<span class="hljs-number">0</span>};
+    },
+    componentWillUpdate:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;componentWillUpdate&apos;</span>);
+    },
+    handleClick:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-keyword">this</span>.setState({count:<span class="hljs-keyword">this</span>.state.count+<span class="hljs-number">1</span>});
+    }
+}
+<span class="hljs-keyword">var</span> Counter1 = React.createClass({
+   mixins: [counterMix],
+   render:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+       <span class="hljs-keyword">return</span> (
+           <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+               {this.state.count}
+               <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{this.handleClick}</span>&gt;</span>&#x589E;&#x52A0;<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+           <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+       )</span>
+   }
+});
+<span class="hljs-keyword">var</span> Counter2 = React.createClass({
+    mixins: [counterMix],
+    render:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+                {this.state.count}
+                <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{this.handleClick}</span>&gt;</span>&#x589E;&#x52A0;<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        )</span>
+    }
+});
+ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">Counter1</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">Counter2</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>,document.getElementById(&apos;app&apos;));
+</span></code></pre>
+<h2 id="t1812. &#x63D2;&#x4EF6;&#x5B9E;&#x73B0;&#x53CC;&#x5411;&#x6570;&#x636E;&#x7ED1;&#x5B9A;">12. &#x63D2;&#x4EF6;&#x5B9E;&#x73B0;&#x53CC;&#x5411;&#x6570;&#x636E;&#x7ED1;&#x5B9A; <a href="#t1812. &#x63D2;&#x4EF6;&#x5B9E;&#x73B0;&#x53CC;&#x5411;&#x6570;&#x636E;&#x7ED1;&#x5B9A;"> # </a></h2>
+<p>&#x5728;<code>index.html</code>&#x5F15;&#x5165;&#x63D2;&#x4EF6;</p>
+<pre><code>+ &lt;script src=&quot;lib/react/react-with-addons.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>JS&#x5B9E;&#x73B0;</p>
+<pre><code>var Input = React.createClass({
+    mixins:[React.addons.LinkedStateMixin],
+    getInitialState: function() {//&#x83B7;&#x53D6;&#x521D;&#x59CB;&#x72B6;&#x6001;
+        return {msg: &apos;&#x73E0;&#x5CF0;&#x57F9;&#x8BAD;&apos;};
+    },
+    render: function () {
+        var msg = this.state.msg;
+        return (
+            &lt;div&gt;
+                &lt;input type=&quot;text&quot; valueLink={this.linkState(&apos;msg&apos;)} /&gt;
+                &lt;p&gt;{msg}&lt;/p&gt;
+            &lt;/div&gt;
+        );
+    }
+});
+
+ReactDOM.render(&lt;Input/&gt;, document.getElementById(&apos;app&apos;));
+</code></pre><h2 id="t1913.&#x73E0;&#x5CF0;&#x7559;&#x8A00;&#x7248;">13.&#x73E0;&#x5CF0;&#x7559;&#x8A00;&#x7248; <a href="#t1913.&#x73E0;&#x5CF0;&#x7559;&#x8A00;&#x7248;"> # </a></h2>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> Board = React.createClass({
+    getInitialState: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> {
+            msg: <span class="hljs-string">&apos;&#x8BF7;&#x8F93;&#x5165;&apos;</span>,
+            messages:<span class="hljs-keyword">this</span>.props.messages
+        };
+    },
+    render: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>{this.props.title}<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text&quot;</span> <span class="hljs-attribute">defaultValue</span>=<span class="hljs-value">{this.state.msg}</span> <span class="hljs-attribute">ref</span>=<span class="hljs-value">&quot;txtMsg&quot;</span> <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{this.clear}</span>/&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">value</span>=<span class="hljs-value">&apos;&#x53D1;&#x8A00;&apos;</span> <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{this.leaveMsg}</span>/&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">ul</span>&gt;</span>
+                    {
+                        this.state.messages.map(function (item, index) {
+                            return <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">key</span>=<span class="hljs-value">{index}</span>&gt;</span>{item}<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                        })
+                    }
+                <span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        )</span>
+    },
+    clear:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-keyword">this</span>.refs.txtMsg.value =  <span class="hljs-string">&apos;&apos;</span>;
+    },
+    leaveMsg: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>{
+       <span class="hljs-keyword">this</span>.state.messages.push(<span class="hljs-keyword">this</span>.refs.txtMsg.value);
+       localStorage.setItem(<span class="hljs-string">&apos;messages&apos;</span>,<span class="hljs-built_in">JSON</span>.stringify(<span class="hljs-keyword">this</span>.state.messages));<span class="hljs-comment">//&#x6BCF;&#x6B21;&#x72B6;&#x6001;&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;state&#x5BF9;&#x8C61;</span>
+       <span class="hljs-keyword">this</span>.setState({
+           messages:<span class="hljs-keyword">this</span>.state.messages
+       },<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+           <span class="hljs-keyword">this</span>.refs.txtMsg.value =  <span class="hljs-string">&apos;&apos;</span>;
+       });
+    }
+})
+<span class="hljs-keyword">var</span> data = {
+    title: <span class="hljs-string">&apos;&#x73E0;&#x5CF0;&#x7559;&#x8A00;&#x7248;&apos;</span>,
+    messages: <span class="hljs-built_in">JSON</span>.parse(localStorage.getItem(<span class="hljs-string">&apos;messages&apos;</span>))||[]
+}
+
+ReactDOM.render(
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Board</span> {<span class="hljs-attribute">...data</span>}/&gt;</span>,
+    document.getElementById(&apos;app&apos;)
+);
+</span></code></pre>
+
+
+        </div>
+    
+</div>
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    /*url("/static/img/banner.jpg") no-repeat*/
+    .bs-docs-header{
+        background:linear-gradient(to right ,#333333 50%,#0d0b0c 50%) ;
+        padding: 0;
+    }
+    .new-back{
+        background-image: url("static/img/banner.jpg") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 88px;
+    }
+    .markdown-body pre code,.markdown-body code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .markdown-body code{
+      line-height: inherit;
+    }
+    .markdown-body h3{
+        font-size:1.4em;
+    }
+    .markdown-body h4{
+        font-size:1em;
+    }
+
+
+
+    /*index*/
+    .jw-style{
+        font-size: 1.75em;
+        color: #1d3e81;
+        line-height: 2em;
+    }
+
+    .understand-me {
+        text-align: center;
+        margin: 100px auto 0;
+    }
+
+    .understand-me li {
+        vertical-align: top;
+        width: 33.3333%;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+    }
+
+    .understand-me li span {
+        color: #1a1a1a;
+        font-size: 1.6em;
+
+    }
+
+    .understand-me p {
+        margin: 0 auto;
+        width: 90%;
+        text-align: left;
+        color: #4c4c4c;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    .understand-me img {
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .footers{
+        background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px
+    }
+    .understand-me img:hover {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    @media screen and (max-width: 479px) {
+        .understand-me li{
+            width: 100%;
+            margin-bottom: 2em;
+        }
+        .new-back{
+            padding: 28px;
+        }
+        .understand-me p {
+            width: 60%;
+        }
+        .footers{
+            height: 80px;
+            background-size:auto 100%;;
+        }
+    }
+
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+if(!$('.understand-me').length){
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h1,h2,h3,h4,h5,h6").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+}
+</script>
+
+</body>
+</html>
+
+
+<script>
+
+</script>
