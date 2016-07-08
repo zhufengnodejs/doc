@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>珠峰JS全栈</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                珠峰JS全栈
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>前端工程化</a><ul></ul></li><li><a href="#"><span></span>数据库</a><ul></ul></li><li><a href="#"><span></span>CSS</a><ul><li><a href="../../html/CSS/less.html">less</a></li></ul></li><li><a href="#"><span></span>Git</a><ul><li><a href="../../html/Git/git安装.html">git安装</a></li><li><a href="../../html/Git/git.html">git</a></li></ul></li><li><a href="#"><span></span>HTML</a><ul></ul></li><li><a href="#"><span></span>JAVASCRIPT</a><ul><li><a href="../../html/JAVASCRIPT/ES6.html">ES6</a></li><li><a href="../../html/JAVASCRIPT/缓存.html">缓存</a></li><li><a href="../../html/JAVASCRIPT/jquery同步和异步.html">jquery同步和异步</a></li><li><a href="../../html/JAVASCRIPT/属性设置.html">属性设置</a></li><li><a href="../../html/JAVASCRIPT/模块化开发.html">模块化开发</a></li><li><a href="../../html/JAVASCRIPT/js常用方法.html">js常用方法</a></li><li><a href="../../html/JAVASCRIPT/初识JS.html">初识JS</a></li><li><a href="../../html/JAVASCRIPT/原型链.html">原型链</a></li><li><a href="../../html/JAVASCRIPT/预解析作用域闭包this.html">预解析作用域闭包this</a></li><li><a href="../../html/JAVASCRIPT/webstorage.html">webstorage</a></li><li class="active"><a href="../../html/JAVASCRIPT/blog2.html">blog2</a></li></ul></li><li><a href="#"><span></span>NODEJS</a><ul><li><a href="../../html/NODEJS/加密.html">加密</a></li><li><a href="../../html/NODEJS/动态服务器.html">动态服务器</a></li><li><a href="../../html/NODEJS/压缩.html">压缩</a></li><li><a href="../../html/NODEJS/静态文件服务器.html">静态文件服务器</a></li><li><a href="../../html/NODEJS/cookie.html">cookie</a></li><li><a href="../../html/NODEJS/Express.html">Express</a></li><li><a href="../../html/NODEJS/session.html">session</a></li><li><a href="../../html/NODEJS/珠峰博客.html">珠峰博客</a></li></ul></li><li><a href="#"><span></span>工具</a><ul></ul></li><li><a href="#"><span></span>微信</a><ul><li><a href="../../html/微信/微信入门.html">微信入门</a></li></ul></li><li><a href="#"><span></span>面试</a><ul><li><a href="../../html/面试/CSS.html">CSS</a></li><li><a href="../../html/面试/JAVASCRIPT.html">JAVASCRIPT</a></li><li><a href="../../html/面试/其它.html">其它</a></li><li><a href="../../html/面试/性能优化.html">性能优化</a></li></ul></li><li><a href="#"><span></span>框架和库</a><ul><li><a href="../../html/框架和库/babel.html">babel</a></li><li><a href="../../html/框架和库/bower.html">bower</a></li><li><a href="../../html/框架和库/gulp.html">gulp</a></li><li><a href="../../html/框架和库/NPM.html">NPM</a></li><li><a href="../../html/框架和库/promise.html">promise</a></li><li><a href="../../html/框架和库/react-router.html">react-router</a></li><li><a href="../../html/框架和库/react.html">react</a></li><li><a href="../../html/框架和库/react基础应用.html">react基础应用</a></li><li><a href="../../html/框架和库/react路由应用.html">react路由应用</a></li><li><a href="../../html/框架和库/webpack.html">webpack</a></li></ul></li></ul>
+        </div>
+        
+        <!---->
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+    
+        <div class="page-toc">
+            <ul><li><a href="#t07  连接数据库">7  连接数据库</a><ul><li><a href="#t17.1 安装数据库支持">7.1 安装数据库支持</a></li><li><a href="#t27.2 创建配置文件">7.2 创建配置文件</a></li><li><a href="#t37.3 创建db文件夹">7.3 创建db文件夹</a></li><li><a href="#t47.4 创建模型文件夹">7.4 创建模型文件夹</a></li><li><a href="#t57.5 定义模型">7.5 定义模型</a></li><li><a href="#t67.6 在app.js中引入此模块">7.6 在app.js中引入此模块</a></li></ul></li><li><a href="#t78 会话支持">8 会话支持</a><ul><li><a href="#t88.1 安装会话支持模块">8.1 安装会话支持模块</a></li><li><a href="#t98.2 修改app.js">8.2 修改app.js</a></li></ul></li><li><a href="#t109 用户注册登陆">9 用户注册登陆</a><ul><li><a href="#t119.1 增加工具方法">9.1 增加工具方法</a></li><li><a href="#t129.2 用户注册路由">9.2 用户注册路由</a></li><li><a href="#t139.3 用户登陆路由">9.3 用户登陆路由</a></li><li><a href="#t149.4 用户退出路由">9.4 用户退出路由</a></li></ul></li><li><a href="#t1510 发表文章路由">10 发表文章路由</a></li><li><a href="#t1611 页面消息通知">11 页面消息通知</a></li><li><a href="#t1711.1 什么是 flash?">11.1 什么是 flash?</a></li><li><a href="#t1811.2  安装模块">11.2  安装模块</a></li><li><a href="#t1911.3  导入模块">11.3  导入模块</a><ul><li><a href="#t2011.4 发表文章成功提示">11.4 发表文章成功提示</a></li><li><a href="#t2111.5 在页面里增加显示提示的区域">11.5 在页面里增加显示提示的区域</a></li><li><a href="#t2211.6  用session中的值为模板赋默认值">11.6  用session中的值为模板赋默认值</a></li></ul></li><li><a href="#t2312 控制导航">12 控制导航</a></li><li><a href="#t2413 页面权限控制">13 页面权限控制</a><ul><li><a href="#t2513.1  添加中间件">13.1  添加中间件</a></li><li><a href="#t2613.2   在路由中添加中间件">13.2   在路由中添加中间件</a></li></ul></li><li><a href="#t2714 显示文章列表">14 显示文章列表</a></li><li><a href="#t2814.1 修改首页模板">14.1 修改首页模板</a></li><li><a href="#t2914.2 修改路由">14.2 修改路由</a></li><li><a href="#t3014 支持markdown">14 支持markdown</a></li><li><a href="#t3114.1 安装markdown">14.1 安装markdown</a></li><li><a href="#t3214.2  修改路由">14.2  修改路由</a></li><li><a href="#t3315 文章详情页">15 文章详情页</a><ul><li><a href="#t3415.1   修改首页">15.1   修改首页</a></li><li><a href="#t3515.2 修改路由">15.2 修改路由</a></li><li><a href="#t3615.3 增加详情页">15.3 增加详情页</a></li></ul></li><li><a href="#t3716 删除文章">16 删除文章</a><ul><li><a href="#t3816.1 修改详情页">16.1 修改详情页</a></li><li><a href="#t3916.2 修改路由">16.2 修改路由</a></li></ul></li><li><a href="#t4017 编辑文章">17 编辑文章</a><ul><li><a href="#t4117.1 修改详情页">17.1 修改详情页</a></li><li><a href="#t4217.2 修改添加文章界面">17.2 修改添加文章界面</a></li><li><a href="#t4317.3 修改路由">17.3 修改路由</a></li></ul></li><li><a href="#t4418 搜索和分页">18 搜索和分页</a><ul><li><a href="#t4518.1 在导航栏增加搜索框">18.1 在导航栏增加搜索框</a></li><li><a href="#t4618.2  在首页增加分页条">18.2  在首页增加分页条</a></li><li><a href="#t4718.3 首页导航重定向到文章列表页">18.3 首页导航重定向到文章列表页</a></li><li><a href="#t4818.4  增加文章列表导航">18.4  增加文章列表导航</a></li></ul></li><li><a href="#t4919 实现评论功能">19 实现评论功能</a><ul><li><a href="#t5019.1 修改模板">19.1 修改模板</a></li><li><a href="#t5119.2 修改模型">19.2 修改模型</a></li><li><a href="#t5219.3  修改路由">19.3  修改路由</a></li></ul></li><li><a href="#t5320 显示PV和评论">20 显示PV和评论</a><ul><li><a href="#t5420.1 安装async">20.1 安装async</a></li><li><a href="#t5520.2 修改模型">20.2 修改模型</a></li><li><a href="#t5620.3 修改路由">20.3 修改路由</a></li><li><a href="#t5720.4 修改模板">20.4 修改模板</a></li></ul></li><li><a href="#t5821. 美化404中间件">21. 美化404中间件</a><ul><li><a href="#t5921.1 修改404中间件">21.1 修改404中间件</a></li><li><a href="#t6021.2 增加404页面模板">21.2 增加404页面模板</a></li></ul></li><li><a href="#t6122 打印日志">22 打印日志</a></li><li><a href="#t6223 发布heroKu">23 发布heroKu</a></li><li><a href="#t6323.1 注册heroku">23.1 注册heroku</a><ul><li><a href="#t6423.2 先打开注册界面输入注册信息">23.2 先打开注册界面输入注册信息</a></li><li><a href="#t6523.3 验证邮箱(可用qq,不能126 163等)">23.3 验证邮箱(可用qq,不能126 163等)</a></li><li><a href="#t6623.4 查看邮箱点击激活链接">23.4 查看邮箱点击激活链接</a></li><li><a href="#t6723.5 需要设置密码">23.5 需要设置密码</a></li><li><a href="#t6823.6 验证成功">23.6 验证成功</a></li><li><a href="#t6923.7 进入控制面板">23.7 进入控制面板</a></li><li><a href="#t7023.8 输入app名称">23.8 输入app名称</a></li><li><a href="#t7123.9 将此APP关联到github上">23.9 将此APP关联到github上</a></li><li><a href="#t7223.10 点击布署分支">23.10 点击布署分支</a></li><li><a href="#t7323.11 发布结果">23.11 发布结果</a></li></ul></li></ul>
+        </div>
+
+        <div class="content markdown-body">
+
+            <h3 id="t07  &#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;">7  &#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93; <a href="#t07  &#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;"> # </a></h3>
+<h4 id="t17.1 &#x5B89;&#x88C5;&#x6570;&#x636E;&#x5E93;&#x652F;&#x6301;">7.1 &#x5B89;&#x88C5;&#x6570;&#x636E;&#x5E93;&#x652F;&#x6301; <a href="#t17.1 &#x5B89;&#x88C5;&#x6570;&#x636E;&#x5E93;&#x652F;&#x6301;"> # </a></h4>
+<p>&#x5B89;&#x88C5;mongodb&#x6A21;&#x5757;&#x5230;node_modules&#x4E0B;&#x9762;&#x5E76;&#x628A;&#x6B64;&#x914D;&#x7F6E;&#x6DFB;&#x52A0;&#x5230;<code>package.json</code>&#x6587;&#x4EF6;&#x4E2D;</p>
+<pre><code>$ npm install mongoose --save
+</code></pre><h4 id="t27.2 &#x521B;&#x5EFA;&#x914D;&#x7F6E;&#x6587;&#x4EF6;">7.2 &#x521B;&#x5EFA;&#x914D;&#x7F6E;&#x6587;&#x4EF6; <a href="#t27.2 &#x521B;&#x5EFA;&#x914D;&#x7F6E;&#x6587;&#x4EF6;"> # </a></h4>
+<p>&#x5728;&#x5DE5;&#x7A0B;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA; <code>settings.js</code> &#x6587;&#x4EF6;,&#x5185;&#x5BB9;&#x5982;&#x4E0B;</p>
+<pre><code>    module.exports = {
+        cookieSecret:&apos;zhufengkey&apos;, &#x7528;&#x4E8E; Cookie &#x52A0;&#x5BC6;&#x4E0E;&#x6570;&#x636E;&#x5E93;&#x65E0;&#x5173;
+        db:&apos;zhufengblog&apos;, &#x6570;&#x636E;&#x5E93;&#x7684;&#x540D;&#x79F0;
+        host:&apos;123.57.143.189&apos;, &#x6570;&#x636E;&#x5E93;&#x7684;&#x5730;&#x5740;
+        port:27017,  &#x6570;&#x636E;&#x5E93;&#x7684;&#x7AEF;&#x53E3;&#x53F7;
+        url:&quot;mongodb://123.57.143.189:27017/zhufengblog&quot;
+    }
+</code></pre><h4 id="t37.3 &#x521B;&#x5EFA;db&#x6587;&#x4EF6;&#x5939;">7.3 &#x521B;&#x5EFA;db&#x6587;&#x4EF6;&#x5939; <a href="#t37.3 &#x521B;&#x5EFA;db&#x6587;&#x4EF6;&#x5939;"> # </a></h4>
+<h4 id="t47.4 &#x521B;&#x5EFA;&#x6A21;&#x578B;&#x6587;&#x4EF6;&#x5939;">7.4 &#x521B;&#x5EFA;&#x6A21;&#x578B;&#x6587;&#x4EF6;&#x5939; <a href="#t47.4 &#x521B;&#x5EFA;&#x6A21;&#x578B;&#x6587;&#x4EF6;&#x5939;"> # </a></h4>
+<p>&#x5728;db&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x521B;&#x5EFA;&#x6587;&#x4EF6;<code>models.js</code>,&#x6B64;&#x6587;&#x4EF6;&#x5B58;&#x653E;&#x7740;&#x6240;&#x6709;&#x7684;&#x6A21;&#x578B;</p>
+<pre><code>    var mongoose = require(&apos;mongoose&apos;);
+    var ObjectId = mongoose.Schema.Types.ObjectId;
+    module.exports = {
+        User:{ &#x8BBE;&#x7F6E;User&#x7684;&#x6570;&#x636E;&#x6A21;&#x578B; 
+            username:{type:String,required:true},&#x7528;&#x6237;&#x540D;
+            password:{type:String,required:true},&#x5BC6;&#x7801;
+            email:{type:String,required:true},&#x90AE;&#x7BB1;
+            avatar:{type:String,required:true}&#x5934;&#x50CF;
+        },
+        Article: { &#x8BBE;&#x7F6E;&#x6587;&#x7AE0;&#x7684;&#x6570;&#x636E;&#x6A21;&#x578B;
+            user:{type:ObjectId,ref:&apos;User&apos;}, &#x7528;&#x6237;
+            title: String, &#x6807;&#x9898;
+            content: String, &#x5185;&#x5BB9;
+            createAt:{type: Date, default: Date.now} &#x521B;&#x5EFA;&#x65F6;&#x95F4;
+        }
+    }
+</code></pre><h4 id="t57.5 &#x5B9A;&#x4E49;&#x6A21;&#x578B;">7.5 &#x5B9A;&#x4E49;&#x6A21;&#x578B; <a href="#t57.5 &#x5B9A;&#x4E49;&#x6A21;&#x578B;"> # </a></h4>
+<p>&#x6B64;&#x6587;&#x4EF6;&#x8D1F;&#x8D23;&#x5411;&#x5916;&#x66B4;&#x9732;&#x6A21;&#x578B;,&#x56E0;&#x4E3A;Model&#x8D4B;&#x7ED9;&#x4E86;global&#x4F5C;&#x4E3A;&#x5C5E;&#x6027;&#xFF0C;&#x90A3;&#x5C31;&#x610F;&#x5473;&#x7740;&#x5728;&#x7A0B;&#x5E8F;&#x4EFB;&#x4F55;&#x5730;&#x65B9;&#x90FD;&#x53EF;&#x4EE5;&#x8C03;&#x7528;&#x4E86;</p>
+<pre><code>  var mongoose = require(&apos;mongoose&apos;),
+        Schema = mongoose.Schema,
+        models = require(&apos;./models&apos;);
+    var settings = require(&apos;../settings&apos;);    
+    mongoose.connect(settings.url);
+    mongoose.model(&apos;User&apos;, new Schema(models.User));
+    mongoose.model(&apos;Article&apos;, new Schema(models.Article));
+    global.Model = function (type) {
+            return mongoose.model(type);;
+        }
+</code></pre><h4 id="t67.6 &#x5728;app.js&#x4E2D;&#x5F15;&#x5165;&#x6B64;&#x6A21;&#x5757;">7.6 &#x5728;app.js&#x4E2D;&#x5F15;&#x5165;&#x6B64;&#x6A21;&#x5757; <a href="#t67.6 &#x5728;app.js&#x4E2D;&#x5F15;&#x5165;&#x6B64;&#x6A21;&#x5757;"> # </a></h4>
+<pre><code>  require(&apos;./db&apos;); //&#x5BFC;&#x5165;db&#x6A21;&#x5757;
+</code></pre><h3 id="t78 &#x4F1A;&#x8BDD;&#x652F;&#x6301;">8 &#x4F1A;&#x8BDD;&#x652F;&#x6301; <a href="#t78 &#x4F1A;&#x8BDD;&#x652F;&#x6301;"> # </a></h3>
+<h4 id="t88.1 &#x5B89;&#x88C5;&#x4F1A;&#x8BDD;&#x652F;&#x6301;&#x6A21;&#x5757;">8.1 &#x5B89;&#x88C5;&#x4F1A;&#x8BDD;&#x652F;&#x6301;&#x6A21;&#x5757; <a href="#t88.1 &#x5B89;&#x88C5;&#x4F1A;&#x8BDD;&#x652F;&#x6301;&#x6A21;&#x5757;"> # </a></h4>
+<p>&#x4F7F;&#x7528; <code>express-session</code> &#x548C; <code>connect-mongo</code> &#x6A21;&#x5757;&#x5B9E;&#x73B0;&#x4E86;&#x5C06;&#x4F1A;&#x8BDD;&#x4FE1;&#x606F;&#x5B58;&#x50A8;&#x5230;<code>mongodb</code>&#x4E2D;&#x3002;   </p>
+<pre><code>$ npm install express-session --save
+$ npm install connect-mongo --save
+</code></pre><h4 id="t98.2 &#x4FEE;&#x6539;app.js">8.2 &#x4FEE;&#x6539;app.js <a href="#t98.2 &#x4FEE;&#x6539;app.js"> # </a></h4>
+<pre><code>    var settings = require(&apos;./settings&apos;);
+    var session = require(&apos;express-session&apos;);
+    var MongoStore = require(&apos;connect-mongo&apos;)(session);
+    app.use(session({
+      secret: settings.cookieSecret,//secret &#x7528;&#x6765;&#x9632;&#x6B62;&#x7BE1;&#x6539; cookie
+      key: settings.db,//key &#x7684;&#x503C;&#x4E3A; cookie &#x7684;&#x540D;&#x5B57;
+      cookie: {maxAge: 1000 * 60 * 60 * 24 * 30},//&#x8BBE;&#x5B9A; cookie &#x7684;&#x751F;&#x5B58;&#x671F;&#xFF0C;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x8BBE;&#x7F6E; cookie &#x7684;&#x751F;&#x5B58;&#x671F;&#x4E3A; 30 &#x5929;
+      resave:true,
+      saveUninitialized:true,
+      store: new MongoStore({ //&#x8BBE;&#x7F6E;&#x5B83;&#x7684; store &#x53C2;&#x6570;&#x4E3A; MongoStore &#x5B9E;&#x4F8B;&#xFF0C;&#x628A;&#x4F1A;&#x8BDD;&#x4FE1;&#x606F;&#x5B58;&#x50A8;&#x5230;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#xFF0C;&#x4EE5;&#x907F;&#x514D;&#x91CD;&#x542F;&#x670D;&#x52A1;&#x5668;&#x65F6;&#x4F1A;&#x8BDD;&#x4E22;&#x5931;
+        db: settings.db,
+        host: settings.host,
+        port: settings.port,
+      })
+    }));
+</code></pre><p>&#x6DFB;&#x52A0;&#x5B8C;&#x4E86;&#x4EE5;&#x540E;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x8DEF;&#x7531;&#x4E2D;&#x901A;&#x8FC7;<code>request.session</code>&#x6765;&#x64CD;&#x4F5C;&#x4F1A;&#x8BDD;&#x5BF9;&#x8C61;&#x4E86;</p>
+<h2 id="t109 &#x7528;&#x6237;&#x6CE8;&#x518C;&#x767B;&#x9646;">9 &#x7528;&#x6237;&#x6CE8;&#x518C;&#x767B;&#x9646; <a href="#t109 &#x7528;&#x6237;&#x6CE8;&#x518C;&#x767B;&#x9646;"> # </a></h2>
+<h3 id="t119.1 &#x589E;&#x52A0;&#x5DE5;&#x5177;&#x65B9;&#x6CD5;">9.1 &#x589E;&#x52A0;&#x5DE5;&#x5177;&#x65B9;&#x6CD5; <a href="#t119.1 &#x589E;&#x52A0;&#x5DE5;&#x5177;&#x65B9;&#x6CD5;"> # </a></h3>
+<p>&#x5728;<code>routes/users.js</code>&#x4E2D;&#x589E;&#x52A0;md5&#x52A0;&#x5BC6;&#x7684;&#x5DE5;&#x5177;&#x65B9;&#x6CD5;</p>
+<pre><code>    function md5(val){
+        return require(&apos;crypto&apos;).createHash(&apos;md5&apos;).update(val).digest(&apos;hex&apos;);
+    }
+</code></pre><h3 id="t129.2 &#x7528;&#x6237;&#x6CE8;&#x518C;&#x8DEF;&#x7531;">9.2 &#x7528;&#x6237;&#x6CE8;&#x518C;&#x8DEF;&#x7531; <a href="#t129.2 &#x7528;&#x6237;&#x6CE8;&#x518C;&#x8DEF;&#x7531;"> # </a></h3>
+<p>&#x6CE8;&#x518C;&#x8868;&#x5355;&#x7684;form&#x4E2D;<code>action=&quot;/users/reg&quot;</code>,&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x8981;&#x5B9E;&#x73B0;&#x7528;&#x6237;&#x6CE8;&#x518C;&#x7684;&#x8DEF;&#x7531;
+&#x4FEE;&#x6539; <code>routes/users.js</code> </p>
+<pre><code>    router.post(&apos;/reg&apos;, function (req, res) {
+      &#x5C31;&#x662F; POST &#x8BF7;&#x6C42;&#x4FE1;&#x606F;&#x89E3;&#x6790;&#x8FC7;&#x540E;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x4F8B;&#x5982;&#x6211;&#x4EEC;&#x8981;&#x8BBF;&#x95EE; POST &#x6765;&#x7684;&#x8868;&#x5355;&#x5185;&#x7684; name=&quot;username&quot; &#x57DF;&#x7684;&#x503C;&#xFF0C;&#x53EA;&#x9700;&#x8BBF;&#x95EE; req.body[&apos;username&apos;] &#x6216; req.body.username &#x5373;&#x53EF;&#x3002;
+      var user = req.body;//
+      if(user.password != user.repassword){
+        req.flash(&apos;error&apos;,&apos;&#x4E24;&#x6B21;&#x8F93;&#x5165;&#x7684;&#x5BC6;&#x7801;&#x4E0D;&#x4E00;&#x81F4;&apos;);
+        return res.redirect(&apos;/users/reg&apos;);
+      }
+      delete user.repassword; &#x7531;&#x4E8E;repassword&#x4E0D;&#x9700;&#x8981;&#x4FDD;&#x5B58;&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x5220;&#x9664;
+      user.password = md5(user.password); &#x5BF9;&#x5BC6;&#x7801;&#x8FDB;&#x884C;md5&#x52A0;&#x5BC6;
+      user.avatar = &quot;https://secure.gravatar.com/avatar/&quot;+md5(user.email)+&quot;?s=48&quot;; &#x5F97;&#x5230;&#x7528;&#x6237;&#x7684;&#x5934;&#x50CF;
+      new Model(&apos;User&apos;)(user).save(function(err,user){
+        if(err){
+          req.flash(&apos;error&apos;,err);
+          return res.redirect(&apos;/users/reg&apos;);
+        }
+        req.session.user = user;//&#x7528;&#x6237;&#x4FE1;&#x606F;&#x5B58;&#x5165; session
+        res.redirect(&apos;/&apos;);//&#x6CE8;&#x518C;&#x6210;&#x529F;&#x540E;&#x8FD4;&#x56DE;&#x4E3B;&#x9875;
+      });
+    });
+</code></pre><h3 id="t139.3 &#x7528;&#x6237;&#x767B;&#x9646;&#x8DEF;&#x7531;">9.3 &#x7528;&#x6237;&#x767B;&#x9646;&#x8DEF;&#x7531; <a href="#t139.3 &#x7528;&#x6237;&#x767B;&#x9646;&#x8DEF;&#x7531;"> # </a></h3>
+<pre><code>    router.post(&apos;/login&apos;, function (req, res) {
+        var user = req.body;
+        user.password = md5(user.password);
+        Model(&apos;User&apos;).findOne(user,function(err,user){
+            if(err){
+                req.flash(&apos;error&apos;,err);
+                return res.redirect(&apos;/users/login&apos;);
+            }
+            req.session.user = user;//&#x7528;&#x6237;&#x4FE1;&#x606F;&#x5B58;&#x5165; session
+            res.redirect(&apos;/&apos;);//&#x6CE8;&#x518C;&#x6210;&#x529F;&#x540E;&#x8FD4;&#x56DE;&#x4E3B;&#x9875;
+        });
+    });
+</code></pre><h3 id="t149.4 &#x7528;&#x6237;&#x9000;&#x51FA;&#x8DEF;&#x7531;">9.4 &#x7528;&#x6237;&#x9000;&#x51FA;&#x8DEF;&#x7531; <a href="#t149.4 &#x7528;&#x6237;&#x9000;&#x51FA;&#x8DEF;&#x7531;"> # </a></h3>
+<pre><code>    router.get(&apos;/logout&apos;, function (req, res) {
+        req.session.user = null;//&#x7528;&#x6237;&#x4FE1;&#x606F;&#x5B58;&#x5165; session
+        res.redirect(&apos;/&apos;);//&#x6CE8;&#x518C;&#x6210;&#x529F;&#x540E;&#x8FD4;&#x56DE;&#x4E3B;&#x9875;
+    });
+</code></pre><h2 id="t1510 &#x53D1;&#x8868;&#x6587;&#x7AE0;&#x8DEF;&#x7531;">10 &#x53D1;&#x8868;&#x6587;&#x7AE0;&#x8DEF;&#x7531; <a href="#t1510 &#x53D1;&#x8868;&#x6587;&#x7AE0;&#x8DEF;&#x7531;"> # </a></h2>
+<p>&#x53D1;&#x8868;&#x6587;&#x7AE0;&#x8868;&#x5355;&#x7684;form&#x4E2D;<code>action=&quot;/articles/add&quot;</code>,&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x8981;&#x5B9E;&#x73B0;&#x53D1;&#x8868;&#x6587;&#x7AE0;&#x8DEF;&#x7531;
+&#x4FEE;&#x6539; <code>routes/article.js</code> &#x4E2D;&#x7684; <code>post(&apos;/add&apos;)</code></p>
+<pre><code>    router.post(&apos;/add&apos;, function (req, res) {
+        req.body.user = req.session.user._id;
+        new Model(&apos;Article&apos;)(req.body).save(function(err,article){
+            if(err){
+                return res.redirect(&apos;/articles/add&apos;);
+            }
+            res.redirect(&apos;/&apos;);//&#x53D1;&#x8868;&#x6587;&#x7AE0;&#x6210;&#x529F;&#x540E;&#x8FD4;&#x56DE;&#x4E3B;&#x9875;
+        });
+
+    });
+</code></pre><h2 id="t1611 &#x9875;&#x9762;&#x6D88;&#x606F;&#x901A;&#x77E5;">11 &#x9875;&#x9762;&#x6D88;&#x606F;&#x901A;&#x77E5; <a href="#t1611 &#x9875;&#x9762;&#x6D88;&#x606F;&#x901A;&#x77E5;"> # </a></h2>
+<p>&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5F15;&#x5165; flash &#x6A21;&#x5757;&#x6765;&#x5B9E;&#x73B0;&#x9875;&#x9762;&#x901A;&#x77E5;&#xFF08;&#x5373;&#x6210;&#x529F;&#x4E0E;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x7684;&#x663E;&#x793A;&#xFF09;&#x7684;&#x529F;&#x80FD;&#x3002;</p>
+<h2 id="t1711.1 &#x4EC0;&#x4E48;&#x662F; flash?">11.1 &#x4EC0;&#x4E48;&#x662F; flash? <a href="#t1711.1 &#x4EC0;&#x4E48;&#x662F; flash?"> # </a></h2>
+<p>&#x6211;&#x4EEC;&#x6240;&#x8BF4;&#x7684; flash &#x5373; connect-flash &#x6A21;&#x5757;&#xFF08;<a href="https://github.com/jaredhanson/connect-flash&#xFF09;&#xFF0C;flash">https://github.com/jaredhanson/connect-flash&#xFF09;&#xFF0C;flash</a> &#x662F;&#x4E00;&#x4E2A;&#x5728; session &#x4E2D;&#x7528;&#x4E8E;&#x5B58;&#x50A8;&#x4FE1;&#x606F;&#x7684;&#x7279;&#x5B9A;&#x533A;&#x57DF;&#x3002;&#x4FE1;&#x606F;&#x5199;&#x5165; flash &#xFF0C;&#x4E0B;&#x4E00;&#x6B21;&#x663E;&#x793A;&#x5B8C;&#x6BD5;&#x540E;&#x5373;&#x88AB;&#x6E05;&#x9664;&#x3002;&#x5178;&#x578B;&#x7684;&#x5E94;&#x7528;&#x662F;&#x7ED3;&#x5408;&#x91CD;&#x5B9A;&#x5411;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x786E;&#x4FDD;&#x4FE1;&#x606F;&#x662F;&#x63D0;&#x4F9B;&#x7ED9;&#x4E0B;&#x4E00;&#x4E2A;&#x88AB;&#x6E32;&#x67D3;&#x7684;&#x9875;&#x9762;&#x3002;</p>
+<h2 id="t1811.2  &#x5B89;&#x88C5;&#x6A21;&#x5757;">11.2  &#x5B89;&#x88C5;&#x6A21;&#x5757; <a href="#t1811.2  &#x5B89;&#x88C5;&#x6A21;&#x5757;"> # </a></h2>
+<pre><code>$ npm install connect-flash --save
+</code></pre><h2 id="t1911.3  &#x5BFC;&#x5165;&#x6A21;&#x5757;">11.3  &#x5BFC;&#x5165;&#x6A21;&#x5757; <a href="#t1911.3  &#x5BFC;&#x5165;&#x6A21;&#x5757;"> # </a></h2>
+<p>&#x5728;app.js&#x4E2D;&#x6DFB;&#x52A0;&#x8C03;&#x7528;&#x6B64;&#x6A21;&#x5757;</p>
+<pre><code>    var flash = require(&apos;connect-flash&apos;);
+    app.use(flash());
+</code></pre><h3 id="t2011.4 &#x53D1;&#x8868;&#x6587;&#x7AE0;&#x6210;&#x529F;&#x63D0;&#x793A;">11.4 &#x53D1;&#x8868;&#x6587;&#x7AE0;&#x6210;&#x529F;&#x63D0;&#x793A; <a href="#t2011.4 &#x53D1;&#x8868;&#x6587;&#x7AE0;&#x6210;&#x529F;&#x63D0;&#x793A;"> # </a></h3>
+<p>&#x5728;&#x53D1;&#x8868;&#x6587;&#x7AE0;&#x7684;&#x8DEF;&#x7531;&#x91CC;&#x653E;&#x7F6E;flash&#x63D0;&#x793A;&#x4FE1;&#x606F;</p>
+<pre><code>    router.post(&apos;/add&apos;, function (req, res) {
+        req.body.user = req.session.user._id;
+        new Model(&apos;Article&apos;)(req.body).save(function(err,article){
+            if(err){
+                req.flash(&apos;error&apos;, &apos;&#x66F4;&#x65B0;&#x6587;&#x7AE0;&#x5931;&#x8D25;!&apos;); &#x653E;&#x7F6E;&#x5931;&#x8D25;&#x4FE1;&#x606F;
+                return res.redirect(&apos;/articles/add&apos;);
+            }
+            req.flash(&apos;success&apos;, &apos;&#x66F4;&#x65B0;&#x6587;&#x7AE0;&#x6210;&#x529F;!&apos;);  &#x653E;&#x7F6E;&#x6210;&#x529F;&#x4FE1;&#x606F;
+            res.redirect(&apos;/&apos;);//&#x53D1;&#x8868;&#x6587;&#x7AE0;&#x6210;&#x529F;&#x540E;&#x8FD4;&#x56DE;&#x4E3B;&#x9875;
+        });
+    });
+</code></pre><h3 id="t2111.5 &#x5728;&#x9875;&#x9762;&#x91CC;&#x589E;&#x52A0;&#x663E;&#x793A;&#x63D0;&#x793A;&#x7684;&#x533A;&#x57DF;">11.5 &#x5728;&#x9875;&#x9762;&#x91CC;&#x589E;&#x52A0;&#x663E;&#x793A;&#x63D0;&#x793A;&#x7684;&#x533A;&#x57DF; <a href="#t2111.5 &#x5728;&#x9875;&#x9762;&#x91CC;&#x589E;&#x52A0;&#x663E;&#x793A;&#x63D0;&#x793A;&#x7684;&#x533A;&#x57DF;"> # </a></h3>
+<p>&#x4FEE;&#x6539; views/include/header.ejs
+&#x5728;&#x6700;&#x5E95;&#x90E8;&#x589E;&#x52A0;&#x4EE5;&#x4E0B;&#x533A;&#x57DF; </p>
+<pre><code>    &lt;div class=&quot;container text-center&quot;&gt;
+        &lt;% if (success) { %&gt;
+        &lt;div class=&quot;alert alert-success&quot; role=&quot;alert&quot;&gt;&lt;%= success %&gt;&lt;/div&gt;
+        &lt;% } %&gt;
+        &lt;% if (error) { %&gt;
+        &lt;div class=&quot;alert alert-danger&quot; role=&quot;alert&quot;&gt;&lt;%= error %&gt;&lt;/div&gt;
+        &lt;% } %&gt;
+    &lt;/div&gt;
+</code></pre><h3 id="t2211.6  &#x7528;session&#x4E2D;&#x7684;&#x503C;&#x4E3A;&#x6A21;&#x677F;&#x8D4B;&#x9ED8;&#x8BA4;&#x503C;">11.6  &#x7528;session&#x4E2D;&#x7684;&#x503C;&#x4E3A;&#x6A21;&#x677F;&#x8D4B;&#x9ED8;&#x8BA4;&#x503C; <a href="#t2211.6  &#x7528;session&#x4E2D;&#x7684;&#x503C;&#x4E3A;&#x6A21;&#x677F;&#x8D4B;&#x9ED8;&#x8BA4;&#x503C;"> # </a></h3>
+<p>&#x5728;app.js &#x4E2D;&#x589E;&#x52A0;&#x4EE5;&#x4E0B;&#x4E2D;&#x95F4;&#x4EF6;</p>
+<pre><code>    app.use(function(req,res,next){
+      res.locals.user = req.session.user;
+      res.locals.success = req.flash(&apos;success&apos;).toString();
+      res.locals.error = req.flash(&apos;error&apos;).toString();
+      next();
+    });
+</code></pre><h2 id="t2312 &#x63A7;&#x5236;&#x5BFC;&#x822A;">12 &#x63A7;&#x5236;&#x5BFC;&#x822A; <a href="#t2312 &#x63A7;&#x5236;&#x5BFC;&#x822A;"> # </a></h2>
+<p>&#x7528;&#x6237;&#x662F;&#x5426;&#x767B;&#x9646;&#x770B;&#x5230;&#x7684;&#x9875;&#x9762;&#x5E94;&#x8BE5;&#x662F;&#x4E0D;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x5E94;&#x8BE5;&#x6839;&#x636E;&#x7528;&#x6237;&#x767B;&#x9646;&#x72B6;&#x6001;&#x6765;&#x63A7;&#x5236;&#x5BFC;&#x822A;&#x83DC;&#x5355;&#x7684;&#x663E;&#x793A;&#x72B6;&#x6001;
+&#x4FEE;&#x6539; <code>views/include/header.ejs</code></p>
+<pre><code>    &lt;ul class=&quot;nav navbar-nav&quot;&gt;
+                &lt;%
+                if(!user){
+                %&gt;
+                &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;/users/reg&quot;&gt;&#x6CE8;&#x518C;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;/users/login&quot;&gt;&#x767B;&#x5F55;&lt;/a&gt;&lt;/li&gt;
+                &lt;%
+                }else{
+                %&gt;
+                &lt;li&gt;&lt;a href=&quot;/articles/add&quot;&gt;&#x53D1;&#x8868;&#x6587;&#x7AE0;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;/users/logout&quot;&gt;&#x767B;&#x51FA;&lt;/a&gt;&lt;/li&gt;
+                &lt;%
+                }
+                %&gt;
+    &lt;/ul&gt;
+</code></pre><p>&#x7528;&#x6237;&#x767B;&#x9646;&#x540E;&#x663E;&#x793A;&#x53D1;&#x8868;&#x6587;&#x7AE0;&#x548C;&#x767B;&#x51FA;&#x6309;&#x94AE;&#xFF0C;&#x7528;&#x6237;&#x767B;&#x9646;&#x524D;&#x663E;&#x793A;&#x6CE8;&#x518C;&#x548C;&#x767B;&#x5F55;&#x6309;&#x94AE;&#x3002;</p>
+<h2 id="t2413 &#x9875;&#x9762;&#x6743;&#x9650;&#x63A7;&#x5236;">13 &#x9875;&#x9762;&#x6743;&#x9650;&#x63A7;&#x5236; <a href="#t2413 &#x9875;&#x9762;&#x6743;&#x9650;&#x63A7;&#x5236;"> # </a></h2>
+<p>&#x6211;&#x4EEC;&#x867D;&#x7136;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#x4E86;&#x7528;&#x6237;&#x6CE8;&#x518C;&#x4E0E;&#x767B;&#x9646;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x4F46;&#x5E76;&#x4E0D;&#x80FD;&#x963B;&#x6B62;&#x6BD4;&#x5982;&#x5DF2;&#x7ECF;&#x767B;&#x9646;&#x7684;&#x7528;&#x6237;&#x8BBF;&#x95EE; <a href="http://localhost:3000/users/reg">http://localhost:3000/users/reg</a> &#x9875;&#x9762;&#xFF0C;
+&#x4E3A;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4E3A;&#x9875;&#x9762;&#x8BBE;&#x7F6E;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#x3002;&#x5373;&#x6CE8;&#x518C;&#x548C;&#x767B;&#x9646;&#x9875;&#x9762;&#x5E94;&#x8BE5;&#x963B;&#x6B62;&#x5DF2;&#x767B;&#x9646;&#x7684;&#x7528;&#x6237;&#x8BBF;&#x95EE;&#xFF0C;
+&#x767B;&#x51FA;&#x53CA;&#x540E;&#x9762;&#x6211;&#x4EEC;&#x5C06;&#x8981;&#x5B9E;&#x73B0;&#x7684;&#x53D1;&#x8868;&#x9875;&#x53EA;&#x5BF9;&#x5DF2;&#x767B;&#x5F55;&#x7684;&#x7528;&#x6237;&#x5F00;&#x653E;&#x3002;
+&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x9875;&#x9762;&#x6743;&#x9650;&#x7684;&#x63A7;&#x5236;&#x5462;&#xFF1F;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x628A;&#x7528;&#x6237;&#x767B;&#x5F55;&#x72B6;&#x6001;&#x7684;&#x68C0;&#x67E5;&#x653E;&#x5230;&#x8DEF;&#x7531;&#x4E2D;&#x95F4;&#x4EF6;&#x4E2D;&#xFF0C;&#x5728;&#x6BCF;&#x4E2A;&#x8DEF;&#x5F84;&#x524D;&#x589E;&#x52A0;&#x8DEF;&#x7531;&#x4E2D;&#x95F4;&#x4EF6;&#xFF0C;&#x5373;&#x53EF;&#x5B9E;&#x73B0;&#x9875;&#x9762;&#x6743;&#x9650;&#x63A7;&#x5236;&#x3002;
+&#x6211;&#x4EEC;&#x6DFB;&#x52A0; checkNotLogin &#x548C; checkLogin &#x51FD;&#x6570;&#x6765;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;&#x529F;&#x80FD;&#x3002;</p>
+<h3 id="t2513.1  &#x6DFB;&#x52A0;&#x4E2D;&#x95F4;&#x4EF6;">13.1  &#x6DFB;&#x52A0;&#x4E2D;&#x95F4;&#x4EF6; <a href="#t2513.1  &#x6DFB;&#x52A0;&#x4E2D;&#x95F4;&#x4EF6;"> # </a></h3>
+<p>&#x6DFB;&#x52A0;middleware&#x6587;&#x4EF6;&#x5939;
+&#x5728;<code>middleware</code>&#x4E0B;&#x6DFB;&#x52A0;<code>index.js</code>&#x6587;&#x4EF6;
+middleware/index.js</p>
+<pre><code>     exports.checkLogin = function(req, res, next) {
+         if (!req.session.user) {
+             req.flash(&apos;error&apos;, &apos;&#x672A;&#x767B;&#x5F55;!&apos;);
+             return res.redirect(&apos;/users/login&apos;);
+         }
+         next();
+     }
+
+     exports.checkNotLogin = function(req, res, next) {
+         if (req.session.user) {
+             req.flash(&apos;error&apos;, &apos;&#x5DF2;&#x767B;&#x5F55;!&apos;);
+             return res.redirect(&apos;back&apos;);//&#x8FD4;&#x56DE;&#x4E4B;&#x524D;&#x7684;&#x9875;&#x9762;
+         }
+         next();
+     }
+</code></pre><h3 id="t2613.2   &#x5728;&#x8DEF;&#x7531;&#x4E2D;&#x6DFB;&#x52A0;&#x4E2D;&#x95F4;&#x4EF6;">13.2   &#x5728;&#x8DEF;&#x7531;&#x4E2D;&#x6DFB;&#x52A0;&#x4E2D;&#x95F4;&#x4EF6; <a href="#t2613.2   &#x5728;&#x8DEF;&#x7531;&#x4E2D;&#x6DFB;&#x52A0;&#x4E2D;&#x95F4;&#x4EF6;"> # </a></h3>
+<p>&#x4FEE;&#x6539; routes/users.js</p>
+<pre><code>    router.get(&apos;/reg&apos;,middleware.checkNotLogin, function (req, res) {
+        res.render(&apos;user/reg&apos;, {title: &apos;&#x6CE8;&#x518C;&apos;});
+    });
+</code></pre><p>&#x4FEE;&#x6539;routes/article.js</p>
+<pre><code>    router.get(&apos;/add&apos;,middleware.checkLogin, function (req, res) {
+        res.render(&apos;article/add&apos;, { title: &apos;&#x53D1;&#x8868;&#x6587;&#x7AE0;&apos; });
+    });
+</code></pre><p>&#x51E1;&#x662F;&#x4E0D;&#x80FD;&#x767B;&#x9646;&#x7684;&#x4E2D;&#x95F4;&#x52A0;&#x5165; <code>checkNotLogin</code>
+&#x51E1;&#x662F;&#x9700;&#x8981;&#x767B;&#x9646;&#x7684;&#x4E2D;&#x95F4;&#x52A0;&#x5165; <code>checkLogin</code></p>
+<h2 id="t2714 &#x663E;&#x793A;&#x6587;&#x7AE0;&#x5217;&#x8868;">14 &#x663E;&#x793A;&#x6587;&#x7AE0;&#x5217;&#x8868; <a href="#t2714 &#x663E;&#x793A;&#x6587;&#x7AE0;&#x5217;&#x8868;"> # </a></h2>
+<h2 id="t2814.1 &#x4FEE;&#x6539;&#x9996;&#x9875;&#x6A21;&#x677F;">14.1 &#x4FEE;&#x6539;&#x9996;&#x9875;&#x6A21;&#x677F; <a href="#t2814.1 &#x4FEE;&#x6539;&#x9996;&#x9875;&#x6A21;&#x677F;"> # </a></h2>
+<p>views/index.ejs</p>
+<pre><code>   &lt;% include include/header.ejs%&gt;
+    &lt;div class=&quot;container&quot;&gt;
+     &lt;ul class=&quot;media-list&quot;&gt;
+      &lt;%
+      articles.forEach(function(article){
+      %&gt;
+      &lt;li class=&quot;media&quot;&gt;
+       &lt;div class=&quot;media-left&quot;&gt;
+        &lt;a href=&quot;#&quot;&gt;
+         &lt;img class=&quot;media-object&quot; src=&quot;&lt;%=article.user.avatar%&gt;&quot; alt=&quot;&quot;&gt;
+        &lt;/a&gt;
+       &lt;/div&gt;
+       &lt;div class=&quot;media-body&quot;&gt;
+        &lt;h4 class=&quot;media-heading&quot;&gt;&lt;a href=&quot;/articles/detail/&lt;%=article._id%&gt;&quot;&gt;&lt;%=article.title%&gt;&lt;/a&gt;&lt;/h4&gt;
+        &lt;p class=&quot;media-left&quot;&gt;&lt;%- article.content%&gt;&lt;/p&gt;
+       &lt;/div&gt;
+       &lt;div class=&quot;media-bottom&quot;&gt;
+        &#x4F5C;&#x8005;:&lt;%=article.user.username%&gt;
+        &#x53D1;&#x8868;&#x65F6;&#x95F4;:&lt;%=article.createAt.toLocaleString()%&gt;
+       &lt;/div&gt;
+      &lt;/li&gt;
+      &lt;%
+      });
+      %&gt;
+     &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;% include include/footer.ejs%&gt;
+</code></pre><h2 id="t2914.2 &#x4FEE;&#x6539;&#x8DEF;&#x7531;">14.2 &#x4FEE;&#x6539;&#x8DEF;&#x7531; <a href="#t2914.2 &#x4FEE;&#x6539;&#x8DEF;&#x7531;"> # </a></h2>
+<p>routes/index.js</p>
+<pre><code> router.get(&apos;/&apos;, function(req, res, next) {
+      Model(&apos;Article&apos;).find({}).populate(&apos;user&apos;).exec(function(err,articles){
+        res.render(&apos;index&apos;, {title: &apos;&#x4E3B;&#x9875;&apos;,articles:articles});
+      });
+    });
+</code></pre><h2 id="t3014 &#x652F;&#x6301;markdown">14 &#x652F;&#x6301;markdown <a href="#t3014 &#x652F;&#x6301;markdown"> # </a></h2>
+<h2 id="t3114.1 &#x5B89;&#x88C5;markdown">14.1 &#x5B89;&#x88C5;markdown <a href="#t3114.1 &#x5B89;&#x88C5;markdown"> # </a></h2>
+<pre><code>$ npm install markdown -save
+</code></pre><h2 id="t3214.2  &#x4FEE;&#x6539;&#x8DEF;&#x7531;">14.2  &#x4FEE;&#x6539;&#x8DEF;&#x7531; <a href="#t3214.2  &#x4FEE;&#x6539;&#x8DEF;&#x7531;"> # </a></h2>
+<p>routes/index.js</p>
+<pre><code>    markdown = require(&apos;markdown&apos;).markdown;
+
+    router.get(&apos;/&apos;, function(req, res, next) {
+      Model(&apos;Article&apos;).find({}).populate(&apos;user&apos;).exec(function(err,articles){
+        articles.forEach(function (article) {
+          article.content = markdown.toHTML(article.content);
+        });
+        res.render(&apos;index&apos;, {title: &apos;&#x4E3B;&#x9875;&apos;,articles:articles});
+      });
+    });
+</code></pre><h2 id="t3315 &#x6587;&#x7AE0;&#x8BE6;&#x60C5;&#x9875;">15 &#x6587;&#x7AE0;&#x8BE6;&#x60C5;&#x9875; <a href="#t3315 &#x6587;&#x7AE0;&#x8BE6;&#x60C5;&#x9875;"> # </a></h2>
+<h3 id="t3415.1   &#x4FEE;&#x6539;&#x9996;&#x9875;">15.1   &#x4FEE;&#x6539;&#x9996;&#x9875; <a href="#t3415.1   &#x4FEE;&#x6539;&#x9996;&#x9875;"> # </a></h3>
+<p>views/index.ejs</p>
+<pre><code>&lt;h4 class=&quot;media-heading&quot;&gt;&lt;a href=&quot;/articles/detail/&lt;%=article._id%&gt;&quot;&gt;&lt;%=article.title%&gt;&lt;/a&gt;&lt;/h4&gt;
+</code></pre><h3 id="t3515.2 &#x4FEE;&#x6539;&#x8DEF;&#x7531;">15.2 &#x4FEE;&#x6539;&#x8DEF;&#x7531; <a href="#t3515.2 &#x4FEE;&#x6539;&#x8DEF;&#x7531;"> # </a></h3>
+<p>routes/article.js</p>
+<pre><code>     router.get(&apos;/detail/:_id&apos;, function (req, res) {
+         Model(&apos;Article&apos;).findOne({_id:req.params._id},function(err,article){
+             article.content = markdown.toHTML(article.content);
+             res.render(&apos;article/detail&apos;,{title:&apos;&#x67E5;&#x770B;&#x6587;&#x7AE0;&apos;,article:article});
+         });
+     });
+</code></pre><h3 id="t3615.3 &#x589E;&#x52A0;&#x8BE6;&#x60C5;&#x9875;">15.3 &#x589E;&#x52A0;&#x8BE6;&#x60C5;&#x9875; <a href="#t3615.3 &#x589E;&#x52A0;&#x8BE6;&#x60C5;&#x9875;"> # </a></h3>
+<p>views/article/detail.ejs</p>
+<pre><code>     &lt;% include ../include/header.ejs%&gt;
+     &lt;div class=&quot;container&quot;&gt;
+         &lt;div class=&quot;panel panel-default&quot;&gt;
+             &lt;div class=&quot;panel-heading&quot;&gt;
+                 &lt;%=article.title%&gt;
+             &lt;/div&gt;
+             &lt;div class=&quot;panel-body&quot;&gt;
+                 &lt;%-article.content%&gt;
+             &lt;/div&gt;
+             &lt;div class=&quot;panel-footer&quot;&gt;
+                 &lt;a href=&quot;/articles/edit/&lt;%=article._id%&gt;&quot; class=&quot;btn btn-warning&quot;&gt;&#x7F16;&#x8F91;&lt;/a&gt;
+                 &lt;a href=&quot;/articles/delete/&lt;%=article._id%&gt;&quot; class=&quot;btn btn-danger&quot;&gt;&#x5220;&#x9664;&lt;/a&gt;
+             &lt;/div&gt;
+         &lt;/div&gt;
+     &lt;/div&gt;
+     &lt;% include ../include/footer.ejs%&gt;
+</code></pre><h2 id="t3716 &#x5220;&#x9664;&#x6587;&#x7AE0;">16 &#x5220;&#x9664;&#x6587;&#x7AE0; <a href="#t3716 &#x5220;&#x9664;&#x6587;&#x7AE0;"> # </a></h2>
+<h3 id="t3816.1 &#x4FEE;&#x6539;&#x8BE6;&#x60C5;&#x9875;">16.1 &#x4FEE;&#x6539;&#x8BE6;&#x60C5;&#x9875; <a href="#t3816.1 &#x4FEE;&#x6539;&#x8BE6;&#x60C5;&#x9875;"> # </a></h3>
+<p>views/article/detail.ejs</p>
+<pre><code> &lt;a href=&quot;/articles/delete/&lt;%=article._id%&gt;&quot; class=&quot;btn btn-danger&quot;&gt;&#x5220;&#x9664;&lt;/a&gt;
+</code></pre><h3 id="t3916.2 &#x4FEE;&#x6539;&#x8DEF;&#x7531;">16.2 &#x4FEE;&#x6539;&#x8DEF;&#x7531; <a href="#t3916.2 &#x4FEE;&#x6539;&#x8DEF;&#x7531;"> # </a></h3>
+<p> routes/article.js</p>
+<pre><code> router.get(&apos;/delete/:_id&apos;, function (req, res) {
+        Model(&apos;Article&apos;).remove({_id:req.params._id},function(err,result){
+            if(err){
+                req.flash(&apos;error&apos;,err);
+                res.redirect(&apos;back&apos;);
+            }
+            req.flash(&apos;success&apos;, &apos;&#x5220;&#x9664;&#x6587;&#x7AE0;&#x6210;&#x529F;!&apos;);
+            res.redirect(&apos;/&apos;);//&#x6CE8;&#x518C;&#x6210;&#x529F;&#x540E;&#x8FD4;&#x56DE;&#x4E3B;&#x9875;
+        });
+    });
+</code></pre><h2 id="t4017 &#x7F16;&#x8F91;&#x6587;&#x7AE0;">17 &#x7F16;&#x8F91;&#x6587;&#x7AE0; <a href="#t4017 &#x7F16;&#x8F91;&#x6587;&#x7AE0;"> # </a></h2>
+<h3 id="t4117.1 &#x4FEE;&#x6539;&#x8BE6;&#x60C5;&#x9875;">17.1 &#x4FEE;&#x6539;&#x8BE6;&#x60C5;&#x9875; <a href="#t4117.1 &#x4FEE;&#x6539;&#x8BE6;&#x60C5;&#x9875;"> # </a></h3>
+<p>views/article/detail.ejs</p>
+<pre><code>    &lt;a href=&quot;/articles/edit/&lt;%=article._id%&gt;&quot; class=&quot;btn btn-warning&quot;&gt;&#x7F16;&#x8F91;&lt;/a&gt;
+</code></pre><h3 id="t4217.2 &#x4FEE;&#x6539;&#x6DFB;&#x52A0;&#x6587;&#x7AE0;&#x754C;&#x9762;">17.2 &#x4FEE;&#x6539;&#x6DFB;&#x52A0;&#x6587;&#x7AE0;&#x754C;&#x9762; <a href="#t4217.2 &#x4FEE;&#x6539;&#x6DFB;&#x52A0;&#x6587;&#x7AE0;&#x754C;&#x9762;"> # </a></h3>
+<p>views/article/add.ejs</p>
+<pre><code>   &lt;form action=&quot;/articles/add&quot; method=&quot;post&quot;  role=&quot;form&quot; class=&quot;form-horizontal&quot; enctype=&quot;multipart/form-data&quot;&gt;
+            &lt;input type=&quot;hidden&quot; value=&quot;&lt;%=article._id%&gt;&quot; name=&quot;_id&quot;/&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;title&quot; class=&quot;col-sm-2 control-label&quot;&gt;&#x6807;&#x9898;&lt;/label&gt;
+                &lt;div class=&quot;col-sm-10&quot;&gt;
+                    &lt;input type=&quot;text&quot; value=&quot;&lt;%=article.title%&gt;&quot; class=&quot;form-control&quot; id=&quot;title&quot; name=&quot;title&quot; placeholder=&quot;&#x6807;&#x9898;&quot;/&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;content&quot; class=&quot;col-sm-2 control-label&quot;&gt;&#x6B63;&#x6587;&lt;/label&gt;
+                &lt;div class=&quot;col-sm-10&quot;&gt;
+                    &lt;textarea class=&quot;form-control&quot;   id=&quot;&quot; cols=&quot;30&quot; rows=&quot;10&quot; id=&quot;content&quot; name=&quot;content&quot; placeholder=&quot;&#x8BF7;&#x8F93;&#x5165;&#x5185;&#x5BB9;&quot; &gt;&lt;%=article.content%&gt;&lt;/textarea&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;img&quot; class=&quot;col-sm-2 control-label&quot;&gt;&#x56FE;&#x7247;&lt;/label&gt;
+                &lt;div class=&quot;col-sm-10&quot;&gt;
+                    &lt;%
+                        if(article.img){
+                            %&gt;
+                                 &lt;img src=&quot;&lt;%=article.img%&gt;&quot; style=&quot;width:100px;height:100px&quot; alt=&quot;&quot;/&gt;
+                            &lt;%
+                        }
+                     %&gt;
+                    &lt;input type=&quot;file&quot; class=&quot;form-control&quot;  name=&quot;img&quot; id=&quot;img&quot;/&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;div class=&quot;col-sm-offset-2 col-sm-10&quot;&gt;
+                    &lt;button type=&quot;submit&quot; class=&quot;btn btn-default&quot;&gt;&#x63D0;&#x4EA4;&lt;/button&gt;
+                    &lt;button type=&quot;reset&quot; class=&quot;btn btn-default&quot;&gt;&#x91CD;&#x7F6E;&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+        &lt;/form&gt;
+</code></pre><h3 id="t4317.3 &#x4FEE;&#x6539;&#x8DEF;&#x7531;">17.3 &#x4FEE;&#x6539;&#x8DEF;&#x7531; <a href="#t4317.3 &#x4FEE;&#x6539;&#x8DEF;&#x7531;"> # </a></h3>
+<p>routes/article.js</p>
+<pre><code>   router.post(&apos;/add&apos;,middleware.checkLogin,upload.single(&apos;img&apos;), function (req, res) {
+        var _id = req.body._id;
+        if(_id){
+            var set = {title:req.body.title,content:req.body.content};
+            Model(&apos;Article&apos;).update({_id:_id},{$set:set},function(err,result){
+                if(err){
+                    req.flash(&apos;error&apos;,err);
+                    return res.redirect(&apos;back&apos;);
+                }
+                req.flash(&apos;success&apos;, &apos;&#x66F4;&#x65B0;&#x6587;&#x7AE0;&#x6210;&#x529F;!&apos;);
+                res.redirect(&apos;/&apos;);//&#x6CE8;&#x518C;&#x6210;&#x529F;&#x540E;&#x8FD4;&#x56DE;&#x4E3B;&#x9875;
+            });
+        }else{
+            req.body.user = req.session.user._id;
+            new Model(&apos;Article&apos;)(req.body).save(function(err,article){
+                if(err){
+                    req.flash(&apos;error&apos;,err);
+                    return res.redirect(&apos;/articles/add&apos;);
+                }
+                req.flash(&apos;success&apos;, &apos;&#x53D1;&#x8868;&#x6587;&#x7AE0;&#x6210;&#x529F;!&apos;);
+                res.redirect(&apos;/&apos;);//&#x6CE8;&#x518C;&#x6210;&#x529F;&#x540E;&#x8FD4;&#x56DE;&#x4E3B;&#x9875;
+            });
+        }
+    });
+
+    router.get(&apos;/edit/:_id&apos;, function (req, res) {
+        Model(&apos;Article&apos;).findOne({_id:req.params._id},function(err,article){
+            res.render(&apos;article/add&apos;,{title:&apos;&#x7F16;&#x8F91;&#x6587;&#x7AE0;&apos;,article:article});
+        });
+    });
+</code></pre><h2 id="t4418 &#x641C;&#x7D22;&#x548C;&#x5206;&#x9875;">18 &#x641C;&#x7D22;&#x548C;&#x5206;&#x9875; <a href="#t4418 &#x641C;&#x7D22;&#x548C;&#x5206;&#x9875;"> # </a></h2>
+<h3 id="t4518.1 &#x5728;&#x5BFC;&#x822A;&#x680F;&#x589E;&#x52A0;&#x641C;&#x7D22;&#x6846;">18.1 &#x5728;&#x5BFC;&#x822A;&#x680F;&#x589E;&#x52A0;&#x641C;&#x7D22;&#x6846; <a href="#t4518.1 &#x5728;&#x5BFC;&#x822A;&#x680F;&#x589E;&#x52A0;&#x641C;&#x7D22;&#x6846;"> # </a></h3>
+<p>views/include/header.ejs</p>
+<pre><code>    &lt;form  class=&quot;navbar-form navbar-right&quot; role=&quot;search&quot; method=&quot;get&quot; action=&quot;/articles/list/1/2&quot;&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;keyword&quot;&gt;&#x5173;&#x952E;&#x5B57;&lt;/label&gt;
+                    &lt;input type=&quot;text&quot; name=&quot;keyword&quot; id=&quot;keyword&quot; class=&quot;form-control&quot; value=&quot;&lt;%=keyword%&gt;&quot;/&gt;
+                &lt;/div&gt;
+                &lt;button type=&quot;submit&quot; class=&quot;btn  btn-default&quot; value=&quot;search&quot; name=&quot;searchBtn&quot;&gt;&#x641C;&#x7D22;&lt;/button&gt;
+            &lt;/form&gt;
+</code></pre><h3 id="t4618.2  &#x5728;&#x9996;&#x9875;&#x589E;&#x52A0;&#x5206;&#x9875;&#x6761;">18.2  &#x5728;&#x9996;&#x9875;&#x589E;&#x52A0;&#x5206;&#x9875;&#x6761; <a href="#t4618.2  &#x5728;&#x9996;&#x9875;&#x589E;&#x52A0;&#x5206;&#x9875;&#x6761;"> # </a></h3>
+<p>views/index.ejs</p>
+<pre><code>     &lt;ul class=&quot;pagination&quot;&gt;
+      &lt;%
+      for(var i=1;i&lt;=totalPage;i++){
+      %&gt;
+      &lt;li&gt;&lt;a href=&quot;/articles/list/&lt;%=i%&gt;/&lt;%=pageSize%&gt;?keyword=&lt;%=keyword%&gt;&quot;&gt;&lt;%=i%&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;%
+      }
+      %&gt;
+     &lt;/ul&gt;
+</code></pre><h3 id="t4718.3 &#x9996;&#x9875;&#x5BFC;&#x822A;&#x91CD;&#x5B9A;&#x5411;&#x5230;&#x6587;&#x7AE0;&#x5217;&#x8868;&#x9875;">18.3 &#x9996;&#x9875;&#x5BFC;&#x822A;&#x91CD;&#x5B9A;&#x5411;&#x5230;&#x6587;&#x7AE0;&#x5217;&#x8868;&#x9875; <a href="#t4718.3 &#x9996;&#x9875;&#x5BFC;&#x822A;&#x91CD;&#x5B9A;&#x5411;&#x5230;&#x6587;&#x7AE0;&#x5217;&#x8868;&#x9875;"> # </a></h3>
+<pre><code>routes/index.js
+
+    router.get(&apos;/&apos;, function(req, res, next) {
+      res.redirect(&apos;/articles/list/1/2&apos;);
+    });
+</code></pre><h3 id="t4818.4  &#x589E;&#x52A0;&#x6587;&#x7AE0;&#x5217;&#x8868;&#x5BFC;&#x822A;">18.4  &#x589E;&#x52A0;&#x6587;&#x7AE0;&#x5217;&#x8868;&#x5BFC;&#x822A; <a href="#t4818.4  &#x589E;&#x52A0;&#x6587;&#x7AE0;&#x5217;&#x8868;&#x5BFC;&#x822A;"> # </a></h3>
+<p>routes/article.js</p>
+<pre><code>    router.get(&apos;/list/:pageNum/:pageSize&apos;,function(req, res, next) {
+        var pageNum = req.params.pageNum&amp;&amp;req.params.pageNum&gt;0?parseInt(req.params.pageNum):1;
+        var pageSize =req.params.pageSize&amp;&amp;req.params.pageSize&gt;0?parseInt(req.params.pageSize):2;
+        var query = {};
+        var searchBtn = req.query.searchBtn;
+        var keyword = req.query.keyword;
+        if(searchBtn){
+            req.session.keyword = keyword;
+        }
+        if(req.session.keyword){
+            query[&apos;title&apos;] = new RegExp(req.session.keyword,&quot;i&quot;);
+        }
+
+        Model(&apos;Article&apos;).count(query,function(err,count){
+            Model(&apos;Article&apos;).find(query).sort({createAt:-1}).skip((pageNum-1)*pageSize).limit(pageSize).populate(&apos;user&apos;).exec(function(err,articles){
+                articles.forEach(function (article) {
+                    article.content = markdown.toHTML(article.content);
+                });
+                res.render(&apos;index&apos;,{
+                    title:&apos;&#x4E3B;&#x9875;&apos;,
+                    pageNum:pageNum,
+                    pageSize:pageSize,
+                    keyword:req.session.keyword,
+                    totalPage:Math.ceil(count/pageSize),
+                    articles:articles
+                });
+            });
+        });
+    });
+</code></pre><h2 id="t4919 &#x5B9E;&#x73B0;&#x8BC4;&#x8BBA;&#x529F;&#x80FD;">19 &#x5B9E;&#x73B0;&#x8BC4;&#x8BBA;&#x529F;&#x80FD; <a href="#t4919 &#x5B9E;&#x73B0;&#x8BC4;&#x8BBA;&#x529F;&#x80FD;"> # </a></h2>
+<h3 id="t5019.1 &#x4FEE;&#x6539;&#x6A21;&#x677F;">19.1 &#x4FEE;&#x6539;&#x6A21;&#x677F; <a href="#t5019.1 &#x4FEE;&#x6539;&#x6A21;&#x677F;"> # </a></h3>
+<p>views/article/detail.ejs</p>
+<pre><code>  &lt;div class=&quot;panel panel-default&quot;&gt;
+            &lt;div class=&quot;panel-heading&quot;&gt;
+                &#x8BC4;&#x8BBA;&#x5217;&#x8868;
+            &lt;/div&gt;
+            &lt;div class=&quot;panel-body&quot;  style=&quot;height:300px;overflow-y: scroll&quot;&gt;
+                &lt;ul class=&quot;media-list&quot;&gt;
+                    &lt;%
+                    article.comments.forEach(function(comment){
+                    %&gt;
+                    &lt;li class=&quot;media&quot;&gt;
+                        &lt;div class=&quot;media-left&quot;&gt;
+                            &lt;a href=&quot;#&quot;&gt;
+                                &lt;img class=&quot;media-object&quot; src=&quot;&lt;%=comment.user.avatar%&gt;&quot; alt=&quot;&quot;&gt;
+                            &lt;/a&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;media-body&quot;&gt;
+                            &lt;p class=&quot;media-left&quot;&gt;&lt;%- comment.content%&gt;&lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;media-bottom&quot;&gt;
+                            &lt;%=comment.user.username%&gt; &lt;%=comment.createAt.toLocaleString()%&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                    &lt;%
+                    });
+                    %&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+
+        &lt;div class=&quot;panel panel-default&quot;&gt;
+            &lt;form action=&quot;/articles/comment&quot; method=&quot;post&quot;&gt;
+                &lt;input type=&quot;hidden&quot; value=&quot;&lt;%=article._id%&gt;&quot; name=&quot;_id&quot;/&gt;
+                &lt;div class=&quot;panel-body&quot;&gt;
+                    &lt;textarea class=&quot;form-control&quot;   id=&quot;&quot; cols=&quot;30&quot; rows=&quot;10&quot; id=&quot;content&quot; name=&quot;content&quot; placeholder=&quot;&#x8BF7;&#x8F93;&#x5165;&#x8BC4;&#x8BBA;&quot; &gt;&lt;/textarea&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;panel-footer&quot;&gt;
+                    &lt;button type=&quot;submit&quot; class=&quot;btn btn-default&quot;&gt;&#x63D0;&#x4EA4;&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+</code></pre><h3 id="t5119.2 &#x4FEE;&#x6539;&#x6A21;&#x578B;">19.2 &#x4FEE;&#x6539;&#x6A21;&#x578B; <a href="#t5119.2 &#x4FEE;&#x6539;&#x6A21;&#x578B;"> # </a></h3>
+<p>db/models.js</p>
+<pre><code>     comments: [{user:{type:ObjectId,ref:&apos;User&apos;},content:String,createAt:{type: Date, default: Date.now}}],
+</code></pre><h3 id="t5219.3  &#x4FEE;&#x6539;&#x8DEF;&#x7531;">19.3  &#x4FEE;&#x6539;&#x8DEF;&#x7531; <a href="#t5219.3  &#x4FEE;&#x6539;&#x8DEF;&#x7531;"> # </a></h3>
+<p>routes/article.js</p>
+<pre><code>    router.post(&apos;/comment&apos;,middleware.checkLogin, function (req, res) {
+       var user = req.session.user;
+       Model(&apos;Article&apos;).update({_id:req.body._id},{$push:{comments:{user:user._id,content:req.body.content}}},function(err,result){
+            if(err){
+                req.flash(&apos;error&apos;,err);
+                return res.redirect(&apos;back&apos;);
+            }
+            req.flash(&apos;success&apos;, &apos;&#x8BC4;&#x8BBA;&#x6210;&#x529F;!&apos;);
+            res.redirect(&apos;back&apos;);
+       });
+
+    });
+</code></pre><h2 id="t5320 &#x663E;&#x793A;PV&#x548C;&#x8BC4;&#x8BBA;">20 &#x663E;&#x793A;PV&#x548C;&#x8BC4;&#x8BBA; <a href="#t5320 &#x663E;&#x793A;PV&#x548C;&#x8BC4;&#x8BBA;"> # </a></h2>
+<h3 id="t5420.1 &#x5B89;&#x88C5;async">20.1 &#x5B89;&#x88C5;async <a href="#t5420.1 &#x5B89;&#x88C5;async"> # </a></h3>
+<pre><code>$  npm install async --save
+</code></pre><h3 id="t5520.2 &#x4FEE;&#x6539;&#x6A21;&#x578B;">20.2 &#x4FEE;&#x6539;&#x6A21;&#x578B; <a href="#t5520.2 &#x4FEE;&#x6539;&#x6A21;&#x578B;"> # </a></h3>
+<p>db/models.js</p>
+<pre><code>pv: {type:Number,default:0},
+</code></pre><h3 id="t5620.3 &#x4FEE;&#x6539;&#x8DEF;&#x7531;">20.3 &#x4FEE;&#x6539;&#x8DEF;&#x7531; <a href="#t5620.3 &#x4FEE;&#x6539;&#x8DEF;&#x7531;"> # </a></h3>
+<p>routes/article.js</p>
+<pre><code>var async = require(&apos;async&apos;);
+     router.get(&apos;/detail/:_id&apos;, function (req, res) {
+         async.parallel([function(callback){
+             Model(&apos;Article&apos;).findOne({_id:req.params._id}).populate(&apos;user&apos;).populate(&apos;comments.user&apos;).exec(function(err,article){
+                     article.content = markdown.toHTML(article.content);
+                     callback(err,article);
+             });
+         },function(callback){
+             Model(&apos;Article&apos;).update({_id:req.params._id},{$inc:{pv:1}},callback);
+         }],function(err,result){
+             if(err){
+                 req.flash(&apos;error&apos;,err);
+                 res.redirect(&apos;back&apos;);
+             }
+             res.render(&apos;article/detail&apos;,{title:&apos;&#x67E5;&#x770B;&#x6587;&#x7AE0;&apos;,article:result[0]});
+         });
+     });
+</code></pre><h3 id="t5720.4 &#x4FEE;&#x6539;&#x6A21;&#x677F;">20.4 &#x4FEE;&#x6539;&#x6A21;&#x677F; <a href="#t5720.4 &#x4FEE;&#x6539;&#x6A21;&#x677F;"> # </a></h3>
+<p>views/index.ejs</p>
+<pre><code>        &#x9605;&#x8BFB;&#xFF1A;&lt;%= article.pv %&gt;|
+        &#x8BC4;&#x8BBA;&#xFF1A;&lt;%= article.comments.length%&gt;
+</code></pre><h2 id="t5821. &#x7F8E;&#x5316;404&#x4E2D;&#x95F4;&#x4EF6;">21. &#x7F8E;&#x5316;404&#x4E2D;&#x95F4;&#x4EF6; <a href="#t5821. &#x7F8E;&#x5316;404&#x4E2D;&#x95F4;&#x4EF6;"> # </a></h2>
+<h3 id="t5921.1 &#x4FEE;&#x6539;404&#x4E2D;&#x95F4;&#x4EF6;">21.1 &#x4FEE;&#x6539;404&#x4E2D;&#x95F4;&#x4EF6; <a href="#t5921.1 &#x4FEE;&#x6539;404&#x4E2D;&#x95F4;&#x4EF6;"> # </a></h3>
+<p>app.js</p>
+<pre><code>    // catch 404 and forward to error handler
+    app.use(function(req, res, next) {
+      res.render(&quot;404&quot;);
+    });
+</code></pre><h3 id="t6021.2 &#x589E;&#x52A0;404&#x9875;&#x9762;&#x6A21;&#x677F;">21.2 &#x589E;&#x52A0;404&#x9875;&#x9762;&#x6A21;&#x677F; <a href="#t6021.2 &#x589E;&#x52A0;404&#x9875;&#x9762;&#x6A21;&#x677F;"> # </a></h3>
+<p>views/404.ejs</p>
+<pre><code>    &lt;% include include/header.ejs%&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;img src=&quot;http://7xjf2l.com2.z0.glb.qiniucdn.com/20131122112727-1356352347.jpg&quot; alt=&quot;404&quot;/&gt;
+    &lt;/div&gt;
+    &lt;% include include/footer.ejs%&gt;
+</code></pre><h2 id="t6122 &#x6253;&#x5370;&#x65E5;&#x5FD7;">22 &#x6253;&#x5370;&#x65E5;&#x5FD7; <a href="#t6122 &#x6253;&#x5370;&#x65E5;&#x5FD7;"> # </a></h2>
+<p>&#x73B0;&#x5728;&#x7ED9;&#x535A;&#x5BA2;&#x589E;&#x52A0;&#x65E5;&#x5FD7;&#xFF0C;&#x5B9E;&#x73B0;&#x8BBF;&#x95EE;&#x65E5;&#x5FD7;&#xFF08;access.log&#xFF09;&#x548C;&#x9519;&#x8BEF;&#x65E5;&#x5FD7;&#xFF08;error.log&#xFF09;&#x529F;&#x80FD;
+&#x628A;&#x65E5;&#x5FD7;&#x4FDD;&#x5B58;&#x4E3A;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;
+app.js</p>
+<pre><code>    &#x6B63;&#x5E38;&#x65E5;&#x5FD7;
+    var accessLog = fs.createWriteStream(&apos;access.log&apos;, {flags: &apos;a&apos;});
+    app.use(logger(&apos;dev&apos;,{stream: accessLog}));
+
+    &#x9519;&#x8BEF;&#x65E5;&#x5FD7;
+    var errorLog = fs.createWriteStream(&apos;error.log&apos;, {flags: &apos;a&apos;});
+    app.use(function (err, req, res, next) {
+      var meta = &apos;[&apos; + new Date() + &apos;] &apos; + req.url + &apos;\n&apos;;
+      errorLog.write(meta + err.stack + &apos;\n&apos;);
+      next();
+    });
+</code></pre><h2 id="t6223 &#x53D1;&#x5E03;heroKu">23 &#x53D1;&#x5E03;heroKu <a href="#t6223 &#x53D1;&#x5E03;heroKu"> # </a></h2>
+<h2 id="t6323.1 &#x6CE8;&#x518C;heroku">23.1 &#x6CE8;&#x518C;heroku <a href="#t6323.1 &#x6CE8;&#x518C;heroku"> # </a></h2>
+<p><a href="https://www.heroku.com/">https://www.heroku.com/</a></p>
+<h3 id="t6423.2 &#x5148;&#x6253;&#x5F00;&#x6CE8;&#x518C;&#x754C;&#x9762;&#x8F93;&#x5165;&#x6CE8;&#x518C;&#x4FE1;&#x606F;">23.2 &#x5148;&#x6253;&#x5F00;&#x6CE8;&#x518C;&#x754C;&#x9762;&#x8F93;&#x5165;&#x6CE8;&#x518C;&#x4FE1;&#x606F; <a href="#t6423.2 &#x5148;&#x6253;&#x5F00;&#x6CE8;&#x518C;&#x754C;&#x9762;&#x8F93;&#x5165;&#x6CE8;&#x518C;&#x4FE1;&#x606F;"> # </a></h3>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/heroku1.jpg" class="img-responsive"></p>
+<h3 id="t6523.3 &#x9A8C;&#x8BC1;&#x90AE;&#x7BB1;(&#x53EF;&#x7528;qq,&#x4E0D;&#x80FD;126 163&#x7B49;)">23.3 &#x9A8C;&#x8BC1;&#x90AE;&#x7BB1;(&#x53EF;&#x7528;qq,&#x4E0D;&#x80FD;126 163&#x7B49;) <a href="#t6523.3 &#x9A8C;&#x8BC1;&#x90AE;&#x7BB1;(&#x53EF;&#x7528;qq,&#x4E0D;&#x80FD;126 163&#x7B49;)"> # </a></h3>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/hero2.jpg" class="img-responsive"></p>
+<h3 id="t6623.4 &#x67E5;&#x770B;&#x90AE;&#x7BB1;&#x70B9;&#x51FB;&#x6FC0;&#x6D3B;&#x94FE;&#x63A5;">23.4 &#x67E5;&#x770B;&#x90AE;&#x7BB1;&#x70B9;&#x51FB;&#x6FC0;&#x6D3B;&#x94FE;&#x63A5; <a href="#t6623.4 &#x67E5;&#x770B;&#x90AE;&#x7BB1;&#x70B9;&#x51FB;&#x6FC0;&#x6D3B;&#x94FE;&#x63A5;"> # </a></h3>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/heroku3.png" class="img-responsive"></p>
+<h3 id="t6723.5 &#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x5BC6;&#x7801;">23.5 &#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x5BC6;&#x7801; <a href="#t6723.5 &#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x5BC6;&#x7801;"> # </a></h3>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/heroku4.png" class="img-responsive"></p>
+<h3 id="t6823.6 &#x9A8C;&#x8BC1;&#x6210;&#x529F;">23.6 &#x9A8C;&#x8BC1;&#x6210;&#x529F; <a href="#t6823.6 &#x9A8C;&#x8BC1;&#x6210;&#x529F;"> # </a></h3>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/heroku6.png" class="img-responsive"></p>
+<h3 id="t6923.7 &#x8FDB;&#x5165;&#x63A7;&#x5236;&#x9762;&#x677F;">23.7 &#x8FDB;&#x5165;&#x63A7;&#x5236;&#x9762;&#x677F; <a href="#t6923.7 &#x8FDB;&#x5165;&#x63A7;&#x5236;&#x9762;&#x677F;"> # </a></h3>
+<p>&#x70B9;&#x51FB;&#x53F3;&#x4E0A;&#x89D2;&#x7684;&#x521B;&#x5EFA;app&#x6309;&#x94AE;</p>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/hero7.png" class="img-responsive"></p>
+<h3 id="t7023.8 &#x8F93;&#x5165;app&#x540D;&#x79F0;">23.8 &#x8F93;&#x5165;app&#x540D;&#x79F0; <a href="#t7023.8 &#x8F93;&#x5165;app&#x540D;&#x79F0;"> # </a></h3>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/hero8.png" class="img-responsive"></p>
+<h3 id="t7123.9 &#x5C06;&#x6B64;APP&#x5173;&#x8054;&#x5230;github&#x4E0A;">23.9 &#x5C06;&#x6B64;APP&#x5173;&#x8054;&#x5230;github&#x4E0A; <a href="#t7123.9 &#x5C06;&#x6B64;APP&#x5173;&#x8054;&#x5230;github&#x4E0A;"> # </a></h3>
+<p>&#x8981;&#x6388;&#x6743;github&#x767B;&#x9646;</p>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/hero9.png" class="img-responsive"></p>
+<h3 id="t7223.10 &#x70B9;&#x51FB;&#x5E03;&#x7F72;&#x5206;&#x652F;">23.10 &#x70B9;&#x51FB;&#x5E03;&#x7F72;&#x5206;&#x652F; <a href="#t7223.10 &#x70B9;&#x51FB;&#x5E03;&#x7F72;&#x5206;&#x652F;"> # </a></h3>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/heru10.png" class="img-responsive"></p>
+<h3 id="t7323.11 &#x53D1;&#x5E03;&#x7ED3;&#x679C;">23.11 &#x53D1;&#x5E03;&#x7ED3;&#x679C; <a href="#t7323.11 &#x53D1;&#x5E03;&#x7ED3;&#x679C;"> # </a></h3>
+<p><a href="https://zhufengpeixunblog.herokuapp.com/">https://zhufengpeixunblog.herokuapp.com/</a></p>
+
+
+        </div>
+    
+</div>
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    /*url("/static/img/banner.jpg") no-repeat*/
+    .bs-docs-header{
+        background:linear-gradient(to right ,#333333 50%,#0d0b0c 50%) ;
+        padding: 0;
+    }
+    .new-back{
+        background-image: url("static/img/banner.jpg") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 88px;
+    }
+    .markdown-body pre code,.markdown-body code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .markdown-body code{
+      line-height: inherit;
+    }
+    .markdown-body h3{
+        font-size:1.4em;
+    }
+    .markdown-body h4{
+        font-size:1em;
+    }
+
+
+
+    /*index*/
+    .jw-style{
+        font-size: 1.75em;
+        color: #1d3e81;
+        line-height: 2em;
+    }
+
+    .understand-me {
+        text-align: center;
+        margin: 100px auto 0;
+    }
+
+    .understand-me li {
+        vertical-align: top;
+        width: 33.3333%;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+    }
+
+    .understand-me li span {
+        color: #1a1a1a;
+        font-size: 1.6em;
+
+    }
+
+    .understand-me p {
+        margin: 0 auto;
+        width: 90%;
+        text-align: left;
+        color: #4c4c4c;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    .understand-me img {
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .footers{
+        background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px
+    }
+    .understand-me img:hover {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    @media screen and (max-width: 479px) {
+        .understand-me li{
+            width: 100%;
+            margin-bottom: 2em;
+        }
+        .new-back{
+            padding: 28px;
+        }
+        .understand-me p {
+            width: 60%;
+        }
+        .footers{
+            height: 80px;
+            background-size:auto 100%;;
+        }
+    }
+
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+if(!$('.understand-me').length){
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h1,h2,h3,h4,h5,h6").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+}
+</script>
+
+</body>
+</html>
+
+
+<script>
+
+</script>
