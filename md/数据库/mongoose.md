@@ -154,7 +154,7 @@ PersonModel.findByName('zfpx',function(err,persons){
 ```
 
 ### 1.12 验证器
-验证器是指定在数据库保存到数据库之前做的验证
+验证器是指定在数据保存到数据库之前做的验证
 - required 非空验证
 - min/max 范围验证（边值验证）
 - enum/match 枚举验证/匹配验证
