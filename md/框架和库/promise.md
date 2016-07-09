@@ -173,7 +173,7 @@ var deferred = Q.defer();
   return deferred.promise;
 ```
 
-## 9. blurbird
+## 9. bluebird
 实现 promise 标准的库是功能最全，速度最快的一个库
 ```
 var Promise = require('bluebird');
