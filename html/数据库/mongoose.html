@@ -160,7 +160,7 @@ personEntity.save(<span class="hljs-function"><span class="hljs-keyword">functio
 </code></pre>
 <h3 id="t131.11 &#x4E3A;Model&#x589E;&#x52A0;&#x9759;&#x6001;&#x65B9;&#x6CD5;">1.11 &#x4E3A;Model&#x589E;&#x52A0;&#x9759;&#x6001;&#x65B9;&#x6CD5; <a href="#t131.11 &#x4E3A;Model&#x589E;&#x52A0;&#x9759;&#x6001;&#x65B9;&#x6CD5;"> # </a></h3>
 <pre><code class="lang-javascript">PersonSchema.statics.findByName = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">name,cb</span>)</span>{
-    <span class="hljs-keyword">this</span>.find({name:<span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(name,<span class="hljs-string">&apos;i&apos;</span>),cb});
+    <span class="hljs-keyword">this</span>.find({name:<span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(name,<span class="hljs-string">&apos;i&apos;</span>)},cb);
 }
 <span class="hljs-keyword">var</span> PersonModel = mongoose.model(<span class="hljs-string">&apos;Person&apos;</span>,PersonSchema);
 PersonModel.findByName(<span class="hljs-string">&apos;zfpx&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,persons</span>)</span>{
