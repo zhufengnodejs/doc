@@ -41,7 +41,7 @@
         <div class="content markdown-body">
 
             <h2 id="t0ECMAScript6">ECMAScript6 <a href="#t0ECMAScript6"> # </a></h2>
-<p>ECMAScript &#x7B80;&#x79F0;&#x5C31;&#x662F; ES &#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x628A;&#x5B83;&#x770B;&#x6210;&#x662F;&#x4E00;&#x5957;&#x6807;&#x51C6;&#xFF0C; JavaScript &#x5C31;&#x662F;&#x5B9E;&#x65BD;&#x4E86;&#x8FD9;&#x5957;&#x6807;&#x51C6;&#x7684;&#x4E00;&#x95E8;&#x8BED;&#x8A00;&#x3002; &#x73B0;&#x5728;&#x4E3B;&#x6D41;&#x6D4F;&#x89C8;&#x5668;&#x4F7F;&#x7528;&#x7684;&#x662F; ECMASciprt 5 &#x3002;  </p>
+<p>ECMAScript &#x7B80;&#x79F0;&#x5C31;&#x662F; ES &#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x628A;&#x5B83;&#x770B;&#x6210;&#x662F;&#x4E00;&#x5957;&#x6807;&#x51C6;&#xFF0C; JavaScript &#x5C31;&#x662F;&#x5B9E;&#x65BD;&#x4E86;&#x8FD9;&#x5957;&#x6807;&#x51C6;&#x7684;&#x4E00;&#x95E8;&#x8BED;&#x8A00;&#x3002; &#x73B0;&#x5728;&#x4E3B;&#x6D41;&#x6D4F;&#x89C8;&#x5668;&#x4F7F;&#x7528;&#x7684;&#x662F; ECMAScriprt 5 &#x3002;  </p>
 <h2 id="t11. &#x4F5C;&#x7528;&#x57DF;&#x53D8;&#x91CF;">1. &#x4F5C;&#x7528;&#x57DF;&#x53D8;&#x91CF; <a href="#t11. &#x4F5C;&#x7528;&#x57DF;&#x53D8;&#x91CF;"> # </a></h2>
 <p>&#x4F5C;&#x7528;&#x57DF;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x7684;&#x4E3A;&#x4F5C;&#x7528;&#x8303;&#x56F4;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x4F60;&#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x4EE5;&#x540E;,&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x53EF;&#x4EE5;&#x5728;&#x4EC0;&#x4E48;&#x573A;&#x5408;&#x4E0B;&#x4F7F;&#x7528;<br>&#x4EE5;&#x524D;&#x7684;<em>JavaScript</em>&#x53EA;&#x6709;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;   </p>
 <h3 id="t21.1 var&#x7684;&#x95EE;&#x9898;">1.1 var&#x7684;&#x95EE;&#x9898; <a href="#t21.1 var&#x7684;&#x95EE;&#x9898;"> # </a></h3>
@@ -94,9 +94,7 @@
 </code></pre>
 <h4 id="t81.2.5 &#x4E0D;&#x5B58;&#x5728;&#x53D8;&#x91CF;&#x7684;&#x9884;&#x89E3;&#x91CA;">1.2.5 &#x4E0D;&#x5B58;&#x5728;&#x53D8;&#x91CF;&#x7684;&#x9884;&#x89E3;&#x91CA; <a href="#t81.2.5 &#x4E0D;&#x5B58;&#x5728;&#x53D8;&#x91CF;&#x7684;&#x9884;&#x89E3;&#x91CA;"> # </a></h4>
 <pre><code class="lang-javascript"><span class="hljs-built_in">console</span>.log(a);
-<span class="hljs-keyword">if</span>(<span class="hljs-literal">true</span>){
-    <span class="hljs-keyword">let</span> a = <span class="hljs-string">&apos;a&apos;</span>;
-}
+<span class="hljs-keyword">let</span> a = <span class="hljs-string">&apos;a&apos;</span>;
 </code></pre>
 <h4 id="t91.2.6 &#x95ED;&#x5305;&#x7684;&#x65B0;&#x5199;&#x6CD5;">1.2.6 &#x95ED;&#x5305;&#x7684;&#x65B0;&#x5199;&#x6CD5; <a href="#t91.2.6 &#x95ED;&#x5305;&#x7684;&#x65B0;&#x5199;&#x6CD5;"> # </a></h4>
 <p>&#x4EE5;&#x524D;</p>
@@ -372,10 +370,10 @@ person.getName();
     }
 }
 
-<span class="hljs-keyword">let</span> interator = buy([<span class="hljs-string">&apos;js&apos;</span>, <span class="hljs-string">&apos;html&apos;</span>]);
+<span class="hljs-keyword">let</span> iterators = buy([<span class="hljs-string">&apos;js&apos;</span>, <span class="hljs-string">&apos;html&apos;</span>]);
 <span class="hljs-keyword">var</span> curr;
 <span class="hljs-keyword">do</span> {
-    curr = interator.next();
+    curr = iterators.next();
     <span class="hljs-built_in">console</span>.log(curr);
 } <span class="hljs-keyword">while</span> (!curr.done);
 </code></pre>
@@ -413,11 +411,11 @@ co(<span class="hljs-function"><span class="hljs-keyword">function</span> *(<spa
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">co</span>(<span class="hljs-params">fn</span>) </span>{
     <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-        <span class="hljs-keyword">var</span> gen = fn();
+        <span class="hljs-keyword">var</span> iterators = fn();
         <span class="hljs-keyword">var</span> it = <span class="hljs-literal">null</span>;
         <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_next</span>(<span class="hljs-params">err, res</span>) </span>{
             <span class="hljs-keyword">if</span>(err) res = err;
-            it = gen.next(res);
+            it = iterators.next(res);
             <span class="hljs-keyword">if</span>(!it.done){
                 it.value(_next);
             }
