@@ -165,7 +165,7 @@ Promise.race([p1, p2]).then(function (result) {
 
 ## 8. q的用法
 ```
-var Q = require('q);
+var Q = require('q');
 var deferred = Q.defer();
   setTimeout(function() {
      deferred.resolve();
