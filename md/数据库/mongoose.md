@@ -145,7 +145,7 @@ var PersonModel = db.model("person", PersonSchema);
 ### 1.11 为Model增加静态方法
 ```javascript
 PersonSchema.statics.findByName = function(name,cb){
-    this.find({name:new RegExp(name,'i'),cb});
+    this.find({name:new RegExp(name,'i')},cb);
 }
 var PersonModel = mongoose.model('Person',PersonSchema);
 PersonModel.findByName('zfpx',function(err,persons){
