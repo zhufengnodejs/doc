@@ -456,7 +456,7 @@ find(Conditions,fields,options,callback)
 
 ### 4.4 分页查询
 ```javascript
-Model('User').find({}})
+Model('User').find({})
   .sort({createAt:-1})
   .skip((pageNum-1)*pageSize)
   .limit(pageSize)
