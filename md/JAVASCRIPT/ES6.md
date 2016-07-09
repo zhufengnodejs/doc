@@ -409,10 +409,10 @@ function buy(books) {
     }
 }
 
-let interator = buy(['js', 'html']);
+let iterators = buy(['js', 'html']);
 var curr;
 do {
-    curr = interator.next();
+    curr = iterators.next();
     console.log(curr);
 } while (!curr.done);
 ```
@@ -454,11 +454,11 @@ co(function *(){
 
 function co(fn) {
     return function() {
-        var gen = fn();
+        var iterators = fn();
         var it = null;
         function _next(err, res) {
             if(err) res = err;
-            it = gen.next(res);
+            it = iterators.next(res);
             if(!it.done){
                 it.value(_next);
             }
