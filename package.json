@@ -49,7 +49,8 @@
                     "初识JS.md",
                     "原型链.md",
                     "预解析作用域闭包this.md",
-                    "webstorage.md"
+                    "webstorage.md",
+                    "正则表达式.md"
                 ]
             },
             {

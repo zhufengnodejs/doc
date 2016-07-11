@@ -1,0 +1,1284 @@
+<h2 id="1-express-">1. express生成器生成生成项目</h2>
+<h3 id="1-1-express-">1.1 安装 Express生成器</h3>
+<p>express 是 Node.js 上最流行的 Web 开发框架，正如他的名字一样，使用它我们可以快速的开发一个 Web 应用。我们用 express 来搭建我们的博客，打开命令行，输入：</p>
+<pre><code class="lang-javascript">$ npm install -g express-generator
+</code></pre>
+<p>安装 express 命令行工具，使用它我们可以初始化一个 express 项目。</p>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/express.png" class="img-responsive"></p>
+<h3 id="1-2-">1.2 生成一个项目</h3>
+<p>在命令行中输入：</p>
+<pre><code class="lang-javascript">$ express -e zhufengpeixunblog
+$ cd zhufengpeixunblog &amp;&amp; npm install
+</code></pre>
+<p>执行结果中会显示生成的文件并提示后续的命令</p>
+<pre><code class="lang-javascript">E:\&gt;express -e zhufengpeixunblog
+
+create : zhufengpeixunblog
+create : zhufengpeixunblog/package.json
+create : zhufengpeixunblog/app.js
+create : zhufengpeixunblog/public
+create : zhufengpeixunblog/routes
+create : zhufengpeixunblog/routes/index.js
+create : zhufengpeixunblog/routes/users.js
+create : zhufengpeixunblog/public/images
+create : zhufengpeixunblog/public/javascripts
+create : zhufengpeixunblog/views
+create : zhufengpeixunblog/views/index.ejs
+create : zhufengpeixunblog/views/error.ejs
+create : zhufengpeixunblog/public/stylesheets
+create : zhufengpeixunblog/public/stylesheets/style.css
+create : zhufengpeixunblog/bin
+create : zhufengpeixunblog/bin/www
+
+install dependencies:
+ &gt; cd zhufengpeixunblog &amp;&amp; npm install
+
+run the app:
+ &gt; SET DEBUG=zhufengpeixunblog:* &amp; npm start
+</code></pre>
+<p>进入生成的目录并安装依赖   </p>
+<pre><code class="lang-javascript">$ E:\&gt;cd zhufengpeixunblog &amp;&amp; npm install
+
+debug@2.2.0 node_modules\debug
+└── ms@0.7.1
+
+morgan@1.6.1 node_modules\morgan
+├── on-headers@1.0.1
+├── basic-auth@1.0.3
+├── depd@1.0.1
+└── on-finished@2.3.0 (ee-first@1.1.1)
+
+cookie-parser@1.3.5 node_modules\cookie-parser
+├── cookie@0.1.3
+└── cookie-signature@1.0.6
+
+serve-favicon@2.3.0 node_modules\serve-favicon
+├── ms@0.7.1
+├── etag@1.7.0
+├── fresh@0.3.0
+└── parseurl@1.3.0
+
+body-parser@1.13.3 node_modules\body-parser
+├── bytes@2.1.0
+├── content-type@1.0.1
+├── depd@1.0.1
+├── on-finished@2.3.0 (ee-first@1.1.1)
+├── qs@4.0.0
+├── iconv-lite@0.4.11
+├── http-errors@1.3.1 (statuses@1.2.1, inherits@2.0.1)
+├── type-is@1.6.9 (media-typer@0.3.0, mime-types@2.1.7)
+└── raw-body@2.1.4 (unpipe@1.0.0, iconv-lite@0.4.12)
+
+express@4.13.3 node_modules\express
+├── escape-html@1.0.2
+├── array-flatten@1.1.1
+├── path-to-regexp@0.1.7
+├── merge-descriptors@1.0.0
+├── content-type@1.0.1
+├── methods@1.1.1
+├── utils-merge@1.0.0
+├── content-disposition@0.5.0
+├── range-parser@1.0.3
+├── serve-static@1.10.0
+├── vary@1.0.1
+├── depd@1.0.1
+├── cookie@0.1.3
+├── cookie-signature@1.0.6
+├── fresh@0.3.0
+├── etag@1.7.0
+├── on-finished@2.3.0 (ee-first@1.1.1)
+├── parseurl@1.3.0
+├── qs@4.0.0
+├── finalhandler@0.4.0 (unpipe@1.0.0)
+├── accepts@1.2.13 (negotiator@0.5.3, mime-types@2.1.7)
+├── type-is@1.6.9 (media-typer@0.3.0, mime-types@2.1.7)
+├── proxy-addr@1.0.8 (forwarded@0.1.0, ipaddr.js@1.0.1)
+</code></pre>
+<p>设置环境变量并启动服务器,在命令行中执行下列命令</p>
+<pre><code class="lang-javascript">$ SET DEBUG=zhufengpeixunblog:* &amp; npm start
+</code></pre>
+<p>执行完成后会显示</p>
+<pre><code class="lang-javascript">zhufengpeixunblog:server Listening on port 3000 +0ms
+</code></pre>
+<p>在浏览器里访问 <a href="http://localhost:3000">http://localhost:3000</a> 就可以显示欢迎页面</p>
+<pre><code class="lang-javascript">Express
+Welcome to Express
+</code></pre>
+<p>刚才我们就用express生成器生成了一个使用ejs模板的示例工程。</p>
+<h2 id="2-">2. 项目文件分析</h2>
+<h3 id="2-1-">2.1 生成文件说明</h3>
+<ul>
+<li><strong>app.js</strong>：express的主配置文件   </li>
+<li><strong>package.json</strong>：存储着工程的信息及模块依赖，当在 dependencies 中添加依赖的模块时，运行 <code>npm install</code>，npm 会检查当前目录下的 package.json，并自动安装所有指定的模块  </li>
+<li><strong>node_modules</strong>：存放 package.json 中安装的模块，当你在 package.json 添加依赖的模块并安装后，存放在这个文件夹下  </li>
+<li><strong>public</strong>：存放 image、css、js 等文件  </li>
+<li><strong>routes</strong>：存放路由文件  </li>
+<li><strong>views</strong>：存放视图文件或者说模版文件  </li>
+<li><strong>bin</strong>：可执行文件，可以从此启动服务器</li>
+</ul>
+<h3 id="2-2-app-js">2.2 app.js</h3>
+<pre><code class="lang-javascript">var express = require(&#39;express&#39;); 加载node_modules下的express模块
+var path = require(&#39;path&#39;);
+var favicon = require(&#39;serve-favicon&#39;);
+var logger = require(&#39;morgan&#39;);
+var cookieParser = require(&#39;cookie-parser&#39;);
+var bodyParser = require(&#39;body-parser&#39;);
+
+var routes = require(&#39;./routes/index&#39;);
+var users = require(&#39;./routes/users&#39;);
+
+var app = express(); 生成一个express实例 app
+
+// 设置 views 文件夹为存放视图文件的目录, 即存放模板文件的地方,
+app.set(&#39;views&#39;, path.join(__dirname, &#39;views&#39;));
+app.set(&#39;view engine&#39;, &#39;ejs&#39;); 设置视图模板引擎为 ejs。
+
+//设置/public/favicon.ico为favicon图标
+//app.use(favicon(path.join(__dirname, &#39;public&#39;, &#39;favicon.ico&#39;))); 
+app.use(logger(&#39;dev&#39;)); 加载日志中间件。
+app.use(bodyParser.json()); 加载解析json的中间件。
+//加载解析urlencoded请求体的中间件。
+app.use(bodyParser.urlencoded({ extended: false })); 
+app.use(cookieParser()); 加载解析cookie的中间件。
+/设置public文件夹为存放静态文件的目录。
+app.use(express.static(path.join(__dirname, &#39;public&#39;))); 
+
+app.use(&#39;/&#39;, routes); 根目录的路由
+app.use(&#39;/users&#39;, users); 用户路由
+
+// 捕获404错误，并转发到错误处理器。
+app.use(function(req, res, next) {
+  var err = new Error(&#39;Not Found&#39;);
+  err.status = 404;
+  next(err);
+});
+
+// error handlers 错误处理器
+// development error handler 开发环境下的错误处理
+// will print stacktrace 将打印出堆栈信息
+if (app.get(&#39;env&#39;) === &#39;development&#39;) {
+  app.use(function(err, req, res, next) {
+res.status(err.status || 500);
+res.render(&#39;error&#39;, {
+  message: err.message,
+  error: err
+});
+  });
+}
+
+//生产环境下的错误处理
+// 不向用户暴露堆栈信息
+app.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+  res.render(&#39;error&#39;, {
+message: err.message,
+error: {}
+  });
+});
+
+
+module.exports = app;  导出app供 bin/www 使用
+</code></pre>
+<h3 id="2-3-bin-www">2.3 bin/www</h3>
+<pre><code class="lang-javascript">!/usr/bin/env node  表明是 node 可执行文件。
+
+//引入我们上面app.js导出的app实例
+var app = require(&#39;../app&#39;); 
+//引入打印调试日志的debug模块，并设置名称。
+var debug = require(&#39;debug&#39;)(&#39;zhufengpeixunblog:server&#39;);  
+var http = require(&#39;http&#39;); 
+
+//从环境变量中获取端口号并存放到express中
+var port = normalizePort(process.env.PORT || &#39;3000&#39;); 
+//设置端口号
+app.set(&#39;port&#39;, port); 
+
+//创建http服务器
+var server = http.createServer(app); 
+
+//在所有的网络接口中监听提供的端口
+server.listen(port);
+//监听错误事件
+server.on(&#39;error&#39;, onError); 
+//启动工程并监听3000端口，成功后打印 。
+server.on(&#39;listening&#39;, onListening); 
+//把一个端口处理成一个数字或字符串或者false
+function normalizePort(val) {
+ //先试图转成10进制数字
+  var port = parseInt(val, 10); 
+
+  if (isNaN(port)) {
+// 转不成数字就当作命名管道来处理
+return val;
+  }
+
+  if (port &gt;= 0) {
+// port number 如果端口大于0就返回端口
+return port;
+  }
+//不是命名管道，也不是正常端口就返回false
+  return false; 
+}
+
+//服务器的错误事件监听器
+function onError(error) {
+ //如果系统调用不是监听则抛出错误
+  if (error.syscall !== &#39;listen&#39;) { 
+throw error;
+  }
+  var bind = typeof port === &#39;string&#39;
+? &#39;Pipe &#39; + port
+: &#39;Port &#39; + port;
+
+  //更友好的处理特定的监听错误
+  switch (error.code) { 错误编码
+case &#39;EACCES&#39;: 没有权限
+  //没有权限绑定指定的端口
+  console.error(bind + &#39; requires elevated privileges&#39;); 
+  process.exit(1); 异常退出
+  break;
+case &#39;EADDRINUSE&#39;: 端口被占用
+  console.error(bind + &#39; is already in use&#39;);
+  process.exit(1);异常退出
+  break;
+default:
+//其它的情况抛出错误并中止进程
+  throw error; 
+  }
+}
+
+//服务器的监听端口成功事件回调
+function onListening() {
+//取得服务器的地址
+  var addr = server.address(); 
+//监听地址如果是字符串返回命名管道名，如果是数字返回端口
+  var bind = typeof addr === &#39;string&#39; 
+? &#39;pipe &#39; + addr
+: &#39;port &#39; + addr.port;
+//记录日志
+  debug(&#39;Listening on &#39; + bind); 
+}
+</code></pre>
+<h3 id="2-4-routes-index-js">2.4 routes/index.js</h3>
+<pre><code class="lang-javascript">//导入express模块
+var express = require(&#39;express&#39;); 
+//生成一个路由实例
+var router = express.Router(); 
+
+//当用户访问根目录也就是 / 的时候执行此回调
+router.get(&#39;/&#39;, function(req, res, next) { 
+//渲染views/index.ejs模版并显示到浏览器中
+  res.render(&#39;index&#39;, { title: &#39;Express&#39; }); 
+});
+//导出这个路由并在app.js中通过app.use(&#39;/&#39;, routes); 加载
+module.exports = router;
+</code></pre>
+<h3 id="2-5-views-index-ejs">2.5 views/index.ejs</h3>
+<p>在渲染模板时我们传入了一个变量 title 值为 express 字符串，模板引擎会将所有 &lt;%= title %&gt; 替换为 express ，然后将渲染后生成的html显示到浏览器中</p>
+<pre><code class="lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+&lt;title&gt;&lt;%= title %&gt;&lt;/title&gt;
+&lt;link rel=&#39;stylesheet&#39; href=&#39;/stylesheets/style.css&#39; /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+&lt;h1&gt;&lt;%= title %&gt;&lt;/h1&gt;
+&lt;p&gt;Welcome to &lt;%= title %&gt;&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2 id="3-">3. 功能与设计</h2>
+<h3 id="3-1-">3.1 功能分析</h3>
+<p>搭建一个简单的具有多人注册、登录、发表文章、登出功能的博客。</p>
+<h3 id="3-2-">3.2 设计目标</h3>
+<ul>
+<li>未登录：主页导航显示 首页、注册、登陆，下面显示已发表的文章、发表日期及作者。</li>
+<li>登陆后：主页导航显示 首页、发表文章、退出，下面显示已发表的文章、发表日期及作者。</li>
+<li>用户登录、注册、发表成功以及登出后都返回到主页。</li>
+</ul>
+<h3 id="3-3-">3.3 未登录</h3>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/logout.jpg" class="img-responsive"></p>
+<h3 id="3-4-">3.4 登陆后</h3>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/loged.jpg" class="img-responsive"></p>
+<h3 id="3-4-">3.4 发表文章</h3>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/publisharticle.jpg" class="img-responsive"></p>
+<h2 id="4-">4. 配置路由</h2>
+<h3 id="4-1-">4.1 路由规划</h3>
+<p>我们已经把设计的构想图贴出来了，接下来的任务就是完成路由规划了。路由规划，或者说控制器规划是整个网站的骨架部分，因为它处于整个架构的枢纽位置，相当于各个接口之间的粘合剂，所以应该优先考虑。</p>
+<ul>
+<li>/ ：首页</li>
+<li>/users/login ：用户登录</li>
+<li>/users/reg ：用户注册</li>
+<li>/articles/post ：发表文章</li>
+<li>/articles/logout ：登出 </li>
+</ul>
+<h3 id="4-2-">4.2 增加路由</h3>
+<p>routes/users.js 中添加下列代码</p>
+<pre><code class="lang-javascript">/**
+ * 用户注册
+ */
+router.get(&#39;/reg&#39;, function (req, res) {
+res.render(&#39;user/reg&#39;, {title: &#39;注册&#39;});
+});
+
+/**
+ * 当填写用户注册信息提交时的处理
+ */
+router.post(&#39;/reg&#39;, function (req, res) {
+});
+
+/**
+ * 显示用户登录表单
+ */
+router.get(&#39;/login&#39;, function (req, res) {
+res.render(&#39;user/login&#39;, {title: &#39;登录&#39;});
+});
+
+/**
+ * 当填写用户登录信息提交时的处理
+ */
+router.post(&#39;/login&#39;, function (req, res) {
+});
+
+router.get(&#39;/logout&#39;, function (req, res) {
+});
+
+routes/articles.js 中添加下列代码
+
+router.get(&#39;/add&#39;, function (req, res) {
+res.render(&#39;article/add&#39;, { title: &#39;发表文章&#39; });
+});
+
+router.post(&#39;/add&#39;, function (req, res) {
+
+});
+</code></pre>
+<h3 id="4-3-app-js">4.3 修改app.js</h3>
+<p>app.js中添加以下代码</p>
+<pre><code class="lang-javascript">var articles = require(&#39;./routes/article&#39;);
+app.use(&#39;/articles&#39;, articles);
+</code></pre>
+<h3 id="4-4-">4.4 增加模板</h3>
+<p>views下增加以下文件</p>
+<h4 id="4-4-1-views-article-add-ejs">4.4.1 views/article/add.ejs</h4>
+<pre><code class="lang-javascript">&lt;%= title %&gt;
+</code></pre>
+<h4 id="4-4-2-views-user-login-ejs">4.4.2 views/user/login.ejs</h4>
+<pre><code class="lang-javascript">&lt;%= title %&gt;
+</code></pre>
+<h4 id="4-4-3-views-user-reg-ejs">4.4.3 views/user/reg.ejs</h4>
+<pre><code class="lang-javascript">&lt;%= title %&gt;
+</code></pre>
+<h3 id="4-5-">4.5 显示效果</h3>
+<h4 id="4-5-1-">4.5.1 用户注册</h4>
+<p><a href="http://localhost:3000/users/reg">http://localhost:3000/users/reg</a></p>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/reg.jpg" class="img-responsive"></p>
+<h4 id="4-5-2-">4.5.2 用户登陆</h4>
+<p><a href="http://localhost:3000/users/login">http://localhost:3000/users/login</a></p>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/login.jpg" class="img-responsive"></p>
+<h4 id="4-5-3-">4.5.3 发表文章</h4>
+<p><a href="http://localhost:3000/articles/add">http://localhost:3000/articles/add</a></p>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/articleadd.jpg" class="img-responsive"></p>
+<h2 id="5-bower">5. 初始化bower</h2>
+<h3 id="5-1-bower">5.1 安装bower</h3>
+<pre><code>$ npm install bower -g
+</code></pre><h3 id="5-2-bower">5.2 初始化bower</h3>
+<pre><code>bower init
+
+E:\zhufengpeixunblog&gt;bower init
+? name: zhufengpeixunblog
+? version: 0.0.0
+? description:
+? main file:
+? what types of modules does this package expose?
+? keywords:
+? authors: zhangrenyang-t510 &lt;zhang_renyang@&gt;
+? license: MIT
+? homepage:
+? set currently installed components as dependencies? Yes
+? add commonly ignored files to ignore list? Yes
+
+{
+  name: &#39;zhufengpeixunblog&#39;,
+  version: &#39;0.0.0&#39;,
+  authors: [
+&#39;zhangrenyang-t510 &lt;zhang_renyang@&gt;&#39;
+  ],
+  license: &#39;MIT&#39;,
+  ignore: [
+&#39;**/.*&#39;,
+&#39;node_modules&#39;,
+&#39;bower_components&#39;,
+&#39;test&#39;,
+&#39;tests&#39;
+  ]
+}
+
+? Looks good? Yes
+
+执行完此命令后会生成一个 `bower.json` 文件。
+</code></pre><h3 id="5-3-bowerrc-">5.3  创建配置文件 <code>.bowerrc</code></h3>
+<p>里面内容如下 </p>
+<pre><code>{&quot;directory&quot;:&quot;./public/lib&quot;}
+</code></pre><blockquote>
+<p>这表示以后bower安装的模块都安装在<code>./public/lib</code>下面</p>
+</blockquote>
+<h3 id="5-4-bootstrap">5.4 安装bootstrap</h3>
+<pre><code>$ bower install bootstrap --save
+</code></pre><p>大家可以看到，不但安装了bootstrap,也安装了依赖的jquery</p>
+<pre><code>E:\zhufengpeixunblog&gt;bower install bootstrap --save
+bower bootstrap#~3.3.5 install bootstrap#3.3.5
+bower jquery#&gt;= 1.9.1  install jquery#2.1.4
+bootstrap#3.3.5 public\lib\bootstrap
+└── jquery#2.1.4
+
+jquery#2.1.4 public\lib\jquery
+</code></pre><h2 id="6-">6. 完善页面</h2>
+<h3 id="6-1-include-">6.1 创建include文件夹</h3>
+<p>在views下创建include文件夹</p>
+<h3 id="6-2-header-ejs-">6.2 创建 <code>header.ejs</code></h3>
+<p>在include下添加包含的头部</p>
+<pre><code class="lang-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;title&gt;珠峰博客&lt;/title&gt;
+&lt;link href=&quot;/lib/bootstrap/dist/css/bootstrap.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;!--最外面的容器nav标签，并添加nav-bar样式类，表示这里面属于导航条 --&gt;
+&lt;nav class=&quot;navbar navbar-default&quot; role=&quot;navigation&quot;&gt;
+&lt;!--第二步：增加header--&gt;
+&lt;div class=&quot;navbar-header&quot;&gt;
+&lt;!--最左侧的，默认不可见 按钮标签里嵌套了三个span的icon。
+然后给与navbar-toggle样式类和属性collapse(收起)，
+点击的时候目标为data-target。当窗口缩小到一定程度，右侧的效果显现。--&gt;
+&lt;button type=&quot;button&quot; class=&quot;navbar-toggle&quot; 
+data-toggle=&quot;collapse&quot; data-target=&quot;#menus&quot;&gt;
+&lt;span class=&quot;sr-only&quot;&gt;珠峰博客&lt;/span&gt;
+&lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+&lt;/button&gt;
+&lt;a href=&quot;/&quot; class=&quot;navbar-brand&quot;&gt;珠峰博客&lt;/a&gt;
+&lt;/div&gt;
+&lt;!-- 放置其它的导航条 --&gt;
+&lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;menus&quot;&gt;
+&lt;ul class=&quot;nav navbar-nav&quot;&gt;
+&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;/users/reg&quot;&gt;注册&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/users/login&quot;&gt;登录&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/articles/add&quot;&gt;发表文章&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/users/logout&quot;&gt;登出&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/nav&gt;
+</code></pre>
+<h3 id="6-3-footer-ejs">6.3 创建 footer.ejs</h3>
+<p>在include下添加包含的尾部</p>
+<pre><code class="lang-javascript">&lt;script src=&quot;/lib/jquery/dist/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/lib/bootstrap/dist/js/bootstrap.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3 id="6-4-">6.4 修改首页</h3>
+<p>views/index.ejs</p>
+<pre><code>&lt;% include include/header.ejs%&gt;
+&lt;div class=&quot;container&quot;&gt;
+ 主页
+&lt;/div&gt;
+&lt;% include include/footer.ejs%&gt;
+</code></pre><p>效果如下</p>
+<p> <img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/homepage.jpg" class="img-responsive"></p>
+<h3 id="6-5-">6.5 修改用户注册页面</h3>
+<p>views/user/reg.ejs</p>
+<pre><code class="lang-html">   &lt;% include ../include/header.ejs%&gt;
+&lt;div class=&quot;container&quot;&gt;
+&lt;form action=&quot;/users/reg&quot; method=&quot;post&quot;  role=&quot;form&quot; 
+class=&quot;form-horizontal&quot;&gt;
+&lt;div class=&quot;form-group&quot;&gt;
+&lt;label for=&quot;username&quot; class=&quot;col-sm-2 control-label&quot;&gt;用户名&lt;/label&gt;
+&lt;div class=&quot;input-group col-sm-10&quot;&gt;
+&lt;div class=&quot;input-group-addon&quot;&gt; 
+&lt;span class=&quot;glyphicon glyphicon-user&quot;&gt;&lt;/span&gt; &lt;/div&gt;
+&lt;input type=&quot;text&quot; class=&quot;form-control&quot; 
+id=&quot;username&quot; name=&quot;username&quot; placeholder=&quot;用户名&quot;/&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;form-group&quot;&gt;
+&lt;label for=&quot;email&quot; class=&quot;col-sm-2 control-label&quot;&gt;邮箱&lt;/label&gt;
+&lt;div class=&quot;input-group col-sm-10&quot;&gt;
+&lt;div class=&quot;input-group-addon&quot;&gt;
+&lt;span class=&quot;glyphicon glyphicon-envelope&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+&lt;input type=&quot;email&quot; class=&quot;form-control&quot; 
+name=&quot;email&quot; id=&quot;email&quot; placeholder=&quot;邮箱&quot;/&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;form-group&quot;&gt;
+&lt;label for=&quot;password&quot; class=&quot;col-sm-2 control-label&quot;&gt;确认密码&lt;/label&gt;
+&lt;div class=&quot;input-group col-sm-10&quot;&gt;
+&lt;div class=&quot;input-group-addon&quot;&gt;
+&lt;span class=&quot;glyphicon glyphicon-lock&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+&lt;input type=&quot;password&quot; class=&quot;form-control&quot; 
+name=&quot;password&quot; id=&quot;password&quot; placeholder=&quot;密码&quot;/&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;form-group&quot;&gt;
+&lt;label for=&quot;repassword&quot; class=&quot;col-sm-2 control-label&quot;&gt;确认密码&lt;/label&gt;
+&lt;div class=&quot;input-group col-sm-10&quot;&gt;
+&lt;div class=&quot;input-group-addon&quot;&gt;
+&lt;span class=&quot;glyphicon glyphicon-lock&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+&lt;input type=&quot;password&quot; class=&quot;form-control&quot; 
+name=&quot;repassword&quot; id=&quot;repassword&quot; placeholder=&quot;确认密码&quot;/&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;form-group&quot;&gt;
+&lt;div class=&quot;col-sm-offset-2 col-sm-10&quot;&gt;
+&lt;button type=&quot;submit&quot; class=&quot;btn btn-default&quot;&gt;提交&lt;/button&gt;
+&lt;button type=&quot;reset&quot; class=&quot;btn btn-default&quot;&gt;重置&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/form&gt;
+&lt;/div&gt;
+&lt;% include ../include/footer.ejs%&gt;
+</code></pre>
+<p>效果如下
+<img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/bootreg.jpg" class="img-responsive"></p>
+<h3 id="6-6-">6.6 修改用户登录界面</h3>
+<p>views/user/login.ejs</p>
+<pre><code class="lang-html">   &lt;% include ../include/header.ejs%&gt;
+&lt;div class=&quot;container&quot;&gt;
+&lt;form action=&quot;/users/login&quot; method=&quot;post&quot; 
+ role=&quot;form&quot; class=&quot;form-horizontal&quot;&gt;
+&lt;div class=&quot;form-group&quot;&gt;
+&lt;label for=&quot;username&quot; class=&quot;col-sm-2 control-label&quot;&gt;用户名&lt;/label&gt;
+&lt;div class=&quot;input-group col-sm-10&quot;&gt;
+&lt;div class=&quot;input-group-addon&quot;&gt; 
+&lt;span class=&quot;glyphicon glyphicon-user&quot;&gt;&lt;/span&gt; &lt;/div&gt;
+&lt;input type=&quot;text&quot; class=&quot;form-control&quot;
+ id=&quot;username&quot; name=&quot;username&quot; placeholder=&quot;用户名&quot;/&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;form-group&quot;&gt;
+&lt;label for=&quot;password&quot; class=&quot;col-sm-2 control-label&quot;&gt;
+确认密码&lt;/label&gt;
+&lt;div class=&quot;input-group col-sm-10&quot;&gt;
+&lt;div class=&quot;input-group-addon&quot;&gt;
+&lt;span class=&quot;glyphicon glyphicon-lock&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+&lt;input type=&quot;password&quot; class=&quot;form-control&quot; 
+name=&quot;password&quot; id=&quot;password&quot; placeholder=&quot;密码&quot;/&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;form-group&quot;&gt;
+&lt;div class=&quot;col-sm-offset-2 col-sm-10&quot;&gt;
+&lt;button type=&quot;submit&quot; class=&quot;btn btn-default&quot;&gt;提交&lt;/button&gt;
+&lt;button type=&quot;reset&quot; class=&quot;btn btn-default&quot;&gt;重置&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/form&gt;
+&lt;/div&gt;
+&lt;% include ../include/footer.ejs%&gt;
+</code></pre>
+<p>效果如下
+<img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/bootlogin.jpg" class="img-responsive"></p>
+<h3 id="6-7-">6.7 修改发表文章页面</h3>
+<p>views/article/add.ejs</p>
+<pre><code class="lang-html">&lt;% include ../include/header.ejs%&gt;
+   &lt;div class=&quot;container&quot;&gt;
+   &lt;form action=&quot;/articles/add&quot; method=&quot;post&quot;  
+role=&quot;form&quot; class=&quot;form-horizontal&quot;&gt;
+   &lt;div class=&quot;form-group&quot;&gt;
+   &lt;label for=&quot;title&quot; class=&quot;col-sm-2 control-label&quot;&gt;标题&lt;/label&gt;
+   &lt;div class=&quot;col-sm-10&quot;&gt;
+   &lt;input type=&quot;text&quot; value=&quot;&quot; class=&quot;form-control&quot;
+ id=&quot;title&quot; name=&quot;title&quot; placeholder=&quot;标题&quot;/&gt;
+   &lt;/div&gt;
+   &lt;/div&gt;
+   &lt;div class=&quot;form-group&quot;&gt;
+   &lt;label for=&quot;content&quot; class=&quot;col-sm-2 control-label&quot;&gt;正文&lt;/label&gt;
+   &lt;div class=&quot;col-sm-10&quot;&gt;
+   &lt;textarea class=&quot;form-control&quot;   id=&quot;&quot; cols=&quot;30&quot; rows=&quot;10&quot; 
+id=&quot;content&quot; name=&quot;content&quot; placeholder=&quot;请输入内容&quot;&gt;&lt;/textarea&gt;
+   &lt;/div&gt;
+   &lt;/div&gt;
+   &lt;div class=&quot;form-group&quot;&gt;
+   &lt;div class=&quot;col-sm-offset-2 col-sm-10&quot;&gt;
+   &lt;button type=&quot;submit&quot; class=&quot;btn btn-default&quot;&gt;提交&lt;/button&gt;
+   &lt;button type=&quot;reset&quot; class=&quot;btn btn-default&quot;&gt;重置&lt;/button&gt;
+   &lt;/div&gt;
+   &lt;/div&gt;
+   &lt;/form&gt;
+   &lt;/div&gt;
+   &lt;% include ../include/footer.ejs%&gt;
+</code></pre>
+<p>效果如下</p>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/bootaddblog.jpg" class="img-responsive"></p>
+<h2 id="7-">7.  连接数据库</h2>
+<h3 id="7-1-">7.1 安装数据库支持</h3>
+<p>安装mongodb模块到node_modules下面并把此配置添加到<code>package.json</code>文件中</p>
+<pre><code>$ npm install mongoose --save
+</code></pre><h3 id="7-2-">7.2 创建配置文件</h3>
+<p>在工程根目录下创建 <code>settings.js</code> 文件,内容如下</p>
+<pre><code class="lang-javascript">module.exports = {
+cookieSecret:&#39;zhufengkey&#39;, 用于 Cookie 加密与数据库无关
+db:&#39;zhufengblog&#39;, 数据库的名称
+host:&#39;123.57.143.189&#39;, 数据库的地址
+port:27017,  数据库的端口号
+url:&quot;mongodb://123.57.143.189:27017/zhufengblog&quot;
+}
+</code></pre>
+<h3 id="7-3-db-">7.3 创建db文件夹</h3>
+<h3 id="7-4-">7.4 创建模型文件夹</h3>
+<p>在db文件夹下创建文件<code>models.js</code>,此文件存放着所有的模型</p>
+<pre><code class="lang-javascript">var mongoose = require(&#39;mongoose&#39;);
+var ObjectId = mongoose.Schema.Types.ObjectId;
+module.exports = {
+User:{ 设置User的数据模型 
+ username:{type:String,required:true},用户名
+ password:{type:String,required:true},密码
+ email:{type:String,required:true},邮箱
+ avatar:{type:String,required:true}头像
+},
+Article: { 设置文章的数据模型
+ user:{type:ObjectId,ref:&#39;User&#39;}, 用户
+ title: String, 标题
+ content: String, 内容
+ createAt:{type: Date, default: Date.now} 创建时间
+}
+}
+</code></pre>
+<h3 id="7-5-">7.5 定义模型</h3>
+<p>此文件负责向外暴露模型,因为Model赋给了global作为属性，那就意味着在程序任何地方都可以调用了</p>
+<pre><code class="lang-javascript">var mongoose = require(&#39;mongoose&#39;),
+Schema = mongoose.Schema,
+models = require(&#39;./models&#39;);
+var settings = require(&#39;../settings&#39;);
+mongoose.connect(settings.url);
+mongoose.model(&#39;User&#39;, new Schema(models.User));
+mongoose.model(&#39;Article&#39;, new Schema(models.Article));
+global.Model = function (type) {
+return mongoose.model(type);;
+}
+</code></pre>
+<h3 id="7-6-app-js-">7.6 在<code>app.js中</code>引入此模块</h3>
+<pre><code class="lang-javascript">  require(&#39;./db&#39;); //导入db模块
+</code></pre>
+<h2 id="8-">8. 会话支持</h2>
+<h3 id="8-1-">8.1 安装会话支持模块</h3>
+<p>使用 <code>express-session</code> 和 <code>connect-mongo</code> 模块实现了将会话信息存储到<code>mongodb</code>中。   </p>
+<pre><code>$ npm install express-session --save
+$ npm install connect-mongo --save
+</code></pre><h3 id="8-2-app-js">8.2 修改app.js</h3>
+<pre><code class="lang-javascript">var settings = require(&#39;./settings&#39;);
+var session = require(&#39;express-session&#39;);
+var MongoStore = require(&#39;connect-mongo&#39;)(session);
+app.use(session({
+  secret: settings.cookieSecret,//secret 用来防止篡改 cookie
+  key: settings.db,//key 的值为 cookie 的名字
+  //设定 cookie 的生存期，这里我们设置 cookie 的生存期为 30 天
+  cookie: {maxAge: 1000 * 60 * 60 * 24 * 30},
+  resave:true,
+  saveUninitialized:true,
+ //设置它的 store 参数为 MongoStore 实例，把会话信息存储到数据库中，
+ //以避免重启服务器时会话丢失
+  store: new MongoStore({ 
+    db: settings.db,
+    host: settings.host,
+    port: settings.port,
+  })
+}));
+</code></pre>
+<p>添加完了以后我们就可以路由中通过<code>request.session</code>来操作会话对象了</p>
+<h2 id="9-">9. 用户注册登陆</h2>
+<h3 id="9-1-">9.1 增加工具方法</h3>
+<p>在<code>routes/users.js</code>中增加md5加密的工具方法</p>
+<pre><code class="lang-javascript">function md5(val){
+  return require(&#39;crypto&#39;).createHash(&#39;md5&#39;).update(val).digest(&#39;hex&#39;);
+}
+</code></pre>
+<h3 id="9-2-">9.2 用户注册路由</h3>
+<p>注册表单的form中<code>action=&quot;/users/reg&quot;</code>,所以我们要实现用户注册的路由<br>修改 <code>routes/users.js</code> </p>
+<pre><code class="lang-javascript">router.post(&#39;/reg&#39;, function (req, res) {
+  //就是 POST 请求信息解析过后的对象
+  var user = req.body;//
+  if(user.password != user.repassword){
+      req.flash(&#39;error&#39;,&#39;两次输入的密码不一致&#39;);
+      return res.redirect(&#39;/users/reg&#39;);
+  }
+  //由于repassword不需要保存，所以可以删除
+  delete user.repassword; 
+  //对密码进行md5加密
+  user.password = md5(user.password); 
+ //得到用户的头像
+  user.avatar = &quot;https://secure.gravatar.com/avatar/&quot;
++md5(user.email)+&quot;?s=48&quot;; 
+  new Model(&#39;User&#39;)(user).save(function(err,user){
+    if(err){
+      req.flash(&#39;error&#39;,err);
+      return res.redirect(&#39;/users/reg&#39;);
+  }
+  //用户信息存入 session
+  req.session.user = user;
+  //注册成功后返回主页
+  res.redirect(&#39;/&#39;);
+  });
+});
+</code></pre>
+<h3 id="9-3-">9.3 用户登陆路由</h3>
+<pre><code class="lang-javascript">router.post(&#39;/login&#39;, function (req, res) {
+  var user = req.body;
+  user.password = md5(user.password);
+  Model(&#39;User&#39;).findOne(user,function(err,user){
+     if(err){
+       req.flash(&#39;error&#39;,err);
+       return res.redirect(&#39;/users/login&#39;);
+     }
+    req.session.user = user;//用户信息存入 session
+    res.redirect(&#39;/&#39;);//注册成功后返回主页
+  });
+});
+</code></pre>
+<h3 id="9-4-">9.4 用户退出路由</h3>
+<pre><code class="lang-javascript">router.get(&#39;/logout&#39;, function (req, res) {
+  req.session.user = null;//用户信息存入 session
+  res.redirect(&#39;/&#39;);//注册成功后返回主页
+});
+</code></pre>
+<h2 id="10-">10. 发表文章路由</h2>
+<p>发表文章表单的form中<code>action=&quot;/articles/add&quot;</code>,所以我们要实现发表文章路由<br>修改 <code>routes/article.js</code> 中的 <code>post(&#39;/add&#39;)</code></p>
+<pre><code class="lang-javascript">router.post(&#39;/add&#39;, function (req, res) {
+  req.body.user = req.session.user._id;
+  new Model(&#39;Article&#39;)(req.body).save(function(err,article){
+  if(err){
+     return res.redirect(&#39;/articles/add&#39;);
+   }
+ //发表文章成功后返回主页
+  res.redirect(&#39;/&#39;);
+});
+});
+</code></pre>
+<h2 id="11-">11. 页面消息通知</h2>
+<p>我们需要引入 flash 模块来实现页面通知（即成功与错误信息的显示）的功能。</p>
+<h3 id="11-1-flash-">11.1 什么是 flash?</h3>
+<p>我们所说的 flash 即 connect-flash 模块（<a href="https://github.com/jaredhanson/connect-flash），flash">https://github.com/jaredhanson/connect-flash），flash</a> 是一个在 session 中用于存储信息的特定区域。信息写入 flash ，下一次显示完毕后即被清除。典型的应用是结合重定向的功能，确保信息是提供给下一个被渲染的页面。</p>
+<h3 id="11-2-">11.2  安装模块</h3>
+<pre><code>$ npm install connect-flash --save
+</code></pre><h3 id="11-3-">11.3  导入模块</h3>
+<p>在app.js中添加调用此模块</p>
+<pre><code class="lang-javascript">var flash = require(&#39;connect-flash&#39;);
+app.use(flash());
+</code></pre>
+<h3 id="11-4-">11.4 发表文章成功提示</h3>
+<p>在发表文章的路由里放置flash提示信息</p>
+<pre><code class="lang-javascript">router.post(&#39;/add&#39;, function (req, res) {
+  req.body.user = req.session.user._id;
+  new Model(&#39;Article&#39;)(req.body).save(function(err,article){
+    if(err){
+       req.flash(&#39;error&#39;, &#39;更新文章失败!&#39;); //放置失败信息
+       return res.redirect(&#39;/articles/add&#39;);
+    }
+    req.flash(&#39;success&#39;, &#39;更新文章成功!&#39;);  //放置成功信息
+    res.redirect(&#39;/&#39;);//发表文章成功后返回主页
+  });
+});
+</code></pre>
+<h3 id="11-5-">11.5 增加显示提示的区域</h3>
+<p>修改 views/include/header.ejs
+在最底部增加以下区域 </p>
+<pre><code class="lang-html">&lt;div class=&quot;container text-center&quot;&gt;
+&lt;% if (success) { %&gt;
+&lt;div class=&quot;alert alert-success&quot; role=&quot;alert&quot;&gt;&lt;%= success %&gt;&lt;/div&gt;
+&lt;% } %&gt;
+&lt;% if (error) { %&gt;
+&lt;div class=&quot;alert alert-danger&quot; role=&quot;alert&quot;&gt;&lt;%= error %&gt;&lt;/div&gt;
+&lt;% } %&gt;
+&lt;/div&gt;
+</code></pre>
+<h3 id="11-6-">11.6  设置模板默认值</h3>
+<p>在app.js 中增加以下中间件</p>
+<pre><code class="lang-javascript">app.use(function(req,res,next){
+  res.locals.user = req.session.user;
+  res.locals.success = req.flash(&#39;success&#39;).toString();
+  res.locals.error = req.flash(&#39;error&#39;).toString();
+  next();
+});
+</code></pre>
+<h2 id="12-">12. 控制导航</h2>
+<p>用户是否登陆看到的页面应该是不一样的，所以应该根据用户登陆状态来控制导航菜单的显示状态
+修改 <code>views/include/header.ejs</code></p>
+<pre><code class="lang-javascript">&lt;ul class=&quot;nav navbar-nav&quot;&gt;
+  &lt;%
+  if(!user){%&gt;
+    &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;/users/reg&quot;&gt;注册&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/users/login&quot;&gt;登录&lt;/a&gt;&lt;/li&gt;
+  &lt;%}else{
+  %&gt;
+    &lt;li&gt;&lt;a href=&quot;/articles/add&quot;&gt;发表文章&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/users/logout&quot;&gt;登出&lt;/a&gt;&lt;/li&gt;
+  &lt;%}%&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>用户登陆后显示发表文章和登出按钮，用户登陆前显示注册和登录按钮。</p>
+<h2 id="13-">13 页面权限控制</h2>
+<p>我们虽然已经完成了用户注册与登陆的功能，但并不能阻止比如已经登陆的用户访问 <a href="http://localhost:3000/users/reg">http://localhost:3000/users/reg</a> 页面<br>为此，我们需要为页面设置访问权限。即注册和登陆页面应该阻止已登陆的用户访问<br>登出及后面我们将要实现的发表页只对已登录的用户开放<br>如何实现页面权限的控制呢？我们可以把用户登录状态的检查放到路由中间件中，在每个路径前增加路由中间件，即可实现页面权限控制<br>我们添加<code>checkNotLogin</code>和 <code>checkLogin</code>函数来实现这个功能  </p>
+<h3 id="13-1-">13.1  添加中间件</h3>
+<p>添加middleware文件夹<br>在<code>middleware</code>下添加<code>index.js</code>文件<br>middleware/index.js  </p>
+<pre><code class="lang-javascript">exports.checkLogin = function(req, res, next) {
+ if (!req.session.user) {
+   req.flash(&#39;error&#39;, &#39;未登录!&#39;);
+   return res.redirect(&#39;/users/login&#39;);
+ }
+ next();
+}
+
+exports.checkNotLogin = function(req, res, next) {
+ if (req.session.user) {
+   req.flash(&#39;error&#39;, &#39;已登录!&#39;);
+   return res.redirect(&#39;back&#39;);//返回之前的页面
+ }
+ next();
+}
+</code></pre>
+<h3 id="13-2-">13.2   在路由中添加中间件</h3>
+<p>修改 routes/users.js</p>
+<pre><code class="lang-javascript">router.get(&#39;/reg&#39;,middleware.checkNotLogin, function (req, res) {
+  res.render(&#39;user/reg&#39;, {title: &#39;注册&#39;});
+});
+</code></pre>
+<p>修改routes/article.js</p>
+<pre><code class="lang-javascript">router.get(&#39;/add&#39;,middleware.checkLogin, function (req, res) {
+  res.render(&#39;article/add&#39;, { title: &#39;发表文章&#39; });
+});
+</code></pre>
+<p>凡是不能登陆的中间加入 <code>checkNotLogin</code>
+凡是需要登陆的中间加入 <code>checkLogin</code></p>
+<h2 id="14-">14 显示文章列表</h2>
+<h3 id="14-1-">14.1 修改首页模板</h3>
+<p>views/index.ejs</p>
+<pre><code class="lang-html">   &lt;% include include/header.ejs%&gt;
+&lt;div class=&quot;container&quot;&gt;
+ &lt;ul class=&quot;media-list&quot;&gt;
+  &lt;%
+  articles.forEach(function(article){
+  %&gt;
+  &lt;li class=&quot;media&quot;&gt;
+   &lt;div class=&quot;media-left&quot;&gt;
+&lt;a href=&quot;#&quot;&gt;
+ &lt;img class=&quot;media-object&quot; src=&quot;&lt;%=article.user.avatar%&gt;&quot; alt=&quot;&quot;&gt;
+&lt;/a&gt;
+   &lt;/div&gt;
+   &lt;div class=&quot;media-body&quot;&gt;
+&lt;h4 class=&quot;media-heading&quot;&gt;&lt;a href=&quot;/articles/detail/&lt;%=article._id%&gt;&quot;&gt;
+&lt;%=article.title%&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;p class=&quot;media-left&quot;&gt;&lt;%- article.content%&gt;&lt;/p&gt;
+   &lt;/div&gt;
+   &lt;div class=&quot;media-bottom&quot;&gt;
+作者:&lt;%=article.user.username%&gt;
+发表时间:&lt;%=article.createAt.toLocaleString()%&gt;
+   &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;%
+  });
+  %&gt;
+ &lt;/ul&gt;
+&lt;/div&gt;
+&lt;% include include/footer.ejs%&gt;
+</code></pre>
+<h3 id="14-2-">14.2 修改路由</h3>
+<p>routes/index.js</p>
+<pre><code class="lang-javascript">router.get(&#39;/&#39;, function(req, res, next) {
+  Model(&#39;Article&#39;).find({}).populate(&#39;user&#39;).exec(function(err,articles){
+     res.render(&#39;index&#39;, {title: &#39;主页&#39;,articles:articles});
+  });
+});
+</code></pre>
+<h2 id="15-markdown">15 支持markdown</h2>
+<h3 id="15-1-markdown">15.1 安装markdown</h3>
+<pre><code class="lang-javascript">$ npm install markdown -save
+</code></pre>
+<h3 id="15-2-">15.2  修改路由</h3>
+<p>routes/index.js</p>
+<pre><code class="lang-javascript">markdown = require(&#39;markdown&#39;).markdown;
+
+router.get(&#39;/&#39;, function(req, res, next) {
+  Model(&#39;Article&#39;).find({}).populate(&#39;user&#39;).exec(function(err,articles){
+     articles.forEach(function (article) {
+         article.content = markdown.toHTML(article.content);
+    });
+    res.render(&#39;index&#39;, {title: &#39;主页&#39;,articles:articles});
+  });
+});
+</code></pre>
+<h2 id="16-">16 文章详情页</h2>
+<h3 id="16-1-">16.1   修改首页</h3>
+<p>views/index.ejs</p>
+<pre><code class="lang-javascript">&lt;h4 class=&quot;media-heading&quot;&gt;
+&lt;a href=&quot;/articles/detail/&lt;%=article._id%&gt;&quot;&gt;&lt;%=article.title%&gt;&lt;/a&gt;&lt;/h4&gt;
+</code></pre>
+<h3 id="16-2-">16.2 修改路由</h3>
+<p>routes/article.js</p>
+<pre><code class="lang-javascript">router.get(&#39;/detail/:_id&#39;, function (req, res) {
+ Model(&#39;Article&#39;).findOne({_id:req.params._id},function(err,article){
+   article.content = markdown.toHTML(article.content);
+   res.render(&#39;article/detail&#39;,{title:&#39;查看文章&#39;,article:article});
+ });
+});
+</code></pre>
+<h3 id="16-3-">16.3 增加详情页</h3>
+<p>views/article/detail.ejs</p>
+<pre><code class="lang-javascript">&lt;% include ../include/header.ejs%&gt;
+&lt;div class=&quot;container&quot;&gt;
+ &lt;div class=&quot;panel panel-default&quot;&gt;
+   &lt;div class=&quot;panel-heading&quot;&gt;
+      &lt;%=article.title%&gt;
+   &lt;/div&gt;
+   &lt;div class=&quot;panel-body&quot;&gt;
+      &lt;%-article.content%&gt;
+   &lt;/div&gt;
+   &lt;div class=&quot;panel-footer&quot;&gt;
+      &lt;a href=&quot;/articles/edit/&lt;%=article._id%&gt;&quot; 
+         class=&quot;btn btn-warning&quot;&gt;编辑&lt;/a&gt;
+       &lt;a href=&quot;/articles/delete/&lt;%=article._id%&gt;&quot;
+         class=&quot;btn btn-danger&quot;&gt;删除&lt;/a&gt;
+    &lt;/div&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;% include ../include/footer.ejs%&gt;
+</code></pre>
+<h2 id="17-">17 删除文章</h2>
+<h3 id="17-1-">17.1 修改详情页</h3>
+<p>views/article/detail.ejs</p>
+<pre><code class="lang-html"> &lt;a href=&quot;/articles/delete/&lt;%=article._id%&gt;&quot; 
+   class=&quot;btn btn-danger&quot;&gt;删除&lt;/a&gt;
+</code></pre>
+<h3 id="17-2-">17.2 修改路由</h3>
+<p> routes/article.js</p>
+<pre><code class="lang-javascript">router.get(&#39;/delete/:_id&#39;, function (req, res) {
+  Model(&#39;Article&#39;).remove({_id:req.params._id},function(err,result){
+    if(err){
+      req.flash(&#39;error&#39;,err);
+      res.redirect(&#39;back&#39;);
+    }
+    req.flash(&#39;success&#39;, &#39;删除文章成功!&#39;);
+    res.redirect(&#39;/&#39;);//注册成功后返回主页
+  });
+});
+</code></pre>
+<h2 id="18-">18 编辑文章</h2>
+<h3 id="18-1-">18.1 修改详情页</h3>
+<p>views/article/detail.ejs</p>
+<pre><code class="lang-javascript">&lt;a href=&quot;/articles/edit/&lt;%=article._id%&gt;&quot; class=&quot;btn btn-warning&quot;&gt;编辑&lt;/a&gt;
+</code></pre>
+<h3 id="18-2-">18.2 修改添加文章界面</h3>
+<p>views/article/add.ejs</p>
+<pre><code class="lang-html">&lt;form action=&quot;/articles/add&quot; method=&quot;post&quot;  role=&quot;form&quot; 
+class=&quot;form-horizontal&quot; enctype=&quot;multipart/form-data&quot;&gt;
+ &lt;input type=&quot;hidden&quot; value=&quot;&lt;%=article._id%&gt;&quot; name=&quot;_id&quot;/&gt;
+ &lt;div class=&quot;form-group&quot;&gt;
+ &lt;label for=&quot;title&quot; class=&quot;col-sm-2 control-label&quot;&gt;标题&lt;/label&gt;
+ &lt;div class=&quot;col-sm-10&quot;&gt;
+ &lt;input type=&quot;text&quot; value=&quot;&lt;%=article.title%&gt;&quot; class=&quot;form-control&quot; 
+id=&quot;title&quot; name=&quot;title&quot; placeholder=&quot;标题&quot;/&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;
+ &lt;div class=&quot;form-group&quot;&gt;
+ &lt;label for=&quot;content&quot; class=&quot;col-sm-2 control-label&quot;&gt;正文&lt;/label&gt;
+ &lt;div class=&quot;col-sm-10&quot;&gt;
+ &lt;textarea class=&quot;form-control&quot;   id=&quot;&quot; cols=&quot;30&quot; rows=&quot;10&quot; id=&quot;content&quot; 
+name=&quot;content&quot; placeholder=&quot;请输入内容&quot; &gt;&lt;%=article.content%&gt;&lt;/textarea&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;
+ &lt;div class=&quot;form-group&quot;&gt;
+ &lt;label for=&quot;img&quot; class=&quot;col-sm-2 control-label&quot;&gt;图片&lt;/label&gt;
+ &lt;div class=&quot;col-sm-10&quot;&gt;
+ &lt;%
+ if(article.img){
+ %&gt;
+  &lt;img src=&quot;&lt;%=article.img%&gt;&quot; style=&quot;width:100px;height:100px&quot; alt=&quot;&quot;/&gt;
+ &lt;%
+ }
+  %&gt;
+ &lt;input type=&quot;file&quot; class=&quot;form-control&quot;  name=&quot;img&quot; id=&quot;img&quot;/&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;
+ &lt;div class=&quot;form-group&quot;&gt;
+ &lt;div class=&quot;col-sm-offset-2 col-sm-10&quot;&gt;
+ &lt;button type=&quot;submit&quot; class=&quot;btn btn-default&quot;&gt;提交&lt;/button&gt;
+ &lt;button type=&quot;reset&quot; class=&quot;btn btn-default&quot;&gt;重置&lt;/button&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;
+&lt;/form&gt;
+</code></pre>
+<h3 id="18-3-">18.3 修改路由</h3>
+<p>routes/article.js</p>
+<pre><code class="lang-javascript">router.post(&#39;/add&#39;,middleware.checkLogin,upload.single(&#39;img&#39;),
+ function (req, res) {
+  var _id = req.body._id;
+  if(_id){
+    var set = {title:req.body.title,content:req.body.content};
+    Model(&#39;Article&#39;).update({_id:_id},{$set:set},function(err,result){
+      if(err){
+        req.flash(&#39;error&#39;,err);
+        return res.redirect(&#39;back&#39;);
+    }
+    req.flash(&#39;success&#39;, &#39;更新文章成功!&#39;);
+    res.redirect(&#39;/&#39;);//注册成功后返回主页
+    });
+  }else{
+    req.body.user = req.session.user._id;
+    new Model(&#39;Article&#39;)(req.body).save(function(err,article){
+    if(err){
+      req.flash(&#39;error&#39;,err);
+      return res.redirect(&#39;/articles/add&#39;);
+    }
+    req.flash(&#39;success&#39;, &#39;发表文章成功!&#39;);
+    res.redirect(&#39;/&#39;);//注册成功后返回主页
+  });
+  }
+});
+
+router.get(&#39;/edit/:_id&#39;, function (req, res) {
+  Model(&#39;Article&#39;).findOne({_id:req.params._id},function(err,article){
+    res.render(&#39;article/add&#39;,{title:&#39;编辑文章&#39;,article:article});
+  });
+});
+</code></pre>
+<h2 id="19-">19. 搜索和分页</h2>
+<h3 id="19-1-">19.1 在导航栏增加搜索框</h3>
+<p>views/include/header.ejs</p>
+<pre><code class="lang-javascript">&lt;form  class=&quot;navbar-form navbar-right&quot; role=&quot;search&quot; method=&quot;get&quot; 
+action=&quot;/articles/list/1/2&quot;&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label for=&quot;keyword&quot;&gt;关键字&lt;/label&gt;
+    &lt;input type=&quot;text&quot; name=&quot;keyword&quot; id=&quot;keyword&quot; 
+    class=&quot;form-control&quot; value=&quot;&lt;%=keyword%&gt;&quot;/&gt;
+  &lt;/div&gt;
+  &lt;button type=&quot;submit&quot; class=&quot;btn  btn-default&quot; value=&quot;search&quot;
+   name=&quot;searchBtn&quot;&gt;搜索&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+<h3 id="19-2-">19.2  在首页增加分页条</h3>
+<p>views/index.ejs</p>
+<pre><code class="lang-html"> &lt;ul class=&quot;pagination&quot;&gt;
+  &lt;%
+  for(var i=1;i&lt;=totalPage;i++){
+  %&gt;
+  &lt;li&gt;&lt;a href=&quot;/articles/list/&lt;%=i%&gt;/&lt;%=pageSize%&gt;?keyword=&lt;%=keyword%&gt;&quot;&gt;
+       &lt;%=i%&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;%
+  }
+  %&gt;
+ &lt;/ul&gt;
+</code></pre>
+<h3 id="19-3-">19.3 首页导航重定向到文章列表页</h3>
+<pre><code class="lang-javascript">routes/index.js
+
+router.get(&#39;/&#39;, function(req, res, next) {
+  res.redirect(&#39;/articles/list/1/2&#39;);
+});
+</code></pre>
+<h3 id="19-4-">19.4  增加文章列表导航</h3>
+<p>routes/article.js</p>
+<pre><code class="lang-javascript">router.get(&#39;/list/:pageNum/:pageSize&#39;,function(req, res, next) {
+  var pageNum = req.params.pageNum&amp;&amp;req.params.pageNum&gt;0?
+parseInt(req.params.pageNum):1;
+  var pageSize =req.params.pageSize&amp;&amp;req.params.pageSize&gt;0?
+parseInt(req.params.pageSize):2;
+  var query = {};
+  var searchBtn = req.query.searchBtn;
+  var keyword = req.query.keyword;
+  if(searchBtn){
+    req.session.keyword = keyword;
+  }
+  if(req.session.keyword){
+    query[&#39;title&#39;] = new RegExp(req.session.keyword,&quot;i&quot;);
+  }
+
+  Model(&#39;Article&#39;).count(query,function(err,count){
+    Model(&#39;Article&#39;).find(query).sort({createAt:-1})
+      .skip((pageNum-1)*pageSize)
+     .limit(pageSize).populate(&#39;user&#39;).exec(function(err,articles){
+         articles.forEach(function (article) {
+            article.content = markdown.toHTML(article.content);
+         });
+         res.render(&#39;index&#39;,{
+             title:&#39;主页&#39;,
+             pageNum:pageNum,
+             pageSize:pageSize,
+             keyword:req.session.keyword,
+             totalPage:Math.ceil(count/pageSize),
+             articles:articles
+         });
+       });
+  });
+});
+</code></pre>
+<h2 id="20-">20. 实现评论功能</h2>
+<h3 id="20-1-">20.1 修改模板</h3>
+<p>views/article/detail.ejs</p>
+<pre><code class="lang-html">&lt;div class=&quot;panel panel-default&quot;&gt;
+  &lt;div class=&quot;panel-heading&quot;&gt;
+  评论列表
+  &lt;/div&gt;
+  &lt;div class=&quot;panel-body&quot;  style=&quot;height:300px;overflow-y: scroll&quot;&gt;
+  &lt;ul class=&quot;media-list&quot;&gt;
+      &lt;%
+      article.comments.forEach(function(comment){
+      %&gt;
+         &lt;li class=&quot;media&quot;&gt;
+            &lt;div class=&quot;media-left&quot;&gt;
+              &lt;a href=&quot;#&quot;&gt;
+                  &lt;img class=&quot;media-object&quot; 
+                    src=&quot;&lt;%=comment.user.avatar%&gt;&quot; alt=&quot;&quot;&gt;
+              &lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;media-body&quot;&gt;
+               &lt;p class=&quot;media-left&quot;&gt;&lt;%- comment.content%&gt;&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;media-bottom&quot;&gt;
+                &lt;%=comment.user.username%&gt;
+                 &lt;%=comment.createAt.toLocaleString()%&gt;
+            &lt;/div&gt;
+         &lt;/li&gt;
+      &lt;%
+      });
+      %&gt;
+  &lt;/ul&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class=&quot;panel panel-default&quot;&gt;
+  &lt;form action=&quot;/articles/comment&quot; method=&quot;post&quot;&gt;
+    &lt;input type=&quot;hidden&quot; value=&quot;&lt;%=article._id%&gt;&quot; name=&quot;_id&quot;/&gt;
+    &lt;div class=&quot;panel-body&quot;&gt;
+      &lt;textarea class=&quot;form-control&quot;   id=&quot;&quot; cols=&quot;30&quot; rows=&quot;10&quot; 
+       id=&quot;content&quot; name=&quot;content&quot; placeholder=&quot;请输入评论&quot; &gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;panel-footer&quot;&gt;
+       &lt;button type=&quot;submit&quot; class=&quot;btn btn-default&quot;&gt;提交&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;/form&gt;
+&lt;/div&gt;
+</code></pre>
+<h3 id="20-2-">20.2 修改模型</h3>
+<p>db/models.js</p>
+<pre><code class="lang-javascript"> comments: [{user:{type:ObjectId,ref:&#39;User&#39;},content:String,
+   createAt:{type: Date, default: Date.now}}],
+</code></pre>
+<h3 id="20-3-">20.3  修改路由</h3>
+<p>routes/article.js</p>
+<pre><code class="lang-javascript">router.post(&#39;/comment&#39;,middleware.checkLogin, function (req, res) {
+   var user = req.session.user;
+   Model(&#39;Article&#39;).update({_id:req.body._id},
+     {$push:{comments:{user:user._id,content:req.body.content}}},
+     function(err,result){
+         if(err){
+             req.flash(&#39;error&#39;,err);
+             return res.redirect(&#39;back&#39;);
+          }
+         req.flash(&#39;success&#39;, &#39;评论成功!&#39;);
+        res.redirect(&#39;back&#39;);
+   });
+});
+</code></pre>
+<h2 id="21-pv-">21 显示PV和评论</h2>
+<h3 id="21-1-async">21.1 安装async</h3>
+<pre><code class="lang-javascript">$  npm install async --save
+</code></pre>
+<h3 id="21-2-">21.2 修改模型</h3>
+<p>db/models.js</p>
+<pre><code class="lang-javascript">pv: {type:Number,default:0},
+</code></pre>
+<h3 id="21-3-">21.3 修改路由</h3>
+<p>routes/article.js</p>
+<pre><code class="lang-javascript">var async = require(&#39;async&#39;);
+router.get(&#39;/detail/:_id&#39;, function (req, res) {
+    async.parallel([function (callback) {
+        Model(&#39;Article&#39;).findOne({_id: req.params._id})
+            .populate(&#39;user&#39;).populate(&#39;comments.user&#39;)
+            .exec(function (err, article) {
+                article.content = markdown.toHTML(article.content);
+                callback(err, article);
+            });
+    }, function (callback) {
+        Model(&#39;Article&#39;).update({_id: req.params._id}
+        ,{$inc: {pv: 1}}, callback);
+    }], function (err, result) {
+        if (err) {
+            req.flash(&#39;error&#39;, err);
+            res.redirect(&#39;back&#39;);
+        }
+        res.render(&#39;article/detail&#39;, 
+       {title: &#39;查看文章&#39;, article: result[0]});
+    });
+});
+</code></pre>
+<h3 id="21-4-">21.4 修改模板</h3>
+<p>views/index.ejs</p>
+<pre><code class="lang-html">阅读：&lt;%= article.pv %&gt;|
+评论：&lt;%= article.comments.length%&gt;
+</code></pre>
+<h2 id="22-404-">22. 美化404中间件</h2>
+<h3 id="22-1-404-">22.1 修改404中间件</h3>
+<p>app.js</p>
+<pre><code class="lang-javascript">// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  res.render(&quot;404&quot;);
+});
+</code></pre>
+<h3 id="22-2-404-">22.2 增加404页面模板</h3>
+<p>views/404.ejs</p>
+<pre><code class="lang-html">&lt;% include include/header.ejs%&gt;
+&lt;div class=&quot;container&quot;&gt;
+  &lt;img src=&quot;&quot; alt=&quot;404&quot;/&gt;
+&lt;/div&gt;
+&lt;% include include/footer.ejs%&gt;
+</code></pre>
+<h2 id="23-">23 打印日志</h2>
+<p>现在给博客增加日志，实现访问日志（access.log）和错误日志（error.log）功能
+把日志保存为日志文件
+app.js</p>
+<pre><code class="lang-javascript">//正常日志
+var accessLog = fs.createWriteStream(&#39;access.log&#39;, {flags: &#39;a&#39;});
+app.use(logger(&#39;dev&#39;,{stream: accessLog}));
+
+//错误日志
+var errorLog = fs.createWriteStream(&#39;error.log&#39;, {flags: &#39;a&#39;});
+app.use(function (err, req, res, next) {
+  var meta = &#39;[&#39; + new Date() + &#39;] &#39; + req.url + &#39;\n&#39;;
+  errorLog.write(meta + err.stack + &#39;\n&#39;);
+  next();
+});
+</code></pre>
+<h2 id="24-heroku">24 发布heroKu</h2>
+<p><a href="https://www.heroku.com/">https://www.heroku.com/</a></p>
+<h3 id="24-1-">24.1 注册</h3>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/heroku1.jpg" class="img-responsive"></p>
+<h3 id="24-2-">24.2 验证邮箱</h3>
+<p>可用qq,不能126 163等
+<img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/hero2.jpg" class="img-responsive"></p>
+<h3 id="24-3-">24.3 查看邮箱点击激活链接</h3>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/heroku3.png" class="img-responsive"></p>
+<h3 id="24-4-">24.4 需要设置密码</h3>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/heroku4.png" class="img-responsive"></p>
+<h3 id="24-5-">24.5 验证成功</h3>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/heroku6.png" class="img-responsive"></p>
+<h3 id="24-6-">24.6 进入控制面板</h3>
+<p>点击右上角的创建app按钮</p>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/hero7.png" class="img-responsive"></p>
+<h3 id="24-7-app-">24.7 输入app名称</h3>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/hero8.png" class="img-responsive"></p>
+<h3 id="24-8-app-github-">24.8 将此APP关联到github上</h3>
+<p>要授权github登陆</p>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/hero9.png" class="img-responsive"></p>
+<h3 id="24-9-">24.9 点击布署分支</h3>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/heru10.png" class="img-responsive"></p>
+<h3 id="24-10-">24.10 发布结果</h3>
+<p><a href="https://zhufengpeixunblog.herokuapp.com">演示地址</a>
+<a href="https://github.com/zhufengnodejs/zhufengpeixunblog">项目源码</a></p>
