@@ -7,17 +7,17 @@ webpack是一款强大的模块加载器兼打包工具，它能把各种资源�
 
 ## 1. webpack命令行
 ### 1.1 全局安装webpack
-```
+```javascript
 $ npm install webpack -g
 ```
 
 ### 1.2 本地安装webpack
-```
+```javascript
 $ npm install webpack --save-dev
 ```
 
 ### 1.3 命令行中使用
-```
+```javascript
 $    webpack index.js bundle.js
 ```
 
@@ -43,7 +43,7 @@ $ mkdir webpack-demos && cd webpack-demos && git init
 ```
 
 ### 2.2 初始化项目
-```bash
+```javascript
 $ npm init -y
 ```
 
@@ -55,14 +55,14 @@ $ touch.gitignore
 ```
 
 在文件中增加以下内容
-```
+```javascript
 node_modules 
 .idea
 ```
 
 ### 2.4 在项目根目录下创建src和build目录
 `src`目录存放源码，`build`目录存放编译打包之后的资源
-```
+```javascript
 $ mkdir src build
 ```
 
@@ -90,16 +90,14 @@ $ cd build && touch index.html
 <script src="bundle.js"></script>
 ```
 
-#### 2.5.4 目录结构
-![目录结构](/static/img/webpacks.jpg)
 
 ### 2.6 下载`webpack`
-```
+```javascript
 $ npm install webpack --save-dev
 ```
 
 ### 2.7 创建webpack的配置文件
-```
+```javascript
 $ touch webpack.config.js
 ```
 
@@ -107,14 +105,18 @@ $ touch webpack.config.js
 ```javascript
 var path = require('path');
 module.exports = {
-    entry: path.resolve(__dirname, 'src/index.js'),//打包的入口文件  String|Object
+     //打包的入口文件  String|Object
+    entry: path.resolve(__dirname, 'src/index.js'),
     output: { //配置打包结果     Object
-        path: path.resolve(__dirname, 'build'),//定义输出文件路径
-        filename: 'bundle.js' //指定打包文件名称
+        //定义输出文件路径
+        path: path.resolve(__dirname, 'build'),
+        //指定打包文件名称
+        filename: 'bundle.js' 
     },
 };
 ```
 > 请注意`webpack.config.js`这个文件名是定死的，不然会报`Output filename not configured`的错误；另外，如果不按这个命名，那么在webpack运行的时候需要通过`--conf`这个参数指定配置文件，比如：`webpack --config conf.js`
+
 ### 2.8 修改 `package.json`
 ```diff
   "scripts": {
@@ -137,18 +139,23 @@ $ npm run build
 [babel官网](http://babeljs.io)
 
 ```sh
-$ npm install babel-loader babel-core babel-preset-es2015 babel-preset-stage-0 --save-dev
+$ npm install babel-loader babel-core --save-dev
+$ npm install babel-preset-es2015 babel-preset-stage-0 --save-dev
 ```
 
 ### 3.2 修改`webpack.config.js`
 ```diff
 module.exports = {
-    entry: path.resolve(__dirname, 'src/index.js'),//打包的入口文件  String|Object
+    ////打包的入口文件  String|Object
+    entry: path.resolve(__dirname, 'src/index.js'),
     output: {
-        path: path.resolve(__dirname, 'build'),//定义输出文件路径
-        filename: 'bundle.js' //指定打包文件名称
+        //定义输出文件路径
+        path: path.resolve(__dirname, 'build'),
+        //指定打包文件名称
+        filename: 'bundle.js' 
     },
-+    module: { //定义了对模块的处理逻辑     Object
+    //定义了对模块的处理逻辑     Object
++    module: { 
 +        loaders: [ 定义了一系列的加载器   Array
 +            {
 +                test: /\.js$/, //正则，匹配到的文件后缀名
@@ -156,7 +163,7 @@ module.exports = {
 +                loader: 'babel-loader',
 +                query:['es2015'], //使用es2015的预设
 +                // include：String|Array  包含的文件夹
-+			     // exclude：String|Array  排除的文件夹,一般要排除node_modules文件夹
++			     // exclude：String|Array  排除的文件夹
 +
 +            }
 +        ]
@@ -212,7 +219,8 @@ $ npm install webpack-dev-server --save-dev
 ### 4.4 配置`webpack.config.js`
 ```diff
 +    devServer: {
-+        publicPath: "/static/",//设置在html页面中访问产出文件的路径前缀
++        //设置在html页面中访问产出文件的路径前缀
++        publicPath: "/static/",
 +        stats: { colors: true }, //显示颜色
 +        port: 8080,//端口
 +        contentBase: 'build',//指定静态文件的根目录
@@ -239,11 +247,15 @@ $ npm run dev
 ### 4.8 proxy模拟后台接口
 #### 4.8.1 修改配置`webpack.config.js`
 ```diff
-+ function rewriteUrl(replacePath) {//重写url
+   //重写url
++ function rewriteUrl(replacePath) {
 +     return function (req, opt) {
-+         var queryIndex = req.url.indexOf('?');//取得?所在的索引
-+         var query = queryIndex >= 0 ? req.url.substr(queryIndex) : "";//取得查询字符串的内容
-+         //把proxy的path替换为 '/$1\.json',$1取自path匹配到的真实路径中的第一个分组
+          //取得?所在的索引 
++         var queryIndex = req.url.indexOf('?');
+          //取得查询字符串的内容
++         var query = queryIndex >= 0 ? req.url.substr(queryIndex) : "";
+          //$1取自path匹配到的真实路径中的第一个分组
++         //把proxy的path替换为 '/$1\.json',
 +         req.url = req.path.replace(opt.path, replacePath) + query;
 +     };
 + }
@@ -255,17 +267,22 @@ $ npm run dev
         contentBase: 'build',//指定静态文件的根目录
 +       proxy: [
 +           {
-+               path: /^\/api\/(.*)/,             //替换符合此正则的接口路径
-+               target: "http://localhost:8080/", //目标域名端口
-+               rewrite: rewriteUrl('/$1\.json'), //重新定向到新的地址,$1取自path正则匹配到的真实路径的第一个分组
-+               changeOrigin: true                //修改来源地址
+                //替换符合此正则的接口路径
++               path: /^\/api\/(.*)/,           
+                //目标域名端口
++               target: "http://localhost:8080/", 
+                //重新定向到新的地址
+                //$1取自path正则匹配到的真实路径的第一个分组
++               rewrite: rewriteUrl('/$1\.json'), 
+                 //修改来源地址
++               changeOrigin: true               
 +           }
 +       ]
     }
 ```
 
 #### 4.8.2 在build目录下添加 `book.json`
-```
+```javascript
 {"name":"javascript"}
 ```
 
@@ -284,7 +301,8 @@ $ npm run dev
 #### 5.1.1 修改 `webpack.config.js`
 ```diff
 + resolve: {
-+   extensions: ["",".js",".css",".json"],//自动补全后缀，注意第一个必须是空字符串
+    //自动补全后缀，注意第一个必须是空字符串
++   extensions: ["",".js",".css",".json"],
 + },
 ```
 
@@ -300,14 +318,15 @@ $ npm run dev
 - 不需要`webpack`去解析`jquery.js`文件
 
 #### 5.2.1 先安装jquery
-```shell
+```javascript
 $ npm install jquery --save
 ```
 
 #### 5.2.2 修改 `webpack.config.js`
 
 ```diff
-+ var jqueryPath = path.join(__dirname, "./node_modules/jquery/dist/jquery.js");
++ var jqueryPath = path.join(__dirname, 
++  "./node_modules/jquery/dist/jquery.js");
 
 resolve: {
        extensions: ["",".js",".css",".json"],
@@ -345,7 +364,7 @@ module: {
 ## 6. 解析less样式文件
 
 ### 6.1 安装loader
-```
+```javascript
 $ npm install style-loader css-loader less-loader --save-dev
 ```
 > less-loader负责把less源码转成css代码，css-loader负责读取css代码，style-loader负责在css代码转变成style标签并作为页内样式插入到页面中去
@@ -382,7 +401,7 @@ $ npm install style-loader css-loader less-loader --save-dev
 ## 7. 资源文件的加载
 实现CSS、图标、图片等资源文件加载 
 ### 7.1 安装bootstrap和相应的loader
-```
+```javascript
 $ npm install bootstrap --save
 $ npm install file-loader url-loader --save-dev
 ```
@@ -439,12 +458,12 @@ $ npm install file-loader url-loader --save-dev
 ## 9. 自动产出html
 
 ### 9.1 创建html模板文件
-```
+```javascript
 $ cd src && touch index.html
 ```
 
 ### 9.2 下载webpack插件
-```
+```javascript
 npm install html-webpack-plugin --save-dev 
 ```
 
@@ -463,7 +482,7 @@ npm install html-webpack-plugin --save-dev
 ## 10. 自动打开浏览器
 
 ### 10.1 安装插件
-```
+```javascript
 $ npm install open-browser-webpack-plugin --save-dev
 ```
 
@@ -498,11 +517,11 @@ $ npm install open-browser-webpack-plugin --save-dev
 
 ## 12. 暴露全局对象
 ### 12.1 安装暴露组件
-```
+```javascript
 $ npm install expose-loader --save-dev
 ```
 
-### 12.2 把`jquery`暴露到全局对象下面
+### 12.2 暴露到全局对象
 ```diff
 +            {
 +                test: /jquery.js$/,
@@ -519,7 +538,7 @@ $ npm install expose-loader --save-dev
 
 ## 13. css文件单独加载
 ### 13.1 安装插件
-```
+```javascript
 $ npm install extract-text-webpack-plugin --save-dev
 ```
 
@@ -529,11 +548,13 @@ $ npm install extract-text-webpack-plugin --save-dev
 
 +      {
 +           test: /\.less/,
-+           loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
++           loader: ExtractTextPlugin.extract("style-loader"
+                     , "css-loader!less-loader")
 +      },
 +      {
 +           test: /\.css/,
-+           loader: ExtractTextPlugin.extract("style-loader", "css-loader")
++           loader: ExtractTextPlugin.extract("style-loader"
+                     , "css-loader")
 +      }
 
         plugins: [
@@ -604,11 +625,11 @@ $ npm install extract-text-webpack-plugin --save-dev
 
 ## 18. 打包react
 ### 18.1 安装
-```
+```javascript
 $ npm install react react-dom babel-preset-react --save-dev
 ```
 ### 18.2 增加`webpack.config.react.js`
-```
+```javascript
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var openBrowserWebpackPlugin = require('open-browser-webpack-plugin');
@@ -674,26 +695,25 @@ $ npm install react-hot-loader --save-dev
 
 ### 19.2 修改`webpack.config.react.js`
 ```diff
-            {
-                test: /\.jsx?$/,
--               loaders: ['babel?presets[]=es2015&presets[]=react'],
--               query: { presets: ["es2015","react"] },
-+               loaders: ['react-hot','babel?presets[]=es2015&presets[]=react'],
-                exclude:/node_modules/,
-                include:path.resolve(__dirname,'react')
-            }
-            
-            devServer: {
-+                    hot:true,
-                     inline:true,
-            plugins: [
-+           new webpack.HotModuleReplacementPlugin()
-
+{
+     test: /\.jsx?$/,
+-    loaders: ['babel?presets[]=es2015&presets[]=react'],
+-     query: { presets: ["es2015","react"] },
++     loaders: ['react-hot','babel?presets[]=es2015&presets[]=react'],
+      exclude:/node_modules/,
+      include:path.resolve(__dirname,'react')
+     } 
+     devServer: {
++       hot:true,
+        inline:true,
+     plugins: [
++    new webpack.HotModuleReplacementPlugin()
+      ]
 ```
 > 注意: 如果有多个loader的话，就不可以用query属性传参了，只能用?查询字符串传参数
 
 ### 19.4 启动服务
-```
+```javascript
 npm run start-react
 ```
 > 只要修改了源代码，就会在不刷新页面的情况下刷新某个组件
@@ -702,7 +722,7 @@ npm run start-react
 为了避免不同的组件使用的类名重复可以对这些类名进行重命名
 
 ### 20.1 增加`style.css`文件
-```
+```javascript
 .red{
     color:green;
 }
@@ -710,11 +730,11 @@ npm run start-react
 
 ### 20.2 修改`webpack.config.react.js`
 ```diff
-+    {
-+                test: /\.css/,
-+                loaders: [ 'style-loader',
-+                    'css-loader?modules&localIdentName=[name]__[local]___[hash:base64:5]']
-+    }
++ {
++  test: /\.css/,
++  loaders: [ 'style-loader',
++   'css-loader?modules&localIdentName=[name]__[local]___[hash:base64:5]']
++ }
 ```
 
 ### 20.3 修改 `react/app.js`

@@ -97,8 +97,10 @@ ReactDOM.render(
 
 ```javascript
 var Person = React.createClass({
-    propTypes: { //类似于约定了一个接口文档,用于这是验证传递给组件的属性，
-        name: React.PropTypes.string.isRequired, //定义msg的属性类型为字符串，必须传入
+    //类似于约定了一个接口文档,用于这是验证传递给组件的属性，
+    propTypes: { 
+        //定义msg的属性类型为字符串，必须传入
+        name: React.PropTypes.string.isRequired, 
         gender: React.PropTypes.string.isRequired,
         age:React.PropTypes.number.isRequired
     },
@@ -106,7 +108,11 @@ var Person = React.createClass({
         return {name:'无名氏'}
     },
     render: function() {
-        return (<h1> {this.props.name} {this.props.gender} {this.props.age}</h1>);//属性可以通过属性对象this.props中取出
+        //属性可以通过属性对象this.props中取出
+        return (<h1> {this.props.name} 
+                     {this.props.gender}
+                     {this.props.age}
+                </h1>);
     }
 });
 
@@ -124,18 +130,20 @@ ReactDOM.render(
 ### 6.3 this.props.children
 `this.props`对象的属性与组件实例的属性一一对应,但`this.props.children`属性表示组件的所有子节点
 `React.Children.map`是一个工具方法，用于实现对数组元素的映射
-```javascript
+
+```html
 var Person = React.createClass({
     render: function() {
-        return (
+      return (
             <ol>
                 {
-                    React.Children.map(this.props.children, function (child) {
+                    React.Children.map(this.props.children,
+                      function (child) {
                         return <li>{child}</li>;
                     })
                 }
             </ol>
-        );
+      );
     }
 });
 
@@ -171,7 +179,8 @@ var Person = React.createClass({
         var heart = this.state.happy ? '开心' : '不开心';
         return (
             <p >
-                 {this.props.name} {heart} <br/><button onClick={this.handleClick}>变心</button>
+                 {this.props.name} {heart} <br/>
+                 <button onClick={this.handleClick}>变心</button>
             </p>
         );
     }
@@ -204,7 +213,8 @@ var Input = React.createClass({
         var value = this.state.value;
         return (
             <div>
-                <input style={{color:'red'}} type="text" value={value} onChange={this.handleChange} />
+                <input style={{color:'red'}} type="text" 
+                value={value} onChange={this.handleChange} />
                 <p>{value}</p>
             </div>
         );
@@ -323,7 +333,7 @@ var MessageBox = React.createClass({
             <div>
                 <h1 > 计数： {this.state.count}</h1>
                 <button onClick={this.killMySelf}>卸载掉这个组件</button>
-                <button onClick={this.doUpdate}>手动更新一下组件（包括子组件）</button>
+                <button onClick={this.doUpdate}>手动更新一下组件</button>
                 <Submessage count={this.state.count}/>
             </div>
         )
@@ -362,7 +372,8 @@ var Focus = React.createClass({
         return (
             <div>
                 <input type="text" ref="msg" />
-                <input type="button" value="获得焦点" onClick={this.handleClick} />
+                <input type="button" value="获得焦点" 
+                onClick={this.handleClick} />
             </div>
         );
     }
@@ -375,7 +386,7 @@ ReactDOM.render(
 ```
 
 ## 10.通过Ajax获取数据
-```
+```javascript
 var Suggestion = React.createClass({
     getInitialState:function(){
       return {}
@@ -402,7 +413,8 @@ var Suggestion = React.createClass({
     render: function () {
         return (
             <div>
-                <input type="text" ref="input" onChange={this.handleChange}/>
+                <input type="text" ref="input" 
+                onChange={this.handleChange}/>
                 <ul>
                     {this.state.content}
                 </ul>
@@ -496,7 +508,8 @@ var Board = React.createClass({
         return (
             <div>
                 <h1>{this.props.title}</h1>
-                <input type="text" defaultValue={this.state.msg} ref="txtMsg" onClick={this.clear}/>
+                <input type="text" defaultValue={this.state.msg} 
+                ref="txtMsg" onClick={this.clear}/>
                 <input type="button" value='发言' onClick={this.leaveMsg}/>
                 <ul>
                     {
@@ -512,13 +525,14 @@ var Board = React.createClass({
         this.refs.txtMsg.value =  '';
     },
     leaveMsg: function (event) {
-       this.state.messages.push(this.refs.txtMsg.value);
-       localStorage.setItem('messages',JSON.stringify(this.state.messages));//每次状态都是一个新的state对象
-       this.setState({
+     this.state.messages.push(this.refs.txtMsg.value);
+       //每次状态都是一个新的state对象
+     localStorage.setItem('messages',JSON.stringify(this.state.messages));
+     this.setState({
            messages:this.state.messages
-       },function(){
+     },function(){
            this.refs.txtMsg.value =  '';
-       });
+     });
     }
 })
 var data = {

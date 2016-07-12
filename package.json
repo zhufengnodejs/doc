@@ -36,9 +36,6 @@
                 ]
             },
             {
-                "HTML": []
-            },
-            {
                 "JAVASCRIPT": [
                     "ES6.md",
                     "缓存.md",
@@ -91,7 +88,7 @@
                     "react.md",
                     "react基础应用.md",
                     "webpack.md",
-                    "npm.md"
+                    "NPM.md"
                 ]
             },
             {
