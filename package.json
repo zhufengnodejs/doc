@@ -86,13 +86,17 @@
                     "babel.md",
                     "bower.md",
                     "gulp.md",
-                    "NPM.md",
                     "promise.md",
                     "react-router.md",
                     "react.md",
                     "react基础应用.md",
-                    "react路由应用.md",
-                    "webpack.md"
+                    "webpack.md",
+                    "npm.md"
+                ]
+            },
+            {
+                "服务器": [
+                    "ubunt配置PHP.md"
                 ]
             }
         ]

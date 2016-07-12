@@ -1,14 +1,6 @@
 ## 1. 什么是react
 React 是一个用于构建用户界面的JavaScript库
 
-- 本文转载自 [郭永峰前端技术博客](http://guoyongfeng.github.io/idoc/html/React%E8%AF%BE%E7%A8%8B%E4%B8%93%E9%A2%98/React%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB.html)
-- [react官网](https://facebook.github.io/react)
-- [react中文网](http://reactjs.cn)
-- [react中文网](http://react-china.org)
-- [react中文网](http://ant.design)
-- [githup](https://github.com/facebook/react)
-
-
 ## 2. 安装react
 ```sh
 $ bower install react babel --save
@@ -539,3 +531,12 @@ ReactDOM.render(
     document.getElementById('app')
 );
 ```
+
+## 13.扩展阅读
+
+- [郭永峰博客](http://guoyongfeng.github.io/idoc/html/React%E8%AF%BE%E7%A8%8B%E4%B8%93%E9%A2%98/React%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB.html)
+- [react官网](https://facebook.github.io/react)
+- [react中文网](http://reactjs.cn)
+- [react中文网](http://react-china.org)
+- [react中文网](http://ant.design)
+- [githup](https://github.com/facebook/react)
