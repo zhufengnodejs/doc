@@ -365,7 +365,7 @@ module: {
 
 ### 6.1 安装loader
 ```javascript
-$ npm install style-loader css-loader less-loader --save-dev
+$ npm install less style-loader css-loader less-loader --save-dev
 ```
 > less-loader负责把less源码转成css代码，css-loader负责读取css代码，style-loader负责在css代码转变成style标签并作为页内样式插入到页面中去
 
