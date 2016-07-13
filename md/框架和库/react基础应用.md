@@ -142,13 +142,19 @@ class CommentForm extends React.Component {
         return (
             <form>
                 <div className="form-group">
-                    <input type="text" ref="author" className="form-control" defaultValue="姓名" name="author"/>
+                    <input type="text" ref="author" 
+                    className="form-control" defaultValue="姓名" 
+                    name="author"/>
                 </div>
                 <div className="form-group">
-                    <textarea class="form-control" ref="text" name="content" id="text" cols="60" rows="7" defaultValue="留言"></textarea>
+                    <textarea class="form-control" ref="text" 
+                    name="content" id="text" cols="60" rows="7" 
+                    defaultValue="留言">
+                    </textarea>
                 </div>
                 <div className="form-group">
-                <button type="submit" className="btn btn-primary">发表评论</button>
+                <button type="submit" className="btn btn-primary">
+                发表评论</button>
                 </div>
             </form>
         )
@@ -217,7 +223,8 @@ export {Comment as default}
 +     {name:'张三',date:'10分钟前',text:"你好"},
 +     {name:'李四',date:'5分钟前',text:"你也好"}
 + ]
-+ ReactDOM.render(<CommentBox data={data} />, document.querySelector('#app'));
++ ReactDOM.render(<CommentBox data={data} />,
+ document.querySelector('#app'));
 ```
 
 ### 5.2 app/components/CommentBox.js
@@ -230,7 +237,8 @@ export {Comment as default}
 <div className="list-group">
 +                {
 +                    this.props.data.map((item,index)=>{
-+                        return <Comment key={index} author={item.name} date={item.date}>{item.children}</Comment>
++                        return <Comment key={index} author={item.name}
++  date={item.date}>{item.children}</Comment>
 +                    })
 +                }
             </div>
@@ -291,5 +299,6 @@ export {Comment as default}
 +      handleCommentSubmit(comment){
 +        this.setState({comments:this.state.comments.concat(comment)});
 +      }
-+     <CommentForm handleCommentSubmit={this.handleCommentSubmit.bind(this)}/>
++     <CommentForm handleCommentSubmit=
++       {this.handleCommentSubmit.bind(this)}/>
 ```

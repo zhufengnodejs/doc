@@ -160,8 +160,7 @@ module.exports = {
 +            {
 +                test: /\.js$/, //正则，匹配到的文件后缀名
 +                // loader/loaders：string|array，处理匹配到的文件  
-+                loader: 'babel-loader',
-+                query:['es2015'], //使用es2015的预设
++                loader: 'babel-loader'
 +                // include：String|Array  包含的文件夹
 +			     // exclude：String|Array  排除的文件夹
 +
@@ -171,19 +170,29 @@ module.exports = {
 };
 ```
 > "-loader"其实是可以省略不写的，多个loader之间用“!”连接起来
+> loaders是一个数组
 
-### 3.3 修改`src/component.js`
+### 3.3 添加.babelrc文件
+内容如下:
+```
+{
+   "presets": ["es2015", "stage-0"],
+   "plugins": []
+}
+```
+
+### 3.4 修改`src/component.js`
 ```diff
 -  exports.name = 'zfpx';
-+  export default name = 'zfpx';
++  export var name = 'zfpx';
 ```
 
 ### 3.4 修改`src/index.js`
 ```diff
 -  var comp = require('./component.js');
 -  console.log(comp.name);
-+  import comp from './component.js';
-+  console.log(comp);
++  import {name} from './component.js';
++  console.log(name);
 ```
 
 ### 3.5 增加`.babelrc`文件
@@ -219,8 +228,6 @@ $ npm install webpack-dev-server --save-dev
 ### 4.4 配置`webpack.config.js`
 ```diff
 +    devServer: {
-+        //设置在html页面中访问产出文件的路径前缀
-+        publicPath: "/static/",
 +        stats: { colors: true }, //显示颜色
 +        port: 8080,//端口
 +        contentBase: 'build',//指定静态文件的根目录
@@ -238,7 +245,7 @@ $ npm install webpack-dev-server --save-dev
 $ npm run dev
 ```
 
-> 启动此服务的时候，编译后的产出文件放在内存里,在`build`目录下看不见
+> 启动此服务的时候，编译后的产出文件放在内存里,在`build`目录下看不见,但也不会删除原来已经有的文件
 
 ### 4.7 预览项目 
 打开浏览器中访问
@@ -301,7 +308,7 @@ $ npm run dev
 #### 5.1.1 修改 `webpack.config.js`
 ```diff
 + resolve: {
-    //自动补全后缀，注意第一个必须是空字符串
+    //自动补全后缀，注意第一个必须是空字符串,后缀一定以点开头
 +   extensions: ["",".js",".css",".json"],
 + },
 ```
@@ -342,7 +349,8 @@ module: {
                loader: 'babel-loader'
            }
        ],
-+       noParse: [jqueryPath]
+       //如果你 确定一个模块中没有其它新的依赖 就可以配置这项，webpack 将不再扫描这个文件中的依赖
++       noParse: [jqueryPath] 
 },
 ```
 
@@ -364,10 +372,13 @@ module: {
 ## 6. 解析less样式文件
 
 ### 6.1 安装loader
+- less-loader负责把less源码转成css代码  
+- css-loader负责读取css代码  
+- style-loader负责在css代码转变成style标签并作为页内样式插入到页面中去   
 ```javascript
-$ npm install style-loader css-loader less-loader --save-dev
+$ npm install less style-loader css-loader less-loader --save-dev
 ```
-> less-loader负责把less源码转成css代码，css-loader负责读取css代码，style-loader负责在css代码转变成style标签并作为页内样式插入到页面中去
+
 
 ### 6.2 修改配置文件`webpack.config.js`
 ```diff
@@ -411,7 +422,6 @@ $ npm install file-loader url-loader --save-dev
 设置css文件和图标文件的加载器
 ```diff
  devServer: {
--        publicPath: "/static/",//此行必须删除，不然会找不到图标和图片
         stats: {colors: true}, //显示颜色
         
 + {
@@ -419,7 +429,7 @@ $ npm install file-loader url-loader --save-dev
 +     loader: 'style!css'
 + },
 + {
-+      test: /\.(woff|woff2|ttf|svg|eot)(\?v=\d+\.\d+\.\d+)?$/,
++      test: /\.(woff|woff2|ttf|svg|eot)$/,
 +      loader: "url?limit=10000"
 + },
 + {
@@ -428,6 +438,8 @@ $ npm install file-loader url-loader --save-dev
 +  }
 ```
 > 配置信息的参数“?limit=8192”表示将所有小于8kb的图片都转为base64形式(其实应该说超过8kb的才使用`url-loader` 来映射到文件，否则转为`data url`形式)
+
+[DataURL和图片](http://www.webhek.com/data-url/)
 
 ### 7.3 修改 `src/index.js`
 ```diff
@@ -473,8 +485,7 @@ npm install html-webpack-plugin --save-dev
 +  plugins: [
 +        new HtmlWebpackPlugin({
 +          title: 'zhufeng-react',//标题
-+          template: './src/index.html', //模板文件
-+          chunks:[“index”]  // 包含哪些产出的文件,此处填写entry对象的key
++          template: './src/index.html' //模板文件
 +        })
 +  ]
 ```
@@ -576,13 +587,31 @@ $ npm install extract-text-webpack-plugin --save-dev
 -        filename: 'bundle.js' //输出文件名
 +        filename: '[name].js' //输出动态文件名
     },
-
-+ new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
+//如果没有这句话，vendor只是一个普通的入口文件而矣,有了此语句会把vendor中的模块
+//从index中分离出来,不再包含在打包出来的index.js中,会成生一个zfvendor.js文件
++ new webpack.optimize.CommonsChunkPlugin('vendor', 'zfvendor.js'),
 ```
 
 
-## 15. 提取公共的代码
-### 15.1 修改`webpack.config.js`
+## 15. 提取其它公共的代码
+### 15.1 增加a.js和b.js
+- components.js
+```
+export var  name = 'zfpx';
+export var  age = 8;
+```
+- a.js
+```
+var {name} = require('./component');
+console.log(name);
+```
+- b.js
+```
+var {name} = require('./component');
+console.log(age);
+```
+
+### 15.2 修改`webpack.config.js`
 ```diff
     entry: {
 +        a:path.resolve(__dirname, 'src/a.js'),
