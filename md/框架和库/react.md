@@ -11,7 +11,7 @@ $ bower install react babel --save
   <script src="../bower_components/react/react.js"></script>
   <script src="../bower_components/react/react-dom.js"></script>
   <script src="../bower_components/babel/browser.js"></script>
-  <script type="text/babel" src="index.js"/>
+  <script type="text/babel" src="index.js"></script>
 ```
 
 * react.js 是 React 的*核心*库
