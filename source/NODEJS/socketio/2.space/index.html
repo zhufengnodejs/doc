@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>聊天室</title>
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <button class="btn btn-primary" onclick="join('chat')">进入聊天房间</button>
+            <button class="btn btn-primary" onclick="join('study')">进入学习房间</button>
+            <span id="room"></span>
+        </div>
+        <div class="panel-body">
+            <ul class="list-group" id="messages">
+
+            </ul>
+        </div>
+        <div class="panel-footer">
+            <input type="text" class="form-control" id="msg"/>
+            <button type="button" onclick="send()" class="btn btn-primary">发言</button>
+        </div>
+    </div>
+</div>
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+
+    window.onload = function(){
+        var socket = io.connect('/');
+        socket.on('message',function(msg){
+            var messages = document.querySelector('#messages');
+            var li = document.createElement('li');
+            li.innerHTML = msg;
+            li.className = 'list-group-item';
+            messages.appendChild(li);
+        });
+
+        window.send = function(){
+            var input = document.querySelector('#msg');
+            socket.send(input.value);
+            input.value = '';
+        }
+
+        window.join = function(room){
+            socket.emit('join',room);
+            document.querySelector('#room').innerHTML = room;
+        }
+    };
+</script>
+</html>
