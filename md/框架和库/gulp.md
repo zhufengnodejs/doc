@@ -1,16 +1,18 @@
 ## 1. 什么是gulp
 `gulp`是可以自动化执行任务的工具  
-在平时开发的流程里面,一定有一些动作需要手工的重复的去执行，比如:
+在平时开发的流程里面,一定有一些任务需要手工重复得执行，比如:
 
 -  把文件从开发目录**拷贝**到生产目录
 -  把多个 JS 或者 CSS 文件**合并**成一个文件
 -  对JS文件和CSS进行**压缩**
 -  把`sass`或者`less`文件**编译**成`CSS`
 -  **压缩图像**文件
--  创建一个可以**实时刷新**页面内容的本地服务器等等。
+-  创建一个可以**实时刷新**页面内容的本地服务器
 
-只要你觉得有些动作是要****去做的,可以把这些动作创建成一个gulp任务  
-然后在指定的条件下,比如文件发生变化以后,自动去执行这些任务。
+只要你觉得有些动作是要**重复**去做的,就可以把这些动作创建成一个gulp任务  
+然后在指定的条件下自动执行  
+比如在less源文件发生改变后自动编译成css文件
+
 
 ## 2. gulp特点
 
@@ -679,8 +681,13 @@ npm install jshint gulp-jshint  --save-dev
     });
 ```
 
+## 11 gulp.js 特点 
+1. 使用gulp.js构建的是代码不是配置文件
+2. 使用node标准库编写脚本
+3. 插件非常简单，职责单一
+4. 任务都是最大的并发数执行
 
-## 11 学习建议
+## 12 学习建议
 
 - 多了解插件库，利用最合适的插件。
 - 常用的插件，仔细阅读 文档以便更好使用。
@@ -688,11 +695,11 @@ npm install jshint gulp-jshint  --save-dev
 - 尝试编写适合自己工作流程中和习惯的`plugin`
 
 
-## 12 项目实战
-### 12.1 安装生成器`gulp-webapp`
+## 13 项目实战
+### 13.1 安装生成器`gulp-webapp`
 [yeoman](http://yeoman.io)
 
-### 12.2 生成项目
+### 13.2 生成项目
 ```
 $    mkdir gulpstart
 $    cd gulpstart
@@ -703,7 +710,7 @@ $    yo gulp-webapp gulpstart
 会打开一个向导，在这里为了简化起见，我们不使用任何第三方库。
 <img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/gulpdemo.jpg" class="img-responsive">
 
-### 12.3 阅读gulpfile.js文件
+### 13.3 阅读gulpfile.js文件
 ```javascript
 /* jshint node:true */
 'use strict';
@@ -917,7 +924,179 @@ gulp.task('default', ['clean'], function () {
 });
 ```
 
-## 12 资源地址
+## 14 自定义插件
+### 14.1 through2
+https://www.npmjs.com/package/through2
+二进制流的方式
+```javascript
+ var through2 = require('through2');
+ var fs = require('fs');
+
+ fs.createReadStream('ex.txt')
+     .pipe(through2(function (chunk, enc, callback) {
+         console.log(chunk);
+         for (var i = 0; i < chunk.length; i++)
+                 chunk[i] = chunk[i]+1;
+         console.log(chunk);
+         this.push(chunk)
+
+         callback()
+     }))
+     .pipe(fs.createWriteStream('out.txt'))
+```
+对象方式
+```
+ var through2 = require('through2');
+ var fs = require('fs');
+ var csv2 = require('csv2');
+ var all = []
+
+ fs.createReadStream('data.csv')
+     .pipe(csv2())
+     .pipe(through2.obj(function (chunk, enc, callback) {
+         console.log(chunk);
+         var data = {
+             name: chunk[0]
+             ,address: chunk[1]
+             ,phone: chunk[2]
+         }
+         this.push(data)
+
+         callback()
+     }))
+     .on('data', function (data) {
+         all.push(data)
+     })
+     .on('end', function () {
+         doSomethingSpecial(all)
+     })
+
+ function doSomethingSpecial(all) {
+     console.log(all);
+ }
+```
+
+
+### 14.2 buffer往头部增加内容插件
+如果你的插件依赖着一个基于 buffer 处理的库，你可能会选择让你的插件以 buffer 的形式来处理 file.contents。让我们来实现一个在文件头部插入额外文本的插件：
+```javascript
+ var through = require('through2');
+ var gutil = require('gulp-util');
+ var PluginError = gutil.PluginError;
+
+ // 常量
+ const PLUGIN_NAME = 'gulp-prefixer';
+
+ // 插件级别的函数（处理文件）
+ function gulpPrefixer(prefixText) {
+   if (!prefixText) {
+     throw new PluginError(PLUGIN_NAME, 'Missing prefix text!');
+   }
+
+   prefixText = new Buffer(prefixText); // 提前分配
+
+   // 创建一个 stream 通道，以让每个文件通过
+   var stream = through.obj(function(file, enc, cb) {
+     if (file.isStream()) {
+       this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+       return cb();
+     }
+
+     if (file.isBuffer()) {
+       file.contents = Buffer.concat([prefixText, file.contents]);
+     }
+
+     // 确保文件进入下一个 gulp 插件
+     this.push(file);
+
+     // 告诉 stream 引擎，我们已经处理完了这个文件
+     cb();
+   });
+
+   // 返回文件 stream
+   return stream;
+ };
+
+ // 导出插件主函数
+ module.exports = gulpPrefixer;
+```
+
+
+上述的插件可以这样使用：
+```javascript
+var gulp = require('gulp');
+var gulpPrefixer = require('gulp-prefixer');
+
+gulp.src('files/**/*.js')
+  .pipe(gulpPrefixer('prepended string'))
+  .pipe(gulp.dest('modified-files'));
+```
+  
+### 14.3 stream往头部增加内容插件
+
+```javascript
+ var through = require('through2');
+ var gutil = require('gulp-util');
+ var PluginError = gutil.PluginError;
+
+ // 常量
+ const PLUGIN_NAME = 'gulp-prefixer';
+
+ function prefixStream(prefixText) {
+   var stream = through();
+   stream.write(prefixText);
+   return stream;
+ }
+
+ // 插件级别函数 (处理文件)
+ function gulpPrefixer(prefixText) {
+   if (!prefixText) {
+     throw new PluginError(PLUGIN_NAME, 'Missing prefix text!');
+   }
+
+   prefixText = new Buffer(prefixText); // 预先分配
+
+   // 创建一个让每个文件通过的 stream 通道
+   var stream = through.obj(function(file, enc, cb) {
+     if (file.isBuffer()) {
+       this.emit('error', new PluginError(PLUGIN_NAME, 'Buffers not supported!'));
+       return cb();
+     }
+
+     if (file.isStream()) {
+       // 定义转换内容的 streamer
+       var streamer = prefixStream(prefixText);
+       // 从 streamer 中捕获错误，并发出一个 gulp的错误
+       streamer.on('error', this.emit.bind(this, 'error'));
+       // 开始转换
+       file.contents = file.contents.pipe(streamer);
+     }
+
+     // 确保文件进去下一个插件
+     this.push(file);
+     // 告诉 stream 转换工作完成
+     cb();
+   });
+
+   // 返回文件 stream
+   return stream;
+ }
+
+ // 暴露（export）插件的主函数
+ module.exports = gulpPrefixer;
+```
+
+上述的插件可以这样使用：
+```javascript
+var gulp = require('gulp');
+var gulpPrefixer = require('gulp-prefixer');
+
+gulp.src('files/**/*.js', { buffer: false })
+  .pipe(gulpPrefixer('prepended string'))
+  .pipe(gulp.dest('modified-files'));
+```
+
+## 15 资源地址
 
 [gulp英文官网](http://gulpjs.com/)  
 [gulp中文网](http://www.gulpjs.com.cn/)  
