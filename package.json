@@ -69,7 +69,9 @@
                 ]
             },
             {
-                "工具": []
+                "工具": [
+                    "和谐.md"
+                ]
             },
             {
                 "微信": [
@@ -94,7 +96,8 @@
                     "react.md",
                     "react基础应用.md",
                     "webpack.md",
-                    "NPM.md"
+                    "NPM.md",
+                    "reactnative.md"
                 ]
             },
             {

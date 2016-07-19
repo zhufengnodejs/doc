@@ -1,4 +1,4 @@
-<embed src="http://yuntv.letv.com/bcloud.swf" allowFullScreen="true" quality="high"  width="640" height="360" align="middle" allowScriptAccess="always" flashvars="uu=zna4ig8gbr&vu=6712255a12&auto_play=1&gpcflag=1&width=640&height=360" type="application/x-shockwave-flash"></embed>
+[视频](http://yuntv.letv.com/bcloud.html?uu=zna4ig8gbr&vu=6712255a12&auto_play=1&gpcflag=1&width=640&height=360)
 
 [视频中项目代码](https://github.com/zhufengnodejs/201605gulp)
 
