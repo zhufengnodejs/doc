@@ -1,3 +1,7 @@
+<script id="autoJs6712255a12" type="text/javascript">var pNode=document.getElementById("autoJs6712255a12").parentNode,pt,pb,dWidth = pNode.clientWidth,pHeight = pNode.clientHeight,dHeight = ReCallHeight(pHeight, dWidth,pNode);function ReCallHeight(h, w,a) {try{pt = window.getComputedStyle(a,null).paddingTop;pb = window.getComputedStyle(a,null).paddingBottom;}catch(e){pt = a.currentStyle.paddingTop;pb = a.currentStyle.paddingBottom;}h = h- parseInt(pt)- parseInt(pb);if(h && (typeof h == "number") && h==h && h>0){return h;}else{var ua = navigator.userAgent.toLowerCase();var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),isIphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),isAndroid = ua.match(/(Android)\s+([\d.]+)/),isMobile = isIphone || isAndroid;if(isMobile){return w*9/16;}else{return (w*9/16)+36;}}} var letvcloud_player_conf =  {"uu":"zna4ig8gbr","vu":"6712255a12","auto_play":1,"gpcflag":1,"width": dWidth,"height": dHeight};</script><script type="text/javascript" src="http://yuntv.letv.com/bcloud.js"></script>
+
+[视频中项目代码](https://github.com/zhufengnodejs/201605gulp)
+
 ## 1. 什么是gulp
 `gulp`是可以自动化执行任务的工具  
 在平时开发的流程里面,一定有一些任务需要手工重复得执行，比如:
@@ -24,7 +28,6 @@
 ## 3. 流
 ### 3.1 流的概念
 * **Stream**是`nodejs`各种对象实现的抽象接口。
-* 比如标准输入(stdin)是一个流,标准输出(stdout)都是一个流。
 * 所有的`stream`对象都是`EventEmitter`的实例,可以发射事件。
 * 流是一种有**起点**和**终点**的**数据传输**手段。
 * 上一个的**输出**是下一个的**输入**
@@ -1115,5 +1118,7 @@ gulp.src('files/**/*.js', { buffer: false })
 [异步编程 promise模式的简单实现](http://segmentfault.com/a/1190000003028634)
 [gulp插件](http://gulpjs.com/plugins/)   
 [jshint](http://jshint.com/docs/options/)
+[stream-handbook](https://github.com/substack/stream-handbook)
+[Gulp：插件编写入门](http://www.cnblogs.com/chyingp/p/writting-gulp-plugin.html)
 
 
