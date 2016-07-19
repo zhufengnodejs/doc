@@ -61,7 +61,7 @@ $ npm install react-router --save
 ```diff
 + export Profile from './Profile';
 + export User from './User';
-+ export Home from './Home'; 
++ export Home from './Home';
 ```
 
 ### 3.5 app/containers/App/index.js
@@ -106,7 +106,7 @@ import React from 'react';
   import { App } from './containers';
 + import { Home,User,Profile } from './components';
   import 'bootstrap/dist/css/bootstrap.css';
-  
+
   let root = document.getElementById('app');
 - render( <App />, root );
 + render(
@@ -131,7 +131,7 @@ import React from 'react';
   import React from 'react';
 + import {Link} from 'react-router';
   export default class User extends React.Component {
-  
+
       render() {
           return (
 -            <div>
@@ -223,7 +223,7 @@ import React from 'react';
 ```diff
 + export UserList from './UserList';
 + export UserAdd from './UserAdd';
-+ export UserDetail from './UserDetail'; 
++ export UserDetail from './UserDetail';
 ```
 
 ### 4.6 app/index.js
@@ -234,7 +234,7 @@ import { render } from 'react-dom';
 - import { Home,User,Profile } from './components';
 + import { Home,User,Profile,UserList,UserAdd,UserDetail } from './components';
   import 'bootstrap/dist/css/bootstrap.css';
-  
+
   let root = document.getElementById('app');
   render(
       <Router history={hashHistory} >
@@ -335,7 +335,7 @@ import { render } from 'react-dom';
 +        });
 +        this.state = {data:data};
 +    }
-  
+
       render() {
           return (
               <div>
@@ -375,6 +375,6 @@ import { render } from 'react-dom';
                 </div>
 ```
 
-#资源
+# 资源
 
 [项目代码](https://github.com/zhufengnodejs/react-router-lesson)

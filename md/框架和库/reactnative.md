@@ -34,7 +34,30 @@ export ANDROID_HOME=/usr/local/opt/android-sdk
 打开管理工具
 ```
 andoird
+brew info android
 ```
+```
+cd /usr/local/Cellar/android-sdk/24.3.4
+ls
+cd extra
+cd intel
+ls 
+Hardware
+open ./
+android avd
+create 创建一个新的模拟器
+start
+launch
+
+```
+
+
+### 3 初始化项目
+```
+react-native init study
+atom .
+```
+
 
 
 

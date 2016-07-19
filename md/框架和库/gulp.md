@@ -1,4 +1,4 @@
-[视频](http://yuntv.letv.com/bcloud.html?uu=zna4ig8gbr&vu=6712255a12&auto_play=1&gpcflag=1&width=640&height=360)
+[本课程视频](http://yuntv.letv.com/bcloud.html?uu=zna4ig8gbr&vu=6712255a12&auto_play=1&gpcflag=1&width=640&height=360)
 
 [视频中项目代码](https://github.com/zhufengnodejs/201605gulp)
 
@@ -196,7 +196,24 @@ gulp只有4个核心API
 比如Gulp的**插件**中,经过插件处理后的流又可以继续导入到其他插件中，当然也可以把流写入到**文件**中  
 所以Gulp是以stream为媒介的，它不需要频繁的生成**临时文件**，这也是Gulp的速度快的一个原因  
 `gulp.src()`方法正是用来获取流的  
+
 但要注意这个流里的内容不是原始的文件流,而是一个**虚拟文件对象流**,这个虚拟文件对象中存储着原始文件的路径、文件名和内容等信息  
+[vinyl](https://github.com/gulpjs/vinyl)
+```javascript
+var File = require('vinyl');
+
+var indexFile = new File({
+    cwd: "/",
+    base: "/test/",
+    path: "/test/index.js",
+    contents: new Buffer("name=zfpx")
+});
+
+console.log(File.isVinyl(indexFile));
+console.log(indexFile.isBuffer());
+console.log(indexFile.isStream());
+```
+
 其语法为：
 ```javascript
     gulp.src(globs[, options]) 
@@ -928,102 +945,110 @@ gulp.task('default', ['clean'], function () {
 ```
 
 ## 14 自定义插件
-### 14.1 through2
+### 14.1 vinyl
+gulp.src中这个流里的内容不是原始的文件流,而是一个**虚拟文件对象流**,这个虚拟文件对象中存储着原始文件的路径、文件名和内容等信息  
+[vinyl](https://github.com/gulpjs/vinyl)
+
+```javascript
+var File = require('vinyl');
+
+var indexFile = new File({
+    cwd: "/",//当前路径 
+    base: "/test/",//文件名
+    path: "/test/index.js",//路径
+    contents: new Buffer("name=zfpx")//文件内容
+});
+
+console.log(File.isVinyl(indexFile));//是否是vinyl
+console.log(indexFile.isBuffer());//内容是否是Buffer
+console.log(indexFile.isStream());//内容是否是Stream
+```
+
+### 14.2 through2
 https://www.npmjs.com/package/through2
 二进制流的方式
 ```javascript
  var through2 = require('through2');
  var fs = require('fs');
-
- fs.createReadStream('ex.txt')
-     .pipe(through2(function (chunk, enc, callback) {
-         console.log(chunk);
+ 
+ fs.createReadStream('src.txt',{highWaterMark:1})
+     .pipe(through2(function (chunk, encoding, callback) {
          for (var i = 0; i < chunk.length; i++)
-                 chunk[i] = chunk[i]+1;
-         console.log(chunk);
-         this.push(chunk)
+             chunk[i] = chunk[i] + 1;
+         this.push(chunk); //向流中写数据,每push一次就发射一次data事件
+         callback();
+     })).on('data', function (data) {
+        console.log(data.toString());
+     }).on('end', function (data) {
+        console.log('end');
+ })
+ //.pipe(fs.createWriteStream('dest.txt'))
+ 
 
-         callback()
-     }))
-     .pipe(fs.createWriteStream('out.txt'))
 ```
 对象方式
 ```
- var through2 = require('through2');
- var fs = require('fs');
- var csv2 = require('csv2');
- var all = []
+var through2 = require('through2');
+var fs = require('fs');
+var all = [];
+fs.createReadStream('src.txt', {highWaterMark: 1})
+    .pipe(through2.obj(function (chunk, enc, callback) {
+        var data = {
+            name: chunk.toString()
+        }
+        this.push(data);
+        callback();
+    }))
+    .on('data', function (data) {
+        console.log(data)
+    })
+    .on('end', function () {
+        console.log('end')
+    })
 
- fs.createReadStream('data.csv')
-     .pipe(csv2())
-     .pipe(through2.obj(function (chunk, enc, callback) {
-         console.log(chunk);
-         var data = {
-             name: chunk[0]
-             ,address: chunk[1]
-             ,phone: chunk[2]
-         }
-         this.push(data)
-
-         callback()
-     }))
-     .on('data', function (data) {
-         all.push(data)
-     })
-     .on('end', function () {
-         doSomethingSpecial(all)
-     })
-
- function doSomethingSpecial(all) {
-     console.log(all);
- }
 ```
 
 
-### 14.2 buffer往头部增加内容插件
+### 14.3 buffer往头部增加内容插件
 如果你的插件依赖着一个基于 buffer 处理的库，你可能会选择让你的插件以 buffer 的形式来处理 file.contents。让我们来实现一个在文件头部插入额外文本的插件：
 ```javascript
- var through = require('through2');
- var gutil = require('gulp-util');
- var PluginError = gutil.PluginError;
+var through = require('through2');
+var PluginError = require('gulp-util').PluginError;
+const PLUGIN_NAME = 'gulp-prefixer';
 
- // 常量
- const PLUGIN_NAME = 'gulp-prefixer';
+// 插件级别的函数（处理文件）
+function gulpPrefixer(prefixText) {
+    if (!prefixText) {
+        throw new PluginError(PLUGIN_NAME, 'Missing prefix text!');
+    }
 
- // 插件级别的函数（处理文件）
- function gulpPrefixer(prefixText) {
-   if (!prefixText) {
-     throw new PluginError(PLUGIN_NAME, 'Missing prefix text!');
-   }
+    prefixText = new Buffer(prefixText); // 提前分配
 
-   prefixText = new Buffer(prefixText); // 提前分配
+    // 创建一个 stream 通道，以让每个文件通过
+    var stream = through.obj(function(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
 
-   // 创建一个 stream 通道，以让每个文件通过
-   var stream = through.obj(function(file, enc, cb) {
-     if (file.isStream()) {
-       this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
-       return cb();
-     }
+        if (file.isBuffer()) {
+            file.contents = Buffer.concat([prefixText, file.contents]);
+        }
 
-     if (file.isBuffer()) {
-       file.contents = Buffer.concat([prefixText, file.contents]);
-     }
+        // 确保文件进入下一个 gulp 插件
+        this.push(file);
 
-     // 确保文件进入下一个 gulp 插件
-     this.push(file);
+        // 告诉 stream 引擎，我们已经处理完了这个文件
+        cb();
+    });
 
-     // 告诉 stream 引擎，我们已经处理完了这个文件
-     cb();
-   });
+    // 返回文件 stream
+    return stream;
+};
 
-   // 返回文件 stream
-   return stream;
- };
-
- // 导出插件主函数
- module.exports = gulpPrefixer;
+// 导出插件主函数
+module.exports = gulpPrefixer;
 ```
-
 
 上述的插件可以这样使用：
 ```javascript
@@ -1035,56 +1060,55 @@ gulp.src('files/**/*.js')
   .pipe(gulp.dest('modified-files'));
 ```
   
-### 14.3 stream往头部增加内容插件
+### 14.4 stream往头部增加内容插件
 
 ```javascript
  var through = require('through2');
- var gutil = require('gulp-util');
- var PluginError = gutil.PluginError;
-
- // 常量
+ var PluginError = require('gulp-util').PluginError;
+ 
+ //常量
  const PLUGIN_NAME = 'gulp-prefixer';
-
+ 
  function prefixStream(prefixText) {
-   var stream = through();
-   stream.write(prefixText);
-   return stream;
+     var stream = through();
+     stream.write(prefixText);
+     return stream;
  }
-
+ 
  // 插件级别函数 (处理文件)
  function gulpPrefixer(prefixText) {
-   if (!prefixText) {
-     throw new PluginError(PLUGIN_NAME, 'Missing prefix text!');
-   }
-
-   prefixText = new Buffer(prefixText); // 预先分配
-
-   // 创建一个让每个文件通过的 stream 通道
-   var stream = through.obj(function(file, enc, cb) {
-     if (file.isBuffer()) {
-       this.emit('error', new PluginError(PLUGIN_NAME, 'Buffers not supported!'));
-       return cb();
+     if (!prefixText) {
+         throw new PluginError(PLUGIN_NAME, 'Missing prefix text!');
      }
-
-     if (file.isStream()) {
-       // 定义转换内容的 streamer
-       var streamer = prefixStream(prefixText);
-       // 从 streamer 中捕获错误，并发出一个 gulp的错误
-       streamer.on('error', this.emit.bind(this, 'error'));
-       // 开始转换
-       file.contents = file.contents.pipe(streamer);
-     }
-
-     // 确保文件进去下一个插件
-     this.push(file);
-     // 告诉 stream 转换工作完成
-     cb();
-   });
-
-   // 返回文件 stream
-   return stream;
+ 
+     prefixText = new Buffer(prefixText); // 预先分配
+ 
+     // 创建一个让每个文件通过的 stream 通道
+     var stream = through.obj(function (file, enc, cb) {
+         if (file.isBuffer()) {
+             this.emit('error', new PluginError(PLUGIN_NAME, 'Buffers not supported!'));
+             return cb();
+         }
+ 
+         if (file.isStream()) {
+             // 定义转换内容的 streamer
+             var streamer = prefixStream(prefixText);
+             // 从 streamer 中捕获错误，并发出一个 gulp的错误
+             streamer.on('error', this.emit.bind(this, 'error'));
+             // 开始转换
+             file.contents = file.contents.pipe(streamer);
+         }
+ 
+         // 确保文件进去下一个插件
+         this.push(file);
+         // 告诉 stream 转换工作完成
+         cb();
+     });
+ 
+     // 返回文件 stream
+     return stream;
  }
-
+ 
  // 暴露（export）插件的主函数
  module.exports = gulpPrefixer;
 ```

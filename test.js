@@ -1,18 +1,48 @@
-var str = '<a href="http://top.baidu.com/buzz?b=353&amp;c=10&amp;fr=topcategory_c10">玄幻奇幻</a><a href="http://top.baidu.com/buzz?b=355&amp;c=10&amp;fr=topcategory_c10">都市言情</a>';
+var through = require('through2');
+var PluginError = require('gulp-util').PluginError;
 
-var reg = /<a href="http:\/\/top.baidu.com\/buzz\?b=\d+&amp;c=\d+&amp;fr=topcategory_c\d+">.+<\/a>/g;
+//常量
+const PLUGIN_NAME = 'gulp-prefixer';
 
-console.log(reg.test(str));
-console.log(reg.exec(str));
-console.log(str.match(reg));
+function prefixStream(prefixText) {
+    var stream = through();
+    stream.write(prefixText);
+    return stream;
+}
 
+// 插件级别函数 (处理文件)
+function gulpPrefixer(prefixText) {
+    if (!prefixText) {
+        throw new PluginError(PLUGIN_NAME, 'Missing prefix text!');
+    }
 
-var request = require('request');
-var iconv = require('iconv-lite');
-request({url: 'http://top.baidu.com/category?c=10&fr=topindex', encoding: null},function(err,response,body){
-    if(err)
-        console.error(err);
-    body = iconv.decode(body, 'gbk').toString();
-    var regex = /<a href=".\/buzz\?b=\d+&c=\d+">.+<\/a>/g;
-    console.log(body.match(regex));
-})
+    prefixText = new Buffer(prefixText); // 预先分配
+
+    // 创建一个让每个文件通过的 stream 通道
+    var stream = through.obj(function (file, enc, cb) {
+        if (file.isBuffer()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Buffers not supported!'));
+            return cb();
+        }
+
+        if (file.isStream()) {
+            // 定义转换内容的 streamer
+            var streamer = prefixStream(prefixText);
+            // 从 streamer 中捕获错误，并发出一个 gulp的错误
+            streamer.on('error', this.emit.bind(this, 'error'));
+            // 开始转换
+            file.contents = file.contents.pipe(streamer);
+        }
+
+        // 确保文件进去下一个插件
+        this.push(file);
+        // 告诉 stream 转换工作完成
+        cb();
+    });
+
+    // 返回文件 stream
+    return stream;
+}
+
+// 暴露（export）插件的主函数
+module.exports = gulpPrefixer;
