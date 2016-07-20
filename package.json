@@ -49,7 +49,8 @@
                     "原型链.md",
                     "预解析作用域闭包this.md",
                     "webstorage.md",
-                    "正则表达式.md"
+                    "正则表达式.md",
+                    "promise.md"
                 ]
             },
             {
@@ -92,7 +93,6 @@
                     "babel.md",
                     "bower.md",
                     "gulp.md",
-                    "promise.md",
                     "react-router.md",
                     "react.md",
                     "react基础应用.md",

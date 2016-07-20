@@ -538,9 +538,9 @@ $    npm install gulp-concat --save-dev
   gulp.task('default',['concat']);
 ```  
 ### 10.5  gulp-uglify
-合并后我们可以对JS文件进行合并，最小化处理
+合并后我们可以对JS文件进行压缩,最小化处理
 ```
-    npm install gulp-uglify --save-dev
+$  npm install gulp-uglify --save-dev
 ```
 ```javascript
     var gulp = require('gulp');

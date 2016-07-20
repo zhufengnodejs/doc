@@ -1,8 +1,9 @@
 ## ECMAScript6
-ECMAScript 简称就是 ES ，你可以把它看成是一套标准， JavaScript 就是实施了这套标准的一门语言。 现在主流浏览器使用的是 ECMAScriprt 5 。  
+ECMAScript简称就是ES,你可以把它看成是一套标准,JavaScript就是实施了这套标准的一门语言
+现在主流浏览器使用的是ECMAScript5 
 
 ## 1. 作用域变量
-作用域就是一个变量的为作用范围。也就是你声明一个变量以后,这个变量可以在什么场合下使用  
+作用域就是一个变量的作用范围。也就是你声明一个变量以后,这个变量可以在什么场合下使用  
 以前的*JavaScript*只有全局作用域，还有一个函数作用域   
 ### 1.1 var的问题
 
@@ -83,7 +84,6 @@ let a = 'a';
 }
 ```
 
-
 ## 2. 常量
 使用`const`我们可以去声明一个常量，常量一旦赋值就不能再修改了
 
@@ -132,8 +132,14 @@ console.log(name,age);
     let [x, [y,z]] = [1, [2.1, 2.2]];
     console.log(x,y,z);
 ```
-
 > 这样数组里的第一个项目就会交给前面`name`这个变量，第二个项目的值会分配给`age`这个变量
+
+### 3.3 省略赋值
+```javascript
+let [, , x] = [1, 2, 3];
+console.log(x);
+```
+
 
 ### 3.2 解构对象
 对象也可以被解构
@@ -149,7 +155,7 @@ console.log(name,age,myname,myage);
 ### 3.3 默认值
 在赋值和传参的时候可以使用默认值
 ```javascript
-let [a = "a", b = "b", c = "c"] = [1, , 3];
+let [a = "a", b = "b", c = throw new Error('C必须指定')] = [1, , 3];
 console.log(a, b, c);
 
 function ajax (options) {
@@ -175,6 +181,13 @@ ajax({
 var name = 'zfpx',age = 8;
 let desc = `${name} is ${age} old!`;
 console.log(desc);
+
+//所有模板字符串的空格和换行，都是被保留的
+var str = `<ul>
+<li>a</li>
+<li>b</li>
+</ul>`;
+console.log(str);
 ```
 > 其中的变量会用变量的值替换掉
 
@@ -191,14 +204,36 @@ desc`${name} is ${age} old!`;
 
 ```
 
-### 4.3 字符串新方法
+### 4.3  字符串新方法
+- includes()：返回布尔值，表示是否找到了参数字符串。
+- startsWith()：返回布尔值，表示参数字符串是否在源字符串的头部。
+- endsWith()：返回布尔值，表示参数字符串是否在源字符串的尾部。
+
 ```javascript
-let desc = 'zfpx is 8 years old';
-console.log(desc.endsWith('old')); //字符串是否以`old`结尾
-console.log(desc.startsWith('zfpx'));// 字符串是否以`zfpx`开头
-console.log(desc.includes('is'));//字符串是否包含`is`
-console.log('hello', 'hello'.repeat(3));//repeat 就是将字符串重复后的数值返回,并不会改变原来的字符串
+var s = 'zfpx';
+s.startsWith('z') // true
+s.endsWith('x') // true
+s.includes('p') // true
 ```
+
+第二个参数，表示开始搜索的位置
+```javascript
+var s = 'zfpx';
+console.log(s.startsWith('p',2)); // false
+console.log(s.endsWith('f',2)); // true
+console.log(s.includes('f',2)); // true
+```
+> endsWith的行为与其他两个方法有所不同。它针对前n个字符，而其他两个方法针对从第n个位置直到字符串结束
+
+
+### 4.4 repeat
+repeat方法返回一个新字符串，表示将原字符串重复n次。
+```javascript
+'x'.repeat(3);
+'x'.repeat(0);
+```
+
+
 
 ## 5. 函数
 ### 5.1 默认参数
@@ -214,12 +249,32 @@ desc('zfpx2');
 ### 5.1 展开操作符
 把...放在数组前面可以把一个数组进行展开,可以把一个数组直接传入一个函数而不需要使用`apply`
 ```javascript
+//传入参数
 let print = function(a,b,c){
     console.log(a,b,c);
 }
 print([1,2,3]);
 print(...[1,2,3]);
+
+// 可以替代apply
+var m1 = Math.max.apply(null, [8, 9, 4, 1]);
+var m2 = Math.max(...[8, 9, 4, 1]);
+
+// 可以替代concat
+var arr1 = [1, 3];
+var arr2 = [3, 5];
+var arr3 = arr1.concat(arr2);
+var arr4 = [...arr1, ...arr2];
+console.log(arr3,arr4);
+
+//类数组的转数组
+function max(a,b,c) {
+    console.log(Math.max(...arguments));
+}
+max(1, 3, 4);
 ```
+
+
 ### 5.2 剩余操作符
 剩余操作符可以把其余的参数的值都放到一个叫`b`的数组里面
 ```javascript
@@ -389,8 +444,55 @@ let student = {
 console.log(student.eat());
 ```
 
-## 7.生成器与迭代器
-### 7.1 Iterators
+## 7. Symbol
+ES6引入了一种新的原始数据类型Symbol，表示独一无二的值
+它是JavaScript语言的第七种数据类型
+
+### 7.1 生成Symbol
+Symbol值通过Symbol函数生成
+```javascript
+let s = Symbol('zfpx');
+console.log(s);
+```
+
+### 7.2 作为属性名
+由于每一个Symbol值都是不相等的，这意味着Symbol值可以作为标识符，用于对象的属性名，就能保证不会出现同名的属性
+```javascript
+var luckNum = Symbol();
+var person = {};
+person[luckNum] = '9';
+
+console.log(person[luckNum] ); // 9
+
+在对象的内部，使用Symbol值定义属性时，Symbol值必须放在方括号之中
+var person = {[luckNum]: '8'};
+```
+
+### 7.3 消除魔术变量
+```
+var Operator = {
+    add: Symbol()
+};
+
+function calculate(op, a, b) {
+    switch (op) {
+        case Operator.add:
+            return a + b;
+            break;
+        case Operator.minus:
+            return a - b;
+            break;
+    }
+}
+
+console.log(calculate(Operator.add, 10,10));
+
+console.log(calculate(Operator.minus, 10,10));
+```
+
+## 8.生成器与迭代器
+`Generator`函数运行后会返回一个遍历器对象，而不是普通函数的返回值。
+### 8.1 Iterators
 迭代器有一个next方法，每次执行的时候会返回一个对象
 对象里面有两个属性，一个是`value`表示返回的值，还有就是布尔值`done`,表示是否迭代完成
 ```javascript
@@ -416,7 +518,7 @@ do {
 } while (!curr.done);
 ```
 
-### 7.2 Generators
+### 8.2 Generators
 生成器用于创建迭代器
 ```javascript
 function* buy(books){
@@ -432,43 +534,134 @@ do {
 } while (!curr.done);
 ```
 
-### 7.3 co
-co用于自动执行迭代器
+### 8.3 连续执行
 ```javascript
 var fs = require('fs');
-function read(val) {
-    return function(fn){
+function double(val) {
+    return function(next){
         setTimeout(function(){
-            fn(val*val);
+            next(val*val);
         },1000);
     }
 }
 co(function *(){
-    var a = yield read(1);
+    var a = yield double(2);
     console.log(a);
 
-    var b = yield read(2);
+    var b = yield double(3);
     console.log(b);
 })();
 
 function co(fn) {
     return function() {
-        var iterators = fn();
-        var it = null;
-        function _next(err, res) {
-            if(err) res = err;
-            it = iterators.next(res);
-            if(!it.done){
-                it.value(_next);
+        var it = fn();//得到迭代器
+        var curr = null;//当前对象
+        function next(val) {
+            curr = it.next(val);
+            if(!curr.done){
+                curr.value(next);
             }
         }
-        _next();
+        next();
     }
 }
 ```
 
-## 8. 类
-### 8.1 class
+### 8.4 promise连续运行
+```javascript
+function* genFunc(initValue) {
+    let first = yield new Promise((resolve) => {
+        setTimeout(()=>{
+            resolve(initValue+'-first');
+        },1000);
+    });
+
+    let second = yield new Promise((resolve) => {
+        setTimeout(()=>{
+            resolve(first+'-second');
+        },1000);
+    });
+
+    let third = yield new Promise((resolve) => {
+        setTimeout(()=>{
+            resolve(second+'-third');
+        },1000);
+    });
+}
+
+var it = genFunc('init');
+
+it.next().value.then((value)=> {
+    console.log(value);
+    return it.next(value).value;
+}).then((value)=> {
+    console.log(value);
+    return it.next(value).value;
+}).then((value)=> {
+    console.log(value);
+    return it.next(value).value;
+})
+```
+
+### 8.5 co
+co用于自动执行迭代器
+```javascript
+function* genFunc(initVal) {
+    let first = yield new Promise((resolve) => {
+        setTimeout(()=>{
+            resolve('first');
+        },1000);
+    });
+
+    let second = yield new Promise((resolve) => {
+        setTimeout(()=>{
+            resolve(first+'-second');
+        },1000);
+    });
+
+    let third = yield new Promise((resolve) => {
+        setTimeout(()=>{
+            resolve(second+'-third');
+        },1000);
+    });
+}
+
+function co(fn) {
+    return function(initVal) {
+        var it = fn();//得到迭代器
+        var curr = null;//当前迭代到的对象
+        function next(val) {
+            curr = it.next(val);
+            console.log(val);
+            if(!curr.done){
+                curr.value.then(next)
+            }
+        }
+        next(initVal);
+    }
+}
+
+co(genFunc)();
+/*
+
+var it = genFunc('init');
+
+it.next().value.then((value)=> {
+    console.log(value);
+    return it.next(value).value;
+}).then((value)=> {
+    console.log(value);
+    return it.next(value).value;
+}).then((value)=> {
+    console.log(value);
+    return it.next(value).value;
+})
+*/
+
+```
+
+## 9. 类
+### 9.1 class
 使用`class`这个关键词定义一个类,基于这个类创建实例以后会自动执行`constructor`方法,此方法可以用来初始化
 ```javascript
 class Person {
@@ -483,7 +676,7 @@ let person = new Person('zfpx');
 person.getName();
 ```
 
-### 8.2 get与set
+### 9.2 get与set
 `getter`可以用来得获取属性，`setter`可以去设置属性
 ```javascript
 class Person {
@@ -503,7 +696,7 @@ person.hobby = 'football';
 console.log(person.hobby);
 ```
 
-### 8.3 静态方法-static
+### 9.3 静态方法-static
 在类里面添加静态的方法可以使用`static`这个关键词，静态方法就是不需要实例化类就能使用的方法
 ```javascript
 class Person {
@@ -515,7 +708,7 @@ console.log(Person.add(1,2));
 
 ```
 
-### 8.4 继承extends
+### 9.4 继承extends
 一个类可以去继承其它的类里的东西
 ```javascript
 class Person {
@@ -533,8 +726,8 @@ var teacher = new Teacher('zfpx',8);
 console.log(teacher.name,teacher.age);
 ```
 
-## 9.集合
-### 9.1 Set
+## 10.集合
+### 10.1 Set
 一个`Set`是一堆东西的集合,`Set`有点像数组,不过跟数组不一样的是，`Set`里面不能有重复的内容
 ```javascript
 var books = new Set();
@@ -553,7 +746,7 @@ books.clear();//清空 set
 console.log(books.size);
 ```
 
-### 9.2 Map
+### 10.2 Map
 可以使用 Map 来组织这种名值对的数据
 ```javascript
 var books = new Map();
@@ -570,11 +763,11 @@ books.clear();//清空map
 ```
 
 
-## 10.模块  
+## 11.模块  
 可以根据应用的需求把代码分成不同的模块  
 每个模块里可以导出它需要让其它模块使用的东西  
 在其它模块里面可以导入这些模块导出的东西  
-### 10.1 模块
+### 11.1 模块
 在浏览器中使用模块需要借助
 导出
 ```javascript
@@ -594,7 +787,7 @@ console.log(school.name,school.age);
 <script src="https://google.github.io/traceur-compiler/src/bootstrap.js"></script>
 <script type="module" src="index.js"></script>
 ```
-### 10.2 重命名
+### 11.2 重命名
 导出时重命名
 ```javascript
 function say(){
@@ -607,7 +800,7 @@ export {say as say2};
 ```javascript
 import {say2 as say3} from './school.js';
 ```
-### 10.3 默认导出
+### 11.3 默认导出
 每个模块都可以有一个默认要导出的东西
 导出
 
