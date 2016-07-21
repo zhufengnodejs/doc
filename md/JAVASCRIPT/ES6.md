@@ -155,7 +155,7 @@ console.log(name,age,myname,myage);
 ### 3.3 默认值
 在赋值和传参的时候可以使用默认值
 ```javascript
-let [a = "a", b = "b", c = throw new Error('C必须指定')] = [1, , 3];
+let [a = "a", b = "b", c =new Error('C必须指定')] = [1, , 3];
 console.log(a, b, c);
 
 function ajax (options) {
