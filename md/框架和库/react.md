@@ -403,8 +403,8 @@ var Suggestion = React.createClass({
             context:this,
             success: function (result) {
                 var data = result.s;
-                data = data.map(function(item){
-                    return <li>{item}</li>
+                data = data.map(function(item，index){
+                    return <li key={index}>{item}</li>
                 });
                 this.setState({content:data});
             }
