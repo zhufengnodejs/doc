@@ -219,9 +219,9 @@ s.includes('p') // true
 第二个参数，表示开始搜索的位置
 ```javascript
 var s = 'zfpx';
-console.log(s.startsWith('p',2)); // false
+console.log(s.startsWith('p',2)); // true
 console.log(s.endsWith('f',2)); // true
-console.log(s.includes('f',2)); // true
+console.log(s.includes('f',2)); // false
 ```
 > endsWith的行为与其他两个方法有所不同。它针对前n个字符，而其他两个方法针对从第n个位置直到字符串结束
 
