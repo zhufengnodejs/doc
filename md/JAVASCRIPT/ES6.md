@@ -155,7 +155,7 @@ console.log(name,age,myname,myage);
 ### 3.3 默认值
 在赋值和传参的时候可以使用默认值
 ```javascript
-let [a = "a", b = "b", c = throw new Error('C必须指定')] = [1, , 3];
+let [a = "a", b = "b", c =new Error('C必须指定')] = [1, , 3];
 console.log(a, b, c);
 
 function ajax (options) {
@@ -219,9 +219,9 @@ s.includes('p') // true
 第二个参数，表示开始搜索的位置
 ```javascript
 var s = 'zfpx';
-console.log(s.startsWith('p',2)); // false
+console.log(s.startsWith('p',2)); // true
 console.log(s.endsWith('f',2)); // true
-console.log(s.includes('f',2)); // true
+console.log(s.includes('f',2)); // false
 ```
 > endsWith的行为与其他两个方法有所不同。它针对前n个字符，而其他两个方法针对从第n个位置直到字符串结束
 

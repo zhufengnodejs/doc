@@ -11,7 +11,7 @@ $ bower install react babel --save
   <script src="../bower_components/react/react.js"></script>
   <script src="../bower_components/react/react-dom.js"></script>
   <script src="../bower_components/babel/browser.js"></script>
-  <script type="text/babel" src="index.js"/>
+  <script type="text/babel" src="index.js"></script>
 ```
 
 * react.js 是 React 的*核心*库
@@ -34,7 +34,7 @@ $ bower install react babel --save
 ```javascript
     ReactDOM.render(
     <h1>珠峰培训</h1>,
-        document.getElementById('app')
+        document.getElementById('#app')
     );
 ```
 > 上面代码将一个h1标题，插入app元素内部
@@ -57,7 +57,7 @@ ReactDOM.render(
     })
   }
   </div>,
-  document.getElementById('app')
+  document.getElementById('#app')
 );
 ```
 
@@ -84,7 +84,7 @@ var Message = React.createClass({
 });
 ReactDOM.render(
     <Message/>,
-    document.getElementById('app')
+    document.getElementById('#app')
 );
 ```
 
@@ -123,7 +123,7 @@ var props = {
 
 ReactDOM.render(
     <Person {...props} />,//属性可以在使用组件时传入
-    document.getElementById('app')
+    document.getElementById('#app')
 );
 ```
 
@@ -153,7 +153,7 @@ ReactDOM.render(
         <span>二毛</span>
         <span>三毛</span>
     </Person>,
-    document.getElementById('app')
+    document.getElementById('#app')
 );
 ```
 
@@ -188,7 +188,7 @@ var Person = React.createClass({
 
 ReactDOM.render(
     <Person name="林志玲" />,
-    document.getElementById('app')
+    document.getElementById('#app')
 );
 ```
 
@@ -221,7 +221,7 @@ var Input = React.createClass({
     }
 });
 
-ReactDOM.render(<Input/>, document.getElementById('app'));
+ReactDOM.render(<Input/>, document.getElementById('#app'));
 ```
 > 注意: 如果给表单元素设置了`value`属性，则必须指定`onChange`事件处理函数，否则 此字段会变成只读状态 
  
@@ -266,7 +266,7 @@ ReactDOM.render(
         head="头部"
         body="正文"
     />,
-    document.getElementById('app')
+    document.getElementById('#app')
 );
 ```
 
@@ -321,7 +321,7 @@ var MessageBox = React.createClass({
         console.log('MessageBox.componentDidUpdate');
     },
     killMySelf: function () {
-        ReactDOM.unmountComponentAtNode(document.getElementById('app'));
+        ReactDOM.unmountComponentAtNode(document.getElementById('#app'));
     },
     doUpdate: function () {
         this.setState({
@@ -356,7 +356,7 @@ var Submessage = React.createClass({
     }
 });
 
-ReactDOM.render(<MessageBox/>, document.getElementById('app'));
+ReactDOM.render(<MessageBox/>, document.getElementById('#app'));
 ```
 
 > ReactDOM.unmountComponentAtNode 从DOM中移除已经挂载的React组件
@@ -381,7 +381,7 @@ var Focus = React.createClass({
 
 ReactDOM.render(
     <Focus />,
-    document.getElementById('app')
+    document.getElementById('#app')
 );
 ```
 
@@ -403,8 +403,8 @@ var Suggestion = React.createClass({
             context:this,
             success: function (result) {
                 var data = result.s;
-                data = data.map(function(item){
-                    return <li>{item}</li>
+                data = data.map(function(item，index){
+                    return <li key={index}>{item}</li>
                 });
                 this.setState({content:data});
             }
@@ -423,7 +423,7 @@ var Suggestion = React.createClass({
     }
 });
 
-ReactDOM.render(<Suggestion></Suggestion>, document.getElementById('app'));
+ReactDOM.render(<Suggestion></Suggestion>, document.getElementById('#app'));
 ```
 
 
@@ -466,7 +466,7 @@ var Counter2 = React.createClass({
 ReactDOM.render(<div>
   <Counter1/>
   <Counter2/>
-</div>,document.getElementById('app'));
+</div>,document.getElementById('#app'));
 ```
 
 ## 12. 插件实现双向数据绑定
@@ -492,7 +492,7 @@ var Input = React.createClass({
     }
 });
 
-ReactDOM.render(<Input/>, document.getElementById('app'));
+ReactDOM.render(<Input/>, document.getElementById('#app'));
 ```
 
 ## 13.珠峰留言版
@@ -542,7 +542,7 @@ var data = {
 
 ReactDOM.render(
     <Board {...data}/>,
-    document.getElementById('app')
+    document.getElementById('#app')
 );
 ```
 
