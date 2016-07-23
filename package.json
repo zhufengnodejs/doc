@@ -22,7 +22,8 @@
             {
                 "数据库": [
                     "mongoose.md",
-                    "mysql.md"
+                    "mysql.md",
+                    "mongodb.md"
                 ]
             },
             {
@@ -98,7 +99,8 @@
                     "react基础应用.md",
                     "webpack.md",
                     "NPM.md",
-                    "reactnative.md"
+                    "reactnative.md",
+                    "RN安装.md"
                 ]
             },
             {
