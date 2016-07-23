@@ -49,8 +49,8 @@
 <pre><code class="lang-javascript">  &lt;script src=<span class="hljs-string">&quot;../bower_components/react/react.js&quot;</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;../bower_components/react/react-dom.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;../bower_components/babel/browser.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/babel&quot;</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;index.js&quot;</span>/&gt;</span><span class="undefined">
-</span></span></code></pre>
+  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/babel&quot;</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;index.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</span></code></pre>
 <ul>
 <li>react.js &#x662F; React &#x7684;<em>&#x6838;&#x5FC3;</em>&#x5E93;</li>
 <li>react-dom.js &#x662F;&#x63D0;&#x4F9B;&#x4E0E;<em>DOM</em>&#x76F8;&#x5173;&#x7684;&#x529F;&#x80FD;,&#x4F1A;&#x5728;window&#x4E0B;&#x589E;&#x52A0;<code>ReactDOM</code>&#x5C5E;&#x6027;</li>
@@ -68,7 +68,7 @@
 <h3 id="t54.2. js/1.react.js">4.2. js/1.react.js <a href="#t54.2. js/1.react.js"> # </a></h3>
 <pre><code class="lang-javascript">    ReactDOM.render(
     <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>&#x73E0;&#x5CF0;&#x57F9;&#x8BAD;<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>,
-        document.getElementById(&apos;app&apos;)
+        document.getElementById(&apos;#app&apos;)
     );
 </span></code></pre>
 <blockquote>
@@ -92,7 +92,7 @@ ReactDOM.render(
     })
   }
   <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>,
-  document.getElementById(&apos;app&apos;)
+  document.getElementById(&apos;#app&apos;)
 );
 </span></code></pre>
 <h2 id="t76. &#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;">6. &#x5B9A;&#x4E49;&#x7EC4;&#x4EF6; <a href="#t76. &#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;"> # </a></h2>
@@ -115,7 +115,7 @@ ReactDOM.render(
 });
 ReactDOM.render(
     <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Message</span>/&gt;</span>,
-    document.getElementById(&apos;app&apos;)
+    document.getElementById(&apos;#app&apos;)
 );
 </span></code></pre>
 <h3 id="t96.2 &#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027;">6.2 &#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027; <a href="#t96.2 &#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027;"> # </a></h3>
@@ -153,7 +153,7 @@ ReactDOM.render(
 
 ReactDOM.render(
     <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Person</span> {<span class="hljs-attribute">...props</span>} /&gt;</span>,//&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x5728;&#x4F7F;&#x7528;&#x7EC4;&#x4EF6;&#x65F6;&#x4F20;&#x5165;
-    document.getElementById(&apos;app&apos;)
+    document.getElementById(&apos;#app&apos;)
 );
 </span></code></pre>
 <h3 id="t106.3 this.props.children">6.3 this.props.children <a href="#t106.3 this.props.children"> # </a></h3>
@@ -180,7 +180,7 @@ ReactDOM.render(
         <span class="hljs-tag">&lt;<span class="hljs-title">span</span>&gt;</span>&#x4E8C;&#x6BDB;<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-title">span</span>&gt;</span>&#x4E09;&#x6BDB;<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-title">Person</span>&gt;</span>,
-    document.getElementById(&apos;app&apos;)
+    document.getElementById(&apos;#app&apos;)
 );
 </code></pre>
 <h3 id="t116.4 state&#x72B6;&#x6001;">6.4 state&#x72B6;&#x6001; <a href="#t116.4 state&#x72B6;&#x6001;"> # </a></h3>
@@ -214,7 +214,7 @@ ReactDOM.render(
 
 ReactDOM.render(
     <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Person</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;&#x6797;&#x5FD7;&#x73B2;&quot;</span> /&gt;</span>,
-    document.getElementById(&apos;app&apos;)
+    document.getElementById(&apos;#app&apos;)
 );
 </span></code></pre>
 <p>&#x5E38;&#x7528;&#x7684;&#x4E8B;&#x4EF6;</p>
@@ -243,7 +243,7 @@ ReactDOM.render(
     }
 });
 
-ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Input</span>/&gt;</span>, document.getElementById(&apos;app&apos;));
+ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Input</span>/&gt;</span>, document.getElementById(&apos;#app&apos;));
 </span></code></pre>
 <blockquote>
 <p>&#x6CE8;&#x610F;: &#x5982;&#x679C;&#x7ED9;&#x8868;&#x5355;&#x5143;&#x7D20;&#x8BBE;&#x7F6E;&#x4E86;<code>value</code>&#x5C5E;&#x6027;&#xFF0C;&#x5219;&#x5FC5;&#x987B;&#x6307;&#x5B9A;<code>onChange</code>&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;&#xFF0C;&#x5426;&#x5219; &#x6B64;&#x5B57;&#x6BB5;&#x4F1A;&#x53D8;&#x6210;&#x53EA;&#x8BFB;&#x72B6;&#x6001; </p>
@@ -288,7 +288,7 @@ ReactDOM.render(
         <span class="hljs-attribute">head</span>=<span class="hljs-value">&quot;&#x5934;&#x90E8;&quot;</span>
         <span class="hljs-attribute">body</span>=<span class="hljs-value">&quot;&#x6B63;&#x6587;&quot;</span>
     /&gt;</span>,
-    document.getElementById(&apos;app&apos;)
+    document.getElementById(&apos;#app&apos;)
 );
 </span></code></pre>
 <h2 id="t148. &#x7EC4;&#x4EF6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;">8. &#x7EC4;&#x4EF6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F; <a href="#t148. &#x7EC4;&#x4EF6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;"> # </a></h2>
@@ -349,7 +349,7 @@ ReactDOM.render(
         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;MessageBox.componentDidUpdate&apos;</span>);
     },
     killMySelf: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-        ReactDOM.unmountComponentAtNode(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;app&apos;</span>));
+        ReactDOM.unmountComponentAtNode(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;#app&apos;</span>));
     },
     doUpdate: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
         <span class="hljs-keyword">this</span>.setState({
@@ -384,7 +384,7 @@ ReactDOM.render(
     }
 });
 
-ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">MessageBox</span>/&gt;</span>, document.getElementById(&apos;app&apos;));
+ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">MessageBox</span>/&gt;</span>, document.getElementById(&apos;#app&apos;));
 </span></code></pre>
 <blockquote>
 <p>ReactDOM.unmountComponentAtNode &#x4ECE;DOM&#x4E2D;&#x79FB;&#x9664;&#x5DF2;&#x7ECF;&#x6302;&#x8F7D;&#x7684;React&#x7EC4;&#x4EF6;</p>
@@ -408,7 +408,7 @@ ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-t
 
 ReactDOM.render(
     <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Focus</span> /&gt;</span>,
-    document.getElementById(&apos;app&apos;)
+    document.getElementById(&apos;#app&apos;)
 );
 </span></code></pre>
 <h2 id="t1610.&#x901A;&#x8FC7;Ajax&#x83B7;&#x53D6;&#x6570;&#x636E;">10.&#x901A;&#x8FC7;Ajax&#x83B7;&#x53D6;&#x6570;&#x636E; <a href="#t1610.&#x901A;&#x8FC7;Ajax&#x83B7;&#x53D6;&#x6570;&#x636E;"> # </a></h2>
@@ -428,8 +428,8 @@ ReactDOM.render(
             context:<span class="hljs-keyword">this</span>,
             success: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">result</span>) </span>{
                 <span class="hljs-keyword">var</span> data = result.s;
-                data = data.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">item</span>)</span>{
-                    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>{item}<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                data = data.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">item&#xFF0C;index</span>)</span>{
+                    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">key</span>=<span class="hljs-value">{index}</span>&gt;</span>{item}<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
                 });
                 this.setState({content:data});
             }
@@ -448,7 +448,7 @@ ReactDOM.render(
     }
 });
 
-ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Suggestion</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">Suggestion</span>&gt;</span>, document.getElementById(&apos;app&apos;));
+ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Suggestion</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">Suggestion</span>&gt;</span>, document.getElementById(&apos;#app&apos;));
 </span></code></pre>
 <h2 id="t1711. mixin">11. mixin <a href="#t1711. mixin"> # </a></h2>
 <p>&#x516C;&#x7528;&#x62BD;&#x53D6;&#x51FA;&#x6765;,&#x8BA9;&#x4E0D;&#x540C;&#x7684;&#x7EC4;&#x4EF6;&#x5171;&#x7528;&#x540C;&#x4E00;&#x90E8;&#x5206;&#x903B;&#x8F91;&#xFF0C;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#x91CD;&#x7528;</p>
@@ -488,7 +488,7 @@ ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-t
 ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">Counter1</span>/&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">Counter2</span>/&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>,document.getElementById(&apos;app&apos;));
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>,document.getElementById(&apos;#app&apos;));
 </span></code></pre>
 <h2 id="t1812. &#x63D2;&#x4EF6;&#x5B9E;&#x73B0;&#x53CC;&#x5411;&#x6570;&#x636E;&#x7ED1;&#x5B9A;">12. &#x63D2;&#x4EF6;&#x5B9E;&#x73B0;&#x53CC;&#x5411;&#x6570;&#x636E;&#x7ED1;&#x5B9A; <a href="#t1812. &#x63D2;&#x4EF6;&#x5B9E;&#x73B0;&#x53CC;&#x5411;&#x6570;&#x636E;&#x7ED1;&#x5B9A;"> # </a></h2>
 <p>&#x5728;<code>index.html</code>&#x5F15;&#x5165;&#x63D2;&#x4EF6;</p>
@@ -510,7 +510,7 @@ ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-t
     }
 });
 
-ReactDOM.render(&lt;Input/&gt;, document.getElementById(&apos;app&apos;));
+ReactDOM.render(&lt;Input/&gt;, document.getElementById(&apos;#app&apos;));
 </code></pre><h2 id="t1913.&#x73E0;&#x5CF0;&#x7559;&#x8A00;&#x7248;">13.&#x73E0;&#x5CF0;&#x7559;&#x8A00;&#x7248; <a href="#t1913.&#x73E0;&#x5CF0;&#x7559;&#x8A00;&#x7248;"> # </a></h2>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> Board = React.createClass({
     getInitialState: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
@@ -557,7 +557,7 @@ ReactDOM.render(&lt;Input/&gt;, document.getElementById(&apos;app&apos;));
 
 ReactDOM.render(
     <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Board</span> {<span class="hljs-attribute">...data</span>}/&gt;</span>,
-    document.getElementById(&apos;app&apos;)
+    document.getElementById(&apos;#app&apos;)
 );
 </span></code></pre>
 <h2 id="t2013.&#x6269;&#x5C55;&#x9605;&#x8BFB;">13.&#x6269;&#x5C55;&#x9605;&#x8BFB; <a href="#t2013.&#x6269;&#x5C55;&#x9605;&#x8BFB;"> # </a></h2>

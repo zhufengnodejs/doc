@@ -389,6 +389,15 @@
 </tr>
 </tbody>
 </table>
+<p>exec</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> str = <span class="hljs-string">&quot;school school&quot;</span>;
+<span class="hljs-keyword">var</span> patt = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">&quot;school&quot;</span>,<span class="hljs-string">&apos;g&apos;</span>);
+<span class="hljs-keyword">var</span> result;
+<span class="hljs-keyword">while</span> ((result = patt.exec(str)) != <span class="hljs-literal">null</span>)  {
+    <span class="hljs-built_in">console</span>.log(result);
+    <span class="hljs-built_in">console</span>.log(patt.lastIndex);
+}
+</code></pre>
 <h2 id="t1011.&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x6B63;&#x5219;&#x65B9;&#x6CD5;">11.&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x6B63;&#x5219;&#x65B9;&#x6CD5; <a href="#t1011.&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x6B63;&#x5219;&#x65B9;&#x6CD5;"> # </a></h2>
 <table>
 <thead>
@@ -421,11 +430,20 @@
 </tr>
 </tbody>
 </table>
+<p>match</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> path = <span class="hljs-string">&apos;/users/:id/:name&apos;</span>;
+<span class="hljs-built_in">console</span>.log(path.match(<span class="hljs-regexp">/:(\w+)/</span>));
+<span class="hljs-built_in">console</span>.log(path.match(<span class="hljs-regexp">/:(\w+)/g</span>));
+</code></pre>
+<p>replace</p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;/users/:id/:name&apos;</span>.replace(<span class="hljs-regexp">/:\w+/g</span>,<span class="hljs-string">&apos;(\\w+)&apos;</span>));
+</code></pre>
 <h2 id="t1112.&#x6269;&#x5C55;&#x9605;&#x8BFB;">12.&#x6269;&#x5C55;&#x9605;&#x8BFB; <a href="#t1112.&#x6269;&#x5C55;&#x9605;&#x8BFB;"> # </a></h2>
 <ul>
 <li><a href="http://www.cnblogs.com/rubylouvre/archive/2010/03/09/1681222.html">javascript&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;</a></li>
 <li><a href="https://jex.im/regulex">Regulex</a></li>
 <li><a href="https://regexper.com/">&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x53EF;&#x89C6;&#x5316;&#x5DE5;&#x5177;</a></li>
+<li><a href="http://www.w3school.com.cn/jsref/jsref_obj_regexp.asp">w3school</a></li>
 </ul>
 
 
