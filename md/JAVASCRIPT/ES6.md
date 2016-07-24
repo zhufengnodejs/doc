@@ -23,6 +23,8 @@ for (var i = 0; i < 3; i++) {
         }, 0);
     }
 ```
+>结果<br>
+弹窗三次 `3`
    
 ### 1.2 块级作用域
 在用var定义变量的时候，变量是通过闭包进行隔离的，现在用了let，不仅仅可以通过闭包隔离，还增加了一些块级作用域隔离。
@@ -43,6 +45,8 @@ if(true){
 }
 console.log(window.name);
 ```
+>结果
+undefined
 
 #### 1.2.3 for循环中也可以使用i
 ```javascript
@@ -55,6 +59,17 @@ console.log(window.name);
     }
 ```
 
+>结果
+out 0
+in 0 
+in 1 
+out 1
+in 0 
+in 1 
+out 2
+in 0
+in 1
+
 #### 1.2.4 重复定义会报错
 ```javascript
 if(true){
@@ -65,10 +80,13 @@ if(true){
 
 #### 1.2.5 不存在变量的预解释
 ```javascript
-console.log(a);
-let a = 'a';
-
+for (let i = 0; i < 2; i ++){
+    console.log('inner',i);
+    let i = 100;
+}
 ```
+>结果
+**i is not defined**
 
 #### 1.2.6 闭包的新写法
 以前
@@ -115,6 +133,11 @@ const A = "0";
 }
 console.log(A)
 ```
+>结果
+A
+B
+0
+
 ## 3. 解构
 ### 3.1 解析数组
 解构意思就是分解一个东西的结构,可以用一种类似数组的方式定义N个变量，可以将一个数组中的值按照规则赋值过去。
@@ -814,4 +837,5 @@ export default function say(){
 ```javascript
 import say from './school.js';
 ```
+
 
