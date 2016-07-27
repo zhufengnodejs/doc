@@ -372,7 +372,7 @@ $ npm install file-loader url-loader --save-dev
 <span class="hljs-addition">+ },</span>
 <span class="hljs-addition">+ {</span>
 <span class="hljs-addition">+      test: /\.(woff|woff2|ttf|svg|eot)$/,</span>
-<span class="hljs-addition">+      loader: &quot;url?limit=10000&quot;</span>
+<span class="hljs-addition">+      loader: &quot;url?limit=8192&quot;</span>
 <span class="hljs-addition">+ },</span>
 <span class="hljs-addition">+ {</span>
 <span class="hljs-addition">+       test: /\.(jpg|png)$/,</span>
@@ -414,7 +414,8 @@ $ npm install file-loader url-loader --save-dev
 <span class="hljs-addition">+  plugins: [</span>
 <span class="hljs-addition">+        new HtmlWebpackPlugin({</span>
 <span class="hljs-addition">+          title: &apos;zhufeng-react&apos;,//&#x6807;&#x9898;</span>
-<span class="hljs-addition">+          template: &apos;./src/index.html&apos; //&#x6A21;&#x677F;&#x6587;&#x4EF6;</span>
+<span class="hljs-addition">+          template: &apos;./src/index.html&apos;, //&#x6A21;&#x677F;&#x6587;&#x4EF6;</span>
+<span class="hljs-addition">+          filename:&apos;./index.html&apos; //&#x4EA7;&#x51FA;&#x540E;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x79F0;</span>
 <span class="hljs-addition">+        })</span>
 <span class="hljs-addition">+  ]</span>
 </code></pre>
@@ -430,9 +431,16 @@ $ npm install file-loader url-loader --save-dev
 </code></pre>
 <h2 id="t6511. &#x533A;&#x5206;&#x73AF;&#x5883;&#x6807;&#x8BC6;">11. &#x533A;&#x5206;&#x73AF;&#x5883;&#x6807;&#x8BC6; <a href="#t6511. &#x533A;&#x5206;&#x73AF;&#x5883;&#x6807;&#x8BC6;"> # </a></h2>
 <h3 id="t6611.1 &#x5728;&#x811A;&#x672C;&#x4E2D;&#x8BBE;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;">11.1 &#x5728;&#x811A;&#x672C;&#x4E2D;&#x8BBE;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF; <a href="#t6611.1 &#x5728;&#x811A;&#x672C;&#x4E2D;&#x8BBE;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;"> # </a></h3>
+<p>WIN&#x7CFB;&#x7EDF;</p>
 <pre><code class="lang-diff"><span class="hljs-addition">+ &quot;scripts&quot;: {</span>
-<span class="hljs-addition">+    &quot;publish-mac&quot;: &quot;export BUILD_DEV=dev &amp;&amp; webpack-dev-server&quot;,</span>
-<span class="hljs-addition">+    &quot;publish-win&quot;: &quot;set BUILD_DEV=dev &amp;&amp; webpack-dev-server&quot;</span>
+<span class="hljs-addition">+    &quot;publish-dev&quot;: &quot;set BUILD_ENV=dev &amp;&amp; webpack-dev-server&quot;,</span>
+<span class="hljs-addition">+    &quot;publish-prod&quot;: &quot;set BUILD_ENV=prod &amp;&amp; webpack-dev-server&quot;</span>
+<span class="hljs-addition">+ }</span>
+</code></pre>
+<p>MAC&#x7CFB;&#x7EDF;</p>
+<pre><code class="lang-diff"><span class="hljs-addition">+ &quot;scripts&quot;: {</span>
+<span class="hljs-addition">+    &quot;publish-dev&quot;: &quot;export BUILD_ENV=dev &amp;&amp; webpack-dev-server&quot;,</span>
+<span class="hljs-addition">+    &quot;publish-prod&quot;: &quot;export BUILD_ENV=prod &amp;&amp; webpack-dev-server&quot;</span>
 <span class="hljs-addition">+ }</span>
 </code></pre>
 <h3 id="t6711.2 &#x4FEE;&#x6539;webpack.config.js">11.2 &#x4FEE;&#x6539;webpack.config.js <a href="#t6711.2 &#x4FEE;&#x6539;webpack.config.js"> # </a></h3>
@@ -443,7 +451,7 @@ $ npm install file-loader url-loader --save-dev
 
  plugins: [
 <span class="hljs-addition">+        definePlugin,</span>
-        new HtmlWebpackPlugin({
+        new HtmlWebpackPlugin
 </code></pre>
 <h2 id="t6812. &#x66B4;&#x9732;&#x5168;&#x5C40;&#x5BF9;&#x8C61;">12. &#x66B4;&#x9732;&#x5168;&#x5C40;&#x5BF9;&#x8C61; <a href="#t6812. &#x66B4;&#x9732;&#x5168;&#x5C40;&#x5BF9;&#x8C61;"> # </a></h2>
 <h3 id="t6912.1 &#x5B89;&#x88C5;&#x66B4;&#x9732;&#x7EC4;&#x4EF6;">12.1 &#x5B89;&#x88C5;&#x66B4;&#x9732;&#x7EC4;&#x4EF6; <a href="#t6912.1 &#x5B89;&#x88C5;&#x66B4;&#x9732;&#x7EC4;&#x4EF6;"> # </a></h3>
@@ -513,12 +521,27 @@ console.log(age);
 </ul>
 <h3 id="t7915.2 &#x4FEE;&#x6539;webpack.config.js">15.2 &#x4FEE;&#x6539;webpack.config.js <a href="#t7915.2 &#x4FEE;&#x6539;webpack.config.js"> # </a></h3>
 <pre><code class="lang-diff">    entry: {
-<span class="hljs-addition">+        a:path.resolve(__dirname, &apos;src/a.js&apos;),</span>
-<span class="hljs-addition">+        b: path.resolve(__dirname, &apos;src/b.js&apos;)</span>
+<span class="hljs-addition">+        a:path.resolve(&apos;src/a.js&apos;),</span>
+<span class="hljs-addition">+        b: path.resolve(&apos;src/b.js&apos;)</span>
     }
 
 <span class="hljs-deletion">-   new webpack.optimize.CommonsChunkPlugin(&apos;vendor&apos;, &apos;vendor.js&apos;),</span>
 <span class="hljs-addition">+   new webpack.optimize.CommonsChunkPlugin(&apos;common.js&apos;),</span>
+
+  plugins:[
+<span class="hljs-addition">+    new htmlWebpackPlugin({</span>
+<span class="hljs-addition">+                title:&apos;&#x73E0;&#x5CF0;Webpack&apos;,</span>
+<span class="hljs-addition">+                template:&apos;./src/index.html&apos;,</span>
+<span class="hljs-addition">+                filename:&apos;./a.html&apos;,</span>
+<span class="hljs-addition">+                chunks:[&apos;a&apos;,&apos;common.js&apos;]//&#x5305;&#x542B;&#x4EA7;&#x51FA;&#x7684;&#x8D44;&#x6E90;</span>
+<span class="hljs-addition">+           }),</span>
+<span class="hljs-addition">+    new htmlWebpackPlugin({</span>
+<span class="hljs-addition">+                title:&apos;&#x73E0;&#x5CF0;Webpack&apos;,</span>
+<span class="hljs-addition">+                template:&apos;./src/index.html&apos;,</span>
+<span class="hljs-addition">+                filename:&apos;./b.html&apos;,</span>
+<span class="hljs-addition">+                chunks:[&apos;b&apos;,&apos;common.js&apos;]//&#x5305;&#x542B;&#x4EA7;&#x51FA;&#x7684;&#x8D44;&#x6E90;</span>
+<span class="hljs-addition">+            })</span>
+   ]
 </code></pre>
 <h2 id="t8016. &#x6DFB;&#x52A0;&#x54C8;&#x5E0C;&#x503C;">16. &#x6DFB;&#x52A0;&#x54C8;&#x5E0C;&#x503C; <a href="#t8016. &#x6DFB;&#x52A0;&#x54C8;&#x5E0C;&#x503C;"> # </a></h2>
 <h3 id="t8116.1 &#x4FEE;&#x6539;webpack.config.js">16.1 &#x4FEE;&#x6539;webpack.config.js <a href="#t8116.1 &#x4FEE;&#x6539;webpack.config.js"> # </a></h3>

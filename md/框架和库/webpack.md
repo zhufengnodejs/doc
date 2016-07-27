@@ -424,7 +424,7 @@ $ npm install file-loader url-loader --save-dev
 + },
 + {
 +      test: /\.(woff|woff2|ttf|svg|eot)$/,
-+      loader: "url?limit=10000"
++      loader: "url?limit=8192"
 + },
 + {
 +       test: /\.(jpg|png)$/,
@@ -450,7 +450,6 @@ $ npm install file-loader url-loader --save-dev
 + <span class="glyphicon glyphicon-qrcode"></span>
 + <img src="/zfpx.jpg" class="img-rounded" alt="lufy">
 ```
-
 
 ## 8. 自动刷新
 在源码修改之后可以自动刷新页面
@@ -479,7 +478,8 @@ npm install html-webpack-plugin --save-dev
 +  plugins: [
 +        new HtmlWebpackPlugin({
 +          title: 'zhufeng-react',//标题
-+          template: './src/index.html' //模板文件
++          template: './src/index.html', //模板文件
++          filename:'./index.html' //产出后的文件名称
 +        })
 +  ]
 ```
@@ -501,10 +501,18 @@ $ npm install open-browser-webpack-plugin --save-dev
 
 ## 11. 区分环境标识
 ### 11.1 在脚本中设置环境变量
+WIN系统
 ```diff
 + "scripts": {
-+    "publish-mac": "export BUILD_DEV=dev && webpack-dev-server",
-+    "publish-win": "set BUILD_DEV=dev && webpack-dev-server"
++    "publish-dev": "set BUILD_ENV=dev && webpack-dev-server",
++    "publish-prod": "set BUILD_ENV=prod && webpack-dev-server"
++ }
+```
+MAC系统
+```diff
++ "scripts": {
++    "publish-dev": "export BUILD_ENV=dev && webpack-dev-server",
++    "publish-prod": "export BUILD_ENV=prod && webpack-dev-server"
 + }
 ```
 
@@ -517,7 +525,7 @@ $ npm install open-browser-webpack-plugin --save-dev
 
  plugins: [
 +        definePlugin,
-        new HtmlWebpackPlugin({
+        new HtmlWebpackPlugin
 ```
 
 ## 12. 暴露全局对象
@@ -588,7 +596,7 @@ $ npm install extract-text-webpack-plugin --save-dev
 
 
 ## 15. 提取其它公共的代码
-### 15.1 增加a.js和b.js
+### 15.1 增加`a.js`和`b.js`
 - components.js
 ```
 export var  name = 'zfpx';
@@ -608,12 +616,27 @@ console.log(age);
 ### 15.2 修改`webpack.config.js`
 ```diff
     entry: {
-+        a:path.resolve(__dirname, 'src/a.js'),
-+        b: path.resolve(__dirname, 'src/b.js')
++        a:path.resolve('src/a.js'),
++        b: path.resolve('src/b.js')
     }
     
 -   new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
 +   new webpack.optimize.CommonsChunkPlugin('common.js'),
+
+  plugins:[
++    new htmlWebpackPlugin({
++                title:'珠峰Webpack',
++                template:'./src/index.html',
++                filename:'./a.html',
++                chunks:['a','common.js']//包含产出的资源
++           }),
++    new htmlWebpackPlugin({
++                title:'珠峰Webpack',
++                template:'./src/index.html',
++                filename:'./b.html',
++                chunks:['b','common.js']//包含产出的资源
++            })
+   ]
 ```
 
 ## 16. 添加哈希值
