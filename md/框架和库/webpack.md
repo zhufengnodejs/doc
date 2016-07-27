@@ -115,7 +115,7 @@ module.exports = {
     },
 };
 ```
-> 请注意`webpack.config.js`这个文件名是定死的，不然会报`Output filename not configured`的错误；另外，如果不按这个命名，那么在webpack运行的时候需要通过`--conf`这个参数指定配置文件，比如：`webpack --config conf.js`
+> 请注意`webpack.config.js`这个文件名是定死的，不然会报`Output filename not configured`的错误；另外，如果不按这个命名，那么在webpack运行的时候需要通过`--config`这个参数指定配置文件，比如：`webpack --config conf.js`
 
 ### 2.8 修改 `package.json`
 ```diff
@@ -234,13 +234,7 @@ $ npm install webpack-dev-server --save-dev
 +    }
 ```
 
-### 4.5 修改`build/index.html`
-```diff
--  <script src="bundle.js"></script>
-+  <script src="/static/bundle.js"></script>
-```
-
-### 4.6 执行命令进行启动服务
+### 4.5 执行命令进行启动服务
 ```javascript
 $ npm run dev
 ```
