@@ -241,12 +241,12 @@ $ npm run dev
 
 > 启动此服务的时候，编译后的产出文件放在内存里,在`build`目录下看不见,但也不会删除原来已经有的文件
 
-### 4.7 预览项目 
+### 4.6 预览项目 
 打开浏览器中访问
 [http://localhost:8080](http://localhost:8080)
 
-### 4.8 proxy模拟后台接口
-#### 4.8.1 修改配置`webpack.config.js`
+### 4.7 proxy模拟后台接口
+#### 4.7.1 修改配置`webpack.config.js`
 ```diff
    //重写url
 + function rewriteUrl(replacePath) {
@@ -262,7 +262,7 @@ $ npm run dev
 + }
 
     devServer: {
-        publicPath: "/static/",//设置在html页面中访问产出文件的路径前缀
+
         stats: { colors: true }, //显示颜色
         port: 8080,//端口
         contentBase: 'build',//指定静态文件的根目录
@@ -282,12 +282,12 @@ $ npm run dev
     }
 ```
 
-#### 4.8.2 在build目录下添加 `book.json`
+#### 4.7.2 在build目录下添加 `book.json`
 ```javascript
 {"name":"javascript"}
 ```
 
-#### 4.8.3 直接访问此接口
+#### 4.7.3 直接访问此接口
 在浏览器输入此地址
 [http://localhost:8080/api/book](http://localhost:8080/api/book)
 将会被重写向到
