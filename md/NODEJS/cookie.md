@@ -36,7 +36,7 @@ Cookie:name=zfpx
 |参数|chrome对应属性|类型|说明|示例|
 |:-------|:-------|:-------|:-------|:-------|
 |domain|Domain|String|域名，默认是当前域名|{domain:'a.zfpx.cn'}|
-|path|Path|String|域名，默认是/|{path:'/visit'}|
+|path|Path|String|路径，默认是/|{path:'/visit'}|
 |expires|Expires|Date|过期时间，如果没以有指定或为0表示当前会话有效|{expires:new Date(Date.now()+20*1000)}|
 |maxAge|Max-Age|Number|有效时间(单位是毫秒)|{maxAge:20*1000}|
 |httpOnly|HTTP|Boolean|不能通过浏览器javascript访问|{httpOnly:true}|
