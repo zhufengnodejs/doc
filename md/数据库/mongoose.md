@@ -18,7 +18,8 @@ $ npm install mongoose
 ### 1.4 使用mongoose
 ```javascript
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://user:pass@localhost:port/database");
+//mongoose.connect("mongodb://localhost:端口号/数据库名称");
+mongoose.connect("mongodb://localhost:27017/zhufengpeixunblog");
 ```
 ### 1.5 Schema
 
@@ -26,7 +27,7 @@ Schema是数据库集合的模型骨架
 定义了集合中的字段的名称和类型以及默认值等信息   
 
 #### 1.5.1 Schema.Type
-NodeJS中的基本数据类型都属于Schema.Type  
+NodeJS中的基本数据类型都属于 Schema.Type  
 另外Mongoose还定义了自己的类型    
 基本属性类型有:  
 - 字符串(String)
@@ -65,14 +66,17 @@ Model是由通过Schema构造而成
 除了具有Schema定义的数据库骨架以外，还可以操作数据库   
 如何通过Schema来创建Model呢，如下:    
 ```javascript
+//连接数据库
 mongoose.connect("mongodb://123.57.143.189:27017/zfpx");
-var PersonModel = db.model("person", PersonSchema);//两个参数表示定义一个模型
+//两个参数表示定义一个模型
+var PersonModel = mongoose.model("Person", PersonSchema);
 // 如果该Model已经定义，则可以直接通过名字获取
-var pModel = db.model('person');//一个参数表示获取已定义的模型
+var PersonModel = mongoose.model('Person');//一个参数表示获取已定义的模型
 
 ```
 拥有了Model，我们也就拥有了操作数据库的能力
-> 
+
+> 在数据库中的集合名称等于 模型名转小写再转复数,比如 Person>person>people,Child>child>children 
 
 ### 1.7 Entity简述
 通过Model创建的实体，它也可以操作数据库  
@@ -80,12 +84,11 @@ var pModel = db.model('person');//一个参数表示获取已定义的模型
 ```javascript
  var personEntity = new PersonModel({
      name : "zfpx",
-     age  : 6,
-     email: "zfpx@qq.com"
+     age  : 6
  });
 ```
 
-> Schema生成Model，Model创造Entity，Model和Entity都可对数据库操作,但Model比Entity更具操作性
+> Schema生成Model，Model创造Entity，Model和Entity都可对数据库操作,但Model比Entity可以实现的功能更多
 
 ### 1.8 保存Entity
 ```javascript
@@ -93,22 +96,20 @@ var mongoose = require("mongoose");
 mongoose.connect("mongodb://123.57.143.189:27017/zfpx");
 var PersonSchema = new mongoose.Schema({
     name: {type: String},
-    age: {type: Number, default: 0},
-    time: {type: Date, default: Date.now()},
-    email: {type: String, default: ''}
+    age: {type: Number, default: 0}
 });
-var PersonModel = db.model("person", PersonSchema);
+var PersonModel = mongoose.model("Person", PersonSchema);
 
-var personEntity = new PersonModel({
+var PersonEntity = new PersonModel({
     name: "zfpx",
-    age: 6,
-    email: "zfpx@qq.com"
+    age: 6
 });
-console.log(personEntity.name);
-personEntity.save(function (error, doc) {
+
+PersonEntity.save(function (error, doc) {
     if (error) {
         console.log("error :" + error);
     } else {
+       //doc是返回刚存的person对象 
         console.log(doc);
     }
 });
@@ -123,21 +124,22 @@ ObjectId是一个12字节的 BSON 类型字符串。按照字节顺序，依次�
 - 2字节：表示生成此_id的进程
 - 3字节：由一个随机数开始的计数器生成的值
 
-> 每一个文档都有一个特殊的键“_id”，这个键在文档所属的集合中是唯一的。
+> 每一个文档都有一个特殊的键`_id`，这个键在文档所属的集合中是唯一的。
 
 
 ### 1.10 为Entity增加实例方法
 ```javascript
+//注意此语句要写在定义PersonSchema之后，定义PersonModel之前
 PersonSchema.methods.findSameAge = function(cb){
-      return this.model('Person').find({age:this.age},cb);
+    //先获取模型 再调用find 把条件传入，调用回调
+    this.model('Person').find({age:this.age},cb);
 }
 var PersonModel = db.model("person", PersonSchema);
- var personEntity = new PersonModel({
+ var PersonEntity = new PersonModel({
      name : "zfpx",
-     age  : 6,
-     email: "zfpx@qq.com"
+     age  : 6
  });
- personEntity.findSameAge(function(err,docs){
+ PersonEntity.findSameAge(function(err,docs){
     console.log(docs);
  });
 ```
@@ -145,11 +147,11 @@ var PersonModel = db.model("person", PersonSchema);
 ### 1.11 为Model增加静态方法
 ```javascript
 PersonSchema.statics.findByName = function(name,cb){
-    this.find({name:new RegExp(name,'i')},cb);
+    this.find({name:new RegExp(name,'i')},cb)
 }
 var PersonModel = mongoose.model('Person',PersonSchema);
 PersonModel.findByName('zfpx',function(err,persons){
-     console.log(persons);//获得所有名称叫珠峰培训的人
+     console.log(persons);  //获得所有名称叫zfpx的人
 });
 ```
 
@@ -158,11 +160,13 @@ PersonModel.findByName('zfpx',function(err,persons){
 - required 非空验证
 - min/max 范围验证（边值验证）
 - enum/match 枚举验证/匹配验证
+- validate 自定义验证规则
 
 ```javascript
 var PersonSchema = new Schema({
       name:{
         type:'String',
+        match:/^zfpx/,//必须符合正则
         required:true //姓名非空
       },
       age:{
@@ -170,11 +174,19 @@ var PersonSchema = new Schema({
         min:18,       //年龄最小18
         max:110     //年龄最大110
       },
-      city:{
+      gender:{
         type:'String',
-        enum:['北京','广州']  //只能是北京或广州
+        enum:['男','女']  //只能是男或女
+      },
+      home{
+        type:String,
+        validate: [validator,'必须是北京']
       }
     });
+    //自定义验证函数
+    function validator (val) {
+        return val == '北京';
+    }
 ```
 
 ### 1.13 中间件
@@ -182,17 +194,19 @@ var PersonSchema = new Schema({
 #### 1.13.1 Serial串行
 串行使用pre方法，执行下一个方法使用next调用
 ```javascript
-var schema = new Schema(...);
-schema.pre('save',function(next){
-      //做点什么
-      next();
+PersonSchema.pre('save',function(next){
+     setTimeout(()=>{
+        this.age = this.age * 2; //this 指向 entity
+        next();
+     },5000)
 });
 ```
 #### 1.13.1 Parallel并行
 ```javascript
 schema.pre('save',function(next,done){
-      //下一个要执行的中间件并行执行
+      //先继续执行下一个中间件
       next();
+      //调用done表示本次中间件执行完毕，只有所有的中间件都执行完毕之后才意味着保存结束
       doAsync(done);
 });
 ```
@@ -237,7 +251,7 @@ Model.create(文档数据, callback))
 ### 2.3 Entity保存
 语法
 ```javascript
-Entity.save(文档数据, callback))
+Entity.save(callback))
 ```
 代码
 ```javascript
@@ -287,6 +301,7 @@ PersonModel.remove(conditions, function(error){
     }
 });
 ```
+
 
 ## 3. 基本查询
 ### 3.1 准备数据
@@ -467,8 +482,77 @@ Model('User').find({})
 
 ```
 
+### 4.5 populate
+```javascript
+var mongoose = require('mongoose');
+//连接数据库
+mongoose.connect('mongodb://localhost:27017/201606blog');
+//定义课程Schema
+var CourseSchema = new mongoose.Schema({
+    name:String
+});
+var CourseModel = mongoose.model('Course',CourseSchema);
+var PersonSchema = new mongoose.Schema({
+    name:{
+        type:String,
+        required:true
+    },
+    // 外键 别的集合的主键
+    course:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Course' //指明此外键是哪个集合中的外键
+    }
+});
+var PersonModel = mongoose.model('Person',PersonSchema);
+CourseModel.create({name:'node.js'},function(err,course){
+    PersonModel.create({name:'zfpx',course:course._id},function(err,doc){
+        console.log(doc);
+        PersonModel.findById(doc._id).populate('course').exec(function(err,doc){
+            console.log(doc);
+        })
+    })
+});
+```
+
+### 4.6 __v 版本锁
+当修改数组属性的时候要使用版本锁
+```javascript
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/201606blog');
+var PersonSchema = new mongoose.Schema({
+    name:{
+        type:String,
+        required:true
+    },
+    courses:[String]
+});
+var PersonModel = mongoose.model('Person',PersonSchema);
+console.time('cost');
+PersonModel.create({name:'zfpx'},function(err,doc){
+    PersonModel.findById(doc._id,function(err,doc){
+        doc.courses.push('node');
+        setTimeout(function(){
+            doc.save(function(err,doc){
+                console.log(doc);
+            });
+        },5000);
+    })
+
+    PersonModel.findById(doc._id,function(err,doc){
+        doc.courses.push('js');
+        setTimeout(function(){
+            doc.save(function(err,doc){
+                console.log(doc);
+                console.timeEnd('cost');
+            });
+        },10000);
+    })
+});
+
+```
+
 ## 5. 扩展阅读
-[mongoose](http://www.nodeclass.com/api/mongoose.html)
+[mongoose](http://mongoosejs.com/docs/api.html)
 
 
 
