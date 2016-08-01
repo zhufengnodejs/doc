@@ -241,7 +241,7 @@ gulp内部使用了`node-glob`模块来实现其文件匹配功能。我们可�
 #### 8.2.2 glob示例
 <table>
 <tr><td>glob</td><td>匹配</td></tr>
-<tr><td>\*</td><td>能匹配 a.js,x.y,abc,abc/,但不能匹配a/b.js</td></tr>
+<tr><td>*</td><td>能匹配 a.js,x.y,abc,abc/,但不能匹配a/b.js</td></tr>
 <tr><td>\*.\*</td><td>a.js,style.css,a.b,x.y</td></tr>
 <tr><td>\*/\*/\*.js</td><td>能匹配 a/b/c.js,x/y/z.js,不能匹配a/b.js,a/b/c/d.js</td></tr>
 <tr><td>\*\*</td><td>能匹配 abc,a/b.js,a/b/c.js,x/y/z,x/y/z/a.b,能用来匹配所有的目录和文件</td></tr>
