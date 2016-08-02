@@ -17,7 +17,10 @@
         "md": [
             "index.md",
             {
-                "前端工程化": []
+                "前端工程化": [
+                    "gulp.md",
+                    "webpack.md"
+                ]
             },
             {
                 "数据库": [
@@ -34,46 +37,16 @@
             },
             {
                 "Git": [
-                    "git安装.md",
-                    "git.md"
-                ]
-            },
-            {
-                "JAVASCRIPT": [
-                    "ES6.md",
-                    "缓存.md",
-                    "jquery同步和异步.md",
-                    "属性设置.md",
-                    "模块化开发.md",
-                    "js常用方法.md",
-                    "初识JS.md",
-                    "原型链.md",
-                    "预解析作用域闭包this.md",
-                    "webstorage.md",
-                    "正则表达式.md",
-                    "promise.md"
-                ]
-            },
-            {
-                "NODEJS": [
-                    "加密.md",
-                    "动态服务器.md",
-                    "压缩.md",
-                    "静态文件服务器.md",
-                    "cookie.md",
-                    "Express.md",
-                    "session.md",
-                    "珠峰博客.md",
-                    "socketio.md",
-                    "websocket.md",
-                    "珠峰爬虫.md",
-                    "珠峰聊天室.md",
-                    "流.md"
+                    "git入门.md"
                 ]
             },
             {
                 "工具": [
-                    "和谐.md"
+                    "和谐.md",
+                    "首页.md",
+                    "webstorm安装与配置.md",
+                    "bower.md",
+                    "babel.md"
                 ]
             },
             {
@@ -90,22 +63,85 @@
                 ]
             },
             {
-                "框架和库": [
-                    "babel.md",
-                    "bower.md",
-                    "gulp.md",
-                    "react-router.md",
-                    "react.md",
-                    "react基础应用.md",
-                    "webpack.md",
-                    "NPM.md",
-                    "RNMac.md",
-                    "RNWin.md"
+                "服务器": [
+                    "ubuntu配置PHP.md",
+                    "linux基础.md",
+                    "linux布署.md"
                 ]
             },
             {
-                "服务器": [
-                    "ubuntu配置PHP.md"
+                "AngularJS": [
+                    "angular入门.md",
+                    "angular基础.md",
+                    "route.md",
+                    "指令.md",
+                    "服务.md"
+                ]
+            },
+            {
+                "node基础": [
+                    "buffer.md",
+                    "文件上传.md",
+                    "文件操作.md",
+                    "模块.md",
+                    "流.md",
+                    "node安装与配置.md",
+                    "NPM.md"
+                ]
+            },
+            {
+                "node进阶": [
+                    "cookie.md",
+                    "Express.md",
+                    "session.md",
+                    "socketio.md",
+                    "websocket.md",
+                    "加密.md",
+                    "动态服务器.md",
+                    "压缩.md",
+                    "静态文件服务器.md",
+                    "流高级.md"
+                ]
+            },
+            "首页.md",
+            {
+                "javascript": [
+                    "ES6.md",
+                    "jquery同步和异步.md",
+                    "js常用方法.md",
+                    "promise.md",
+                    "webstorage.md",
+                    "初识JS.md",
+                    "原型链.md",
+                    "属性设置.md",
+                    "模块化开发.md",
+                    "正则表达式.md",
+                    "缓存.md",
+                    "预解析作用域闭包this.md"
+                ]
+            },
+            {
+                "node项目": [
+                    "珠峰博客.md",
+                    "珠峰爬虫.md",
+                    "珠峰聊天室.md"
+                ]
+            },
+            {
+                "react": [
+                    "react-router.md",
+                    "ReactNativeMac.md",
+                    "ReactNativeWin.md",
+                    "react基础应用.md",
+                    "react入门.md"
+                ]
+            },
+            {
+                "vue": [
+                    "Vue入门.md",
+                    "Vue方法篇.md",
+                    "Vue方法篇2.md",
+                    "Vue组件.md"
                 ]
             }
         ]

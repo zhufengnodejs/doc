@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>珠峰JS全栈</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                珠峰JS全栈
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>前端工程化</a><ul><li><a href="../../html/前端工程化/gulp.html">gulp</a></li><li><a href="../../html/前端工程化/webpack.html">webpack</a></li></ul></li><li><a href="#"><span></span>数据库</a><ul><li><a href="../../html/数据库/mongoose.html">mongoose</a></li><li><a href="../../html/数据库/mysql.html">mysql</a></li><li><a href="../../html/数据库/mongodb.html">mongodb</a></li></ul></li><li><a href="#"><span></span>CSS</a><ul><li><a href="../../html/CSS/less.html">less</a></li><li><a href="../../html/CSS/jade.html">jade</a></li></ul></li><li><a href="#"><span></span>Git</a><ul><li><a href="../../html/Git/git入门.html">git入门</a></li></ul></li><li><a href="#"><span></span>工具</a><ul><li><a href="../../html/工具/和谐.html">和谐</a></li><li><a href="../../html/工具/首页.html">首页</a></li><li><a href="../../html/工具/webstorm安装与配置.html">webstorm安装与配置</a></li><li><a href="../../html/工具/bower.html">bower</a></li><li><a href="../../html/工具/babel.html">babel</a></li></ul></li><li><a href="#"><span></span>微信</a><ul><li><a href="../../html/微信/微信开发.html">微信开发</a></li></ul></li><li><a href="#"><span></span>面试</a><ul><li><a href="../../html/面试/CSS.html">CSS</a></li><li><a href="../../html/面试/JAVASCRIPT.html">JAVASCRIPT</a></li><li><a href="../../html/面试/其它.html">其它</a></li><li><a href="../../html/面试/性能优化.html">性能优化</a></li></ul></li><li><a href="#"><span></span>服务器</a><ul><li><a href="../../html/服务器/ubuntu配置PHP.html">ubuntu配置PHP</a></li><li><a href="../../html/服务器/linux基础.html">linux基础</a></li><li><a href="../../html/服务器/linux布署.html">linux布署</a></li></ul></li><li><a href="#"><span></span>AngularJS</a><ul><li><a href="../../html/AngularJS/angular入门.html">angular入门</a></li><li><a href="../../html/AngularJS/angular基础.html">angular基础</a></li><li><a href="../../html/AngularJS/route.html">route</a></li><li><a href="../../html/AngularJS/指令.html">指令</a></li><li><a href="../../html/AngularJS/服务.html">服务</a></li></ul></li><li><a href="#"><span></span>node基础</a><ul><li><a href="../../html/node基础/buffer.html">buffer</a></li><li><a href="../../html/node基础/文件上传.html">文件上传</a></li><li><a href="../../html/node基础/文件操作.html">文件操作</a></li><li><a href="../../html/node基础/模块.html">模块</a></li><li><a href="../../html/node基础/流.html">流</a></li><li class="active"><a href="../../html/node基础/node安装与配置.html">node安装与配置</a></li><li><a href="../../html/node基础/NPM.html">NPM</a></li></ul></li><li><a href="#"><span></span>node进阶</a><ul><li><a href="../../html/node进阶/cookie.html">cookie</a></li><li><a href="../../html/node进阶/Express.html">Express</a></li><li><a href="../../html/node进阶/session.html">session</a></li><li><a href="../../html/node进阶/socketio.html">socketio</a></li><li><a href="../../html/node进阶/websocket.html">websocket</a></li><li><a href="../../html/node进阶/加密.html">加密</a></li><li><a href="../../html/node进阶/动态服务器.html">动态服务器</a></li><li><a href="../../html/node进阶/压缩.html">压缩</a></li><li><a href="../../html/node进阶/静态文件服务器.html">静态文件服务器</a></li><li><a href="../../html/node进阶/流高级.html">流高级</a></li></ul></li><li><a href="../../html/首页.html">首页</a></li><li><a href="#"><span></span>javascript</a><ul><li><a href="../../html/javascript/ES6.html">ES6</a></li><li><a href="../../html/javascript/jquery同步和异步.html">jquery同步和异步</a></li><li><a href="../../html/javascript/js常用方法.html">js常用方法</a></li><li><a href="../../html/javascript/promise.html">promise</a></li><li><a href="../../html/javascript/webstorage.html">webstorage</a></li><li><a href="../../html/javascript/初识JS.html">初识JS</a></li><li><a href="../../html/javascript/原型链.html">原型链</a></li><li><a href="../../html/javascript/属性设置.html">属性设置</a></li><li><a href="../../html/javascript/模块化开发.html">模块化开发</a></li><li><a href="../../html/javascript/正则表达式.html">正则表达式</a></li><li><a href="../../html/javascript/缓存.html">缓存</a></li><li><a href="../../html/javascript/预解析作用域闭包this.html">预解析作用域闭包this</a></li></ul></li><li><a href="#"><span></span>node项目</a><ul><li><a href="../../html/node项目/珠峰博客.html">珠峰博客</a></li><li><a href="../../html/node项目/珠峰爬虫.html">珠峰爬虫</a></li><li><a href="../../html/node项目/珠峰聊天室.html">珠峰聊天室</a></li></ul></li><li><a href="#"><span></span>react</a><ul><li><a href="../../html/react/react-router.html">react-router</a></li><li><a href="../../html/react/ReactNativeMac.html">ReactNativeMac</a></li><li><a href="../../html/react/ReactNativeWin.html">ReactNativeWin</a></li><li><a href="../../html/react/react基础应用.html">react基础应用</a></li><li><a href="../../html/react/react入门.html">react入门</a></li></ul></li><li><a href="#"><span></span>vue</a><ul><li><a href="../../html/vue/Vue入门.html">Vue入门</a></li><li><a href="../../html/vue/Vue方法篇.html">Vue方法篇</a></li><li><a href="../../html/vue/Vue方法篇2.html">Vue方法篇2</a></li><li><a href="../../html/vue/Vue组件.html">Vue组件</a></li></ul></li></ul>
+        </div>
+        
+        <!---->
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+    
+        <div class="page-toc">
+            <ul><li><a href="#t0Node.js 安装配置">Node.js 安装配置</a></li><li><a href="#t1windows">windows</a><ul><li><a href="#t2步骤 1 : 双击下载后的安装包 node-v4.2.1-x64.msi运行安装程序：">步骤 1 : 双击下载后的安装包 node-v4.2.1-x64.msi运行安装程序：</a></li><li><a href="#t3步骤 2 : 勾选接受协议选项，点击 next（下一步） 按钮 :">步骤 2 : 勾选接受协议选项，点击 next（下一步） 按钮 :</a></li><li><a href="#t4步骤 3 : Node.js默认安装目录为 "C:\Program Files\nodejs\" , 你可以修改目录，并点击 next（下一步）：">步骤 3 : Node.js默认安装目录为 "C:\Program Files\nodejs\" , 你可以修改目录，并点击 next（下一步）：</a></li><li><a href="#t5步骤 4 : 点击树形图标来选择你需要的安装模式 , 然后点击下一步 next（下一步）">步骤 4 : 点击树形图标来选择你需要的安装模式 , 然后点击下一步 next（下一步）</a></li><li><a href="#t6步骤 6 :点击 Install（安装） 开始安装Node.js。你也可以点击 Back（返回）来修改先前的配置。 然后并点击 next（下一步）：">步骤 6 :点击 Install（安装） 开始安装Node.js。你也可以点击 Back（返回）来修改先前的配置。 然后并点击 next（下一步）：</a></li><li><a href="#t7点击 Finish（完成）按钮退出安装向导。">点击 Finish（完成）按钮退出安装向导。</a></li><li><a href="#t8检测PATH环境变量是否配置了Node.js">检测PATH环境变量是否配置了Node.js</a></li><li><a href="#t9如果没有的话就需要手工再次配置环境变量">如果没有的话就需要手工再次配置环境变量</a></li><li><a href="#t10MAC安装包安装">MAC安装包安装</a></li><li><a href="#t11MAC下homebrew安装">MAC下homebrew安装</a></li></ul></li></ul>
+        </div>
+
+        <div class="content markdown-body">
+
+            <h1 id="t0Node.js &#x5B89;&#x88C5;&#x914D;&#x7F6E;">Node.js &#x5B89;&#x88C5;&#x914D;&#x7F6E; <a href="#t0Node.js &#x5B89;&#x88C5;&#x914D;&#x7F6E;"> # </a></h1>
+<p>&#x672C;&#x7AE0;&#x8282;&#x6211;&#x4EEC;&#x5C06;&#x5411;&#x5927;&#x5BB6;&#x4ECB;&#x7ECD;&#x5728;window&#x3001;Mac&#x548C;Linux&#x4E0A;&#x5B89;&#x88C5;Node.js&#x7684;&#x65B9;&#x6CD5;</p>
+<ul>
+<li>&#x5076;&#x6570;&#x4F4D;&#x4E3A;&#x7A33;&#x5B9A;&#x7248;&#x672C;&#xFF0C;&#x5947;&#x6570;&#x4F4D;&#x4E3A;&#x975E;&#x7A33;&#x5B9A;&#x7248;&#x672C;</li>
+<li><p>&#x7A33;&#x5B9A;&#x7248;&#x672C;&#x4E2D;&#x5DF2;&#x7ECF;&#x53D1;&#x5E03;&#x7684;API&#x662F;&#x4E0D;&#x4F1A;&#x6539;&#x53D8;&#x7684;</p>
+</li>
+<li><p>&#x6253;&#x5F00;&#x5B98;&#x7F51;&#x4E3B;&#x9875;
+&#x9996;&#x9875;&#x4F1A;&#x63A8;&#x8350;&#x4F60;&#x5408;&#x9002;&#x7684;&#x7248;&#x672C;
+<a href="https://nodejs.org/en/">https://nodejs.org/en/</a>
+<img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/download.jpg" class="img-responsive"></p>
+</li>
+<li><p>&#x5982;&#x679C;&#x63A8;&#x8350;&#x7684;&#x7248;&#x672C;&#x4E0D;&#x5408;&#x9002;&#x53EF;&#x4EE5;&#x8FDB;&#x5165;&#x4E0B;&#x8F7D;&#x9875;&#x9762;
+<a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a>
+<img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/downloadlist.jpg" class="img-responsive">
+&#x6839;&#x636E;&#x4E0D;&#x540C;&#x5E73;&#x53F0;&#x7CFB;&#x7EDF;&#x9009;&#x62E9;&#x4F60;&#x9700;&#x8981;&#x7684;Node.js&#x5B89;&#x88C5;&#x5305;&#x3002;
+&#x6CE8;&#x610F;&#xFF1A;Linux&#x4E0A;&#x5B89;&#x88C5;Node.js&#x9700;&#x8981;&#x5B89;&#x88C5;Python 2.6 &#x6216; 2.7 &#xFF0C;&#x4E0D;&#x5EFA;&#x8BAE;&#x5B89;&#x88C5;Python 3.0&#x4EE5;&#x4E0A;&#x7248;&#x672C;&#x3002;</p>
+</li>
+</ul>
+<h1 id="t1windows">windows <a href="#t1windows"> # </a></h1>
+<p>&#x5982;&#x679C;&#x5B98;&#x7F51;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#x6216;&#x4E0B;&#x8F7D;&#x4E0D;&#x4E0B;&#x6765;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x5730;&#x5740;
+Windows &#x5B89;&#x88C5;&#x5305;(.msi) :
+<a href="http://7xjf2l.com2.z0.glb.qiniucdn.com/node-v4.2.1-x86.msi">32&#x4F4D;</a>
+<a href="http://7xjf2l.com2.z0.glb.qiniucdn.com/node-v4.2.1-x64.msi">64&#x4F4D;</a></p>
+<h2 id="t2&#x6B65;&#x9AA4; 1 : &#x53CC;&#x51FB;&#x4E0B;&#x8F7D;&#x540E;&#x7684;&#x5B89;&#x88C5;&#x5305; node-v4.2.1-x64.msi&#x8FD0;&#x884C;&#x5B89;&#x88C5;&#x7A0B;&#x5E8F;&#xFF1A;">&#x6B65;&#x9AA4; 1 : &#x53CC;&#x51FB;&#x4E0B;&#x8F7D;&#x540E;&#x7684;&#x5B89;&#x88C5;&#x5305; node-v4.2.1-x64.msi&#x8FD0;&#x884C;&#x5B89;&#x88C5;&#x7A0B;&#x5E8F;&#xFF1A; <a href="#t2&#x6B65;&#x9AA4; 1 : &#x53CC;&#x51FB;&#x4E0B;&#x8F7D;&#x540E;&#x7684;&#x5B89;&#x88C5;&#x5305; node-v4.2.1-x64.msi&#x8FD0;&#x884C;&#x5B89;&#x88C5;&#x7A0B;&#x5E8F;&#xFF1A;"> # </a></h2>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/install_1.jpg" class="img-responsive"></p>
+<h2 id="t3&#x6B65;&#x9AA4; 2 : &#x52FE;&#x9009;&#x63A5;&#x53D7;&#x534F;&#x8BAE;&#x9009;&#x9879;&#xFF0C;&#x70B9;&#x51FB; next&#xFF08;&#x4E0B;&#x4E00;&#x6B65;&#xFF09; &#x6309;&#x94AE; :">&#x6B65;&#x9AA4; 2 : &#x52FE;&#x9009;&#x63A5;&#x53D7;&#x534F;&#x8BAE;&#x9009;&#x9879;&#xFF0C;&#x70B9;&#x51FB; next&#xFF08;&#x4E0B;&#x4E00;&#x6B65;&#xFF09; &#x6309;&#x94AE; : <a href="#t3&#x6B65;&#x9AA4; 2 : &#x52FE;&#x9009;&#x63A5;&#x53D7;&#x534F;&#x8BAE;&#x9009;&#x9879;&#xFF0C;&#x70B9;&#x51FB; next&#xFF08;&#x4E0B;&#x4E00;&#x6B65;&#xFF09; &#x6309;&#x94AE; :"> # </a></h2>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/install_2.jpg" class="img-responsive"></p>
+<h2 id="t4&#x6B65;&#x9AA4; 3 : Node.js&#x9ED8;&#x8BA4;&#x5B89;&#x88C5;&#x76EE;&#x5F55;&#x4E3A; &quot;C:\Program Files\nodejs\&quot; , &#x4F60;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x76EE;&#x5F55;&#xFF0C;&#x5E76;&#x70B9;&#x51FB; next&#xFF08;&#x4E0B;&#x4E00;&#x6B65;&#xFF09;&#xFF1A;">&#x6B65;&#x9AA4; 3 : Node.js&#x9ED8;&#x8BA4;&#x5B89;&#x88C5;&#x76EE;&#x5F55;&#x4E3A; &quot;C:\Program Files\nodejs\&quot; , &#x4F60;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x76EE;&#x5F55;&#xFF0C;&#x5E76;&#x70B9;&#x51FB; next&#xFF08;&#x4E0B;&#x4E00;&#x6B65;&#xFF09;&#xFF1A; <a href="#t4&#x6B65;&#x9AA4; 3 : Node.js&#x9ED8;&#x8BA4;&#x5B89;&#x88C5;&#x76EE;&#x5F55;&#x4E3A; " c:\program="" files\nodejs\"="" ,="" 你可以修改目录，并点击="" next（下一步）："=""> # </a></h2>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/install3.jpg" class="img-responsive"></p>
+<h2 id="t5&#x6B65;&#x9AA4; 4 : &#x70B9;&#x51FB;&#x6811;&#x5F62;&#x56FE;&#x6807;&#x6765;&#x9009;&#x62E9;&#x4F60;&#x9700;&#x8981;&#x7684;&#x5B89;&#x88C5;&#x6A21;&#x5F0F; , &#x7136;&#x540E;&#x70B9;&#x51FB;&#x4E0B;&#x4E00;&#x6B65; next&#xFF08;&#x4E0B;&#x4E00;&#x6B65;&#xFF09;">&#x6B65;&#x9AA4; 4 : &#x70B9;&#x51FB;&#x6811;&#x5F62;&#x56FE;&#x6807;&#x6765;&#x9009;&#x62E9;&#x4F60;&#x9700;&#x8981;&#x7684;&#x5B89;&#x88C5;&#x6A21;&#x5F0F; , &#x7136;&#x540E;&#x70B9;&#x51FB;&#x4E0B;&#x4E00;&#x6B65; next&#xFF08;&#x4E0B;&#x4E00;&#x6B65;&#xFF09; <a href="#t5&#x6B65;&#x9AA4; 4 : &#x70B9;&#x51FB;&#x6811;&#x5F62;&#x56FE;&#x6807;&#x6765;&#x9009;&#x62E9;&#x4F60;&#x9700;&#x8981;&#x7684;&#x5B89;&#x88C5;&#x6A21;&#x5F0F; , &#x7136;&#x540E;&#x70B9;&#x51FB;&#x4E0B;&#x4E00;&#x6B65; next&#xFF08;&#x4E0B;&#x4E00;&#x6B65;&#xFF09;"> # </a></h2>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/install4.jpg" class="img-responsive"></p>
+<h2 id="t6&#x6B65;&#x9AA4; 6 :&#x70B9;&#x51FB; Install&#xFF08;&#x5B89;&#x88C5;&#xFF09; &#x5F00;&#x59CB;&#x5B89;&#x88C5;Node.js&#x3002;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x70B9;&#x51FB; Back&#xFF08;&#x8FD4;&#x56DE;&#xFF09;&#x6765;&#x4FEE;&#x6539;&#x5148;&#x524D;&#x7684;&#x914D;&#x7F6E;&#x3002; &#x7136;&#x540E;&#x5E76;&#x70B9;&#x51FB; next&#xFF08;&#x4E0B;&#x4E00;&#x6B65;&#xFF09;&#xFF1A;">&#x6B65;&#x9AA4; 6 :&#x70B9;&#x51FB; Install&#xFF08;&#x5B89;&#x88C5;&#xFF09; &#x5F00;&#x59CB;&#x5B89;&#x88C5;Node.js&#x3002;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x70B9;&#x51FB; Back&#xFF08;&#x8FD4;&#x56DE;&#xFF09;&#x6765;&#x4FEE;&#x6539;&#x5148;&#x524D;&#x7684;&#x914D;&#x7F6E;&#x3002; &#x7136;&#x540E;&#x5E76;&#x70B9;&#x51FB; next&#xFF08;&#x4E0B;&#x4E00;&#x6B65;&#xFF09;&#xFF1A; <a href="#t6&#x6B65;&#x9AA4; 6 :&#x70B9;&#x51FB; Install&#xFF08;&#x5B89;&#x88C5;&#xFF09; &#x5F00;&#x59CB;&#x5B89;&#x88C5;Node.js&#x3002;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x70B9;&#x51FB; Back&#xFF08;&#x8FD4;&#x56DE;&#xFF09;&#x6765;&#x4FEE;&#x6539;&#x5148;&#x524D;&#x7684;&#x914D;&#x7F6E;&#x3002; &#x7136;&#x540E;&#x5E76;&#x70B9;&#x51FB; next&#xFF08;&#x4E0B;&#x4E00;&#x6B65;&#xFF09;&#xFF1A;"> # </a></h2>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/install5.jpg" class="img-responsive"></p>
+<h2 id="t7&#x70B9;&#x51FB; Finish&#xFF08;&#x5B8C;&#x6210;&#xFF09;&#x6309;&#x94AE;&#x9000;&#x51FA;&#x5B89;&#x88C5;&#x5411;&#x5BFC;&#x3002;">&#x70B9;&#x51FB; Finish&#xFF08;&#x5B8C;&#x6210;&#xFF09;&#x6309;&#x94AE;&#x9000;&#x51FA;&#x5B89;&#x88C5;&#x5411;&#x5BFC;&#x3002; <a href="#t7&#x70B9;&#x51FB; Finish&#xFF08;&#x5B8C;&#x6210;&#xFF09;&#x6309;&#x94AE;&#x9000;&#x51FA;&#x5B89;&#x88C5;&#x5411;&#x5BFC;&#x3002;"> # </a></h2>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/install6.jpg" class="img-responsive"></p>
+<h2 id="t8&#x68C0;&#x6D4B;PATH&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x662F;&#x5426;&#x914D;&#x7F6E;&#x4E86;Node.js">&#x68C0;&#x6D4B;PATH&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x662F;&#x5426;&#x914D;&#x7F6E;&#x4E86;Node.js <a href="#t8&#x68C0;&#x6D4B;PATH&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x662F;&#x5426;&#x914D;&#x7F6E;&#x4E86;Node.js"> # </a></h2>
+<ul>
+<li>&#x70B9;&#x51FB;&#x5F00;&#x59CB;&#x83DC;&#x5355;,&#x70B9;&#x51FB;&#x8FD0;&#x884C;
+<img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/run1.jpg" class="img-responsive"></li>
+<li>&#x8F93;&#x5165; <code>cmd</code>
+<img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/run2.jpg" class="img-responsive"></li>
+<li>&#x8F93;&#x5165;&#x547D;&#x4EE4;<code>path</code>&#x8F93;&#x51FA;&#x7ED3;&#x679C;
+<img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/run3.jpg" class="img-responsive"></li>
+</ul>
+<p>&#x5982;&#x679C;&#x6709;<code>node</code>&#x7684;&#x8DEF;&#x5F84;&#x7684;&#x8BDD;&#x5C31;&#x8868;&#x793A;&#x914D;&#x7F6E;&#x6B63;&#x786E;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4E0B;&#x6267;&#x884C; <code>node</code> &#x547D;&#x4EE4;
+&#x68C0;&#x67E5;node.js&#x7248;&#x672C;  <code>node -v</code></p>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/node&#x7248;&#x672C;.jpg" class="img-responsive"></p>
+<h2 id="t9&#x5982;&#x679C;&#x6CA1;&#x6709;&#x7684;&#x8BDD;&#x5C31;&#x9700;&#x8981;&#x624B;&#x5DE5;&#x518D;&#x6B21;&#x914D;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;">&#x5982;&#x679C;&#x6CA1;&#x6709;&#x7684;&#x8BDD;&#x5C31;&#x9700;&#x8981;&#x624B;&#x5DE5;&#x518D;&#x6B21;&#x914D;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF; <a href="#t9&#x5982;&#x679C;&#x6CA1;&#x6709;&#x7684;&#x8BDD;&#x5C31;&#x9700;&#x8981;&#x624B;&#x5DE5;&#x518D;&#x6B21;&#x914D;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;"> # </a></h2>
+<ul>
+<li>&#x6253;&#x5F00;&#x8D44;&#x6E90;&#x7BA1;&#x7406;&#x5668;</li>
+<li>&#x5728;&#x8BA1;&#x7B97;&#x673A;&#x4E0A;&#x70B9;&#x51FB;&#x53F3;&#x952E;&#xFF0C;&#x663E;&#x793A;&#x83DC;&#x5355;&#x540E;&#x70B9;&#x51FB;&#x5C5E;&#x6027;</li>
+<li>&#x9009;&#x62E9;&#x9AD8;&#x7EA7;&#x7CFB;&#x7EDF;&#x8BBE;&#x7F6E;</li>
+<li>&#x9009;&#x62E9;&#x9AD8;&#x7EA7;&#x9875;&#x7B7E;&#x4E0B;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;</li>
+<li>&#x5728;&#x7528;&#x6237;&#x53D8;&#x91CF;&#x4E2D;&#x627E;&#x5230;path,&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5C31;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;</li>
+<li>&#x5728;path&#x7684;&#x6700;&#x524D;&#x9762;&#x6DFB;&#x52A0;node.js&#x7684;&#x5B89;&#x88C5;&#x8DEF;&#x5F84;&#xFF0C;&#x5982; <code>C:\Program Files\nodejs</code></li>
+</ul>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/run4.jpg" class="img-responsive">
+<img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/run5.jpg" class="img-responsive"></p>
+<h2 id="t10MAC&#x5B89;&#x88C5;&#x5305;&#x5B89;&#x88C5;">MAC&#x5B89;&#x88C5;&#x5305;&#x5B89;&#x88C5; <a href="#t10MAC&#x5B89;&#x88C5;&#x5305;&#x5B89;&#x88C5;"> # </a></h2>
+<p><a href="http://7xjf2l.com2.z0.glb.qiniucdn.com/node-v4.2.1.pkg">http://7xjf2l.com2.z0.glb.qiniucdn.com/node-v4.2.1.pkg</a>
+&#x4E0B;&#x8F7D;&#x7ED3;&#x675F;&#x540E;&#xFF0C;&#x5355;&#x51FB;&#x4E0B;&#x8F7D;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x8FD0;&#x884C;&#x5B83;&#xFF0C;&#x4F1A;&#x51FA;&#x73B0;&#x5982;&#x56FE;1-5&#x6240;&#x793A;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5411;&#x5BFC;&#x5BF9;&#x8BDD;&#x6846;&#x3002;
+&#x5355;&#x51FB;continue&#x6309;&#x94AE;&#x5F00;&#x59CB;&#x5B89;&#x88C5;&#xFF0C;&#x7D27;&#x63A5;&#x7740;&#x5411;&#x5BFC;&#x4F1A;&#x5411;&#x4F60;&#x8BE2;&#x95EE;&#x7CFB;&#x7EDF;&#x7528;&#x6237;&#x5BC6;&#x7801;&#xFF0C;&#x8F93;&#x5165;&#x5BC6;&#x7801;&#x540E;&#x5C31;&#x5F00;&#x59CB;&#x5B89;&#x88C5;&#x3002;&#x4E0D;&#x4E00;&#x4F1A;&#x513F;&#x5C31;&#x4F1A;&#x770B;&#x89C1;&#x4E00;&#x4E2A;&#x63D0;&#x793A;Node&#x5DF2;&#x7ECF;&#x88AB;&#x5B89;&#x88C5;&#x5230;&#x8BA1;&#x7B97;&#x673A;&#x4E0A;&#x7684;&#x786E;&#x8BA4;&#x7A97;&#x53E3;</p>
+<h2 id="t11MAC&#x4E0B;homebrew&#x5B89;&#x88C5;">MAC&#x4E0B;homebrew&#x5B89;&#x88C5; <a href="#t11MAC&#x4E0B;homebrew&#x5B89;&#x88C5;"> # </a></h2>
+<ol>
+<li>&#x5148;&#x5B89;&#x88C5;homebrew
+&#x6253;&#x5F00;&#x7F51;&#x7AD9;
+ <a href="http://brew.sh/">http://brew.sh/</a></li>
+<li><p>&#x5728;terminal&#x4E0B;&#x5B89;&#x88C5;<code>Homebrew</code></p>
+<p> ruby -e &quot;$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install">https://raw.githubusercontent.com/Homebrew/install/master/install</a>)&quot;</p>
+</li>
+</ol>
+<p>homebrew&#x4F9D;&#x8D56;ruby,&#x5982;&#x679C;&#x5B89;&#x88C5;&#x51FA;&#x9519;&#x68C0;&#x67E5;&#x4E00;&#x4E0B;ruby&#x7684;&#x7248;&#x672C;&#x4EE5;&#x53CA;&#x8DEF;&#x5F84;</p>
+<pre><code>ruby -v
+</code></pre><p>3.&#x901A;&#x8FC7;homebrew&#x5B89;&#x88C5;node.js</p>
+<pre><code>brew install node
+</code></pre><p>4.&#x5176;&#x5B83;&#x8F6F;&#x4EF6;&#x4E5F;&#x90FD;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;homebrew&#x5B89;&#x88C5;</p>
+<pre><code>brew install mongodb redis git
+</code></pre><p>5.&#x5207;&#x6362;&#x7248;&#x672C;&#x6216;&#x5347;&#x7EA7;node&#x53EF;&#x4EE5;&#x5B89;&#x88C5; <code>n</code> &#x6A21;&#x5757;
+    npm install n -g
+ &#x76F4;&#x63A5;&#x8F93;&#x5165; <code>n</code> &#x5373;&#x53EF;&#x4E0A;&#x4E0B;&#x5207;&#x6362;&#x4E0D;&#x540C;&#x7684;&#x7248;&#x672C;</p>
+<p><a href="https://github.com/tj/n">https://github.com/tj/n</a></p>
+
+
+        </div>
+    
+</div>
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    /*url("/static/img/banner.jpg") no-repeat*/
+    .bs-docs-header{
+        background:linear-gradient(to right ,#333333 50%,#0d0b0c 50%) ;
+        padding: 0;
+    }
+    .new-back{
+        background-image: url("static/img/banner.jpg") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 88px;
+    }
+    .markdown-body pre code,.markdown-body code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .markdown-body code{
+      line-height: inherit;
+    }
+    .markdown-body h3{
+        font-size:1.4em;
+    }
+    .markdown-body h4{
+        font-size:1em;
+    }
+
+
+
+    /*index*/
+    .jw-style{
+        font-size: 1.75em;
+        color: #1d3e81;
+        line-height: 2em;
+    }
+
+    .understand-me {
+        text-align: center;
+        margin: 100px auto 0;
+    }
+
+    .understand-me li {
+        vertical-align: top;
+        width: 33.3333%;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+    }
+
+    .understand-me li span {
+        color: #1a1a1a;
+        font-size: 1.6em;
+
+    }
+
+    .understand-me p {
+        margin: 0 auto;
+        width: 90%;
+        text-align: left;
+        color: #4c4c4c;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    .understand-me img {
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .footers{
+        background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px
+    }
+    .understand-me img:hover {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    @media screen and (max-width: 479px) {
+        .understand-me li{
+            width: 100%;
+            margin-bottom: 2em;
+        }
+        .new-back{
+            padding: 28px;
+        }
+        .understand-me p {
+            width: 60%;
+        }
+        .footers{
+            height: 80px;
+            background-size:auto 100%;;
+        }
+    }
+
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+if(!$('.understand-me').length){
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h1,h2,h3,h4,h5,h6").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+}
+</script>
+
+</body>
+</html>
+
+
+<script>
+
+</script>
