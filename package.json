@@ -43,7 +43,6 @@
             {
                 "工具": [
                     "和谐.md",
-                    "首页.md",
                     "webstorm安装与配置.md",
                     "bower.md",
                     "babel.md"
@@ -59,7 +58,10 @@
                     "CSS.md",
                     "JAVASCRIPT.md",
                     "其它.md",
-                    "性能优化.md"
+                    "性能优化.md",
+                    "angular.md",
+                    "html.md",
+                    "网络.md"
                 ]
             },
             {
@@ -133,7 +135,8 @@
                     "ReactNativeMac.md",
                     "ReactNativeWin.md",
                     "react基础应用.md",
-                    "react入门.md"
+                    "react入门.md",
+                    "redux.md"
                 ]
             },
             {
