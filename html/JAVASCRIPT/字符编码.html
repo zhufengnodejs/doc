@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>珠峰JS全栈</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                珠峰JS全栈
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>前端工程化</a><ul><li><a href="../../index.html">gulp</a></li><li><a href="../../index.html">webpack</a></li></ul></li><li><a href="#"><span></span>数据库</a><ul><li><a href="../../index.html">mongoose</a></li><li><a href="../../index.html">mysql</a></li><li><a href="../../index.html">mongodb</a></li></ul></li><li><a href="#"><span></span>CSS</a><ul><li><a href="../../index.html">less</a></li><li><a href="../../index.html">jade</a></li></ul></li><li><a href="#"><span></span>Git</a><ul><li><a href="../../index.html">git入门</a></li></ul></li><li><a href="#"><span></span>工具</a><ul><li><a href="../../index.html">和谐</a></li><li><a href="../../index.html">webstorm安装与配置</a></li><li><a href="../../index.html">bower</a></li><li><a href="../../index.html">babel</a></li></ul></li><li><a href="#"><span></span>微信</a><ul><li><a href="../../index.html">微信开发</a></li></ul></li><li><a href="#"><span></span>面试</a><ul><li><a href="../../index.html">CSS</a></li><li><a href="../../index.html">JAVASCRIPT</a></li><li><a href="../../index.html">其它</a></li><li><a href="../../index.html">性能优化</a></li><li><a href="../../index.html">angular</a></li><li><a href="../../index.html">html</a></li><li><a href="../../index.html">网络</a></li></ul></li><li><a href="#"><span></span>服务器</a><ul><li><a href="../../index.html">ubuntu配置PHP</a></li><li><a href="../../index.html">linux基础</a></li><li><a href="../../index.html">linux布署</a></li></ul></li><li><a href="#"><span></span>AngularJS</a><ul><li><a href="../../index.html">angular入门</a></li><li><a href="../../index.html">angular基础</a></li><li><a href="../../index.html">route</a></li><li><a href="../../index.html">指令</a></li><li><a href="../../index.html">服务</a></li></ul></li><li><a href="#"><span></span>node基础</a><ul><li><a href="../../index.html">buffer</a></li><li><a href="../../index.html">文件上传</a></li><li><a href="../../index.html">文件操作</a></li><li><a href="../../index.html">模块</a></li><li><a href="../../index.html">流</a></li><li><a href="../../index.html">node安装与配置</a></li><li><a href="../../index.html">NPM</a></li></ul></li><li><a href="#"><span></span>node进阶</a><ul><li><a href="../../index.html">cookie</a></li><li><a href="../../index.html">Express</a></li><li><a href="../../index.html">session</a></li><li><a href="../../index.html">socketio</a></li><li><a href="../../index.html">websocket</a></li><li><a href="../../index.html">加密</a></li><li><a href="../../index.html">动态服务器</a></li><li><a href="../../index.html">压缩</a></li><li><a href="../../index.html">静态文件服务器</a></li><li><a href="../../index.html">流高级</a></li></ul></li><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>javascript</a><ul><li><a href="../../index.html">ES6</a></li><li><a href="../../index.html">jquery同步和异步</a></li><li><a href="../../index.html">js常用方法</a></li><li><a href="../../index.html">promise</a></li><li><a href="../../index.html">webstorage</a></li><li><a href="../../index.html">初识JS</a></li><li><a href="../../index.html">原型链</a></li><li><a href="../../index.html">属性设置</a></li><li><a href="../../index.html">模块化开发</a></li><li><a href="../../index.html">正则表达式</a></li><li><a href="../../index.html">缓存</a></li><li><a href="../../index.html">预解析作用域闭包this</a></li><li><a href="../../index.html">字符编码</a></li></ul></li><li><a href="#"><span></span>node项目</a><ul><li><a href="../../index.html">珠峰博客</a></li><li><a href="../../index.html">珠峰爬虫</a></li><li><a href="../../index.html">珠峰聊天室</a></li></ul></li><li><a href="#"><span></span>react</a><ul><li><a href="../../index.html">react-router</a></li><li><a href="../../index.html">ReactNativeMac</a></li><li><a href="../../index.html">ReactNativeWin</a></li><li><a href="../../index.html">react基础应用</a></li><li><a href="../../index.html">react入门</a></li><li><a href="../../index.html">redux</a></li></ul></li><li><a href="#"><span></span>vue</a><ul><li><a href="../../index.html">Vue入门</a></li><li><a href="../../index.html">Vue方法篇</a></li><li><a href="../../index.html">Vue方法篇2</a></li><li><a href="../../index.html">Vue组件</a></li></ul></li></ul>
+        </div>
+        
+        <!---->
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+    
+        <div class="page-toc">
+            <ul><li><a href="#t01. ASCII码">1. ASCII码</a></li><li><a href="#t12. Unicode">2. Unicode</a></li><li><a href="#t23. UTF-8">3. UTF-8</a><ul><li><a href="#t33.1 UTF-8的编码规则">3.1 UTF-8的编码规则</a></li><li><a href="#t43.2 unicode转utf8">3.2 unicode转utf8</a></li><li><a href="#t53.3 unicode转utf8">3.3 unicode转utf8</a></li></ul></li><li><a href="#t65.引伸阅读">5.引伸阅读</a></li></ul>
+        </div>
+
+        <div class="content markdown-body">
+
+            <h2 id="t01. ASCII&#x7801;">1. ASCII&#x7801; <a href="#t01. ASCII&#x7801;"> # </a></h2>
+<p>&#x6BCF;&#x4E00;&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x4F4D;&#xFF08;bit&#xFF09;&#x6709;0&#x548C;1&#x4E24;&#x79CD;&#x72B6;&#x6001;&#xFF0C;&#x56E0;&#x6B64;&#x516B;&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x4F4D;&#x5C31;&#x53EF;&#x4EE5;&#x7EC4;&#x5408;&#x51FA;256&#x79CD;&#x72B6;&#x6001;&#xFF0C;&#x8FD9;&#x88AB;&#x79F0;&#x4E3A;&#x4E00;&#x4E2A;&#x5B57;&#x8282;(byte)</p>
+<p>&#x6BCF;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x7B26;&#x53F7;&#xFF0C;&#x5C31;&#x662F;256&#x4E2A;&#x7B26;&#x53F7;&#xFF0C;&#x4ECE;0000000&#x5230;11111111</p>
+<p>&#x4E0A;&#x4E2A;&#x4E16;&#x7EAA;60&#x5E74;&#x4EE3;&#xFF0C;&#x7F8E;&#x56FD;&#x5236;&#x5B9A;&#x4E86;&#x4E00;&#x5957;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#xFF0C;&#x5BF9;&#x82F1;&#x8BED;&#x5B57;&#x7B26;&#x4E0E;&#x4E8C;&#x8FDB;&#x5236;&#x4F4D;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x505A;&#x4E86;&#x7EDF;&#x4E00;&#x89C4;&#x5B9A;&#x3002;&#x8FD9;&#x88AB;&#x79F0;&#x4E3A;ASCII&#x7801;</p>
+<p>ASCII&#x7801;&#x4E00;&#x5171;&#x89C4;&#x5B9A;&#x4E86;128&#x4E2A;&#x5B57;&#x7B26;&#x7684;&#x7F16;&#x7801;&#xFF0C;&#x6BD4;&#x5982;&#x7A7A;&#x683C;&#x662F;32&#xFF08;&#x4E8C;&#x8FDB;&#x5236;00100000&#xFF09;&#xFF0C;&#x5927;&#x5199;&#x7684;&#x5B57;&#x6BCD;A&#x662F;65&#xFF08;&#x4E8C;&#x8FDB;&#x5236;01000001&#xFF09;&#x3002;&#x8FD9;128&#x4E2A;&#x7B26;&#x53F7;&#xFF08;&#x5305;&#x62EC;32&#x4E2A;&#x4E0D;&#x80FD;&#x6253;&#x5370;&#x51FA;&#x6765;&#x7684;&#x63A7;&#x5236;&#x7B26;&#x53F7;&#xFF09;&#xFF0C;&#x53EA;&#x5360;&#x7528;&#x4E86;&#x4E00;&#x4E2A;&#x5B57;&#x8282;&#x7684;&#x540E;&#x9762;7&#x4F4D;&#xFF0C;&#x6700;&#x524D;&#x9762;&#x7684;1&#x4F4D;&#x7EDF;&#x4E00;&#x89C4;&#x5B9A;&#x4E3A;0</p>
+<h2 id="t12. Unicode">2. Unicode <a href="#t12. Unicode"> # </a></h2>
+<p>&#x4E16;&#x754C;&#x4E0A;&#x5B58;&#x5728;&#x7740;&#x591A;&#x79CD;&#x7F16;&#x7801;&#x65B9;&#x5F0F;&#xFF0C;&#x540C;&#x4E00;&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x5B57;&#x53EF;&#x4EE5;&#x88AB;&#x89E3;&#x91CA;&#x6210;&#x4E0D;&#x540C;&#x7684;&#x7B26;&#x53F7;</p>
+<p>&#x56E0;&#x6B64;&#xFF0C;&#x8981;&#x60F3;&#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x6587;&#x672C;&#x6587;&#x4EF6;&#xFF0C;&#x5C31;&#x5FC5;&#x987B;&#x77E5;&#x9053;&#x5B83;&#x7684;&#x7F16;&#x7801;&#x65B9;&#x5F0F;&#xFF0C;&#x5426;&#x5219;&#x7528;&#x9519;&#x8BEF;&#x7684;&#x7F16;&#x7801;&#x65B9;&#x5F0F;&#x89E3;&#x8BFB;&#xFF0C;&#x5C31;&#x4F1A;&#x51FA;&#x73B0;&#x4E71;&#x7801;</p>
+<p>&#x6709;&#x4E00;&#x79CD;&#x7F16;&#x7801;&#xFF0C;&#x5C06;&#x4E16;&#x754C;&#x4E0A;&#x6240;&#x6709;&#x7684;&#x7B26;&#x53F7;&#x90FD;&#x7EB3;&#x5165;&#x5176;&#x4E2D;&#x3002;&#x6BCF;&#x4E00;&#x4E2A;&#x7B26;&#x53F7;&#x90FD;&#x7ED9;&#x4E88;&#x4E00;&#x4E2A;&#x72EC;&#x4E00;&#x65E0;&#x4E8C;&#x7684;&#x7F16;&#x7801;&#xFF0C;&#x90A3;&#x4E48;&#x4E71;&#x7801;&#x95EE;&#x9898;&#x5C31;&#x4F1A;&#x6D88;&#x5931;&#x3002;&#x8FD9;&#x5C31;&#x662F;Unicode&#xFF0C;&#x5C31;&#x50CF;&#x5B83;&#x7684;&#x540D;&#x5B57;&#x90FD;&#x8868;&#x793A;&#x7684;&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x79CD;&#x6240;&#x6709;&#x7B26;&#x53F7;&#x7684;&#x7F16;&#x7801;</p>
+<p>Unicode&#x5F53;&#x7136;&#x662F;&#x4E00;&#x4E2A;&#x5F88;&#x5927;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x73B0;&#x5728;&#x7684;&#x89C4;&#x6A21;&#x53EF;&#x4EE5;&#x5BB9;&#x7EB3;100&#x591A;&#x4E07;&#x4E2A;&#x7B26;&#x53F7;</p>
+<h2 id="t23. UTF-8">3. UTF-8 <a href="#t23. UTF-8"> # </a></h2>
+<p>Unicode&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x7B26;&#x53F7;&#x96C6;&#xFF0C;&#x5B83;&#x53EA;&#x89C4;&#x5B9A;&#x4E86;&#x7B26;&#x53F7;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x4EE3;&#x7801;&#xFF0C;&#x5374;&#x6CA1;&#x6709;&#x89C4;&#x5B9A;&#x8FD9;&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x4EE3;&#x7801;&#x5E94;&#x8BE5;&#x5982;&#x4F55;&#x5B58;&#x50A8;</p>
+<p>UTF-8&#x5C31;&#x662F;&#x5728;&#x4E92;&#x8054;&#x7F51;&#x4E0A;&#x4F7F;&#x7528;&#x6700;&#x5E7F;&#x7684;&#x4E00;&#x79CD;Unicode&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;</p>
+<p>UTF-8&#x662F;&#x4E00;&#x79CD;&#x53D8;&#x957F;&#x7684;&#x7F16;&#x7801;&#x65B9;&#x5F0F;&#x3002;&#x5B83;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;1~4&#x4E2A;&#x5B57;&#x8282;&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x7B26;&#x53F7;&#xFF0C;&#x6839;&#x636E;&#x4E0D;&#x540C;&#x7684;&#x7B26;&#x53F7;&#x800C;&#x53D8;&#x5316;&#x5B57;&#x8282;&#x957F;&#x5EA6;</p>
+<h3 id="t33.1 UTF-8&#x7684;&#x7F16;&#x7801;&#x89C4;&#x5219;">3.1 UTF-8&#x7684;&#x7F16;&#x7801;&#x89C4;&#x5219; <a href="#t33.1 UTF-8&#x7684;&#x7F16;&#x7801;&#x89C4;&#x5219;"> # </a></h3>
+<ol>
+<li>&#x5BF9;&#x4E8E;&#x5355;&#x5B57;&#x8282;&#x7684;&#x7B26;&#x53F7;&#xFF0C;&#x5B57;&#x8282;&#x7684;&#x7B2C;&#x4E00;&#x4F4D;&#x8BBE;&#x4E3A;0&#xFF0C;&#x540E;&#x9762;7&#x4F4D;&#x4E3A;&#x8FD9;&#x4E2A;&#x7B26;&#x53F7;&#x7684;unicode&#x7801;&#x3002;&#x56E0;&#x6B64;&#x5BF9;&#x4E8E;&#x82F1;&#x8BED;&#x5B57;&#x6BCD;&#xFF0C;UTF-8&#x7F16;&#x7801;&#x548C;ASCII&#x7801;&#x662F;&#x76F8;&#x540C;&#x7684;
+2.</li>
+<li>&#x5BF9;&#x4E8E;n&#x5B57;&#x8282;&#x7684;&#x7B26;&#x53F7;&#xFF08;n&gt;1&#xFF09;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x8282;&#x7684;&#x524D;n&#x4F4D;&#x90FD;&#x8BBE;&#x4E3A;1&#xFF0C;&#x7B2C;n+1&#x4F4D;&#x8BBE;&#x4E3A;0&#xFF0C;&#x540E;&#x9762;&#x5B57;&#x8282;&#x7684;&#x524D;&#x4E24;&#x4F4D;&#x4E00;&#x5F8B;&#x8BBE;&#x4E3A;10&#x3002;&#x5269;&#x4E0B;&#x7684;&#x6CA1;&#x6709;&#x63D0;&#x53CA;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x4F4D;&#xFF0C;&#x5168;&#x90E8;&#x4E3A;&#x8FD9;&#x4E2A;&#x7B26;&#x53F7;&#x7684;unicode&#x7801;</li>
+</ol>
+<h3 id="t43.2 unicode&#x8F6C;utf8">3.2 unicode&#x8F6C;utf8 <a href="#t43.2 unicode&#x8F6C;utf8"> # </a></h3>
+<table>
+<thead>
+<tr>
+<th>Unicode&#x7B26;&#x53F7;&#x8303;&#x56F4;</th>
+<th></th>
+<th>UTF-8&#x7F16;&#x7801;&#x65B9;&#x5F0F;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x5341;&#x8FDB;&#x5236;</td>
+<td>&#x5341;&#x516D;&#x8FDB;&#x5236;</td>
+<td>&#x4E8C;&#x8FDB;&#x5236;</td>
+</tr>
+<tr>
+<td>0-127</td>
+<td>0000 0000-0000 007F</td>
+<td>0xxxxxxx</td>
+</tr>
+<tr>
+<td>128-2047</td>
+<td>0000 0080-0000 07FF</td>
+<td>110xxxxx 10xxxxxx</td>
+</tr>
+<tr>
+<td>2048-65535</td>
+<td>0000 0800-0000 FFFF</td>
+<td>1110xxxx 10xxxxxx 10xxxxxx</td>
+</tr>
+<tr>
+<td>65536-1114111</td>
+<td>0001 0000-0010 FFFF</td>
+<td>11110xxx 10xxxxxx 10xxxxxx 10xxxxxx</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5DF2;&#x77E5;&quot;&#x4E25;&quot;&#x7684;unicode&#x662F;4E25&#xFF08;100111000100101&#xFF09;&#xFF0C;&#x6839;&#x636E;&#x4E0A;&#x8868;&#xFF0C;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;4E25&#x5904;&#x5728;&#x7B2C;&#x4E09;&#x884C;&#x7684;&#x8303;&#x56F4;&#x5185;&#xFF08;0000 0800-0000 FFFF&#xFF09;&#xFF0C;&#x56E0;&#x6B64;&quot;&#x4E25;&quot;&#x7684;UTF-8&#x7F16;&#x7801;&#x9700;&#x8981;&#x4E09;&#x4E2A;&#x5B57;&#x8282;&#xFF0C;&#x5373;&#x683C;&#x5F0F;&#x662F;&quot;1110xxxx 10xxxxxx 10xxxxxx&quot;&#x3002;&#x7136;&#x540E;&#xFF0C;&#x4ECE;&quot;&#x4E25;&quot;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x4F4D;&#x5F00;&#x59CB;&#xFF0C;&#x4F9D;&#x6B21;&#x4ECE;&#x540E;&#x5411;&#x524D;&#x586B;&#x5165;&#x683C;&#x5F0F;&#x4E2D;&#x7684;x&#xFF0C;&#x591A;&#x51FA;&#x7684;&#x4F4D;&#x8865;0&#x3002;&#x8FD9;&#x6837;&#x5C31;&#x5F97;&#x5230;&#x4E86;&#xFF0C;&quot;&#x4E25;&quot;&#x7684;UTF-8&#x7F16;&#x7801;&#x662F;&quot;11100100 10111000 10100101&quot;&#xFF0C;&#x8F6C;&#x6362;&#x6210;&#x5341;&#x516D;&#x8FDB;&#x5236;&#x5C31;&#x662F;E4B8A5</p>
+<h3 id="t53.3 unicode&#x8F6C;utf8">3.3 unicode&#x8F6C;utf8 <a href="#t53.3 unicode&#x8F6C;utf8"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-comment">//11100100 10111000 10100101</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">parseInt</span>(<span class="hljs-string">&apos;11100100&apos;</span>,<span class="hljs-number">2</span>).toString(<span class="hljs-number">16</span>),
+<span class="hljs-built_in">parseInt</span>(<span class="hljs-string">&apos;10111000&apos;</span>,<span class="hljs-number">2</span>).toString(<span class="hljs-number">16</span>),
+<span class="hljs-built_in">parseInt</span>(<span class="hljs-string">&apos;10100101&apos;</span>,<span class="hljs-number">2</span>).toString(<span class="hljs-number">16</span>));
+<span class="hljs-comment">//e4 b8 a5</span>
+</code></pre>
+<h2 id="t65.&#x5F15;&#x4F38;&#x9605;&#x8BFB;">5.&#x5F15;&#x4F38;&#x9605;&#x8BFB; <a href="#t65.&#x5F15;&#x4F38;&#x9605;&#x8BFB;"> # </a></h2>
+<ul>
+<li><a href="http://www.guokr.com/blog/763017/">&#x8BA1;&#x7B97;&#x673A;&#x5B57;&#x7B26;&#x7F16;&#x7801;</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html">&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x7B14;&#x8BB0;&#xFF1A;ASCII&#xFF0C;Unicode&#x548C;UTF-8</a></li>
+<li><a href="http://www.chi2ko.com/tool/CJK.htm">unicode&#x7F16;&#x7801;&#x8868;</a></li>
+</ul>
+
+
+        </div>
+    
+</div>
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    /*url("/static/img/banner.jpg") no-repeat*/
+    .bs-docs-header{
+        background:linear-gradient(to right ,#333333 50%,#0d0b0c 50%) ;
+        padding: 0;
+    }
+    .new-back{
+        background-image: url("static/img/banner.jpg") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 88px;
+    }
+    .markdown-body pre code,.markdown-body code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .markdown-body code{
+      line-height: inherit;
+    }
+    .markdown-body h3{
+        font-size:1.4em;
+    }
+    .markdown-body h4{
+        font-size:1em;
+    }
+
+
+
+    /*index*/
+    .jw-style{
+        font-size: 1.75em;
+        color: #1d3e81;
+        line-height: 2em;
+    }
+
+    .understand-me {
+        text-align: center;
+        margin: 100px auto 0;
+    }
+
+    .understand-me li {
+        vertical-align: top;
+        width: 33.3333%;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+    }
+
+    .understand-me li span {
+        color: #1a1a1a;
+        font-size: 1.6em;
+
+    }
+
+    .understand-me p {
+        margin: 0 auto;
+        width: 90%;
+        text-align: left;
+        color: #4c4c4c;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    .understand-me img {
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .footers{
+        background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px
+    }
+    .understand-me img:hover {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    @media screen and (max-width: 479px) {
+        .understand-me li{
+            width: 100%;
+            margin-bottom: 2em;
+        }
+        .new-back{
+            padding: 28px;
+        }
+        .understand-me p {
+            width: 60%;
+        }
+        .footers{
+            height: 80px;
+            background-size:auto 100%;;
+        }
+    }
+
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+if(!$('.understand-me').length){
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h1,h2,h3,h4,h5,h6").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+}
+</script>
+
+</body>
+</html>
+
+
+<script>
+
+</script>
