@@ -107,23 +107,6 @@
             },
             "首页.md",
             {
-                "javascript": [
-                    "ES6.md",
-                    "jquery同步和异步.md",
-                    "js常用方法.md",
-                    "promise.md",
-                    "webstorage.md",
-                    "初识JS.md",
-                    "原型链.md",
-                    "属性设置.md",
-                    "模块化开发.md",
-                    "正则表达式.md",
-                    "缓存.md",
-                    "预解析作用域闭包this.md",
-                    "字符编码.md"
-                ]
-            },
-            {
                 "node项目": [
                     "珠峰博客.md",
                     "珠峰爬虫.md",
@@ -146,6 +129,23 @@
                     "Vue方法篇.md",
                     "Vue方法篇2.md",
                     "Vue组件.md"
+                ]
+            },
+            {
+                "JAVASCRIPT": [
+                    "ES6.md",
+                    "jquery同步和异步.md",
+                    "js常用方法.md",
+                    "promise.md",
+                    "webstorage.md",
+                    "初识JS.md",
+                    "原型链.md",
+                    "字符编码.md",
+                    "属性设置.md",
+                    "模块化开发.md",
+                    "正则表达式.md",
+                    "缓存.md",
+                    "预解析作用域闭包this.md"
                 ]
             }
         ]
