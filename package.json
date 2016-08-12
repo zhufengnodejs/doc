@@ -26,8 +26,7 @@
                 "数据库": [
                     "mongoose.md",
                     "mysql.md",
-                    "mongodb.md",
-                    "mongo.md"
+                    "mongodb.md"
                 ]
             },
             {
