@@ -58,7 +58,7 @@ Promise.prototype.then = function (success, error) {
     this.error = error;
 }
 ```
-## #4.3  es6模拟Promise
+### 4.3  es6模拟Promise
 ```javascript
 class Promise {
     constructor(fn) {
