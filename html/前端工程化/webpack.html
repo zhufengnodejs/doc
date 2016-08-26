@@ -88,7 +88,7 @@ bundle.js &#x6253;&#x5305;&#x540E;&#x7684;&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x540
 <pre><code class="lang-javascript">$ touch.gitignore
 </code></pre>
 <p>&#x5728;&#x6587;&#x4EF6;&#x4E2D;&#x589E;&#x52A0;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;</p>
-<pre><code class="lang-javascript">node_modules 
+<pre><code class="lang-javascript">node_modules
 .idea
 </code></pre>
 <h3 id="t102.4 &#x5728;&#x9879;&#x76EE;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;src&#x548C;build&#x76EE;&#x5F55;">2.4 &#x5728;&#x9879;&#x76EE;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;src&#x548C;build&#x76EE;&#x5F55; <a href="#t102.4 &#x5728;&#x9879;&#x76EE;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;src&#x548C;build&#x76EE;&#x5F55;"> # </a></h3>
@@ -127,7 +127,7 @@ bundle.js &#x6253;&#x5305;&#x540E;&#x7684;&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x540
         <span class="hljs-comment">//&#x5B9A;&#x4E49;&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</span>
         path: path.resolve(__dirname, <span class="hljs-string">&apos;build&apos;</span>),
         <span class="hljs-comment">//&#x6307;&#x5B9A;&#x6253;&#x5305;&#x6587;&#x4EF6;&#x540D;&#x79F0;</span>
-        filename: <span class="hljs-string">&apos;bundle.js&apos;</span> 
+        filename: <span class="hljs-string">&apos;bundle.js&apos;</span>
     },
 };
 </code></pre>
@@ -162,14 +162,14 @@ $ npm install babel-preset-es2015 babel-preset-stage-<span class="hljs-number">0
         //&#x5B9A;&#x4E49;&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;
         path: path.resolve(__dirname, &apos;build&apos;),
         //&#x6307;&#x5B9A;&#x6253;&#x5305;&#x6587;&#x4EF6;&#x540D;&#x79F0;
-        filename: &apos;bundle.js&apos; 
+        filename: &apos;bundle.js&apos;
     },
     //&#x5B9A;&#x4E49;&#x4E86;&#x5BF9;&#x6A21;&#x5757;&#x7684;&#x5904;&#x7406;&#x903B;&#x8F91;     Object
-<span class="hljs-addition">+    module: { </span>
+<span class="hljs-addition">+    module: {</span>
 <span class="hljs-addition">+        loaders: [ &#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x52A0;&#x8F7D;&#x5668;   Array</span>
 <span class="hljs-addition">+            {</span>
 <span class="hljs-addition">+                test: /\.js$/, //&#x6B63;&#x5219;&#xFF0C;&#x5339;&#x914D;&#x5230;&#x7684;&#x6587;&#x4EF6;&#x540E;&#x7F00;&#x540D;</span>
-<span class="hljs-addition">+                // loader/loaders&#xFF1A;string|array&#xFF0C;&#x5904;&#x7406;&#x5339;&#x914D;&#x5230;&#x7684;&#x6587;&#x4EF6;  </span>
+<span class="hljs-addition">+                // loader/loaders&#xFF1A;string|array&#xFF0C;&#x5904;&#x7406;&#x5339;&#x914D;&#x5230;&#x7684;&#x6587;&#x4EF6;</span>
 <span class="hljs-addition">+                loader: &apos;babel-loader&apos;</span>
 <span class="hljs-addition">+                // include&#xFF1A;String|Array  &#x5305;&#x542B;&#x7684;&#x6587;&#x4EF6;&#x5939;</span>
 <span class="hljs-addition">+                 // exclude&#xFF1A;String|Array  &#x6392;&#x9664;&#x7684;&#x6587;&#x4EF6;&#x5939;</span>
@@ -240,7 +240,7 @@ loaders&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;</p>
 <pre><code class="lang-diff">   //&#x91CD;&#x5199;url
 <span class="hljs-addition">+ function rewriteUrl(replacePath) {</span>
 <span class="hljs-addition">+     return function (req, opt) {</span>
-          //&#x53D6;&#x5F97;?&#x6240;&#x5728;&#x7684;&#x7D22;&#x5F15; 
+          //&#x53D6;&#x5F97;?&#x6240;&#x5728;&#x7684;&#x7D22;&#x5F15;
 <span class="hljs-addition">+         var queryIndex = req.url.indexOf(&apos;?&apos;);</span>
           //&#x53D6;&#x5F97;&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5185;&#x5BB9;
 <span class="hljs-addition">+         var query = queryIndex &gt;= 0 ? req.url.substr(queryIndex) : &quot;&quot;;</span>
@@ -258,14 +258,14 @@ loaders&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;</p>
 <span class="hljs-addition">+       proxy: [</span>
 <span class="hljs-addition">+           {</span>
                 //&#x66FF;&#x6362;&#x7B26;&#x5408;&#x6B64;&#x6B63;&#x5219;&#x7684;&#x63A5;&#x53E3;&#x8DEF;&#x5F84;
-<span class="hljs-addition">+               path: /^\/api\/(.*)/,           </span>
+<span class="hljs-addition">+               path: /^\/api\/(.*)/,</span>
                 //&#x76EE;&#x6807;&#x57DF;&#x540D;&#x7AEF;&#x53E3;
-<span class="hljs-addition">+               target: &quot;http://localhost:8080/&quot;, </span>
+<span class="hljs-addition">+               target: &quot;http://localhost:8080/&quot;,</span>
                 //&#x91CD;&#x65B0;&#x5B9A;&#x5411;&#x5230;&#x65B0;&#x7684;&#x5730;&#x5740;
                 //$1&#x53D6;&#x81EA;path&#x6B63;&#x5219;&#x5339;&#x914D;&#x5230;&#x7684;&#x771F;&#x5B9E;&#x8DEF;&#x5F84;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5206;&#x7EC4;
-<span class="hljs-addition">+               rewrite: rewriteUrl(&apos;/$1\.json&apos;), </span>
+<span class="hljs-addition">+               rewrite: rewriteUrl(&apos;/$1\.json&apos;),</span>
                  //&#x4FEE;&#x6539;&#x6765;&#x6E90;&#x5730;&#x5740;
-<span class="hljs-addition">+               changeOrigin: true               </span>
+<span class="hljs-addition">+               changeOrigin: true</span>
 <span class="hljs-addition">+           }</span>
 <span class="hljs-addition">+       ]</span>
     }
@@ -301,7 +301,7 @@ loaders&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;</p>
 <pre><code class="lang-javascript">$ npm install jquery --save
 </code></pre>
 <h4 id="t435.2.2 &#x4FEE;&#x6539; webpack.config.js">5.2.2 &#x4FEE;&#x6539; webpack.config.js <a href="#t435.2.2 &#x4FEE;&#x6539; webpack.config.js"> # </a></h4>
-<pre><code class="lang-diff"><span class="hljs-addition">+ var jqueryPath = path.join(__dirname, </span>
+<pre><code class="lang-diff"><span class="hljs-addition">+ var jqueryPath = path.join(__dirname,</span>
 <span class="hljs-addition">+  &quot;./node_modules/jquery/dist/jquery.js&quot;);</span>
 
 resolve: {
@@ -319,7 +319,7 @@ module: {
            }
        ],
        //&#x5982;&#x679C;&#x4F60; &#x786E;&#x5B9A;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x4E2D;&#x6CA1;&#x6709;&#x5176;&#x5B83;&#x65B0;&#x7684;&#x4F9D;&#x8D56; &#x5C31;&#x53EF;&#x4EE5;&#x914D;&#x7F6E;&#x8FD9;&#x9879;&#xFF0C;webpack &#x5C06;&#x4E0D;&#x518D;&#x626B;&#x63CF;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x4F9D;&#x8D56;
-<span class="hljs-addition">+       noParse: [jqueryPath] </span>
+<span class="hljs-addition">+       noParse: [jqueryPath]</span>
 },
 </code></pre>
 <h4 id="t445.2.3 &#x4FEE;&#x6539; build/index.html">5.2.3 &#x4FEE;&#x6539; build/index.html <a href="#t445.2.3 &#x4FEE;&#x6539; build/index.html"> # </a></h4>
@@ -333,9 +333,9 @@ module: {
 <h2 id="t466. &#x89E3;&#x6790;less&#x6837;&#x5F0F;&#x6587;&#x4EF6;">6. &#x89E3;&#x6790;less&#x6837;&#x5F0F;&#x6587;&#x4EF6; <a href="#t466. &#x89E3;&#x6790;less&#x6837;&#x5F0F;&#x6587;&#x4EF6;"> # </a></h2>
 <h3 id="t476.1 &#x5B89;&#x88C5;loader">6.1 &#x5B89;&#x88C5;loader <a href="#t476.1 &#x5B89;&#x88C5;loader"> # </a></h3>
 <ul>
-<li>less-loader&#x8D1F;&#x8D23;&#x628A;less&#x6E90;&#x7801;&#x8F6C;&#x6210;css&#x4EE3;&#x7801;  </li>
-<li>css-loader&#x8D1F;&#x8D23;&#x8BFB;&#x53D6;css&#x4EE3;&#x7801;  </li>
-<li>style-loader&#x8D1F;&#x8D23;&#x5728;css&#x4EE3;&#x7801;&#x8F6C;&#x53D8;&#x6210;style&#x6807;&#x7B7E;&#x5E76;&#x4F5C;&#x4E3A;&#x9875;&#x5185;&#x6837;&#x5F0F;&#x63D2;&#x5165;&#x5230;&#x9875;&#x9762;&#x4E2D;&#x53BB;   <pre><code class="lang-javascript">$ npm install less style-loader css-loader less-loader --save-dev
+<li>less-loader&#x8D1F;&#x8D23;&#x628A;less&#x6E90;&#x7801;&#x8F6C;&#x6210;css&#x4EE3;&#x7801;</li>
+<li>css-loader&#x8D1F;&#x8D23;&#x8BFB;&#x53D6;css&#x4EE3;&#x7801;</li>
+<li>style-loader&#x8D1F;&#x8D23;&#x5728;css&#x4EE3;&#x7801;&#x8F6C;&#x53D8;&#x6210;style&#x6807;&#x7B7E;&#x5E76;&#x4F5C;&#x4E3A;&#x9875;&#x5185;&#x6837;&#x5F0F;&#x63D2;&#x5165;&#x5230;&#x9875;&#x9762;&#x4E2D;&#x53BB;<pre><code class="lang-javascript">$ npm install less style-loader css-loader less-loader --save-dev
 </code></pre>
 </li>
 </ul>
@@ -359,7 +359,7 @@ module: {
 <span class="hljs-addition">+ &lt;div id=&quot;app&quot; class=&quot;red&quot;&gt;&lt;/div&gt;</span>
 </code></pre>
 <h2 id="t527. &#x8D44;&#x6E90;&#x6587;&#x4EF6;&#x7684;&#x52A0;&#x8F7D;">7. &#x8D44;&#x6E90;&#x6587;&#x4EF6;&#x7684;&#x52A0;&#x8F7D; <a href="#t527. &#x8D44;&#x6E90;&#x6587;&#x4EF6;&#x7684;&#x52A0;&#x8F7D;"> # </a></h2>
-<p>&#x5B9E;&#x73B0;CSS&#x3001;&#x56FE;&#x6807;&#x3001;&#x56FE;&#x7247;&#x7B49;&#x8D44;&#x6E90;&#x6587;&#x4EF6;&#x52A0;&#x8F7D; </p>
+<p>&#x5B9E;&#x73B0;CSS&#x3001;&#x56FE;&#x6807;&#x3001;&#x56FE;&#x7247;&#x7B49;&#x8D44;&#x6E90;&#x6587;&#x4EF6;&#x52A0;&#x8F7D;</p>
 <h3 id="t537.1 &#x5B89;&#x88C5;bootstrap&#x548C;&#x76F8;&#x5E94;&#x7684;loader">7.1 &#x5B89;&#x88C5;bootstrap&#x548C;&#x76F8;&#x5E94;&#x7684;loader <a href="#t537.1 &#x5B89;&#x88C5;bootstrap&#x548C;&#x76F8;&#x5E94;&#x7684;loader"> # </a></h3>
 <pre><code class="lang-javascript">$ npm install bootstrap --save
 $ npm install file-loader url-loader --save-dev
@@ -394,7 +394,7 @@ $ npm install file-loader url-loader --save-dev
 <span class="hljs-addition">+  document.body.appendChild(img);</span>
 </code></pre>
 <h3 id="t567.4 &#x4FEE;&#x6539; build/index.html">7.4 &#x4FEE;&#x6539; build/index.html <a href="#t567.4 &#x4FEE;&#x6539; build/index.html"> # </a></h3>
-<pre><code class="lang-diff"><span class="hljs-addition">+ &lt;button class=&quot;btn btn-success&quot;&gt;bootstrap&#x6309;&#x94AE;&lt;/button&gt; </span>
+<pre><code class="lang-diff"><span class="hljs-addition">+ &lt;button class=&quot;btn btn-success&quot;&gt;bootstrap&#x6309;&#x94AE;&lt;/button&gt;</span>
 <span class="hljs-addition">+ &lt;span class=&quot;glyphicon glyphicon-qrcode&quot;&gt;&lt;/span&gt;</span>
 <span class="hljs-addition">+ &lt;img src=&quot;/zfpx.jpg&quot; class=&quot;img-rounded&quot; alt=&quot;lufy&quot;&gt;</span>
 </code></pre>
@@ -640,7 +640,7 @@ console.log(age);
 <span class="hljs-addition">+     loaders: [&apos;react-hot&apos;,&apos;babel?presets[]=es2015&amp;presets[]=react&apos;],</span>
       exclude:/node_modules/,
       include:path.resolve(__dirname,&apos;react&apos;)
-     } 
+     }
      devServer: {
 <span class="hljs-addition">+       hot:true,</span>
         inline:true,
@@ -685,9 +685,11 @@ console.log(age);
 <h2 id="t9821. &#x8D44;&#x6E90;&#x5217;&#x8868;">21. &#x8D44;&#x6E90;&#x5217;&#x8868; <a href="#t9821. &#x8D44;&#x6E90;&#x5217;&#x8868;"> # </a></h2>
 <ul>
 <li><a href="http://guoyongfeng.github.io/idoc/html/React%E8%AF%BE%E7%A8%8B%E4%B8%93%E9%A2%98/Webpack%E5%9F%BA%E7%A1%80.html">&#x90ED;&#x6C38;&#x5CF0;&#x535A;&#x5BA2;</a></li>
-<li><a href="http://webpack.github.io">webpack&#x5B98;&#x7F51;</a>  </li>
-<li><a href="http://webpack.github.io/docs">webpack&#x6587;&#x6863;</a> </li>
+<li><a href="http://webpack.github.io">webpack&#x5B98;&#x7F51;</a></li>
+<li><a href="http://webpack.github.io/docs">webpack&#x6587;&#x6863;</a></li>
 <li><a href="https://github.com/zhufengnodejs/webpack-lesson">&#x672C;&#x6559;&#x7A0B;&#x914D;&#x5957;&#x4EE3;&#x7801;</a></li>
+<li><a href="http://yuntv.letv.com/bcloud.html?uu=zna4ig8gbr&amp;vu=e8ebfa9002&amp;auto_play=1&amp;width=640&amp;height=360&amp;lang=zh_CN">&#x89C6;&#x9891;&#x5730;&#x5740;</a></li>
+<li><a href="https://github.com/zhufengnodejs/webpack-lessons">&#x89C6;&#x9891;&#x4E2D;&#x7684;&#x4EE3;&#x7801;&#x4ED3;&#x5E93;</a></li>
 </ul>
 
 

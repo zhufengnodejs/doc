@@ -66,12 +66,13 @@ Promise本意是承诺，在程序中的意思就是承诺我**过一段时间�
 > then 方法就是用来指定Promise 对象的状态改变时确定执行的操作，resolve 时执行第一个函数（onFulfilled），reject 时执行第二个函数（onRejected）
 
 ## 4. 构造一个Promise
+## #4.1  使用Promise
 ```
 let promise = new Promise((resolve, reject) => {
 	setTimeout(() => {
 	    if(Math.random()>0.5)
 		    resolve('This is resolve!');
-		else 
+		else
 		    reject('This is reject!');
 	}, 1000);
 });
@@ -81,6 +82,56 @@ promise.then(Fulfilled,Rejected)
 - 传入的函数需要有两个形参，两个形参都是function类型的参数。
     - 第一个形参运行后会让Promise实例处于resolve状态，所以我们一般给第一个形参命名为resolve,使 Promise 对象的状态改变成成功，同时传递一个参数用于后续成功后的操作
     - 第一个形参运行后会让Promise实例处于reject状态，所以我们一般给第一个形参命名为reject,将 Promise 对象的状态改变为失败，同时将错误的信息传递到后续错误处理的操作
+
+## #4.2  es5模拟Promise
+```javascript
+function Promise(fn) {
+    fn((data)=> {
+        this.success(data);
+    }, (error)=> {
+        this.error();
+    });
+}
+
+Promise.prototype.resolve = function (data) {
+    this.success(data);
+}
+
+Promise.prototype.reject = function (error) {
+    this.error(error);
+}
+
+Promise.prototype.then = function (success, error) {
+    this.success = success;
+    this.error = error;
+}
+```
+## #4.3  es6模拟Promise
+```javascript
+class Promise {
+    constructor(fn) {
+        fn((data)=> {
+            this.success(data);
+        }, (error)=> {
+            this.error();
+        });
+    }
+
+    resolve(data) {
+        this.success(data);
+    }
+
+    reject(error) {
+        this.error(error);
+    }
+
+    then(success, error) {
+        this.success = success;
+        this.error = error;
+        console.log(this);
+    }
+}
+```
 
 ## 5. promise 做为函数的返回值
 ```
@@ -276,7 +327,3 @@ var defer = function () {
 </script>
 </html>
 ```
-
-
-
-

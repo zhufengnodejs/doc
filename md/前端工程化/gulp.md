@@ -1,9 +1,5 @@
-[本课程视频](http://yuntv.letv.com/bcloud.html?uu=zna4ig8gbr&vu=6712255a12&auto_play=1&gpcflag=1&width=640&height=360)
-
-[视频中项目代码](https://github.com/zhufengnodejs/201605gulp)
-
 ## 1. 什么是gulp
-`gulp`是可以自动化执行任务的工具  
+`gulp`是可以自动化执行任务的工具
 在平时开发的流程里面,一定有一些任务需要手工重复得执行，比如:
 
 -  把文件从开发目录**拷贝**到生产目录
@@ -13,8 +9,8 @@
 -  **压缩图像**文件
 -  创建一个可以**实时刷新**页面内容的本地服务器
 
-只要你觉得有些动作是要**重复**去做的,就可以把这些动作创建成一个gulp任务  
-然后在指定的条件下自动执行  
+只要你觉得有些动作是要**重复**去做的,就可以把这些动作创建成一个gulp任务
+然后在指定的条件下自动执行
 比如在less源文件发生改变后自动编译成css文件
 
 
@@ -35,9 +31,9 @@
 <img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/eat.jpg" class="img-responsive">
 
 ### 3.2 gulp中的流
-* gulp正是通过**代码**优于配置的策略来尽量简化任务编写的工作。  
-* 类似`jquery`里的**链式**操作，把各个方法串连起来构建完整的任务。  
-* 用gulp编写任务也可看作是用`Node.js`代码编写任务。  
+* gulp正是通过**代码**优于配置的策略来尽量简化任务编写的工作。
+* 类似`jquery`里的**链式**操作，把各个方法串连起来构建完整的任务。
+* 用gulp编写任务也可看作是用`Node.js`代码编写任务。
 * 当使用流时,gulp不需要生成大量的**中间**文件，只将最后的输出写入磁盘，整个过程因此变得非常快。
 
 ## 3. 安装gulp
@@ -47,9 +43,9 @@
 * 然后在项目里面再去本地安装gulp
 
 ### 5.1 安装node
-gulp是基于Nodejs的自动任务运行器  
-安装Gulp和相关行件用的都是node的包管理工具`npm`  
-所以你需要先在电脑上安装 node,确定在命令行工具的下面可以使用npm这个命令，这样就能去安装Gulp了  
+gulp是基于Nodejs的自动任务运行器
+安装Gulp和相关行件用的都是node的包管理工具`npm`
+所以你需要先在电脑上安装 node,确定在命令行工具的下面可以使用npm这个命令，这样就能去安装Gulp了
 
 [node.js官网](https://nodejs.org/en/)
 
@@ -78,9 +74,9 @@ npm install -g gulp --registry=http://www.npmjs.org/
 1. 先创建一个目录
 在 **mac** 和 **linux** 操作系统下创建一个文件夹
 ```
-$ mkdir learngulp     
-```   
-    
+$ mkdir learngulp
+```
+
 2. 使用 `cd` 命令进入此目录
 ```
 $ cd learngulp
@@ -110,10 +106,10 @@ $ npm init
 ```
 $ npm install gulp --save-dev
 ```
-这样可以把 gulp 作为项目的开发依赖(只在开发时用，不会发布到线上)  
-第一会在`node_modules`下安装本地的`gulp`库  
+这样可以把 gulp 作为项目的开发依赖(只在开发时用，不会发布到线上)
+第一会在`node_modules`下安装本地的`gulp`库
 第二会把并把添加配置到`package.json`文件里面
-  
+
 ```diff
     "devDependencies": {
 +        "gulp": "^3.9.0"
@@ -122,25 +118,25 @@ $ npm install gulp --save-dev
 
 ## 5. 运行gulp
 ### 5.1 创建配置文件
-gulp的任务要放到一个叫 `gulpfile.js` 的文件里面  
-先在项目的根目录下面创建一个这样的文件  
-然后在这个文件的顶部添加下面这行代码  
+gulp的任务要放到一个叫 `gulpfile.js` 的文件里面
+先在项目的根目录下面创建一个这样的文件
+然后在这个文件的顶部添加下面这行代码
 ```diff
 +   var gulp = require('gulp');
-```  
-通过`require`可以把`gulp`模块引入当前项目并赋值给`gulp`变量    
-这样`gulp`这个变量里面就会拥有gulp的所有的方法了    
+```
+通过`require`可以把`gulp`模块引入当前项目并赋值给`gulp`变量
+这样`gulp`这个变量里面就会拥有gulp的所有的方法了
 
 ### 5.2 创建gulp的任务
-可以使用gulp的task方法    
-同样我们去创建一个叫 hello 的任务，它要做的事就是在控制台上输出 **"您好"** 这两个字    
+可以使用gulp的task方法
+同样我们去创建一个叫 hello 的任务，它要做的事就是在控制台上输出 **"您好"** 这两个字
 1. 第一个参数是任务的名称
 2. 第二个参数是任务的定义,是一个匿名函数
 ```javascript
     gulp.task('hello', function () {
       console.log('您好');
     });
-```  
+```
 
 ### 5.3 执行gulp任务
 打开命令行工具，进入到项目所在的目录，然后输入：
@@ -153,7 +149,7 @@ $ gulp hello
     您好
     [21:36:34] Finished 'hello' after 959 μs
 ```
-gulp后面跟着的是任务的名称  
+gulp后面跟着的是任务的名称
 不输入任务名称的话会默认找`default`任务，找不到会报错
 
 ### 5.4 执行其它任务
@@ -176,28 +172,28 @@ gulp 只有你需要熟知的参数标记，其他所有的参数标记只在一
 
 ## 7. gulp.js工作方式
 gulp的使用流程一般是
-1. 首先通过gulp.src()方法获取到想要处理的文件流  
-2. 然后把文件流通过pipe方法导入到gulp的插件中  
-3. 最后把经过插件处理后的流再通过pipe方法导入到gulp.dest()中  
-4. gulp.dest()方法则把流中的内容写入到文件中  
+1. 首先通过gulp.src()方法获取到想要处理的文件流
+2. 然后把文件流通过pipe方法导入到gulp的插件中
+3. 最后把经过插件处理后的流再通过pipe方法导入到gulp.dest()中
+4. gulp.dest()方法则把流中的内容写入到文件中
 
 ```javascript
     var gulp = require('gulp');
     gulp.src('script/src.js')             // 获取文件的流的api
         .pipe(gulp.dest('dist/dest.js')); // 写文件的api
-```        
+```
 
 ## 8. gulp核心API
 gulp只有4个核心API
 
 ### 8.1 gulp.src()
-在Gulp中，使用的是Nodejs中的stream(流)，首先获取到需要的stream  
-然后可以通过stream的`pipe`方法把流导入到你想要的地方  
-比如Gulp的**插件**中,经过插件处理后的流又可以继续导入到其他插件中，当然也可以把流写入到**文件**中  
-所以Gulp是以stream为媒介的，它不需要频繁的生成**临时文件**，这也是Gulp的速度快的一个原因  
-`gulp.src()`方法正是用来获取流的  
+在Gulp中，使用的是Nodejs中的stream(流)，首先获取到需要的stream
+然后可以通过stream的`pipe`方法把流导入到你想要的地方
+比如Gulp的**插件**中,经过插件处理后的流又可以继续导入到其他插件中，当然也可以把流写入到**文件**中
+所以Gulp是以stream为媒介的，它不需要频繁的生成**临时文件**，这也是Gulp的速度快的一个原因
+`gulp.src()`方法正是用来获取流的
 
-但要注意这个流里的内容不是原始的文件流,而是一个**虚拟文件对象流**,这个虚拟文件对象中存储着原始文件的路径、文件名和内容等信息  
+但要注意这个流里的内容不是原始的文件流,而是一个**虚拟文件对象流**,这个虚拟文件对象中存储着原始文件的路径、文件名和内容等信息
 [vinyl](https://github.com/gulpjs/vinyl)
 ```javascript
 var File = require('vinyl');
@@ -216,10 +212,10 @@ console.log(indexFile.isStream());
 
 其语法为：
 ```javascript
-    gulp.src(globs[, options]) 
+    gulp.src(globs[, options])
 ```
 
-- **globs**  参数是文件匹配模式(类似正则表达式)，用来匹配文件路径(包括文件名)，当然这里也可以直接指定某个具体的文件路径。当有多个匹配模式时，该参数可以为一个数组  
+- **globs**  参数是文件匹配模式(类似正则表达式)，用来匹配文件路径(包括文件名)，当然这里也可以直接指定某个具体的文件路径。当有多个匹配模式时，该参数可以为一个数组
 - **options**  为可选参数。通常情况下我们不需要用到
 
 ### 8.2 glob语法
@@ -257,22 +253,22 @@ gulp内部使用了`node-glob`模块来实现其文件匹配功能。我们可�
 ### 8.3 gulp.dest()
 是用来向硬盘写入文件的，其语法为：
 ```javascript
-     gulp.dest(path[,options]) 
+     gulp.dest(path[,options])
 ```
 - **path** 为写入文件的路径
 - **options** 为一个可选的参数对象，通常我们不需要用到
- 
+
 要想使用好`gulp.dest()`这个方法，就要理解给它传入的路径参数与最终生成的文件的关系。
 
-`gulp.dest()`传入的路径参数只能用来指定要生成的文件的**目录**,而不能指定生成文件的文件名  
-它生成文件的文件名使用的是**导入**到它的文件流自身的文件名  
-所以生成的文件名是由导入到它的文件流决定的  
+`gulp.dest()`传入的路径参数只能用来指定要生成的文件的**目录**,而不能指定生成文件的文件名
+它生成文件的文件名使用的是**导入**到它的文件流自身的文件名
+所以生成的文件名是由导入到它的文件流决定的
 ```javascript
      var gulp = require('gulp');
      gulp.src('script/jquery.js')
     .pipe(gulp.dest('dist/jquery.js'));
-    //最终生成的文件路径为 dist/jquery.js/jquery.js,而不是dist/jquery.js 
-``` 
+    //最终生成的文件路径为 dist/jquery.js/jquery.js,而不是dist/jquery.js
+```
 > `gulp.dest(path)`生成的文件路径是我们传入的path参数后面再加上`gulp.src()`中有通配符开始出现的那部分路径
 
 > 通过指定`gulp.src()`方法配置参数中的`base`属性，我们可以更灵活的来改变`gulp.dest()`生成的文件路径
@@ -280,15 +276,15 @@ gulp内部使用了`node-glob`模块来实现其文件匹配功能。我们可�
  //配置了base参数，此时base路径为script
 gulp.src(script/lib/*.js, {base:'script'})
     //假设匹配到的文件为script/lib/jquery.js
-    //此时生成的文件路径为 build/lib/jquery.js 
-    .pipe(gulp.dest('build'))     
+    //此时生成的文件路径为 build/lib/jquery.js
+    .pipe(gulp.dest('build'))
 ```
 
 ### 8.4 gulp.task()
- 
+
 `gulp.task`方法用来定义任务，其语法为：
 ```javascript
-    gulp.task(name[, deps], fn) 
+    gulp.task(name[, deps], fn)
 ```
 - **name** 为任务**名称**
 - **deps** 是当前定义的任务需要**依赖**的其他任务，为一个数组。当前定义的任务会在所有依赖的任务执行完毕后才开始执行。如果没有依赖，则可省略这个参数
@@ -297,7 +293,7 @@ gulp.src(script/lib/*.js, {base:'script'})
     gulp.task('mytask', ['array', 'of', 'task', 'names'],
      function() { //定义一个有依赖的任务
         // Do something
-    }); 
+    });
 ```
 
 > 如果某个任务所依赖的任务是异步的，就要注意了，gulp并不会等待那个所依赖的异步任务完成，而是会接着执行后续的任务
@@ -312,7 +308,7 @@ gulp.task('one',function(){
     });
  gulp.task('two',['one'],function(){
       console.log('two is done');
-    }); 
+    });
 ```
 
 在异步操作完成后执行一个**回调函数**来通知gulp这个异步任务已经完成,这个回调函数就是任务函数的第一个参数
@@ -329,8 +325,8 @@ gulp.task('one',function(){
 ## 8.5 gulp.watch()
 用来监视文件的变化，当文件发生变化后，我们可以利用它来执行相应的任务，例如文件拷贝等。其语法为
 ```javascript
-    gulp.watch(glob[, opts], tasks) 
-``` 
+    gulp.watch(glob[, opts], tasks)
+```
 - **glob** 为要监视的文件匹配模式，规则和用法与`gulp.src()`方法中的 **glob** 相同。
 - **opts** 为一个可选的配置对象，通常不需要用到
 - **tasks** 为文件变化后要执行的任务，为一个数组
@@ -341,22 +337,22 @@ gulp.task('one',function(){
     gulp.task('reload',function(){
       //do something
     });
-    gulp.watch('js/**/*.js', ['uglify','reload']); 
+    gulp.watch('js/**/*.js', ['uglify','reload']);
 ```
 
 另外一种使用方式：
 ```javascript
-    gulp.watch(glob[, opts, cb]) 
+    gulp.watch(glob[, opts, cb])
 ```
 - **glob**和 **opts** 参数与第一种用法相同
 - `cb`参数为一个函数。每当监视的文件发生变化时，就会调用这个函数,并且会给它传入一个对象，该对象包含了文件变化的一些信息  `type`属性为变化的类型，可以是 **added**、**changed**、**deleted**和**path**属性为发生变化的文件的路径
 ```javascript
      gulp.watch('js/**/*.js', function(event){
       //变化类型 added为新增,deleted为删除，changed为改变
-      console.log(event.type); 
+      console.log(event.type);
       //变化的文件的路径
-      console.log(event.path); 
-    }); 
+      console.log(event.path);
+    });
 ```
 
 ## 9.基本任务
@@ -378,7 +374,7 @@ gulp.task('one',function(){
         return gulp.src('app/imgs/*.jpg')
         .pipe(gulp.dest('dist'));
     });
-    
+
     /**
      * 1. {} 里可以指定多个扩展名
      * 2. * 匹配所有的字符，除了路径分隔符 /
@@ -388,7 +384,7 @@ gulp.task('one',function(){
         return gulp.src('app/imgs/**/*.{jpg,png}')
         .pipe(gulp.dest('dist'));
     });
-    
+
     /**
      * 1. 匹配多个目录 glob
      * 2. 可以填写一个数组
@@ -397,7 +393,7 @@ gulp.task('one',function(){
         return gulp.src(['app/css/*.css','app/js/*.js'],{base:'app'})
         .pipe(gulp.dest('dist'));
     });
-    
+
     /**
      * 1. 匹配多个目录 glob
      * 2. !表示 排除一个文件
@@ -409,50 +405,50 @@ gulp.task('one',function(){
     });
 
 ```
-    
+
 
 ### 9.3 组合任务
 ```javascript
  var gulp = require('gulp');
-    
+
     gulp.task('copy-html',function(){
         return gulp.src('app/index.html').pipe(gulp.dest('dist'));
     });
-    
+
     gulp.task('copy-images',function(){
         return gulp.src('app/imgs/**/*.{jpg,png}').pipe(gulp.dest('dist'));
     });
-    
+
     gulp.task('copy-other',function(){
         return gulp.src(['app/css/*.css','app/js/*.js','app/js/*.tmp.js'],{base:'app'}).pipe(gulp.dest('dist'));
     });
-    
-    
+
+
     gulp.task('default',['copy-html','copy-images','copy-other'],function(){
         console.log('全部拷贝任务执行完毕!');
     });
 ```
-    
+
 ### 9.4 监听任务
 使用 gulp 的 watch 这个方法，我们可以去监视一些文件，当这些文件发生变化的时候，立即去执行一些指定的任务
 ```javascript
 var gulp = require('gulp');
-    
+
     gulp.task('copy-html',function(){
         return gulp.src('app/index.html')
         .pipe(gulp.dest('dist'));
     });
-    
+
     gulp.task('copy-images',function(){
         return gulp.src('app/imgs/**/*.{jpg,png}',{base:'app'})
         .pipe(gulp.dest('dist'));
     });
-    
+
     gulp.task('copy-other',function(){
         return gulp.src(['app/css/*.css','app/js/*.js'
         ,'app/js/*.tmp.js'],{base:'app'}).pipe(gulp.dest('dist'));
     });
-    
+
     //在执行watch的时候会监控index.html文件的变化，发生变化后可以执行拷贝html的任务
     gulp.task('default',function(){
         gulp.watch('app/index.html',['copy-html']);
@@ -463,10 +459,10 @@ var gulp = require('gulp');
 ```
 
 ## 10. gulp插件
-gulp提供了一些很实用的接口，但本身并不能做太多的事情  
-可以读取文件、写入文件以及监控文件等一少部分功能  
-其它实用的功能都是依靠插件来进行扩展的  
-这些插件可以实现比如  
+gulp提供了一些很实用的接口，但本身并不能做太多的事情
+可以读取文件、写入文件以及监控文件等一少部分功能
+其它实用的功能都是依靠插件来进行扩展的
+这些插件可以实现比如
 
 - 编译 Sass：gulp-sass
 - 编译 Less：gulp-less
@@ -498,7 +494,7 @@ gulp提供了一些很实用的接口，但本身并不能做太多的事情
 ```javascript
     var gulp = require('gulp');
     var $ = require('gulp-load-plugins')();
-``` 
+```
 然后我们要使用`gulp-concat`和`gulp-connect`这两个插件的时候，
 就可以使用`$.concat`和`$.connect`来代替了,也就是原始插件名去掉`gulp-`前缀，之后再转换为驼峰命名。
 
@@ -510,33 +506,33 @@ $    npm install gulp-less --save-dev
 ```javascript
 var gulp = require('gulp');
     var less = require('gulp-less');
-    
+
     gulp.task('less',function(){
         return gulp.src('app/less/*.less')
         .pipe(less())
         .pipe(gulp.dest('dist/css'));
     });
-    
+
     gulp.task('default',['less']);
 ```
 
-### 10.4 gulp-concat  
-这个插件可以把几个文件合并到一块  
-``` 
-$    npm install gulp-concat --save-dev  
+### 10.4 gulp-concat
+这个插件可以把几个文件合并到一块
+```
+$    npm install gulp-concat --save-dev
 ```
 ```javascript
   var gulp = require('gulp');
   var concat = require('gulp-concat');
-  
+
   gulp.task('concat',function(){
       return gulp.src(['app/js/*.js','!app/js/*.tmp.js'])//指定要合并的文件glob
           .pipe(concat('app.js'))//进行合并并指定合并后的文件名
           .pipe(gulp.dest('dist/js'));//输出到目标路径
   });
-  
+
   gulp.task('default',['concat']);
-```  
+```
 ### 10.5  gulp-uglify
 合并后我们可以对JS文件进行压缩,最小化处理
 ```
@@ -546,14 +542,14 @@ $  npm install gulp-uglify --save-dev
     var gulp = require('gulp');
     var concat = require('gulp-concat');
     var uglify = require('gulp-uglify')
-    
+
     gulp.task('uglify',function(){
         return gulp.src(['app/js/*.js','!app/js/*.tmp.js'])
             .pipe(concat('app.js')) //把多个JS文件合并成一个文件
             .pipe(uglify()) //对合并后的app.js文件进行压缩
             .pipe(gulp.dest('dist/js')); //输出到目的地
     });
-    
+
     gulp.task('default',['uglify']);
 ```
 
@@ -576,7 +572,7 @@ $ npm install gulp-rename --save-dev
             .pipe(rename('app.min.js'))//对此文件进行重命名
             .pipe(gulp.dest('dist/js'));//再输出一次
     });
-    
+
     gulp.task('default',['uglify']);
 ```
 
@@ -598,7 +594,7 @@ $    npm install gulp-minify-css --save-dev
             .pipe(rename('page.min.css'))//重命名
             .pipe(gulp.dest('dist/css'));//输出到目的地
     });
-    
+
     gulp.task('default',['less']);
 ```
 
@@ -610,29 +606,29 @@ $ npm install gulp-minify-html --save-dev
 ```javascript
     var gulp = require('gulp'),
         minifyHtml = require("gulp-minify-html");
-     
+
     gulp.task('minify-html', function () {
         gulp.src('src/*.html') // 要压缩的html文件
         .pipe(minifyHtml())    //压缩
         .pipe(gulp.dest('dist/html'));//输出到目的地
     });
 ```
-### 10.9  gulp-imagemin 
+### 10.9  gulp-imagemin
 如果要想在保证不改变图像质量的情况下，让图像文件的体积变得更小一点,我们可以使用`gulp-imagemin  `
 ```
-$ npm install gulp-imagemin --save-dev  
+$ npm install gulp-imagemin --save-dev
 ```
 
 ```javascript
  var gulp = require('gulp');
  var imagemin = require('gulp-imagemin');
- 
+
  gulp.task('copy-images',function(){
      return gulp.src('app/imgs/**/*.{jpg,png}')//指定要压缩的图片
          .pipe(imagemin()) //进行图片压缩
          .pipe(gulp.dest('dist'));//输出目的地
  });
- 
+
   gulp.task('default',['copy-images']);
 ```
 
@@ -645,14 +641,14 @@ $ npm install gulp-imagemin --save-dev
 ```javascript
     var gulp = require('gulp');
     var connect = require('gulp-connect');
-    
+
     gulp.task('server',function(){
        connect.server({
            root:'dist',//服务器的根目录
            port:8080 //服务器的地址，没有此配置项默认也是 8080
        });
     });
-  
+
     gulp.task('default',['server']); //运行此任务的时候会在8080上启动服务器，
 ```
 
@@ -662,17 +658,17 @@ $ npm install gulp-imagemin --save-dev
 ```javascript
     var gulp = require('gulp');
     var connect = require('gulp-connect');
-    
+
     gulp.task('copy-html',function(){
          gulp.src('app/index.html')//指定源文件
              .pipe(gulp.dest('dist'))//拷贝到dist目录
              .pipe(connect.reload());//通知浏览器重启
     });
-    
+
     gulp.task('watch',function(){
         gulp.watch('app/index.html',['copy-html']);//当index.html文件变化时执行copy-html任务
     });
-    
+
     gulp.task('server',function(){
         connect.server({
             root:'dist',//服务器的根目录
@@ -693,7 +689,7 @@ npm install jshint gulp-jshint  --save-dev
 ```javascript
     var gulp = require('gulp'),
         jshint = require("gulp-jshint");
-     
+
     gulp.task('jsLint', function () {
         gulp.src('src/*.js')
         .pipe(jshint()) //进行代码检查
@@ -701,7 +697,7 @@ npm install jshint gulp-jshint  --save-dev
     });
 ```
 
-## 11 gulp.js 特点 
+## 11 gulp.js 特点
 1. 使用gulp.js构建的是代码不是配置文件
 2. 使用node标准库编写脚本
 3. 插件非常简单，职责单一
@@ -842,7 +838,7 @@ gulp.task('extras', function () {
     dot: true// node glob配置项，true时匹配以.开头的文件或文件夹
   }).pipe(gulp.dest('dist'));
 });
-//删除.tmp和dist下的所有文件 
+//删除.tmp和dist下的所有文件
 gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
 //等同于 gulp.task('clean',function(){require('del')(['.tmp','dist'])});
 
@@ -946,14 +942,14 @@ gulp.task('default', ['clean'], function () {
 
 ## 14 自定义插件
 ### 14.1 vinyl
-gulp.src中这个流里的内容不是原始的文件流,而是一个**虚拟文件对象流**,这个虚拟文件对象中存储着原始文件的路径、文件名和内容等信息  
+gulp.src中这个流里的内容不是原始的文件流,而是一个**虚拟文件对象流**,这个虚拟文件对象中存储着原始文件的路径、文件名和内容等信息
 [vinyl](https://github.com/gulpjs/vinyl)
 
 ```javascript
 var File = require('vinyl');
 
 var indexFile = new File({
-    cwd: "/",//当前路径 
+    cwd: "/",//当前路径
     base: "/test/",//文件名
     path: "/test/index.js",//路径
     contents: new Buffer("name=zfpx")//文件内容
@@ -970,7 +966,7 @@ https://www.npmjs.com/package/through2
 ```javascript
  var through2 = require('through2');
  var fs = require('fs');
- 
+
  fs.createReadStream('src.txt',{highWaterMark:1})
      .pipe(through2(function (chunk, encoding, callback) {
          for (var i = 0; i < chunk.length; i++)
@@ -983,7 +979,7 @@ https://www.npmjs.com/package/through2
         console.log('end');
  })
  //.pipe(fs.createWriteStream('dest.txt'))
- 
+
 
 ```
 对象方式
@@ -1059,37 +1055,37 @@ gulp.src('files/**/*.js')
   .pipe(gulpPrefixer('prepended string'))
   .pipe(gulp.dest('modified-files'));
 ```
-  
+
 ### 14.4 stream往头部增加内容插件
 
 ```javascript
  var through = require('through2');
  var PluginError = require('gulp-util').PluginError;
- 
+
  //常量
  const PLUGIN_NAME = 'gulp-prefixer';
- 
+
  function prefixStream(prefixText) {
      var stream = through();
      stream.write(prefixText);
      return stream;
  }
- 
+
  // 插件级别函数 (处理文件)
  function gulpPrefixer(prefixText) {
      if (!prefixText) {
          throw new PluginError(PLUGIN_NAME, 'Missing prefix text!');
      }
- 
+
      prefixText = new Buffer(prefixText); // 预先分配
- 
+
      // 创建一个让每个文件通过的 stream 通道
      var stream = through.obj(function (file, enc, cb) {
          if (file.isBuffer()) {
              this.emit('error', new PluginError(PLUGIN_NAME, 'Buffers not supported!'));
              return cb();
          }
- 
+
          if (file.isStream()) {
              // 定义转换内容的 streamer
              var streamer = prefixStream(prefixText);
@@ -1098,17 +1094,17 @@ gulp.src('files/**/*.js')
              // 开始转换
              file.contents = file.contents.pipe(streamer);
          }
- 
+
          // 确保文件进去下一个插件
          this.push(file);
          // 告诉 stream 转换工作完成
          cb();
      });
- 
+
      // 返回文件 stream
      return stream;
  }
- 
+
  // 暴露（export）插件的主函数
  module.exports = gulpPrefixer;
 ```
@@ -1123,26 +1119,25 @@ gulp.src('files/**/*.js', { buffer: false })
   .pipe(gulp.dest('modified-files'));
 ```
 
-## 15 资源地址
-
-- [gulp英文官网](http://gulpjs.com/)  
-- [gulp中文网](http://www.gulpjs.com.cn/)  
-- [gulp 技巧集](http://www.gulpjs.com.cn/docs/recipes)   
-- [gulp api](http://www.gulpjs.com.cn/docs/api)    
-- [gulp使用指南](http://www.techug.com/gulp)   
-- [gulp开发教程](http://www.w3ctech.com/topic/134)  
-- [利用 Gulp 处理前端工作流程](http://segmentfault.com/a/1190000003098076#articleHeader0)   
-- [前端构建工具gulpjs的使用介绍及技巧](http://www.cnblogs.com/2050/p/4198792.html)  
-- [sass](http://www.ruanyifeng.com/blog/2012/06/sass.html)  
-- [nodejs中流(stream)的理解](http://segmentfault.com/a/1190000000519006)  
-- [Node.js Stream（流）的学习笔记](http://www.it165.net/pro/html/201406/15924.html)  
-- [Node 中的流(Stream)](http://segmentfault.com/a/1190000000357044)  
+## 15. 资源地址
+- [本课程视频](http://yuntv.letv.com/bcloud.html?uu=zna4ig8gbr&vu=6712255a12&auto_play=1&gpcflag=1&width=640&height=360)
+- [视频中项目代码](https://github.com/zhufengnodejs/201605gulp)
+- [gulp英文官网](http://gulpjs.com/)
+- [gulp中文网](http://www.gulpjs.com.cn/)
+- [gulp 技巧集](http://www.gulpjs.com.cn/docs/recipes)
+- [gulp api](http://www.gulpjs.com.cn/docs/api)
+- [gulp使用指南](http://www.techug.com/gulp)
+- [gulp开发教程](http://www.w3ctech.com/topic/134)
+- [利用 Gulp 处理前端工作流程](http://segmentfault.com/a/1190000003098076#articleHeader0)
+- [前端构建工具gulpjs的使用介绍及技巧](http://www.cnblogs.com/2050/p/4198792.html)
+- [sass](http://www.ruanyifeng.com/blog/2012/06/sass.html)
+- [nodejs中流(stream)的理解](http://segmentfault.com/a/1190000000519006)
+- [Node.js Stream（流）的学习笔记](http://www.it165.net/pro/html/201406/15924.html)
+- [Node 中的流(Stream)](http://segmentfault.com/a/1190000000357044)
 - [深入理解Promise实现细节](http://segmentfault.com/a/1190000002591145)
 - [Promise实现原理](http://www.tuicool.com/articles/fe6Jbyz)
 - [异步编程 promise模式的简单实现](http://segmentfault.com/a/1190000003028634)
-- [gulp插件](http://gulpjs.com/plugins/)   
+- [gulp插件](http://gulpjs.com/plugins/)
 - [jshint](http://jshint.com/docs/options/)
 - [stream-handbook](https://github.com/substack/stream-handbook)
 - [Gulp：插件编写入门](http://www.cnblogs.com/chyingp/p/writting-gulp-plugin.html)
-
-

@@ -5,6 +5,7 @@ webpack是一款强大的模块加载器兼打包工具，它能把各种资源�
 3. 开发便捷，能替代部分`gulp`的工作，比如打包、混淆压缩、图片转base64等
 4. 扩展性强，插件机制完善，特别是支持`React`热插拔
 
+
 ## 1. webpack命令行
 ### 1.1 全局安装webpack
 ```javascript
@@ -56,7 +57,7 @@ $ touch.gitignore
 
 在文件中增加以下内容
 ```javascript
-node_modules 
+node_modules
 .idea
 ```
 
@@ -111,7 +112,7 @@ module.exports = {
         //定义输出文件路径
         path: path.resolve(__dirname, 'build'),
         //指定打包文件名称
-        filename: 'bundle.js' 
+        filename: 'bundle.js'
     },
 };
 ```
@@ -152,14 +153,14 @@ module.exports = {
         //定义输出文件路径
         path: path.resolve(__dirname, 'build'),
         //指定打包文件名称
-        filename: 'bundle.js' 
+        filename: 'bundle.js'
     },
     //定义了对模块的处理逻辑     Object
-+    module: { 
++    module: {
 +        loaders: [ 定义了一系列的加载器   Array
 +            {
 +                test: /\.js$/, //正则，匹配到的文件后缀名
-+                // loader/loaders：string|array，处理匹配到的文件  
++                // loader/loaders：string|array，处理匹配到的文件
 +                loader: 'babel-loader'
 +                // include：String|Array  包含的文件夹
 +			     // exclude：String|Array  排除的文件夹
@@ -241,7 +242,7 @@ $ npm run dev
 
 > 启动此服务的时候，编译后的产出文件放在内存里,在`build`目录下看不见,但也不会删除原来已经有的文件
 
-### 4.6 预览项目 
+### 4.6 预览项目
 打开浏览器中访问
 [http://localhost:8080](http://localhost:8080)
 
@@ -251,7 +252,7 @@ $ npm run dev
    //重写url
 + function rewriteUrl(replacePath) {
 +     return function (req, opt) {
-          //取得?所在的索引 
+          //取得?所在的索引
 +         var queryIndex = req.url.indexOf('?');
           //取得查询字符串的内容
 +         var query = queryIndex >= 0 ? req.url.substr(queryIndex) : "";
@@ -269,14 +270,14 @@ $ npm run dev
 +       proxy: [
 +           {
                 //替换符合此正则的接口路径
-+               path: /^\/api\/(.*)/,           
++               path: /^\/api\/(.*)/,
                 //目标域名端口
-+               target: "http://localhost:8080/", 
++               target: "http://localhost:8080/",
                 //重新定向到新的地址
                 //$1取自path正则匹配到的真实路径的第一个分组
-+               rewrite: rewriteUrl('/$1\.json'), 
++               rewrite: rewriteUrl('/$1\.json'),
                  //修改来源地址
-+               changeOrigin: true               
++               changeOrigin: true
 +           }
 +       ]
     }
@@ -326,7 +327,7 @@ $ npm install jquery --save
 #### 5.2.2 修改 `webpack.config.js`
 
 ```diff
-+ var jqueryPath = path.join(__dirname, 
++ var jqueryPath = path.join(__dirname,
 +  "./node_modules/jquery/dist/jquery.js");
 
 resolve: {
@@ -335,7 +336,7 @@ resolve: {
 +            'jquery': jqueryPath
 +        }
     },
-    
+
 module: {
        loaders: [
            {
@@ -344,7 +345,7 @@ module: {
            }
        ],
        //如果你 确定一个模块中没有其它新的依赖 就可以配置这项，webpack 将不再扫描这个文件中的依赖
-+       noParse: [jqueryPath] 
++       noParse: [jqueryPath]
 },
 ```
 
@@ -366,9 +367,9 @@ module: {
 ## 6. 解析less样式文件
 
 ### 6.1 安装loader
-- less-loader负责把less源码转成css代码  
-- css-loader负责读取css代码  
-- style-loader负责在css代码转变成style标签并作为页内样式插入到页面中去   
+- less-loader负责把less源码转成css代码
+- css-loader负责读取css代码
+- style-loader负责在css代码转变成style标签并作为页内样式插入到页面中去
 ```javascript
 $ npm install less style-loader css-loader less-loader --save-dev
 ```
@@ -404,7 +405,7 @@ $ npm install less style-loader css-loader less-loader --save-dev
 
 
 ## 7. 资源文件的加载
-实现CSS、图标、图片等资源文件加载 
+实现CSS、图标、图片等资源文件加载
 ### 7.1 安装bootstrap和相应的loader
 ```javascript
 $ npm install bootstrap --save
@@ -417,7 +418,7 @@ $ npm install file-loader url-loader --save-dev
 ```diff
  devServer: {
         stats: {colors: true}, //显示颜色
-        
+
 + {
 +     test: /\.css/,
 +     loader: 'style!css'
@@ -446,7 +447,7 @@ $ npm install file-loader url-loader --save-dev
 
 ### 7.4 修改 `build/index.html`
 ```diff
-+ <button class="btn btn-success">bootstrap按钮</button> 
++ <button class="btn btn-success">bootstrap按钮</button>
 + <span class="glyphicon glyphicon-qrcode"></span>
 + <img src="/zfpx.jpg" class="img-rounded" alt="lufy">
 ```
@@ -469,7 +470,7 @@ $ cd src && touch index.html
 
 ### 9.2 下载webpack插件
 ```javascript
-npm install html-webpack-plugin --save-dev 
+npm install html-webpack-plugin --save-dev
 ```
 
 ### 9.3 修改`webpack.config.js`
@@ -619,7 +620,7 @@ console.log(age);
 +        a:path.resolve('src/a.js'),
 +        b: path.resolve('src/b.js')
     }
-    
+
 -   new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
 +   new webpack.optimize.CommonsChunkPlugin('common.js'),
 
@@ -748,7 +749,7 @@ $ npm install react-hot-loader --save-dev
 +     loaders: ['react-hot','babel?presets[]=es2015&presets[]=react'],
       exclude:/node_modules/,
       include:path.resolve(__dirname,'react')
-     } 
+     }
      devServer: {
 +       hot:true,
         inline:true,
@@ -798,7 +799,8 @@ npm run start-react
 
 ## 21. 资源列表
 - [郭永峰博客](http://guoyongfeng.github.io/idoc/html/React%E8%AF%BE%E7%A8%8B%E4%B8%93%E9%A2%98/Webpack%E5%9F%BA%E7%A1%80.html)
-- [webpack官网](http://webpack.github.io)  
-- [webpack文档](http://webpack.github.io/docs) 
+- [webpack官网](http://webpack.github.io)
+- [webpack文档](http://webpack.github.io/docs)
 - [本教程配套代码](https://github.com/zhufengnodejs/webpack-lesson)
-
+- [视频地址](http://yuntv.letv.com/bcloud.html?uu=zna4ig8gbr&vu=e8ebfa9002&auto_play=1&width=640&height=360&lang=zh_CN)
+- [视频中的代码仓库](https://github.com/zhufengnodejs/webpack-lessons)

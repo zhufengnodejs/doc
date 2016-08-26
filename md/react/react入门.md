@@ -63,8 +63,8 @@ ReactDOM.render(
 
 
 ## 6. 定义组件
-我们可以很直观的将一个复杂的页面分割成若干个独立组件,每个组件包含自己的逻辑和样式  
-再将这些独立组件组合完成一个复杂的页面。  
+我们可以很直观的将一个复杂的页面分割成若干个独立组件,每个组件包含自己的逻辑和样式
+再将这些独立组件组合完成一个复杂的页面。
 这样既减少了逻辑复杂度，又实现了代码的重用
 - 可组合：一个组件可以和其他的组件一起使用或者可以直接嵌套在另一个组件内部
 - 可重用：每个组件都是具有独立功能的，它可以被使用在多个场景中
@@ -74,7 +74,7 @@ ReactDOM.render(
 React允许将代码封装成组件，然后像插入普通HTML标签一样，在网页中插入这个组件
 
 * 组件类的第一个字母必须*大写*
-* 组件类*能且只能*包含一个*顶层标签* 
+* 组件类*能且只能*包含一个*顶层标签*
 
 ```javascript
 var Message = React.createClass({
@@ -98,9 +98,9 @@ ReactDOM.render(
 ```javascript
 var Person = React.createClass({
     //类似于约定了一个接口文档,用于这是验证传递给组件的属性，
-    propTypes: { 
+    propTypes: {
         //定义msg的属性类型为字符串，必须传入
-        name: React.PropTypes.string.isRequired, 
+        name: React.PropTypes.string.isRequired,
         gender: React.PropTypes.string.isRequired,
         age:React.PropTypes.number.isRequired
     },
@@ -109,7 +109,7 @@ var Person = React.createClass({
     },
     render: function() {
         //属性可以通过属性对象this.props中取出
-        return (<h1> {this.props.name} 
+        return (<h1> {this.props.name}
                      {this.props.gender}
                      {this.props.age}
                 </h1>);
@@ -158,7 +158,7 @@ ReactDOM.render(
 ```
 
 ### 6.4 state状态
-- 组件的状态就像人的心情，会经常变化，而且只能由自己来改变  
+- 组件的状态就像人的心情，会经常变化，而且只能由自己来改变
 - 组件一开始有一个初始状态,然后用户互动,导致状态变化，从而触发界面重新渲染
 * `getInitialState`用来定义初始状态
 - 可以给按钮绑定事件，当事件发生的时候调用对应的方法改变组件的状态
@@ -213,7 +213,7 @@ var Input = React.createClass({
         var value = this.state.value;
         return (
             <div>
-                <input style={{color:'red'}} type="text" 
+                <input style={{color:'red'}} type="text"
                 value={value} onChange={this.handleChange} />
                 <p>{value}</p>
             </div>
@@ -223,8 +223,8 @@ var Input = React.createClass({
 
 ReactDOM.render(<Input/>, document.getElementById('#app'));
 ```
-> 注意: 如果给表单元素设置了`value`属性，则必须指定`onChange`事件处理函数，否则 此字段会变成只读状态 
- 
+> 注意: 如果给表单元素设置了`value`属性，则必须指定`onChange`事件处理函数，否则 此字段会变成只读状态
+
 ## 7. 复合组件
 多个简单的组件嵌套，可构成一个复杂的复合组件，从而完成复杂的交互逻辑
 ```javascript
@@ -277,18 +277,18 @@ React中可以指定在组件的生命周期的不同阶段执行的函数
     - getDefaultProps  在组件类创建的时候调用一次,则此处返回的对象中的相应属性将会合并到`this.props`
     - getInitialState 在组件挂载之前调用一次。返回值将会作为`this.state`的初始值。
     - componentWillMount 在首次渲染之前触发
-- 渲染    
+- 渲染
     - render 当调用的时候，会检测`this.props`和`this.state`，返回一个组件
-- 渲染后    
+- 渲染后
     - componentDidMount 在初始化渲染执行之后立刻调用一次
     - shouldComponentUpdate 在接收到新的`props`或者`state`，将要渲染之前调用,返回`false`则不更新组件
     - componentWillUpdate 做一些更新之前的准备工作
     - componentDidUpdate 更新之后触发
-    - componentWillReceiveProps 在组件接收到新的`props`的时候调用  
-- 移除    
+    - componentWillReceiveProps 在组件接收到新的`props`的时候调用
+- 移除
     - componentWillUnmount 在组件从DOM中移除的时候立刻被调用
     - componentDidUnmount 组件移除之后调用
- 
+
 ```javascript
 var MessageBox = React.createClass({
     getInitialState: function () {
@@ -372,7 +372,7 @@ var Focus = React.createClass({
         return (
             <div>
                 <input type="text" ref="msg" />
-                <input type="button" value="获得焦点" 
+                <input type="button" value="获得焦点"
                 onClick={this.handleClick} />
             </div>
         );
@@ -386,6 +386,7 @@ ReactDOM.render(
 ```
 
 ## 10.通过Ajax获取数据
+### 10.1 客户端
 ```javascript
 var Suggestion = React.createClass({
     getInitialState:function(){
@@ -399,7 +400,7 @@ var Suggestion = React.createClass({
             jsonp: 'cb',
             dataType: 'jsonp',
             data: {wd: value},
-            processDate: true,
+            processData: true,
             context:this,
             success: function (result) {
                 var data = result.s;
@@ -413,7 +414,7 @@ var Suggestion = React.createClass({
     render: function () {
         return (
             <div>
-                <input type="text" ref="input" 
+                <input type="text" ref="input"
                 onChange={this.handleChange}/>
                 <ul>
                     {this.state.content}
@@ -426,6 +427,49 @@ var Suggestion = React.createClass({
 ReactDOM.render(<Suggestion></Suggestion>, document.getElementById('#app'));
 ```
 
+### 10.2 服务器端
+```javascript
+var express = require('express');
+var app = express();
+app.get('/jsonp',function(req,res){
+    var wd = req.query.wd;//得到关键字
+    var cb = req.query.cb;//得到回调函数的方法名
+    var result = {q:wd,p:false,s:[]};//拼结果对象
+    for(var i=0;i<10;i++)
+        result.s.push(wd+i);
+    //先设置响应头
+    res.setHeader('Access-Control-Allow-Origin',"*");
+    res.send(`${cb}(${JSON.stringify(result)})`);
+});
+app.listen(9090);
+```
+
+### 10.3 ajax方法
+```javascript
+function ajax({url,type,data,processData,jsonp,dataType,context,success}){
+   var xhr = new XMLHttpRequest();
+   url+= '?';
+   var params = '';
+   if(processData)
+       for(var attr in data){
+           params += (attr+'='+data[attr]);
+       }
+    else
+       url+=data;
+   url+=params;
+   var method = 'jQuery_'+Date.now();
+   url += ('&'+jsonp+'='+method);
+   xhr.open(type,url,true);
+   xhr.onreadystatechange = function(){
+       if(xhr.readyState == 4 && /2\d{2}/.test(xhr.status)){
+           var response = xhr.responseText.match(/{[^{}]+}/)[0];
+           var jsonObj = JSON.parse(response);
+           success.bind(context)(jsonObj);
+       }
+   }
+   xhr.send();
+}
+```
 
 ## 11. mixin
 公用抽取出来,让不同的组件共用同一部分逻辑，实现代码重用
@@ -508,7 +552,7 @@ var Board = React.createClass({
         return (
             <div>
                 <h1>{this.props.title}</h1>
-                <input type="text" defaultValue={this.state.msg} 
+                <input type="text" defaultValue={this.state.msg}
                 ref="txtMsg" onClick={this.clear}/>
                 <input type="button" value='发言' onClick={this.leaveMsg}/>
                 <ul>
