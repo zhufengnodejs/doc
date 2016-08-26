@@ -38,7 +38,7 @@
 <div class="container">
     
         <div class="page-toc">
-            <ul><li><a href="#t01. 异步回调">1. 异步回调</a><ul><li><a href="#t11.1 回调地狱">1.1 回调地狱</a></li><li><a href="#t21.2 并行结果">1.2 并行结果</a></li></ul></li><li><a href="#t32. Promise">2. Promise</a></li><li><a href="#t43. Promise的三种状态">3. Promise的三种状态</a></li><li><a href="#t54. 构造一个Promise">4. 构造一个Promise</a></li><li><a href="#t6#4.1  使用Promise">#4.1  使用Promise</a></li><li><a href="#t7#4.2  es5模拟Promise">#4.2  es5模拟Promise</a></li><li><a href="#t8#4.3  es6模拟Promise">#4.3  es6模拟Promise</a></li><li><a href="#t95. promise 做为函数的返回值">5. promise 做为函数的返回值</a></li><li><a href="#t106.promise的链式调用">6.promise的链式调用</a></li><li><a href="#t117.promise API">7.promise API</a><ul><li><a href="#t127.1 Promise.all">7.1 Promise.all</a></li><li><a href="#t137.2 Promise.race">7.2 Promise.race</a></li><li><a href="#t147.3 Promise.resolve">7.3 Promise.resolve</a></li><li><a href="#t157.4 Promise.reject">7.4 Promise.reject</a></li></ul></li><li><a href="#t168. q的用法">8. q的用法</a></li><li><a href="#t179. bluebird">9. bluebird</a></li><li><a href="#t1810. promise/a+实现原理">10. promise/a+实现原理</a></li><li><a href="#t1911. 动画之promise版">11. 动画之promise版</a></li></ul>
+            <ul><li><a href="#t01. 异步回调">1. 异步回调</a><ul><li><a href="#t11.1 回调地狱">1.1 回调地狱</a></li><li><a href="#t21.2 并行结果">1.2 并行结果</a></li></ul></li><li><a href="#t32. Promise">2. Promise</a></li><li><a href="#t43. Promise的三种状态">3. Promise的三种状态</a></li><li><a href="#t54. 构造一个Promise">4. 构造一个Promise</a><ul><li><a href="#t64.1  使用Promise">4.1  使用Promise</a></li><li><a href="#t74.2  es5模拟Promise">4.2  es5模拟Promise</a></li></ul></li><li><a href="#t8#4.3  es6模拟Promise">#4.3  es6模拟Promise</a></li><li><a href="#t95. promise 做为函数的返回值">5. promise 做为函数的返回值</a></li><li><a href="#t106.promise的链式调用">6.promise的链式调用</a></li><li><a href="#t117.promise API">7.promise API</a><ul><li><a href="#t127.1 Promise.all">7.1 Promise.all</a></li><li><a href="#t137.2 Promise.race">7.2 Promise.race</a></li><li><a href="#t147.3 Promise.resolve">7.3 Promise.resolve</a></li><li><a href="#t157.4 Promise.reject">7.4 Promise.reject</a></li></ul></li><li><a href="#t168. q">8. q</a><ul><li><a href="#t178.1 q的基本用法">8.1 q的基本用法</a></li><li><a href="#t188.2 q的简单实现">8.2 q的简单实现</a></li><li><a href="#t198.3 q的实现">8.3 q的实现</a></li></ul></li><li><a href="#t209. bluebird">9. bluebird</a><ul><li><a href="#t219.1  bluebird经典使用">9.1  bluebird经典使用</a></li><li><a href="#t229.2  bluebird简单实现">9.2  bluebird简单实现</a></li></ul></li><li><a href="#t2311. 动画">11. 动画</a><ul><li><a href="#t2411.1  回调方式">11.1  回调方式</a></li><li><a href="#t2511.2  promise方式">11.2  promise方式</a></li></ul></li><li><a href="#t2612. co+promise">12. co+promise</a><ul><li><a href="#t2712.1  co初体验">12.1  co初体验</a></li><li><a href="#t2812.2  co读文件">12.2  co读文件</a></li><li><a href="#t2912.3  co实现">12.3  co实现</a></li><li><a href="#t3013. 资源">13. 资源</a></li></ul></li></ul>
         </div>
 
         <div class="content markdown-body">
@@ -46,60 +46,12 @@
             <h2 id="t01. &#x5F02;&#x6B65;&#x56DE;&#x8C03;">1. &#x5F02;&#x6B65;&#x56DE;&#x8C03; <a href="#t01. &#x5F02;&#x6B65;&#x56DE;&#x8C03;"> # </a></h2>
 <h3 id="t11.1 &#x56DE;&#x8C03;&#x5730;&#x72F1;">1.1 &#x56DE;&#x8C03;&#x5730;&#x72F1; <a href="#t11.1 &#x56DE;&#x8C03;&#x5730;&#x72F1;"> # </a></h3>
 <p>&#x5728;&#x9700;&#x8981;&#x591A;&#x4E2A;&#x64CD;&#x4F5C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x5BFC;&#x81F4;&#x591A;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5D4C;&#x5957;&#xFF0C;&#x5BFC;&#x81F4;&#x4EE3;&#x7801;&#x4E0D;&#x591F;&#x76F4;&#x89C2;&#xFF0C;&#x5C31;&#x662F;&#x5E38;&#x8BF4;&#x7684;&#x56DE;&#x8C03;&#x5730;&#x72F1;</p>
-<pre><code class="lang-javascript">&lt;!DOCTYPE html&gt;
-<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">html</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;en&quot;</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">meta</span> <span class="hljs-attribute">charset</span>=<span class="hljs-value">&quot;UTF-8&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>move<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css">
-        <span class="hljs-class">.square</span><span class="hljs-rules">{
-            <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"><span class="hljs-number">40px</span></span></span>;
-            <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"><span class="hljs-number">40px</span></span></span>;
-        }</span>
-        <span class="hljs-class">.square1</span><span class="hljs-rules">{
-            <span class="hljs-rule"><span class="hljs-attribute">background-color</span>:<span class="hljs-value"> red</span></span>;
-        }</span>
-        <span class="hljs-class">.square2</span><span class="hljs-rules">{
-            <span class="hljs-rule"><span class="hljs-attribute">background-color</span>:<span class="hljs-value"> yellow</span></span>;
-        }</span>
-        <span class="hljs-class">.square3</span><span class="hljs-rules">{
-            <span class="hljs-rule"><span class="hljs-attribute">background-color</span>:<span class="hljs-value"> blue</span></span>;
-        }</span>
-    </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;square square1&quot;</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">&quot;margin-left: 0&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;square square2&quot;</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">&quot;margin-left: 0&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;square square3&quot;</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">&quot;margin-left: 0&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
-    <span class="hljs-keyword">var</span> square1 = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&apos;.square1&apos;</span>);
-    <span class="hljs-keyword">var</span> square2 = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&apos;.square2&apos;</span>);
-    <span class="hljs-keyword">var</span> square3 = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&apos;.square3&apos;</span>);
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">move</span>(<span class="hljs-params">element,target,cb</span>)</span>{
-        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-            <span class="hljs-keyword">var</span> marginLeft = <span class="hljs-built_in">parseInt</span>(element.style.marginLeft, <span class="hljs-number">10</span>);
-            <span class="hljs-keyword">if</span>(marginLeft == target){
-                cb();
-            }<span class="hljs-keyword">else</span>{
-                element.style.marginLeft = ++marginLeft+<span class="hljs-string">&apos;px&apos;</span>;
-                move(element,target,cb);
-            }
-        },<span class="hljs-number">13</span>);
-    }
-    move(square1,<span class="hljs-number">100</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-        move(square2,<span class="hljs-number">100</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-            move(square3,<span class="hljs-number">100</span>);
-        });
-    });
-</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
-</span></code></pre>
 <h3 id="t21.2 &#x5E76;&#x884C;&#x7ED3;&#x679C;">1.2 &#x5E76;&#x884C;&#x7ED3;&#x679C; <a href="#t21.2 &#x5E76;&#x884C;&#x7ED3;&#x679C;"> # </a></h3>
 <p>&#x5982;&#x679C;&#x51E0;&#x4E2A;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x4E4B;&#x95F4;&#x5E76;&#x6CA1;&#x6709;&#x524D;&#x540E;&#x987A;&#x5E8F;&#x4E4B;&#x5206;,&#x4F46;&#x9700;&#x8981;&#x7B49;&#x591A;&#x4E2A;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x90FD;&#x5B8C;&#x6210;&#x540E;&#x624D;&#x80FD;&#x6267;&#x884C;&#x540E;&#x7EED;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;&#x65E0;&#x6CD5;&#x5B9E;&#x73B0;&#x5E76;&#x884C;&#x8282;&#x7EA6;&#x65F6;&#x95F4;</p>
 <h2 id="t32. Promise">2. Promise <a href="#t32. Promise"> # </a></h2>
 <p>Promise&#x672C;&#x610F;&#x662F;&#x627F;&#x8BFA;&#xFF0C;&#x5728;&#x7A0B;&#x5E8F;&#x4E2D;&#x7684;&#x610F;&#x601D;&#x5C31;&#x662F;&#x627F;&#x8BFA;&#x6211;<strong>&#x8FC7;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x540E;</strong>&#x4F1A;&#x7ED9;&#x4F60;&#x4E00;&#x4E2A;&#x7ED3;&#x679C;&#x3002;
-&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x4F1A;&#x7528;&#x5230;<strong>&#x8FC7;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;</strong>&#xFF1F;&#x7B54;&#x6848;&#x662F;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#xFF0C;&#x5F02;&#x6B65;&#x662F;&#x6307;&#x53EF;&#x80FD;&#x6BD4;&#x8F83;&#x957F;&#x65F6;&#x95F4;&#x624D;&#x6709;&#x7ED3;&#x679C;&#x7684;&#x624D;&#x505A;&#xFF0C;&#x4F8B;&#x5982;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x3001;&#x8BFB;&#x53D6;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x7B49;</p>
+&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x4F1A;&#x7528;&#x5230;<strong>&#x8FC7;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;</strong>&#xFF1F;&#x7B54;&#x6848;&#x662F;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#xFF0C;&#x5F02;&#x6B65;&#x662F;&#x6307;&#x53EF;&#x80FD;&#x6BD4;&#x8F83;&#x957F;&#x65F6;&#x95F4;&#x624D;&#x6709;&#x7ED3;&#x679C;&#x7684;&#x624D;&#x505A;&#xFF0C;&#x4F8B;&#x5982;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x3001;&#x8BFB;&#x53D6;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x7B49;
+<img src="http://7xjf2l.com1.z0.glb.clouddn.com/zhufengpromise.png" class="img-responsive"></p>
 <h2 id="t43. Promise&#x7684;&#x4E09;&#x79CD;&#x72B6;&#x6001;">3. Promise&#x7684;&#x4E09;&#x79CD;&#x72B6;&#x6001; <a href="#t43. Promise&#x7684;&#x4E09;&#x79CD;&#x72B6;&#x6001;"> # </a></h2>
 <ul>
 <li>Pending Promise&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x521B;&#x5EFA;&#x65F6;&#x5019;&#x7684;&#x521D;&#x59CB;&#x72B6;&#x6001;</li>
@@ -110,17 +62,18 @@
 <p>then &#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x7528;&#x6765;&#x6307;&#x5B9A;Promise &#x5BF9;&#x8C61;&#x7684;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x65F6;&#x786E;&#x5B9A;&#x6267;&#x884C;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;resolve &#x65F6;&#x6267;&#x884C;&#x7B2C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF08;onFulfilled&#xFF09;&#xFF0C;reject &#x65F6;&#x6267;&#x884C;&#x7B2C;&#x4E8C;&#x4E2A;&#x51FD;&#x6570;&#xFF08;onRejected&#xFF09;</p>
 </blockquote>
 <h2 id="t54. &#x6784;&#x9020;&#x4E00;&#x4E2A;Promise">4. &#x6784;&#x9020;&#x4E00;&#x4E2A;Promise <a href="#t54. &#x6784;&#x9020;&#x4E00;&#x4E2A;Promise"> # </a></h2>
-<h2 id="t6#4.1  &#x4F7F;&#x7528;Promise">#4.1  &#x4F7F;&#x7528;Promise <a href="#t6#4.1  &#x4F7F;&#x7528;Promise"> # </a></h2>
-<pre><code>let promise = new Promise((resolve, reject) =&gt; {
+<h3 id="t64.1  &#x4F7F;&#x7528;Promise">4.1  &#x4F7F;&#x7528;Promise <a href="#t64.1  &#x4F7F;&#x7528;Promise"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> promise = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>((resolve, reject) =&gt; {
     setTimeout(() =&gt; {
-        if(Math.random()&gt;0.5)
-            resolve(&apos;This is resolve!&apos;);
-        else
-            reject(&apos;This is reject!&apos;);
-    }, 1000);
+        <span class="hljs-keyword">if</span>(<span class="hljs-built_in">Math</span>.random()&gt;<span class="hljs-number">0.5</span>)
+            resolve(<span class="hljs-string">&apos;This is resolve!&apos;</span>);
+        <span class="hljs-keyword">else</span>
+            reject(<span class="hljs-string">&apos;This is reject!&apos;</span>);
+    }, <span class="hljs-number">1000</span>);
 });
 promise.then(Fulfilled,Rejected)
-</code></pre><ul>
+</code></pre>
+<ul>
 <li>&#x6784;&#x9020;&#x4E00;&#x4E2A;Promise&#x5B9E;&#x4F8B;&#x9700;&#x8981;&#x7ED9;Promise&#x6784;&#x9020;&#x51FD;&#x6570;&#x4F20;&#x5165;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x3002;</li>
 <li>&#x4F20;&#x5165;&#x7684;&#x51FD;&#x6570;&#x9700;&#x8981;&#x6709;&#x4E24;&#x4E2A;&#x5F62;&#x53C2;&#xFF0C;&#x4E24;&#x4E2A;&#x5F62;&#x53C2;&#x90FD;&#x662F;function&#x7C7B;&#x578B;&#x7684;&#x53C2;&#x6570;&#x3002;<ul>
 <li>&#x7B2C;&#x4E00;&#x4E2A;&#x5F62;&#x53C2;&#x8FD0;&#x884C;&#x540E;&#x4F1A;&#x8BA9;Promise&#x5B9E;&#x4F8B;&#x5904;&#x4E8E;resolve&#x72B6;&#x6001;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x4E00;&#x822C;&#x7ED9;&#x7B2C;&#x4E00;&#x4E2A;&#x5F62;&#x53C2;&#x547D;&#x540D;&#x4E3A;resolve,&#x4F7F; Promise &#x5BF9;&#x8C61;&#x7684;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x6210;&#x6210;&#x529F;&#xFF0C;&#x540C;&#x65F6;&#x4F20;&#x9012;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x7528;&#x4E8E;&#x540E;&#x7EED;&#x6210;&#x529F;&#x540E;&#x7684;&#x64CD;&#x4F5C;</li>
@@ -128,7 +81,7 @@ promise.then(Fulfilled,Rejected)
 </ul>
 </li>
 </ul>
-<h2 id="t7#4.2  es5&#x6A21;&#x62DF;Promise">#4.2  es5&#x6A21;&#x62DF;Promise <a href="#t7#4.2  es5&#x6A21;&#x62DF;Promise"> # </a></h2>
+<h3 id="t74.2  es5&#x6A21;&#x62DF;Promise">4.2  es5&#x6A21;&#x62DF;Promise <a href="#t74.2  es5&#x6A21;&#x62DF;Promise"> # </a></h3>
 <pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Promise</span>(<span class="hljs-params">fn</span>) </span>{
     fn((data)=&gt; {
         <span class="hljs-keyword">this</span>.success(data);
@@ -176,16 +129,16 @@ promise.then(Fulfilled,Rejected)
 }
 </code></pre>
 <h2 id="t95. promise &#x505A;&#x4E3A;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;">5. promise &#x505A;&#x4E3A;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C; <a href="#t95. promise &#x505A;&#x4E3A;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;"> # </a></h2>
-<pre><code>function ajaxPromise (queryUrl) {
-  return new Promise((resolve, reject) =&gt; {
-    let xhr = new XMLHttpRequest();
-    xhr.open(&apos;GET&apos;, queryUrl, true);
-    xhr.send(null);
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ajaxPromise</span> (<span class="hljs-params">queryUrl</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>((resolve, reject) =&gt; {
+    <span class="hljs-keyword">let</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();
+    xhr.open(<span class="hljs-string">&apos;GET&apos;</span>, queryUrl, <span class="hljs-literal">true</span>);
+    xhr.send(<span class="hljs-literal">null</span>);
     xhr.onreadystatechange = () =&gt; {
-      if (xhr.readyState === 4) {
-        if (xhr.status === 200) {
+      <span class="hljs-keyword">if</span> (xhr.readyState === <span class="hljs-number">4</span>) {
+        <span class="hljs-keyword">if</span> (xhr.status === <span class="hljs-number">200</span>) {
           resolve(xhr.responseText);
-        } else {
+        } <span class="hljs-keyword">else</span> {
           reject(xhr.responseText);
         }
       }
@@ -193,38 +146,41 @@ promise.then(Fulfilled,Rejected)
   });
 }
 
-ajaxPromise(&apos;http://www.baidu.com&apos;)
+ajaxPromise(<span class="hljs-string">&apos;http://www.baidu.com&apos;</span>)
   .then((value) =&gt; {
-    console.log(value);
+    <span class="hljs-built_in">console</span>.log(value);
   })
   .catch((err) =&gt; {
-    console.error(err);
+    <span class="hljs-built_in">console</span>.error(err);
   });
-</code></pre><h2 id="t106.promise&#x7684;&#x94FE;&#x5F0F;&#x8C03;&#x7528;">6.promise&#x7684;&#x94FE;&#x5F0F;&#x8C03;&#x7528; <a href="#t106.promise&#x7684;&#x94FE;&#x5F0F;&#x8C03;&#x7528;"> # </a></h2>
+</code></pre>
+<h2 id="t106.promise&#x7684;&#x94FE;&#x5F0F;&#x8C03;&#x7528;">6.promise&#x7684;&#x94FE;&#x5F0F;&#x8C03;&#x7528; <a href="#t106.promise&#x7684;&#x94FE;&#x5F0F;&#x8C03;&#x7528;"> # </a></h2>
 <ul>
 <li>&#x6BCF;&#x6B21;&#x8C03;&#x7528;&#x8FD4;&#x56DE;&#x7684;&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;Promise&#x5B9E;&#x4F8B;</li>
 <li>&#x94FE;&#x5F0F;&#x8C03;&#x7528;&#x7684;&#x53C2;&#x6570;&#x901A;&#x8FC7;&#x8FD4;&#x56DE;&#x503C;&#x4F20;&#x9012;</li>
 </ul>
 <p><code>then</code>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x94FE;&#x5F0F;&#x8C03;&#x7528;&#x7684;&#x5199;&#x6CD5;&#x539F;&#x56E0;&#x5728;&#x4E8E;&#xFF0C;&#x6BCF;&#x4E00;&#x6B21;&#x6267;&#x884C;&#x8BE5;&#x65B9;&#x6CD5;&#x65F6;&#x603B;&#x662F;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;<code>Promise</code>&#x5BF9;&#x8C61;</p>
-<pre><code>readFile(&apos;1.txt&apos;).then(function (data) {
-    console.log(data);
-    return data;
-}).then(function (data) {
-    console.log(data);
-    return readFile(data);
-}).then(function (data) {
-    console.log(data);
-}).catch(function(err){
- console.log(err);
+<pre><code class="lang-javascript">readFile(<span class="hljs-string">&apos;1.txt&apos;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(data);
+    <span class="hljs-keyword">return</span> data;
+}).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(data);
+    <span class="hljs-keyword">return</span> readFile(data);
+}).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(data);
+}).catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>{
+ <span class="hljs-built_in">console</span>.log(err);
 });
-</code></pre><h2 id="t117.promise API">7.promise API <a href="#t117.promise API"> # </a></h2>
+</code></pre>
+<h2 id="t117.promise API">7.promise API <a href="#t117.promise API"> # </a></h2>
 <h3 id="t127.1 Promise.all">7.1 Promise.all <a href="#t127.1 Promise.all"> # </a></h3>
 <ul>
 <li><strong>&#x53C2;&#x6570;</strong>&#xFF1A;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x6570;&#x7EC4;&#x5185;&#x90FD;&#x662F;<code>Promise</code>&#x5B9E;&#x4F8B;</li>
-<li><strong>&#x8FD4;&#x56DE;&#x503C;</strong>&#xFF1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;<code>Promise</code>&#x5B9E;&#x4F8B;&#xFF0C;&#x8FD9;&#x4E2A;<code>Promise</code>&#x5B9E;&#x4F8B;&#x7684;&#x72B6;&#x6001;&#x8F6C;&#x79FB;&#x53D6;&#x51B3;&#x4E8E;&#x53C2;&#x6570;&#x7684;<code>Promise</code>&#x5B9E;&#x4F8B;&#x7684;&#x72B6;&#x6001;&#x53D8;&#x5316;&#x3002;&#x5F53;&#x53C2;&#x6570;&#x4E2D;&#x6240;&#x6709;&#x7684;&#x5B9E;&#x4F8B;&#x90FD;&#x5904;&#x4E8E;<code>resolve</code>&#x72B6;&#x6001;&#x65F6;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;<code>Promise</code>&#x5B9E;&#x4F8B;&#x4F1A;&#x53D8;&#x4E3A;<code>resolve</code>&#x72B6;&#x6001;&#x3002;&#x5982;&#x679C;&#x53C2;&#x6570;&#x4E2D;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x5904;&#x4E8E;<code>reject</code>&#x72B6;&#x6001;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;<code>Promise</code>&#x5B9E;&#x4F8B;&#x53D8;&#x4E3A;<code>reject</code>&#x72B6;&#x6001;&#x3002;<pre><code>Promise.all([p1, p2]).then(function (result) {
-  console.log(result); // [ &apos;2.txt&apos;, &apos;2&apos; ]
+<li><strong>&#x8FD4;&#x56DE;&#x503C;</strong>&#xFF1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;<code>Promise</code>&#x5B9E;&#x4F8B;&#xFF0C;&#x8FD9;&#x4E2A;<code>Promise</code>&#x5B9E;&#x4F8B;&#x7684;&#x72B6;&#x6001;&#x8F6C;&#x79FB;&#x53D6;&#x51B3;&#x4E8E;&#x53C2;&#x6570;&#x7684;<code>Promise</code>&#x5B9E;&#x4F8B;&#x7684;&#x72B6;&#x6001;&#x53D8;&#x5316;&#x3002;&#x5F53;&#x53C2;&#x6570;&#x4E2D;&#x6240;&#x6709;&#x7684;&#x5B9E;&#x4F8B;&#x90FD;&#x5904;&#x4E8E;<code>resolve</code>&#x72B6;&#x6001;&#x65F6;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;<code>Promise</code>&#x5B9E;&#x4F8B;&#x4F1A;&#x53D8;&#x4E3A;<code>resolve</code>&#x72B6;&#x6001;&#x3002;&#x5982;&#x679C;&#x53C2;&#x6570;&#x4E2D;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x5904;&#x4E8E;<code>reject</code>&#x72B6;&#x6001;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;<code>Promise</code>&#x5B9E;&#x4F8B;&#x53D8;&#x4E3A;<code>reject</code>&#x72B6;&#x6001;&#x3002;<pre><code class="lang-javascript"><span class="hljs-built_in">Promise</span>.all([p1, p2]).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">result</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(result); <span class="hljs-comment">// [ &apos;2.txt&apos;, &apos;2&apos; ]</span>
 });
-</code></pre><blockquote>
+</code></pre>
+<blockquote>
 <p> &#x4E0D;&#x7BA1;&#x4E24;&#x4E2A;promise&#x8C01;&#x5148;&#x5B8C;&#x6210;&#xFF0C;Promise.all &#x65B9;&#x6CD5;&#x4F1A;&#x6309;&#x7167;&#x6570;&#x7EC4;&#x91CC;&#x9762;&#x7684;&#x987A;&#x5E8F;&#x5C06;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;</p>
 </blockquote>
 </li>
@@ -232,10 +188,11 @@ ajaxPromise(&apos;http://www.baidu.com&apos;)
 <h3 id="t137.2 Promise.race">7.2 Promise.race <a href="#t137.2 Promise.race"> # </a></h3>
 <ul>
 <li><strong>&#x53C2;&#x6570;</strong>&#xFF1A;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x6570;&#x7EC4;&#x5185;&#x90FD;&#x662F;<code>Promise</code>&#x5B9E;&#x4F8B;</li>
-<li><strong>&#x8FD4;&#x56DE;&#x503C;</strong>&#xFF1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;<code>Promise</code>&#x5B9E;&#x4F8B;&#xFF0C;&#x8FD9;&#x4E2A;<code>Promise</code>&#x5B9E;&#x4F8B;&#x7684;&#x72B6;&#x6001;&#x8F6C;&#x79FB;&#x53D6;&#x51B3;&#x4E8E;&#x53C2;&#x6570;&#x7684;<code>Promise</code>&#x5B9E;&#x4F8B;&#x7684;&#x72B6;&#x6001;&#x53D8;&#x5316;&#x3002;&#x5F53;&#x53C2;&#x6570;&#x4E2D;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x5904;&#x4E8E;<code>resolve</code>&#x72B6;&#x6001;&#x65F6;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;<code>Promise</code>&#x5B9E;&#x4F8B;&#x4F1A;&#x53D8;&#x4E3A;<code>resolve</code>&#x72B6;&#x6001;&#x3002;&#x5982;&#x679C;&#x53C2;&#x6570;&#x4E2D;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x5904;&#x4E8E;<code>reject</code>&#x72B6;&#x6001;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;<code>Promise</code>&#x5B9E;&#x4F8B;&#x53D8;&#x4E3A;<code>reject</code>&#x72B6;&#x6001;&#x3002;<pre><code>Promise.race([p1, p2]).then(function (result) {
-  console.log(result); // [ &apos;2.txt&apos;, &apos;2&apos; ]
+<li><strong>&#x8FD4;&#x56DE;&#x503C;</strong>&#xFF1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;<code>Promise</code>&#x5B9E;&#x4F8B;&#xFF0C;&#x8FD9;&#x4E2A;<code>Promise</code>&#x5B9E;&#x4F8B;&#x7684;&#x72B6;&#x6001;&#x8F6C;&#x79FB;&#x53D6;&#x51B3;&#x4E8E;&#x53C2;&#x6570;&#x7684;<code>Promise</code>&#x5B9E;&#x4F8B;&#x7684;&#x72B6;&#x6001;&#x53D8;&#x5316;&#x3002;&#x5F53;&#x53C2;&#x6570;&#x4E2D;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x5904;&#x4E8E;<code>resolve</code>&#x72B6;&#x6001;&#x65F6;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;<code>Promise</code>&#x5B9E;&#x4F8B;&#x4F1A;&#x53D8;&#x4E3A;<code>resolve</code>&#x72B6;&#x6001;&#x3002;&#x5982;&#x679C;&#x53C2;&#x6570;&#x4E2D;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x5904;&#x4E8E;<code>reject</code>&#x72B6;&#x6001;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;<code>Promise</code>&#x5B9E;&#x4F8B;&#x53D8;&#x4E3A;<code>reject</code>&#x72B6;&#x6001;&#x3002;<pre><code class="lang-javascript"><span class="hljs-built_in">Promise</span>.race([p1, p2]).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">result</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(result); <span class="hljs-comment">// [ &apos;2.txt&apos;, &apos;2&apos; ]</span>
 });
-</code></pre><h3 id="t147.3 Promise.resolve">7.3 Promise.resolve <a href="#t147.3 Promise.resolve"> # </a></h3>
+</code></pre>
+<h3 id="t147.3 Promise.resolve">7.3 Promise.resolve <a href="#t147.3 Promise.resolve"> # </a></h3>
 &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;<code>Promise</code>&#x5B9E;&#x4F8B;&#xFF0C;&#x8FD9;&#x4E2A;&#x5B9E;&#x4F8B;&#x5904;&#x4E8E;<code>resolve</code>&#x72B6;&#x6001;&#x3002;</li>
 </ul>
 <p>&#x6839;&#x636E;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x4E0D;&#x540C;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x529F;&#x80FD;&#xFF1A;</p>
@@ -248,105 +205,282 @@ ajaxPromise(&apos;http://www.baidu.com&apos;)
 <ul>
 <li>&#x53C2;&#x6570;&#x4E00;&#x822C;&#x5C31;&#x662F;&#x629B;&#x51FA;&#x7684;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x3002;</li>
 </ul>
-<h2 id="t168. q&#x7684;&#x7528;&#x6CD5;">8. q&#x7684;&#x7528;&#x6CD5; <a href="#t168. q&#x7684;&#x7528;&#x6CD5;"> # </a></h2>
-<pre><code>var Q = require(&apos;q&apos;);
-var deferred = Q.defer();
-  setTimeout(function() {
-     deferred.resolve();
-  }, 5000);
-  return deferred.promise;
-</code></pre><h2 id="t179. bluebird">9. bluebird <a href="#t179. bluebird"> # </a></h2>
-<p>&#x5B9E;&#x73B0; promise &#x6807;&#x51C6;&#x7684;&#x5E93;&#x662F;&#x529F;&#x80FD;&#x6700;&#x5168;&#xFF0C;&#x901F;&#x5EA6;&#x6700;&#x5FEB;&#x7684;&#x4E00;&#x4E2A;&#x5E93;</p>
-<pre><code>var Promise = require(&apos;bluebird&apos;);
-var fs = require(&apos;fs&apos;);
-fs.readFileAsync = Promise.promisify(fs.readFile, fs);
-fs.readFileAsync(&apos;LICENSE&apos;,&apos;utf8&apos;).then(function(data){
-    console.log(data);
+<h2 id="t168. q">8. q <a href="#t168. q"> # </a></h2>
+<p>Q&#x662F;&#x4E00;&#x4E2A;&#x5728;Javascript&#x4E2D;&#x5B9E;&#x73B0;promise&#x7684;&#x6A21;&#x5757;</p>
+<h3 id="t178.1 q&#x7684;&#x57FA;&#x672C;&#x7528;&#x6CD5;">8.1 q&#x7684;&#x57FA;&#x672C;&#x7528;&#x6CD5; <a href="#t178.1 q&#x7684;&#x57FA;&#x672C;&#x7528;&#x6CD5;"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> Q = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;q&apos;</span>);
+<span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">read</span>(<span class="hljs-params">filename</span>) </span>{
+    <span class="hljs-keyword">var</span> deferred = Q.defer();
+    fs.readFile(filename,<span class="hljs-string">&apos;utf8&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, data</span>) </span>{
+        <span class="hljs-keyword">if</span>(err){
+            deferred.reject(err);
+        }<span class="hljs-keyword">else</span>{
+            deferred.resolve(data);
+        }
+    });
+    <span class="hljs-keyword">return</span> deferred.promise;
+}
+
+read(<span class="hljs-string">&apos;1.txt1&apos;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>)</span>{
+    <span class="hljs-built_in">console</span>.log(data);
+},<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>)</span>{
+    <span class="hljs-built_in">console</span>.error(error);
 });
-</code></pre><p>&#x6267;&#x884C;&#x5B8C;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x4E4B;&#x540E;&#xFF0C;fs&#x5BF9;&#x8C61;&#x4E0B;&#x6240;&#x6709;&#x7684;&#x5F02;&#x6B65;&#x65B9;&#x6CD5;&#x90FD;&#x4F1A;&#x5BF9;&#x5E94;&#x7684;&#x751F;&#x6210;&#x4E00;&#x4E2A;Promise&#x7248;&#x672C;&#x65B9;&#x6CD5;&#xFF0C;&#x6BD4;&#x5982;fs.readFile&#x5BF9;&#x5E94;fs.readFileAsync&#xFF0C;fs.mkdir&#x5BF9;&#x5E94;fs.mkdirAsync</p>
-<pre><code>Promise.promisifyAll(fs);
-</code></pre><h2 id="t1810. promise/a+&#x5B9E;&#x73B0;&#x539F;&#x7406;">10. promise/a+&#x5B9E;&#x73B0;&#x539F;&#x7406; <a href="#t1810. promise/a+&#x5B9E;&#x73B0;&#x539F;&#x7406;"> # </a></h2>
-<pre><code>var defer = function () {
-    var pending = [], value;
-    return {
-        resolve: function (_value) {
-            if (pending) {
+</code></pre>
+<h3 id="t188.2 q&#x7684;&#x7B80;&#x5355;&#x5B9E;&#x73B0;">8.2 q&#x7684;&#x7B80;&#x5355;&#x5B9E;&#x73B0; <a href="#t188.2 q&#x7684;&#x7B80;&#x5355;&#x5B9E;&#x73B0;"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-built_in">module</span>.exports = {
+    defer(){
+        <span class="hljs-keyword">var</span> _success,_error;
+        <span class="hljs-keyword">return</span> {
+            resolve(data){
+                _success(data);
+            },
+            reject(err){
+                _error(err);
+            },
+            promise:{
+                then(success,error){
+                    _success = success;
+                    _error = error;
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<h3 id="t198.3 q&#x7684;&#x5B9E;&#x73B0;">8.3 q&#x7684;&#x5B9E;&#x73B0; <a href="#t198.3 q&#x7684;&#x5B9E;&#x73B0;"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> defer = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> pending = [], value;
+    <span class="hljs-keyword">return</span> {
+        resolve: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">_value</span>) </span>{
+            <span class="hljs-keyword">if</span> (pending) {
                 value = _value;
-                for (var i = 0, ii = pending.length; i &lt; ii; i++) {
-                    var callback = pending[i];
+                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>, ii = pending.length; i &lt; ii; i++) {
+                    <span class="hljs-keyword">var</span> callback = pending[i];
                     callback(value);
                 }
-                pending = undefined;
+                pending = <span class="hljs-literal">undefined</span>;
             }
         },
         promise: {
-            then: function (callback) {
-                if (pending) {
+            then: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">callback</span>) </span>{
+                <span class="hljs-keyword">if</span> (pending) {
                     pending.push(callback);
-                } else {
+                } <span class="hljs-keyword">else</span> {
                     callback(value);
                 }
             }
         }
     };
 };
-</code></pre><h2 id="t1911. &#x52A8;&#x753B;&#x4E4B;promise&#x7248;">11. &#x52A8;&#x753B;&#x4E4B;promise&#x7248; <a href="#t1911. &#x52A8;&#x753B;&#x4E4B;promise&#x7248;"> # </a></h2>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;move&lt;/title&gt;
-    &lt;style&gt;
-        .square{
-            width:40px;
-            height:40px;
+</code></pre>
+<h2 id="t209. bluebird">9. bluebird <a href="#t209. bluebird"> # </a></h2>
+<p>&#x5B9E;&#x73B0; promise &#x6807;&#x51C6;&#x7684;&#x5E93;&#x662F;&#x529F;&#x80FD;&#x6700;&#x5168;&#xFF0C;&#x901F;&#x5EA6;&#x6700;&#x5FEB;&#x7684;&#x4E00;&#x4E2A;&#x5E93;</p>
+<h3 id="t219.1  bluebird&#x7ECF;&#x5178;&#x4F7F;&#x7528;">9.1  bluebird&#x7ECF;&#x5178;&#x4F7F;&#x7528; <a href="#t219.1  bluebird&#x7ECF;&#x5178;&#x4F7F;&#x7528;"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> <span class="hljs-built_in">Promise</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;./bluebird&apos;</span>);
+
+<span class="hljs-keyword">var</span> readFile = <span class="hljs-built_in">Promise</span>.promisify(<span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;fs&quot;</span>).readFile);
+readFile(<span class="hljs-string">&quot;1.txt&quot;</span>, <span class="hljs-string">&quot;utf8&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">contents</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(contents);
+})
+
+<span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">Promise</span>.promisifyAll(<span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;fs&quot;</span>));
+
+fs.readFileAsync(<span class="hljs-string">&quot;1.txt&quot;</span>, <span class="hljs-string">&quot;utf8&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">contents</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(contents);
+})
+</code></pre>
+<h3 id="t229.2  bluebird&#x7B80;&#x5355;&#x5B9E;&#x73B0;">9.2  bluebird&#x7B80;&#x5355;&#x5B9E;&#x73B0; <a href="#t229.2  bluebird&#x7B80;&#x5355;&#x5B9E;&#x73B0;"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-built_in">module</span>.exports = {
+    promisify(fn){
+        <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">var</span> args = <span class="hljs-built_in">Array</span>.from(<span class="hljs-built_in">arguments</span>);
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">resolve, reject</span>) </span>{
+                fn.apply(<span class="hljs-literal">null</span>, args.concat(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
+                    <span class="hljs-keyword">if</span> (err) {
+                        reject(err);
+                    } <span class="hljs-keyword">else</span> {
+                        resolve(<span class="hljs-built_in">arguments</span>[<span class="hljs-number">1</span>])
+                    }
+                }));
+            })
         }
-        .square1{
-            background-color: red;
+    },
+    promisifyAll(obj){
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> attr <span class="hljs-keyword">in</span> obj){
+            <span class="hljs-keyword">if</span>(obj.hasOwnProperty(attr) &amp;&amp; <span class="hljs-keyword">typeof</span> obj[attr] ==<span class="hljs-string">&apos;function&apos;</span>){
+                obj[attr+<span class="hljs-string">&apos;Async&apos;</span>] = <span class="hljs-keyword">this</span>.promisify(obj[attr]);
+            }
         }
-        .square2{
-            background-color: yellow;
-        }
-        .square3{
-            background-color: blue;
-        }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;div class=&quot;square square1&quot; style=&quot;margin-left: 0&quot;&gt;&lt;/div&gt;
-&lt;div class=&quot;square square2&quot; style=&quot;margin-left: 0&quot;&gt;&lt;/div&gt;
-&lt;div class=&quot;square square3&quot; style=&quot;margin-left: 0&quot;&gt;&lt;/div&gt;
-&lt;/body&gt;
-&lt;script&gt;
-    var square1 = document.querySelector(&apos;.square1&apos;);
-    var square2 = document.querySelector(&apos;.square2&apos;);
-    var square3 = document.querySelector(&apos;.square3&apos;);
-    function move(element,target,cb){
-        setTimeout(function () {
-            var marginLeft = parseInt(element.style.marginLeft, 10);
-            if(marginLeft == target){
+        <span class="hljs-keyword">return</span> obj;
+    }
+}
+</code></pre>
+<p><a href="http://bluebirdjs.com/docs/api-reference.html">bluebirdAPI</a></p>
+<h2 id="t2311. &#x52A8;&#x753B;">11. &#x52A8;&#x753B; <a href="#t2311. &#x52A8;&#x753B;"> # </a></h2>
+<h3 id="t2411.1  &#x56DE;&#x8C03;&#x65B9;&#x5F0F;">11.1  &#x56DE;&#x8C03;&#x65B9;&#x5F0F; <a href="#t2411.1  &#x56DE;&#x8C03;&#x65B9;&#x5F0F;"> # </a></h3>
+<pre><code class="lang-html"><span class="hljs-doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">html</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;en&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">meta</span> <span class="hljs-attribute">charset</span>=<span class="hljs-value">&quot;UTF-8&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>move<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css">
+        <span class="hljs-class">.square</span><span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"><span class="hljs-number">40px</span></span></span>;
+            <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"><span class="hljs-number">40px</span></span></span>;
+        }</span>
+        <span class="hljs-class">.square1</span><span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">background-color</span>:<span class="hljs-value"> red</span></span>;
+        }</span>
+        <span class="hljs-class">.square2</span><span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">background-color</span>:<span class="hljs-value"> yellow</span></span>;
+        }</span>
+        <span class="hljs-class">.square3</span><span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">background-color</span>:<span class="hljs-value"> blue</span></span>;
+        }</span>
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;square square1&quot;</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">&quot;margin-left: 0&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;square square2&quot;</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">&quot;margin-left: 0&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;square square3&quot;</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">&quot;margin-left: 0&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+    <span class="hljs-keyword">var</span> square1 = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&apos;.square1&apos;</span>);
+    <span class="hljs-keyword">var</span> square2 = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&apos;.square2&apos;</span>);
+    <span class="hljs-keyword">var</span> square3 = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&apos;.square3&apos;</span>);
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">move</span>(<span class="hljs-params">element,target,cb</span>)</span>{
+        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">var</span> marginLeft = <span class="hljs-built_in">parseInt</span>(element.style.marginLeft, <span class="hljs-number">10</span>);
+            <span class="hljs-keyword">if</span>(marginLeft == target){
                 cb();
-            }else{
-                element.style.marginLeft = ++marginLeft+&apos;px&apos;;
+            }<span class="hljs-keyword">else</span>{
+                element.style.marginLeft = ++marginLeft+<span class="hljs-string">&apos;px&apos;</span>;
                 move(element,target,cb);
             }
-        },13);
+        },<span class="hljs-number">13</span>);
     }
-    function animate(element,target){
-        return new Promise(function(resolve,reject){
+    move(square1,<span class="hljs-number">100</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        move(square2,<span class="hljs-number">100</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+            move(square3,<span class="hljs-number">100</span>);
+        });
+    });
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+</code></pre>
+<h3 id="t2511.2  promise&#x65B9;&#x5F0F;">11.2  promise&#x65B9;&#x5F0F; <a href="#t2511.2  promise&#x65B9;&#x5F0F;"> # </a></h3>
+<pre><code class="lang-html"><span class="hljs-doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">html</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;en&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">meta</span> <span class="hljs-attribute">charset</span>=<span class="hljs-value">&quot;UTF-8&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>move<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css">
+        <span class="hljs-class">.square</span><span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"><span class="hljs-number">40px</span></span></span>;
+            <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"><span class="hljs-number">40px</span></span></span>;
+        }</span>
+        <span class="hljs-class">.square1</span><span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">background-color</span>:<span class="hljs-value"> red</span></span>;
+        }</span>
+        <span class="hljs-class">.square2</span><span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">background-color</span>:<span class="hljs-value"> yellow</span></span>;
+        }</span>
+        <span class="hljs-class">.square3</span><span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">background-color</span>:<span class="hljs-value"> blue</span></span>;
+        }</span>
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;square square1&quot;</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">&quot;margin-left: 0&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;square square2&quot;</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">&quot;margin-left: 0&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;square square3&quot;</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">&quot;margin-left: 0&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+    <span class="hljs-keyword">var</span> square1 = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&apos;.square1&apos;</span>);
+    <span class="hljs-keyword">var</span> square2 = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&apos;.square2&apos;</span>);
+    <span class="hljs-keyword">var</span> square3 = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&apos;.square3&apos;</span>);
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">move</span>(<span class="hljs-params">element,target,cb</span>)</span>{
+        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">var</span> marginLeft = <span class="hljs-built_in">parseInt</span>(element.style.marginLeft, <span class="hljs-number">10</span>);
+            <span class="hljs-keyword">if</span>(marginLeft == target){
+                cb();
+            }<span class="hljs-keyword">else</span>{
+                element.style.marginLeft = ++marginLeft+<span class="hljs-string">&apos;px&apos;</span>;
+                move(element,target,cb);
+            }
+        },<span class="hljs-number">13</span>);
+    }
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">animate</span>(<span class="hljs-params">element,target</span>)</span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">resolve,reject</span>)</span>{
             move(element,target,resolve);
         });
     }
-    animate(square1,100)
-    .then(function(){
-        return animate(square2,100);
+    animate(square1,<span class="hljs-number">100</span>)
+    .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-keyword">return</span> animate(square2,<span class="hljs-number">100</span>);
     })
-    .then(function(){
-        return animate(square3,100);
+    .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-keyword">return</span> animate(square3,<span class="hljs-number">100</span>);
     });
-&lt;/script&gt;
-&lt;/html&gt;
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
 </code></pre>
+<h2 id="t2612. co+promise">12. co+promise <a href="#t2612. co+promise"> # </a></h2>
+<h3 id="t2712.1  co&#x521D;&#x4F53;&#x9A8C;">12.1  co&#x521D;&#x4F53;&#x9A8C; <a href="#t2712.1  co&#x521D;&#x4F53;&#x9A8C;"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> co = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;co&apos;</span>);
+
+co(<span class="hljs-function"><span class="hljs-keyword">function</span>* (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> result = <span class="hljs-keyword">yield</span> <span class="hljs-built_in">Promise</span>.resolve(<span class="hljs-literal">true</span>);
+    <span class="hljs-built_in">console</span>.log(result);
+    <span class="hljs-keyword">var</span> result = <span class="hljs-keyword">yield</span> <span class="hljs-built_in">Promise</span>.resolve(<span class="hljs-literal">false</span>);
+    <span class="hljs-built_in">console</span>.log(result);
+})
+</code></pre>
+<h3 id="t2812.2  co&#x8BFB;&#x6587;&#x4EF6;">12.2  co&#x8BFB;&#x6587;&#x4EF6; <a href="#t2812.2  co&#x8BFB;&#x6587;&#x4EF6;"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> co = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;co&apos;</span>);
+<span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">readFile</span>(<span class="hljs-params">filename</span>)</span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">resolve,reject</span>)</span>{
+        fs.readFile(filename,<span class="hljs-string">&apos;utf8&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,data</span>)</span>{
+            <span class="hljs-keyword">if</span>(err){
+                reject(err);
+            }<span class="hljs-keyword">else</span>{
+                resolve(data);
+            }
+        })
+    });
+}
+co(<span class="hljs-function"><span class="hljs-keyword">function</span>* (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> one = <span class="hljs-keyword">yield</span> readFile(<span class="hljs-string">&apos;1.txt&apos;</span>);
+    <span class="hljs-built_in">console</span>.log(one);
+    <span class="hljs-keyword">var</span> two = <span class="hljs-keyword">yield</span> readFile(one);
+    <span class="hljs-built_in">console</span>.log(two);
+})
+</code></pre>
+<h3 id="t2912.3  co&#x5B9E;&#x73B0;">12.3  co&#x5B9E;&#x73B0; <a href="#t2912.3  co&#x5B9E;&#x73B0;"> # </a></h3>
+<p>```javascript
+module.exports = function(gen){
+    var it = gen();
+    next();
+    function next(data){
+        var result = it.next(data);
+        if(!result.done){
+            result.value.then(next);
+        }
+    }
+}
+&#xB7;&#xB7;&#xB7;</p>
+<h3 id="t3013. &#x8D44;&#x6E90;">13. &#x8D44;&#x6E90; <a href="#t3013. &#x8D44;&#x6E90;"> # </a></h3>
+<ul>
+<li><a href="http://segmentfault.com/a/1190000002591145">&#x6DF1;&#x5165;&#x7406;&#x89E3;Promise&#x5B9E;&#x73B0;&#x7EC6;&#x8282;</a></li>
+<li><a href="http://segmentfault.com/a/1190000002928371">&#x8C08;&#x8C08; ES6 &#x7684; Promise &#x5BF9;&#x8C61;</a></li>
+<li><a href="http://liubin.github.io/promises-book/">JavaScript Promise&#x8FF7;&#x4F60;&#x4E66;(&#x4E2D;&#x6587;&#x7248;)</a></li>
+<li><a href="http://segmentfault.com/a/1190000002452115">Promise/A+&#x89C4;&#x8303;</a></li>
+<li><a href="https://cnodejs.org/topic/5603cb8a152fdd025f0f5014">&#x7B80;&#x5355;&#x5B9E;&#x73B0;Promise/A+</a></li>
+<li><a href="https://github.com/William17/taxi/blob/master/taxi.js">&#x7CBE;&#x7B80;&#x7684;promise&#x5B9E;&#x73B0;</a></li>
+</ul>
+
 
         </div>
     

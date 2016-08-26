@@ -234,7 +234,7 @@ var vm = new Vue({
 });
 ```
 
-##相关资源
+## 4. 相关资源
 - [珠峰vue视频(上)](http://yuntv.letv.com/bcloud.html?uu=zna4ig8gbr&vu=10e76ad6dd&auto_play=1&width=640&height=360&lang=zh_CN)
 - [ 珠峰vue视频(中)](http://yuntv.letv.com/bcloud.html?uu=zna4ig8gbr&vu=6bf26b2e61&auto_play=1&width=640&height=360&lang=zh_CN)
 - 课件 https://wakeupmypig.github.io/jw_blog/html/Vue.js/Vue%E5%85%A5%E9%97%A8.html
