@@ -62,7 +62,7 @@
 </tr>
 <tr>
 <td style="text-align:left">zlib.createGunzip</td>
-<td style="text-align:left">&#x8FD4;&#x56DE;Gzip&#x6D41;&#x5BF9;&#x8C61;&#xFF0C;&#x4F7F;&#x7528;Gzip&#x7B97;&#x6CD5;&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x538B;&#x7F29;&#x5904;&#x7406;</td>
+<td style="text-align:left">&#x8FD4;&#x56DE;Gzip&#x6D41;&#x5BF9;&#x8C61;&#xFF0C;&#x4F7F;&#x7528;Gzip&#x7B97;&#x6CD5;&#x5BF9;&#x538B;&#x7F29;&#x7684;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x89E3;&#x538B;&#x7F29;&#x5904;&#x7406;</td>
 </tr>
 <tr>
 <td style="text-align:left">zlib.createDeflate</td>
@@ -70,16 +70,17 @@
 </tr>
 <tr>
 <td style="text-align:left">zlib.createInflate</td>
-<td style="text-align:left">&#x8FD4;&#x56DE;Deflate&#x6D41;&#x5BF9;&#x8C61;&#xFF0C;&#x4F7F;&#x7528;Deflate&#x7B97;&#x6CD5;&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x538B;&#x7F29;&#x5904;&#x7406;</td>
+<td style="text-align:left">&#x8FD4;&#x56DE;Deflate&#x6D41;&#x5BF9;&#x8C61;&#xFF0C;&#x4F7F;&#x7528;Deflate&#x7B97;&#x6CD5;&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x89E3;&#x538B;&#x7F29;&#x5904;&#x7406;</td>
 </tr>
 </tbody>
 </table>
 <h2 id="t2&#x538B;&#x7F29;&#x548C;&#x89E3;&#x538B;&#x7F29;">&#x538B;&#x7F29;&#x548C;&#x89E3;&#x538B;&#x7F29; <a href="#t2&#x538B;&#x7F29;&#x548C;&#x89E3;&#x538B;&#x7F29;"> # </a></h2>
+<p>&#x538B;&#x7F29;</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> zlib = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;zlib&apos;</span>);
 <span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">zip</span>(<span class="hljs-params">src</span>) </span>{
-    <span class="hljs-keyword">var</span> gzip = zlib.createGzip();
+    <span class="hljs-keyword">var</span> gzip = zlib.createGzip();<span class="hljs-comment">//&#x521B;&#x5EFA;&#x538B;&#x7F29;&#x6D41;</span>
     <span class="hljs-keyword">var</span> inputStream = fs.createReadStream(src);
     <span class="hljs-keyword">var</span> outputStream = fs.createWriteStream(src+<span class="hljs-string">&apos;.gz&apos;</span>);
     inputStream.pipe(gzip).pipe(outputStream);
