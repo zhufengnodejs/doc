@@ -38,15 +38,15 @@
 <div class="container">
     
         <div class="page-toc">
-            <ul><li><a href="#t0压缩与解压缩处理">压缩与解压缩处理</a></li><li><a href="#t1压缩对象">压缩对象</a></li><li><a href="#t2压缩和解压缩">压缩和解压缩</a></li><li><a href="#t3在http中的应用">在http中的应用</a></li><li><a href="#t4方法调用">方法调用</a></li></ul>
+            <ul><li><a href="#t01. 压缩与解压缩处理">1. 压缩与解压缩处理</a></li><li><a href="#t12. 压缩对象">2. 压缩对象</a></li><li><a href="#t23. 压缩和解压缩">3. 压缩和解压缩</a></li><li><a href="#t34. 在http中的应用">4. 在http中的应用</a></li><li><a href="#t45. 方法调用">5. 方法调用</a></li></ul>
         </div>
 
         <div class="content markdown-body">
 
-            <h2 id="t0&#x538B;&#x7F29;&#x4E0E;&#x89E3;&#x538B;&#x7F29;&#x5904;&#x7406;">&#x538B;&#x7F29;&#x4E0E;&#x89E3;&#x538B;&#x7F29;&#x5904;&#x7406; <a href="#t0&#x538B;&#x7F29;&#x4E0E;&#x89E3;&#x538B;&#x7F29;&#x5904;&#x7406;"> # </a></h2>
+            <h2 id="t01. &#x538B;&#x7F29;&#x4E0E;&#x89E3;&#x538B;&#x7F29;&#x5904;&#x7406;">1. &#x538B;&#x7F29;&#x4E0E;&#x89E3;&#x538B;&#x7F29;&#x5904;&#x7406; <a href="#t01. &#x538B;&#x7F29;&#x4E0E;&#x89E3;&#x538B;&#x7F29;&#x5904;&#x7406;"> # </a></h2>
 <p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>zlib</code>&#x6A21;&#x5757;&#x8FDB;&#x884C;&#x538B;&#x7F29;&#x53CA;&#x89E3;&#x538B;&#x7F29;&#x5904;&#x7406;,&#x538B;&#x7F29;&#x6587;&#x4EF6;&#x4EE5;&#x540E;&#x53EF;&#x4EE5;&#x51CF;&#x5C11;&#x4F53;&#x79EF;&#xFF0C;&#x52A0;&#x5FEB;&#x4F20;&#x8F93;&#x901F;&#x5EA6;&#x548C;&#x8282;&#x7EA6;&#x5E26;&#x5BBD;
 <a href="https://github.com/zhufengnodejs/static-server/tree/master/lesson/zlib">&#x4EE3;&#x7801;</a></p>
-<h2 id="t1&#x538B;&#x7F29;&#x5BF9;&#x8C61;">&#x538B;&#x7F29;&#x5BF9;&#x8C61; <a href="#t1&#x538B;&#x7F29;&#x5BF9;&#x8C61;"> # </a></h2>
+<h2 id="t12. &#x538B;&#x7F29;&#x5BF9;&#x8C61;">2. &#x538B;&#x7F29;&#x5BF9;&#x8C61; <a href="#t12. &#x538B;&#x7F29;&#x5BF9;&#x8C61;"> # </a></h2>
 <p>&#x538B;&#x7F29;&#x548C;&#x89E3;&#x538B;&#x7F29;&#x5BF9;&#x8C61;&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x8BFB;&#x53EF;&#x5199;&#x6D41;</p>
 <table>
 <thead>
@@ -74,8 +74,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="t2&#x538B;&#x7F29;&#x548C;&#x89E3;&#x538B;&#x7F29;">&#x538B;&#x7F29;&#x548C;&#x89E3;&#x538B;&#x7F29; <a href="#t2&#x538B;&#x7F29;&#x548C;&#x89E3;&#x538B;&#x7F29;"> # </a></h2>
-<p>&#x538B;&#x7F29;</p>
+<h2 id="t23. &#x538B;&#x7F29;&#x548C;&#x89E3;&#x538B;&#x7F29;">3. &#x538B;&#x7F29;&#x548C;&#x89E3;&#x538B;&#x7F29; <a href="#t23. &#x538B;&#x7F29;&#x548C;&#x89E3;&#x538B;&#x7F29;"> # </a></h2>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> zlib = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;zlib&apos;</span>);
 <span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
 
@@ -97,7 +96,7 @@ zip(<span class="hljs-string">&apos;source.txt&apos;</span>);
 
 gunzip(<span class="hljs-string">&apos;source.txt.gz&apos;</span>);
 </code></pre>
-<h2 id="t3&#x5728;http&#x4E2D;&#x7684;&#x5E94;&#x7528;">&#x5728;http&#x4E2D;&#x7684;&#x5E94;&#x7528; <a href="#t3&#x5728;http&#x4E2D;&#x7684;&#x5E94;&#x7528;"> # </a></h2>
+<h2 id="t34. &#x5728;http&#x4E2D;&#x7684;&#x5E94;&#x7528;">4. &#x5728;http&#x4E2D;&#x7684;&#x5E94;&#x7528; <a href="#t34. &#x5728;http&#x4E2D;&#x7684;&#x5E94;&#x7528;"> # </a></h2>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> zlib = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;zlib&apos;</span>);
 <span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
 <span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;http&apos;</span>);
@@ -147,7 +146,7 @@ request.on(<span class="hljs-string">&apos;response&apos;</span>, <span class="h
 });
 request.end();
 </code></pre>
-<h2 id="t4&#x65B9;&#x6CD5;&#x8C03;&#x7528;">&#x65B9;&#x6CD5;&#x8C03;&#x7528; <a href="#t4&#x65B9;&#x6CD5;&#x8C03;&#x7528;"> # </a></h2>
+<h2 id="t45. &#x65B9;&#x6CD5;&#x8C03;&#x7528;">5. &#x65B9;&#x6CD5;&#x8C03;&#x7528; <a href="#t45. &#x65B9;&#x6CD5;&#x8C03;&#x7528;"> # </a></h2>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> zlib = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;zlib&apos;</span>);
 <span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
 

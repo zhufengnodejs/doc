@@ -38,35 +38,35 @@
 <div class="container">
     
         <div class="page-toc">
-            <ul><li><a href="#t0功能分析">功能分析</a></li><li><a href="#t1建立静态文件服务器">建立静态文件服务器</a></li><li><a href="#t2实现路由">实现路由</a></li><li><a href="#t3读取静态文件">读取静态文件</a></li><li><a href="#t4MIME类型支持">MIME类型支持</a></li><li><a href="#t5缓存支持">缓存支持</a></li><li><a href="#t6启用gzip">启用gzip</a></li><li><a href="#t7指定默认页面">指定默认页面</a></li></ul>
+            <ul><li><a href="#t01. 功能分析">1. 功能分析</a></li><li><a href="#t1. 建立静态文件服务器">. 建立静态文件服务器</a></li><li><a href="#t23. 实现路由">3. 实现路由</a></li><li><a href="#t34. 读取静态文件">4. 读取静态文件</a></li><li><a href="#t45. MIME类型支持">5. MIME类型支持</a></li><li><a href="#t56. 缓存支持">6. 缓存支持</a></li><li><a href="#t67. 启用gzip">7. 启用gzip</a></li><li><a href="#t78.指定默认页面">8.指定默认页面</a></li></ul>
         </div>
 
         <div class="content markdown-body">
 
-            <h2 id="t0&#x529F;&#x80FD;&#x5206;&#x6790;">&#x529F;&#x80FD;&#x5206;&#x6790; <a href="#t0&#x529F;&#x80FD;&#x5206;&#x6790;"> # </a></h2>
+            <h2 id="t01. &#x529F;&#x80FD;&#x5206;&#x6790;">1. &#x529F;&#x80FD;&#x5206;&#x6790; <a href="#t01. &#x529F;&#x80FD;&#x5206;&#x6790;"> # </a></h2>
 <ul>
 <li>&#x6D4F;&#x89C8;&#x5668;&#x53D1;&#x9001;<code>URL</code>&#xFF0C;&#x670D;&#x52A1;&#x7AEF;&#x89E3;&#x6790;<code>URL</code>&#xFF0C;&#x5BF9;&#x5E94;&#x5230;&#x786C;&#x76D8;&#x4E0A;&#x7684;&#x6587;&#x4EF6;&#x3002;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x5B58;&#x5728;&#xFF0C;&#x8FD4;&#x56DE;<code>200</code>&#x72B6;&#x6001;&#x7801;&#xFF0C;&#x5E76;&#x53D1;&#x9001;&#x6587;&#x4EF6;&#x5230;&#x6D4F;&#x89C8;&#x5668;&#x7AEF;&#xFF1B;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x8FD4;&#x56DE;<code>404</code>&#x72B6;&#x6001;&#x7801;&#xFF0C;&#x53D1;&#x9001;&#x4E00;&#x4E2A;<code>404</code>&#x7684;&#x6587;&#x4EF6;&#x5230;&#x6D4F;&#x89C8;&#x5668;&#x7AEF;
 <a href="https://github.com/zhufengnodejs/static-server">&#x4EE3;&#x7801;</a></li>
 </ul>
-<h2 id="t1&#x5EFA;&#x7ACB;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x670D;&#x52A1;&#x5668;">&#x5EFA;&#x7ACB;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x670D;&#x52A1;&#x5668; <a href="#t1&#x5EFA;&#x7ACB;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x670D;&#x52A1;&#x5668;"> # </a></h2>
+<h2 id="t1. &#x5EFA;&#x7ACB;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x670D;&#x52A1;&#x5668;">. &#x5EFA;&#x7ACB;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x670D;&#x52A1;&#x5668; <a href="#t1. &#x5EFA;&#x7ACB;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x670D;&#x52A1;&#x5668;"> # </a></h2>
 <p><a href="https://github.com/zhufengnodejs/static-server/commit/e4825f387b5922f265c745ebb63354710560373b">commit</a></p>
-<h2 id="t2&#x5B9E;&#x73B0;&#x8DEF;&#x7531;">&#x5B9E;&#x73B0;&#x8DEF;&#x7531; <a href="#t2&#x5B9E;&#x73B0;&#x8DEF;&#x7531;"> # </a></h2>
+<h2 id="t23. &#x5B9E;&#x73B0;&#x8DEF;&#x7531;">3. &#x5B9E;&#x73B0;&#x8DEF;&#x7531; <a href="#t23. &#x5B9E;&#x73B0;&#x8DEF;&#x7531;"> # </a></h2>
 <p>&#x5411;&#x6D4F;&#x89C8;&#x5668;&#x8FD4;&#x56DE;&#x8BF7;&#x6C42;&#x7684;&#x8DEF;&#x5F84;
 <a href="https://github.com/zhufengnodejs/static-server/commit/59b1861c88b0f001ab51b15867c0b8a12772f7d7">commit</a></p>
-<h2 id="t3&#x8BFB;&#x53D6;&#x9759;&#x6001;&#x6587;&#x4EF6;">&#x8BFB;&#x53D6;&#x9759;&#x6001;&#x6587;&#x4EF6; <a href="#t3&#x8BFB;&#x53D6;&#x9759;&#x6001;&#x6587;&#x4EF6;"> # </a></h2>
+<h2 id="t34. &#x8BFB;&#x53D6;&#x9759;&#x6001;&#x6587;&#x4EF6;">4. &#x8BFB;&#x53D6;&#x9759;&#x6001;&#x6587;&#x4EF6; <a href="#t34. &#x8BFB;&#x53D6;&#x9759;&#x6001;&#x6587;&#x4EF6;"> # </a></h2>
 <p>&#x4ECE;<code>public</code>&#x76EE;&#x5F55;&#x4E0B;&#x8BFB;&#x53D6;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x5E76;&#x8FD4;&#x56DE;
 <a href="https://github.com/zhufengnodejs/static-server/commit/f5bc315ad32a1e6a1cf60f3ec585828dde487ba6">commit</a></p>
-<h2 id="t4MIME&#x7C7B;&#x578B;&#x652F;&#x6301;">MIME&#x7C7B;&#x578B;&#x652F;&#x6301; <a href="#t4MIME&#x7C7B;&#x578B;&#x652F;&#x6301;"> # </a></h2>
+<h2 id="t45. MIME&#x7C7B;&#x578B;&#x652F;&#x6301;">5. MIME&#x7C7B;&#x578B;&#x652F;&#x6301; <a href="#t45. MIME&#x7C7B;&#x578B;&#x652F;&#x6301;"> # </a></h2>
 <p>&#x4E0D;&#x540C;&#x7684;&#x6587;&#x4EF6;&#x7C7B;&#x578B;&#x5BF9;&#x5E94;&#x4E0D;&#x540C;&#x7684;&#x5185;&#x5BB9;&#x7C7B;&#x578B;</p>
 <pre><code>$ npm install mime
 </code></pre><p><a href="https://github.com/zhufengnodejs/static-server/commit/945793ac3aa455ee97cecdb898ccd7b6189d5059">commit</a></p>
-<h2 id="t5&#x7F13;&#x5B58;&#x652F;&#x6301;">&#x7F13;&#x5B58;&#x652F;&#x6301; <a href="#t5&#x7F13;&#x5B58;&#x652F;&#x6301;"> # </a></h2>
+<h2 id="t56. &#x7F13;&#x5B58;&#x652F;&#x6301;">6. &#x7F13;&#x5B58;&#x652F;&#x6301; <a href="#t56. &#x7F13;&#x5B58;&#x652F;&#x6301;"> # </a></h2>
 <p><img src="http://7xjf2l.com1.z0.glb.clouddn.com/cache.png" class="img-responsive">
 <a href="https://github.com/zhufengnodejs/static-server/commit/f061b3bf90907174ee066c7e61cdbe55f1153e13">commit</a></p>
-<h2 id="t6&#x542F;&#x7528;gzip">&#x542F;&#x7528;gzip <a href="#t6&#x542F;&#x7528;gzip"> # </a></h2>
+<h2 id="t67. &#x542F;&#x7528;gzip">7. &#x542F;&#x7528;gzip <a href="#t67. &#x542F;&#x7528;gzip"> # </a></h2>
 <p>Gzip&#x538B;&#x7F29;&#x6587;&#x4EF6;&#x53EF;&#x4EE5;&#x51CF;&#x5C11;&#x54CD;&#x5E94;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x80FD;&#x591F;&#x8FBE;&#x5230;&#x8282;&#x7701;&#x5E26;&#x5BBD;&#x7684;&#x76EE;&#x7684;
 <a href="https://github.com/zhufengnodejs/static-server/commit/64f32c2d34b2d4fcb35fda2300fbd36a34b5f2bb">commit</a></p>
-<h2 id="t7&#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x9875;&#x9762;">&#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x9875;&#x9762; <a href="#t7&#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x9875;&#x9762;"> # </a></h2>
+<h2 id="t78.&#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x9875;&#x9762;">8.&#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x9875;&#x9762; <a href="#t78.&#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x9875;&#x9762;"> # </a></h2>
 <p><a href="https://github.com/zhufengnodejs/static-server/commit/12f62bb72bb950b476a25476409dc111c9aa4859">commit</a></p>
 
 
