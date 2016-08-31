@@ -1,7 +1,8 @@
 ## 1.留言版
 <img src="http://7xjf2l.com1.z0.glb.clouddn.com/comment.png" class="img-responsive">
-
+[1.初始化项目](https://github.com/zhufengnodejs/zhufeng_board/commit/c1d49cf33f6dd109d16b456cf530c6d78402a84a)
 ## 2.创建第一个组件CommentBox
+[2.创建第一个组件CommentBox](https://github.com/zhufengnodejs/zhufeng_board/commit/b99786c39343a11325a8adfd1a73a4fd923e838e)
 ### 2.1 新建 `webpack.config.js`
 ```javascript
 var path = require('path');
@@ -105,7 +106,8 @@ export {CommentBox as default}
 ```
 
 ## 3.复合组件
-### 3.1 CommentBox 
+[3.复合组件](https://github.com/zhufengnodejs/zhufeng_board/commit/0685abd9470d96fd65b179b79931d67968e1a167)
+### 3.1 CommentBox
 ```javascript
 'use strict'
 
@@ -142,13 +144,13 @@ class CommentForm extends React.Component {
         return (
             <form>
                 <div className="form-group">
-                    <input type="text" ref="author" 
-                    className="form-control" defaultValue="姓名" 
+                    <input type="text" ref="author"
+                    className="form-control" defaultValue="姓名"
                     name="author"/>
                 </div>
                 <div className="form-group">
-                    <textarea class="form-control" ref="text" 
-                    name="content" id="text" cols="60" rows="7" 
+                    <textarea class="form-control" ref="text"
+                    name="content" id="text" cols="60" rows="7"
                     defaultValue="留言">
                     </textarea>
                 </div>
@@ -182,6 +184,7 @@ export {CommentList as default}
 ```
 
 ## 4. 从父组件传递属性给子组件
+[4. 从父组件传递属性给子组件](https://github.com/zhufengnodejs/zhufeng_board/commit/21498ef97bd994b0de1836e703eaba3e581c9ce3)
 ### 4.1 app/components/Comment.js
 ```
 
@@ -217,6 +220,7 @@ export {Comment as default}
 
 
 ## 5. 从外界初始化数据
+[5. 从外界初始化数据](https://github.com/zhufengnodejs/zhufeng_board/commit/65b1809361e943551bb4efadf09c5baa8ef0416e)
 ### 5.1 app/main.js
 ```diff
 + var data = [
@@ -254,6 +258,7 @@ export {Comment as default}
 ```
 
 ## 6.从远程接口获取数据并改变状态
+[6.从远程接口获取数据并改变状态](https://github.com/zhufengnodejs/zhufeng_board/commit/d803cc8b066a727fac7efb3e2ca4d4305186afee)
 ### 6.1 app/components/CommentBox.js
 ```diff
 + import $ from 'jquery';
@@ -281,6 +286,7 @@ export {Comment as default}
 ```
 
 ## 7.处理事件并提交给父组件显示
+[7.处理事件并提交给父组件显示](https://github.com/zhufengnodejs/zhufeng_board/commit/4fa195fd6833f8078438dbfb56abdde3f5fa4266)
 ### 7.1 app/components/CommentForm.js
 ```diff
 + handleSubmit(event){
@@ -289,7 +295,7 @@ export {Comment as default}
 +        var text = this.refs.text.value;
 +        this.props.handleCommentSubmit({author,text,date:"刚刚"});
 +    }
-    
+
 + <form onSubmit={this.handleSubmit.bind(this)}>
 
 ```
