@@ -1,0 +1,573 @@
+<h2 id="1-react">1. 什么是react</h2>
+<p>React 是一个用于构建用户界面的JavaScript库</p>
+<h2 id="2-react">2. 安装react</h2>
+<pre><code class="lang-sh">$ bower install react babel --save
+</code></pre>
+<h2 id="3-react">3. 直接在浏览器中使用React</h2>
+<pre><code class="lang-javascript">  &lt;script src=&quot;../bower_components/react/react.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;../bower_components/react/react-dom.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;../bower_components/babel/browser.js&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;text/babel&quot; src=&quot;index.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<ul>
+<li>react.js 是 React 的<em>核心</em>库</li>
+<li>react-dom.js 是提供与<em>DOM</em>相关的功能,会在window下增加<code>ReactDOM</code>属性</li>
+<li>browser.js 的作用是将<code>JSX</code>语法转为<code>JavaScript</code>语法</li>
+</ul>
+<blockquote>
+<p><code>script</code>中的<code>type</code>属性为<code>text/babel</code>,因为React独有的JSX语法,跟JavaScript不兼容</p>
+</blockquote>
+<h2 id="4-reactdom-render">4. ReactDOM.render</h2>
+<p><code>ReactDOM.render</code> 是 <code>React</code> 的最基本方法,用于将标签模板转为HTML语言，并插入指定的DOM节点</p>
+<h3 id="4-1-index-html">4.1. index.html</h3>
+<pre><code class="lang-diff">+   &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
++   &lt;script type=&quot;text/babel&quot; src=&quot;js/1.react.js&quot;/&gt;
+</code></pre>
+<h3 id="4-2-js-1-react-js">4.2. js/1.react.js</h3>
+<pre><code class="lang-javascript">    ReactDOM.render(
+    &lt;h1&gt;珠峰培训&lt;/h1&gt;,
+        document.getElementById(&#39;#app&#39;)
+    );
+</code></pre>
+<blockquote>
+<p>上面代码将一个h1标题，插入app元素内部</p>
+</blockquote>
+<h2 id="5-jsx-">5. JSX 语法</h2>
+<p>是一种JS和HTML混合的语法,将组件的<em>结构</em>、<em>数据</em>甚至<em>样式</em>都聚合在一起定义组件,会编译成普通的Javascript。</p>
+<ul>
+<li>遇到HTML标签(以 &lt; 开头)，就用<em>HTML</em>规则解析</li>
+<li>遇到代码块(以 { 开头)，就用<em>JavaScript</em>规则解析</li>
+<li>使用样式时可以让style等于一个样式对象</li>
+<li>使用样式类时只能使用<code>className=类名</code>,因为class是Javascript关键字</li>
+</ul>
+<pre><code class="lang-javascript">var persons = [&#39;刘德华&#39;, &#39;范冰冰&#39;, &#39;郭跃&#39;];
+var style = {color:&#39;red&#39;};
+ReactDOM.render(
+  &lt;div&gt;
+  {
+    persons.map(function (person) {
+      return &lt;div style={style}&gt;Hello, {person}!&lt;/div&gt;
+    })
+  }
+  &lt;/div&gt;,
+  document.getElementById(&#39;#app&#39;)
+);
+</code></pre>
+<h2 id="6-">6. 定义组件</h2>
+<p>我们可以很直观的将一个复杂的页面分割成若干个独立组件,每个组件包含自己的逻辑和样式
+再将这些独立组件组合完成一个复杂的页面。
+这样既减少了逻辑复杂度，又实现了代码的重用</p>
+<ul>
+<li>可组合：一个组件可以和其他的组件一起使用或者可以直接嵌套在另一个组件内部</li>
+<li>可重用：每个组件都是具有独立功能的，它可以被使用在多个场景中</li>
+<li>可维护：每个小的组件仅仅包含自身的逻辑，更容易被理解和维护</li>
+</ul>
+<h3 id="6-1-">6.1 定义组件</h3>
+<p>React允许将代码封装成组件，然后像插入普通HTML标签一样，在网页中插入这个组件</p>
+<ul>
+<li>组件类的第一个字母必须<em>大写</em></li>
+<li>组件类<em>能且只能</em>包含一个<em>顶层标签</em></li>
+</ul>
+<pre><code class="lang-javascript">var Message = React.createClass({
+    render: function() {
+        return &lt;h1&gt;Hello&lt;/h1&gt;;
+    }
+});
+ReactDOM.render(
+    &lt;Message/&gt;,
+    document.getElementById(&#39;#app&#39;)
+);
+</code></pre>
+<h3 id="6-2-">6.2 组件的属性</h3>
+<ul>
+<li>每个组件可以有自己的属性,一般用来存放组件初始后不变的数据,比如人的性别，姓名等</li>
+<li>属性一般用作组件的数据源，一般由父组件传入,比如你的名字一般是由你父母取的</li>
+<li>属性可以通过<code>this.props</code>中取出</li>
+<li><em>propTypes</em>可以用来定义传入组件属性的名称和类型</li>
+<li><code>getDefaultProps</code>函数可以用来定会引起组件的默认属性</li>
+</ul>
+<pre><code class="lang-javascript">var Person = React.createClass({
+    //类似于约定了一个接口文档,用于这是验证传递给组件的属性，
+    propTypes: {
+        //定义msg的属性类型为字符串，必须传入
+        name: React.PropTypes.string.isRequired,
+        gender: React.PropTypes.string.isRequired,
+        age:React.PropTypes.number.isRequired
+    },
+    getDefaultProps:function(){
+        return {name:&#39;无名氏&#39;}
+    },
+    render: function() {
+        //属性可以通过属性对象this.props中取出
+        return (&lt;h1&gt; {this.props.name}
+                     {this.props.gender}
+                     {this.props.age}
+                &lt;/h1&gt;);
+    }
+});
+
+var props = {
+    gender:&#39;男&#39;,
+    age:18
+}
+
+ReactDOM.render(
+    &lt;Person {...props} /&gt;,//属性可以在使用组件时传入
+    document.getElementById(&#39;#app&#39;)
+);
+</code></pre>
+<h3 id="6-3-this-props-children">6.3 this.props.children</h3>
+<p><code>this.props</code>对象的属性与组件实例的属性一一对应,但<code>this.props.children</code>属性表示组件的所有子节点
+<code>React.Children.map</code>是一个工具方法，用于实现对数组元素的映射</p>
+<pre><code class="lang-html">var Person = React.createClass({
+    render: function() {
+      return (
+            &lt;ol&gt;
+                {
+                    React.Children.map(this.props.children,
+                      function (child) {
+                        return &lt;li&gt;{child}&lt;/li&gt;;
+                    })
+                }
+            &lt;/ol&gt;
+      );
+    }
+});
+
+ReactDOM.render(
+    &lt;Person&gt;
+        &lt;span&gt;大毛&lt;/span&gt;
+        &lt;span&gt;二毛&lt;/span&gt;
+        &lt;span&gt;三毛&lt;/span&gt;
+    &lt;/Person&gt;,
+    document.getElementById(&#39;#app&#39;)
+);
+</code></pre>
+<h3 id="6-4-state-">6.4 state状态</h3>
+<ul>
+<li>组件的状态就像人的心情，会经常变化，而且只能由自己来改变</li>
+<li>组件一开始有一个初始状态,然后用户互动,导致状态变化，从而触发界面重新渲染</li>
+<li><code>getInitialState</code>用来定义初始状态</li>
+<li>可以给按钮绑定事件，当事件发生的时候调用对应的方法改变组件的状态</li>
+</ul>
+<pre><code class="lang-javascript">var Person = React.createClass({
+    getInitialState: function() {
+        return {happy: true};
+    },
+
+    getDefaultProps:function(){
+        return {name:&#39;无名氏&#39;};
+    },
+    handleClick: function(event) {
+        this.setState({happy: !this.state.happy});
+    },
+    render: function() {
+        var heart = this.state.happy ? &#39;开心&#39; : &#39;不开心&#39;;
+        return (
+            &lt;p &gt;
+                 {this.props.name} {heart} &lt;br/&gt;
+                 &lt;button onClick={this.handleClick}&gt;变心&lt;/button&gt;
+            &lt;/p&gt;
+        );
+    }
+});
+
+ReactDOM.render(
+    &lt;Person name=&quot;林志玲&quot; /&gt;,
+    document.getElementById(&#39;#app&#39;)
+);
+</code></pre>
+<p>常用的事件</p>
+<pre><code class="lang-javascript">剪贴板事件 onKeyDown onKeyPress onKeyUp
+键盘事件 onFocus onBlur
+焦点事件 onChange onInput onSubmit
+鼠标事件 onClick onDoubleClick onMouseDown onMouseEnter onMouseLeave
+</code></pre>
+<h3 id="6-5-">6.5 表单元素双向数据绑定</h3>
+<pre><code class="lang-javascript">var Input = React.createClass({
+    getInitialState: function() {//获取初始状态
+        return {value: &#39;珠峰培训&#39;};
+    },
+    handleChange: function(event) { //处理改变事件
+        this.setState({value: event.target.value});
+    },
+    render: function () {
+        var value = this.state.value;
+        return (
+            &lt;div&gt;
+                &lt;input style={{color:&#39;red&#39;}} type=&quot;text&quot;
+                value={value} onChange={this.handleChange} /&gt;
+                &lt;p&gt;{value}&lt;/p&gt;
+            &lt;/div&gt;
+        );
+    }
+});
+
+ReactDOM.render(&lt;Input/&gt;, document.getElementById(&#39;#app&#39;));
+</code></pre>
+<blockquote>
+<p>注意: 如果给表单元素设置了<code>value</code>属性，则必须指定<code>onChange</code>事件处理函数，否则 此字段会变成只读状态</p>
+</blockquote>
+<h2 id="7-">7. 复合组件</h2>
+<p>多个简单的组件嵌套，可构成一个复杂的复合组件，从而完成复杂的交互逻辑</p>
+<pre><code class="lang-javascript">var Panel = React.createClass({
+    render: function () {
+        return (
+            &lt;div className=&quot;panel panel-default&quot;&gt;
+                &lt;PanelHead head={this.props.head}/&gt;
+                &lt;PanelBody body={this.props.body}/&gt;
+            &lt;/div&gt;
+        );
+    }
+});
+
+
+var PanelHead = React.createClass({
+    render: function () {
+        return (
+            &lt;div className=&quot;panel-heading&quot;&gt;
+                {this.props.head}
+            &lt;/div&gt;
+        );
+    }
+});
+
+
+var PanelBody = React.createClass({
+    render: function () {
+        return (
+            &lt;div className=&quot;panel-body&quot;&gt;
+                {this.props.body}
+            &lt;/div&gt;
+        );
+    }
+});
+
+ReactDOM.render(
+    &lt;Panel
+        head=&quot;头部&quot;
+        body=&quot;正文&quot;
+    /&gt;,
+    document.getElementById(&#39;#app&#39;)
+);
+</code></pre>
+<h2 id="8-">8. 组件的生命周期</h2>
+<p>React中可以指定在组件的生命周期的不同阶段执行的函数</p>
+<ul>
+<li>渲染前<ul>
+<li>getDefaultProps  在组件类创建的时候调用一次,则此处返回的对象中的相应属性将会合并到<code>this.props</code></li>
+<li>getInitialState 在组件挂载之前调用一次。返回值将会作为<code>this.state</code>的初始值。</li>
+<li>componentWillMount 在首次渲染之前触发</li>
+</ul>
+</li>
+<li>渲染<ul>
+<li>render 当调用的时候，会检测<code>this.props</code>和<code>this.state</code>，返回一个组件</li>
+</ul>
+</li>
+<li>渲染后<ul>
+<li>componentDidMount 在初始化渲染执行之后立刻调用一次</li>
+<li>shouldComponentUpdate 在接收到新的<code>props</code>或者<code>state</code>，将要渲染之前调用,返回<code>false</code>则不更新组件</li>
+<li>componentWillUpdate 做一些更新之前的准备工作</li>
+<li>componentDidUpdate 更新之后触发</li>
+<li>componentWillReceiveProps 在组件接收到新的<code>props</code>的时候调用</li>
+</ul>
+</li>
+<li>移除<ul>
+<li>componentWillUnmount 在组件从DOM中移除的时候立刻被调用</li>
+<li>componentDidUnmount 组件移除之后调用</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-javascript">var MessageBox = React.createClass({
+    getInitialState: function () {
+        console.log(&#39;MessageBox.getInitialState&#39;);
+        return {
+            count: 0,
+        }
+    },
+    getDefaultProps: function () {
+        console.log(&#39;MessageBox.getDefaultProps&#39;);
+    },
+    componentWillMount: function () {
+        console.log(&#39;MessageBox.componentWillMount&#39;);
+    },
+    componentDidMount: function () {
+        console.log(&#39;MessageBox.componentDidMount&#39;);
+    },
+    componentWillUnmount: function () {
+        console.log(&#39;MessageBox.componentWillUnmount&#39;);
+    },
+    shouldComponentUpdate: function (nextProp, nextState) {
+        console.log(&#39;MessageBox.shouldComponentUpdate&#39;);
+        if (nextState.count &gt; 10) return false;
+        return true;
+    },
+    componentWillUpdate: function (nextProp, nextState) {
+        console.log(&#39;MessageBox.componentWillUpdate&#39;);
+    },
+    componentDidUpdate: function () {
+        console.log(&#39;MessageBox.componentDidUpdate&#39;);
+    },
+    killMySelf: function () {
+        ReactDOM.unmountComponentAtNode(document.getElementById(&#39;#app&#39;));
+    },
+    doUpdate: function () {
+        this.setState({
+            count: this.state.count + 1,
+        });
+    },
+    render: function () {
+        return (
+            &lt;div&gt;
+                &lt;h1 &gt; 计数： {this.state.count}&lt;/h1&gt;
+                &lt;button onClick={this.killMySelf}&gt;卸载掉这个组件&lt;/button&gt;
+                &lt;button onClick={this.doUpdate}&gt;手动更新一下组件&lt;/button&gt;
+                &lt;Submessage count={this.state.count}/&gt;
+            &lt;/div&gt;
+        )
+    }
+});
+
+var Submessage = React.createClass({
+    componentWillReceiveProps: function (nextProp) {
+        console.log(&#39;Submessage.componentWillReceiveProps&#39;);
+    },
+    shouldComponentUpdate: function (nextProp, nextState) {
+        console.log(&#39;Submessage.shouldComponentUpdate&#39;);
+        if (nextProp.count &gt; 5) return false;
+        return true;
+    },
+    render: function () {
+        return (
+            &lt;h3&gt;当前计数是：{this.props.count}&lt;/h3&gt;
+        )
+    }
+});
+
+ReactDOM.render(&lt;MessageBox/&gt;, document.getElementById(&#39;#app&#39;));
+</code></pre>
+<blockquote>
+<p>ReactDOM.unmountComponentAtNode 从DOM中移除已经挂载的React组件</p>
+</blockquote>
+<h2 id="9-dom-">9. DOM操作</h2>
+<p>给组件加上<code>ref=&quot;xxx&quot;</code>后，可在父组件中通过<code>this.refs.xxx</code>获取该DOM元素</p>
+<pre><code class="lang-javascript">var Focus = React.createClass({
+    handleClick: function() {
+        this.refs.msg.focus();
+    },
+    render: function() {
+        return (
+            &lt;div&gt;
+                &lt;input type=&quot;text&quot; ref=&quot;msg&quot; /&gt;
+                &lt;input type=&quot;button&quot; value=&quot;获得焦点&quot;
+                onClick={this.handleClick} /&gt;
+            &lt;/div&gt;
+        );
+    }
+});
+
+ReactDOM.render(
+    &lt;Focus /&gt;,
+    document.getElementById(&#39;#app&#39;)
+);
+</code></pre>
+<h2 id="10-ajax-">10.通过Ajax获取数据</h2>
+<h3 id="10-1-">10.1 客户端</h3>
+<pre><code class="lang-javascript">var Suggestion = React.createClass({
+    getInitialState:function(){
+      return {}
+    },
+    handleChange: function () {
+        var value = this.refs.input.value;
+        $.ajax({
+            url: &#39;http://www.baidu.com/su&#39;,
+            type: &#39;get&#39;,
+            jsonp: &#39;cb&#39;,
+            dataType: &#39;jsonp&#39;,
+            data: {wd: value},
+            processData: true,
+            context:this,
+            success: function (result) {
+                var data = result.s;
+                data = data.map(function(item，index){
+                    return &lt;li key={index}&gt;{item}&lt;/li&gt;
+                });
+                this.setState({content:data});
+            }
+        })
+    },
+    render: function () {
+        return (
+            &lt;div&gt;
+                &lt;input type=&quot;text&quot; ref=&quot;input&quot;
+                onChange={this.handleChange}/&gt;
+                &lt;ul&gt;
+                    {this.state.content}
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        )
+    }
+});
+
+ReactDOM.render(&lt;Suggestion&gt;&lt;/Suggestion&gt;, document.getElementById(&#39;#app&#39;));
+</code></pre>
+<h3 id="10-2-">10.2 服务器端</h3>
+<pre><code class="lang-javascript">var express = require(&#39;express&#39;);
+var app = express();
+app.get(&#39;/jsonp&#39;,function(req,res){
+    var wd = req.query.wd;//得到关键字
+    var cb = req.query.cb;//得到回调函数的方法名
+    var result = {q:wd,p:false,s:[]};//拼结果对象
+    for(var i=0;i&lt;10;i++)
+        result.s.push(wd+i);
+    //先设置响应头
+    res.setHeader(&#39;Access-Control-Allow-Origin&#39;,&quot;*&quot;);
+    res.send(`${cb}(${JSON.stringify(result)})`);
+});
+app.listen(9090);
+</code></pre>
+<h3 id="10-3-ajax-">10.3 ajax方法</h3>
+<pre><code class="lang-javascript">function ajax({url,type,data,processData,jsonp,dataType,context,success}){
+   var xhr = new XMLHttpRequest();
+   url+= &#39;?&#39;;
+   var params = &#39;&#39;;
+   if(processData)
+       for(var attr in data){
+           params += (attr+&#39;=&#39;+data[attr]);
+       }
+    else
+       url+=data;
+   url+=params;
+   var method = &#39;jQuery_&#39;+Date.now();
+   url += (&#39;&amp;&#39;+jsonp+&#39;=&#39;+method);
+   xhr.open(type,url,true);
+   xhr.onreadystatechange = function(){
+       if(xhr.readyState == 4 &amp;&amp; /2\d{2}/.test(xhr.status)){
+           var response = xhr.responseText.match(/{[^{}]+}/)[0];
+           var jsonObj = JSON.parse(response);
+           success.bind(context)(jsonObj);
+       }
+   }
+   xhr.send();
+}
+</code></pre>
+<h2 id="11-mixin">11. mixin</h2>
+<p>公用抽取出来,让不同的组件共用同一部分逻辑，实现代码重用</p>
+<pre><code class="lang-javascript">var counterMix = {
+    getInitialState:function(){
+        return {count:0};
+    },
+    componentWillUpdate:function(){
+        console.log(&#39;componentWillUpdate&#39;);
+    },
+    handleClick:function(){
+        this.setState({count:this.state.count+1});
+    }
+}
+var Counter1 = React.createClass({
+   mixins: [counterMix],
+   render:function(){
+       return (
+           &lt;div&gt;
+               {this.state.count}
+               &lt;button onClick={this.handleClick}&gt;增加&lt;/button&gt;
+           &lt;/div&gt;
+       )
+   }
+});
+var Counter2 = React.createClass({
+    mixins: [counterMix],
+    render:function(){
+        return (
+            &lt;div&gt;
+                {this.state.count}
+                &lt;button onClick={this.handleClick}&gt;增加&lt;/button&gt;
+            &lt;/div&gt;
+        )
+    }
+});
+ReactDOM.render(&lt;div&gt;
+  &lt;Counter1/&gt;
+  &lt;Counter2/&gt;
+&lt;/div&gt;,document.getElementById(&#39;#app&#39;));
+</code></pre>
+<h2 id="12-">12. 插件实现双向数据绑定</h2>
+<p>在<code>index.html</code>引入插件</p>
+<pre><code>+ &lt;script src=&quot;lib/react/react-with-addons.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>JS实现</p>
+<pre><code>var Input = React.createClass({
+    mixins:[React.addons.LinkedStateMixin],
+    getInitialState: function() {//获取初始状态
+        return {msg: &#39;珠峰培训&#39;};
+    },
+    render: function () {
+        var msg = this.state.msg;
+        return (
+            &lt;div&gt;
+                &lt;input type=&quot;text&quot; valueLink={this.linkState(&#39;msg&#39;)} /&gt;
+                &lt;p&gt;{msg}&lt;/p&gt;
+            &lt;/div&gt;
+        );
+    }
+});
+
+ReactDOM.render(&lt;Input/&gt;, document.getElementById(&#39;#app&#39;));
+</code></pre><h2 id="13-">13.珠峰留言版</h2>
+<pre><code class="lang-javascript">var Board = React.createClass({
+    getInitialState: function () {
+        return {
+            msg: &#39;请输入&#39;,
+            messages:this.props.messages
+        };
+    },
+    render: function () {
+        return (
+            &lt;div&gt;
+                &lt;h1&gt;{this.props.title}&lt;/h1&gt;
+                &lt;input type=&quot;text&quot; defaultValue={this.state.msg}
+                ref=&quot;txtMsg&quot; onClick={this.clear}/&gt;
+                &lt;input type=&quot;button&quot; value=&#39;发言&#39; onClick={this.leaveMsg}/&gt;
+                &lt;ul&gt;
+                    {
+                        this.state.messages.map(function (item, index) {
+                            return &lt;li key={index}&gt;{item}&lt;/li&gt;
+                        })
+                    }
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        )
+    },
+    clear:function(){
+        this.refs.txtMsg.value =  &#39;&#39;;
+    },
+    leaveMsg: function (event) {
+     this.state.messages.push(this.refs.txtMsg.value);
+       //每次状态都是一个新的state对象
+     localStorage.setItem(&#39;messages&#39;,JSON.stringify(this.state.messages));
+     this.setState({
+           messages:this.state.messages
+     },function(){
+           this.refs.txtMsg.value =  &#39;&#39;;
+     });
+    }
+})
+var data = {
+    title: &#39;珠峰留言版&#39;,
+    messages: JSON.parse(localStorage.getItem(&#39;messages&#39;))||[]
+}
+
+ReactDOM.render(
+    &lt;Board {...data}/&gt;,
+    document.getElementById(&#39;#app&#39;)
+);
+</code></pre>
+<h2 id="13-">13.扩展阅读</h2>
+<ul>
+<li><a href="http://guoyongfeng.github.io/idoc/html/React%E8%AF%BE%E7%A8%8B%E4%B8%93%E9%A2%98/React%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB.html">郭永峰博客</a></li>
+<li><a href="https://facebook.github.io/react">react官网</a></li>
+<li><a href="http://reactjs.cn">react中文网</a></li>
+<li><a href="http://react-china.org">react中文网</a></li>
+<li><a href="http://ant.design">react中文网</a></li>
+<li><a href="https://github.com/facebook/react">githup</a></li>
+</ul>
+
