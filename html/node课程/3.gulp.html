@@ -38,7 +38,7 @@
 <div class="container">
     
         <div class="page-toc">
-            <ul><li><a href="#t01. 什么是gulp">1. 什么是gulp</a></li><li><a href="#t12. 安装gulp">2. 安装gulp</a></li><li><a href="#t22. 1 安装node">2. 1 安装node</a></li><li><a href="#t32. 2 gulp 命令行工具">2. 2 gulp 命令行工具</a></li><li><a href="#t42. 3 本地安装gulp">2. 3 本地安装gulp</a></li><li><a href="#t52. 4  在项目目录下初始化项目配置文件">2. 4  在项目目录下初始化项目配置文件</a></li><li><a href="#t62. 5 在项目下安装 gulp">2. 5 在项目下安装 gulp</a></li><li><a href="#t73. 运行gulp">3. 运行gulp</a><ul><li><a href="#t83.1 创建配置文件">3.1 创建配置文件</a></li><li><a href="#t93.2 创建gulp的任务">3.2 创建gulp的任务</a></li><li><a href="#t103.3 执行gulp任务">3.3 执行gulp任务</a></li></ul></li><li><a href="#t114. gulp.js工作方式">4. gulp.js工作方式</a></li><li><a href="#t125. gulp插件">5. gulp插件</a><ul><li><a href="#t135.1 使用插件步骤">5.1 使用插件步骤</a></li><li><a href="#t145.2  less">5.2  less</a></li><li><a href="#t155.3 gulp-concat">5.3 gulp-concat</a></li><li><a href="#t165.4  gulp-uglify">5.4  gulp-uglify</a></li><li><a href="#t175.5  gulp-rename">5.5  gulp-rename</a></li><li><a href="#t185.6  gulp-minify-css">5.6  gulp-minify-css</a></li><li><a href="#t195.7  gulp-minify-html">5.7  gulp-minify-html</a></li><li><a href="#t205.8  gulp-inject">5.8  gulp-inject</a></li><li><a href="#t215.9  gulp-babel">5.9  gulp-babel</a></li><li><a href="#t225.9 gulp-connect">5.9 gulp-connect</a></li><li><a href="#t235.10 自动刷新">5.10 自动刷新</a></li><li><a href="#t245.11  练习">5.11  练习</a></li></ul></li></ul>
+            <ul><li><a href="#t01. 什么是gulp">1. 什么是gulp</a></li><li><a href="#t12. 安装gulp">2. 安装gulp</a></li><li><a href="#t22. 1 安装node">2. 1 安装node</a></li><li><a href="#t32. 2 gulp 命令行工具">2. 2 gulp 命令行工具</a></li><li><a href="#t42. 3 本地安装gulp">2. 3 本地安装gulp</a></li><li><a href="#t52. 4  在项目目录下初始化项目配置文件">2. 4  在项目目录下初始化项目配置文件</a></li><li><a href="#t62. 5 在项目下安装 gulp">2. 5 在项目下安装 gulp</a></li><li><a href="#t73. 运行gulp">3. 运行gulp</a><ul><li><a href="#t83.1 创建配置文件">3.1 创建配置文件</a></li><li><a href="#t93.2 创建gulp的任务">3.2 创建gulp的任务</a></li><li><a href="#t103.3 执行gulp任务">3.3 执行gulp任务</a></li></ul></li><li><a href="#t114. gulp.js工作方式">4. gulp.js工作方式</a></li><li><a href="#t125. gulp插件">5. gulp插件</a><ul><li><a href="#t135.1 使用插件步骤">5.1 使用插件步骤</a></li><li><a href="#t145.2  less">5.2  less</a></li><li><a href="#t155.3 gulp-concat">5.3 gulp-concat</a></li><li><a href="#t165.4  gulp-uglify">5.4  gulp-uglify</a></li><li><a href="#t175.5  gulp-rename">5.5  gulp-rename</a></li><li><a href="#t185.6  gulp-minify-css">5.6  gulp-minify-css</a></li><li><a href="#t195.7  gulp-minify-html">5.7  gulp-minify-html</a></li><li><a href="#t205.8  gulp-inject">5.8  gulp-inject</a></li><li><a href="#t215.9  gulp-babel">5.9  gulp-babel</a></li><li><a href="#t225.10 gulp-connect">5.10 gulp-connect</a></li><li><a href="#t235.11 自动刷新">5.11 自动刷新</a></li><li><a href="#t245.12  练习">5.12  练习</a></li></ul></li></ul>
         </div>
 
         <div class="content markdown-body">
@@ -216,7 +216,8 @@ cd learngulp
 <pre><code>$    npm install gulp-minify-css --save-dev
 </code></pre><pre><code class="lang-javascript">   <span class="hljs-keyword">var</span> gulp = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;gulp&apos;</span>);
     <span class="hljs-keyword">var</span> less = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;gulp-less&apos;</span>);
-    <span class="hljs-keyword">var</span> minify = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;gulp-minify-css&apos;</span>);<span class="hljs-comment">//&#x5728;&#x6587;&#x4EF6;&#x7684;&#x9876;&#x90E8;&#x53BB;&#x5305;&#x542B;&#x8FD9;&#x4E2A;&#x63D2;&#x4EF6;&#xFF0C;&#x8D77;&#x4E2A;&#x540D;&#x5B57;&#xFF0C;&#x53EB;&#x505A; minify</span>
+    <span class="hljs-comment">//&#x5728;&#x6587;&#x4EF6;&#x7684;&#x9876;&#x90E8;&#x53BB;&#x5305;&#x542B;&#x8FD9;&#x4E2A;&#x63D2;&#x4EF6;&#xFF0C;&#x8D77;&#x4E2A;&#x540D;&#x5B57;&#xFF0C;&#x53EB;&#x505A; minify</span>
+    <span class="hljs-keyword">var</span> minify = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;gulp-minify-css&apos;</span>);
     <span class="hljs-keyword">var</span> rename = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;gulp-rename&apos;</span>);
     gulp.task(<span class="hljs-string">&apos;minify&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
         <span class="hljs-keyword">return</span> gulp.src(<span class="hljs-string">&apos;app/less/page.less&apos;</span>)<span class="hljs-comment">//&#x6307;&#x5B9A; less&#x6587;&#x4EF6;</span>
@@ -283,8 +284,9 @@ gulp.task(<span class="hljs-string">&apos;index&apos;</span>, <span class="hljs-
         .pipe(gulp.dest(<span class="hljs-string">&apos;build/js&apos;</span>));<span class="hljs-comment">//&#x518D;&#x8F93;&#x51FA;&#x4E00;&#x6B21;</span>
 });
 </code></pre>
-<h3 id="t225.9 gulp-connect">5.9 gulp-connect <a href="#t225.9 gulp-connect"> # </a></h3>
-<p>&#x6709;&#x4E9B;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x628A;&#x6587;&#x4EF6;&#x653E;&#x5230;&#x672C;&#x5730;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x53BB;&#x9884;&#x89C8;&#xFF0C;gulp-connect&#x53EF;&#x4EE5;&#x5E2E;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x672C;&#x5730;&#x670D;&#x52A1;&#x5668;&#x53BB;&#x8FD0;&#x884C;&#x6211;&#x4EEC;&#x7684;&#x9879;&#x76EE;</p>
+<h3 id="t225.10 gulp-connect">5.10 gulp-connect <a href="#t225.10 gulp-connect"> # </a></h3>
+<p>&#x6709;&#x4E9B;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x628A;&#x6587;&#x4EF6;&#x653E;&#x5230;&#x672C;&#x5730;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x53BB;&#x9884;&#x89C8;&#xFF0C;
+gulp-connect&#x53EF;&#x4EE5;&#x5E2E;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x672C;&#x5730;&#x670D;&#x52A1;&#x5668;&#x53BB;&#x8FD0;&#x884C;&#x6211;&#x4EEC;&#x7684;&#x9879;&#x76EE;</p>
 <pre><code>     npm install gulp-connect --save-dev
 </code></pre><pre><code class="lang-javascript">    <span class="hljs-keyword">var</span> gulp = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;gulp&apos;</span>);
     <span class="hljs-keyword">var</span> connect = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;gulp-connect&apos;</span>);
@@ -295,10 +297,10 @@ gulp.task(<span class="hljs-string">&apos;index&apos;</span>, <span class="hljs-
            port:<span class="hljs-number">8080</span> <span class="hljs-comment">//&#x670D;&#x52A1;&#x5668;&#x7684;&#x5730;&#x5740;&#xFF0C;&#x6CA1;&#x6709;&#x6B64;&#x914D;&#x7F6E;&#x9879;&#x9ED8;&#x8BA4;&#x4E5F;&#x662F; 8080</span>
        });
     });
-
-    gulp.task(<span class="hljs-string">&apos;default&apos;</span>,[<span class="hljs-string">&apos;server&apos;</span>]); <span class="hljs-comment">//&#x8FD0;&#x884C;&#x6B64;&#x4EFB;&#x52A1;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x5728;8080&#x4E0A;&#x542F;&#x52A8;&#x670D;&#x52A1;&#x5668;&#xFF0C;</span>
+   <span class="hljs-comment">//&#x8FD0;&#x884C;&#x6B64;&#x4EFB;&#x52A1;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x5728;8080&#x4E0A;&#x542F;&#x52A8;&#x670D;&#x52A1;&#x5668;&#xFF0C;</span>
+    gulp.task(<span class="hljs-string">&apos;default&apos;</span>,[<span class="hljs-string">&apos;server&apos;</span>]);
 </code></pre>
-<h3 id="t235.10 &#x81EA;&#x52A8;&#x5237;&#x65B0;">5.10 &#x81EA;&#x52A8;&#x5237;&#x65B0; <a href="#t235.10 &#x81EA;&#x52A8;&#x5237;&#x65B0;"> # </a></h3>
+<h3 id="t235.11 &#x81EA;&#x52A8;&#x5237;&#x65B0;">5.11 &#x81EA;&#x52A8;&#x5237;&#x65B0; <a href="#t235.11 &#x81EA;&#x52A8;&#x5237;&#x65B0;"> # </a></h3>
 <p>&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x5F53;&#x6587;&#x4EF6;&#x53D8;&#x5316;&#x7684;&#x65F6;&#x5019;&#x6D4F;&#x89C8;&#x5668;&#x53EF;&#x4EE5;&#x81EA;&#x52A8;&#x5237;&#x65B0;&#xFF0C;&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x5C31;&#x4E0D;&#x9700;&#x8981;&#x6587;&#x4EF6;&#x4FEE;&#x6539;&#x540E;&#x624B;&#x52A8;&#x53BB;&#x5237;&#x65B0;&#x6D4F;&#x89C8;&#x5668;&#x4E86;</p>
 <pre><code class="lang-javascript">    <span class="hljs-keyword">var</span> gulp = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;gulp&apos;</span>);
     <span class="hljs-keyword">var</span> connect = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;gulp-connect&apos;</span>);
@@ -310,7 +312,8 @@ gulp.task(<span class="hljs-string">&apos;index&apos;</span>, <span class="hljs-
     });
 
     gulp.task(<span class="hljs-string">&apos;watch&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-        gulp.watch(<span class="hljs-string">&apos;app/index.html&apos;</span>,[<span class="hljs-string">&apos;copy-html&apos;</span>]);<span class="hljs-comment">//&#x5F53;index.html&#x6587;&#x4EF6;&#x53D8;&#x5316;&#x65F6;&#x6267;&#x884C;copy-html&#x4EFB;&#x52A1;</span>
+      <span class="hljs-comment">//&#x5F53;index.html&#x6587;&#x4EF6;&#x53D8;&#x5316;&#x65F6;&#x6267;&#x884C;copy-html&#x4EFB;&#x52A1;</span>
+        gulp.watch(<span class="hljs-string">&apos;app/index.html&apos;</span>,[<span class="hljs-string">&apos;copy-html&apos;</span>]);
     });
 
     gulp.task(<span class="hljs-string">&apos;server&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
@@ -320,9 +323,10 @@ gulp.task(<span class="hljs-string">&apos;index&apos;</span>, <span class="hljs-
             livereload:<span class="hljs-literal">true</span><span class="hljs-comment">//&#x542F;&#x7528;&#x5B9E;&#x65F6;&#x5237;&#x65B0;&#x7684;&#x529F;&#x80FD;</span>
         });
     });
-    gulp.task(<span class="hljs-string">&apos;default&apos;</span>,[<span class="hljs-string">&apos;server&apos;</span>,<span class="hljs-string">&apos;watch&apos;</span>]);<span class="hljs-comment">//&#x8FD0;&#x884C;&#x6B64;&#x4EFB;&#x52A1;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x5728;8080&#x4E0A;&#x542F;&#x52A8;&#x670D;&#x52A1;&#x5668;&#xFF0C;</span>
+    <span class="hljs-comment">//&#x8FD0;&#x884C;&#x6B64;&#x4EFB;&#x52A1;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x5728;8080&#x4E0A;&#x542F;&#x52A8;&#x670D;&#x52A1;&#x5668;&#xFF0C;</span>
+    gulp.task(<span class="hljs-string">&apos;default&apos;</span>,[<span class="hljs-string">&apos;server&apos;</span>,<span class="hljs-string">&apos;watch&apos;</span>]);
 </code></pre>
-<h3 id="t245.11  &#x7EC3;&#x4E60;">5.11  &#x7EC3;&#x4E60; <a href="#t245.11  &#x7EC3;&#x4E60;"> # </a></h3>
+<h3 id="t245.12  &#x7EC3;&#x4E60;">5.12  &#x7EC3;&#x4E60; <a href="#t245.12  &#x7EC3;&#x4E60;"> # </a></h3>
 <p><a href="https://github.com/zhufengnodejs/learngulp">&#x6E90;&#x6587;&#x4EF6;&#x4F4D;&#x7F6E;</a></p>
 <ul>
 <li>js<ul>
@@ -351,7 +355,8 @@ gulp.task(<span class="hljs-string">&apos;index&apos;</span>, <span class="hljs-
 <li>6.1   &#x76D1;&#x63A7;index.html&#x6E90;&#x6587;&#x4EF6;&#x7684;&#x53D8;&#x5316;&#xFF0C;&#x5F53;&#x5B83;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x540E;&#x81EA;&#x52A8;&#x6267;&#x884C;html&#x4EFB;&#x52A1;&#x5E76;&#x81EA;&#x52A8;&#x5237;&#x65B0;&#x6D4F;&#x89C8;&#x5668;</li>
 </ul>
 </li>
-<li>default<pre><code>gulp.task(&apos;default&apos;, [&apos;js&apos;, &apos;css&apos;, &apos;images&apos;, &apos;html&apos;, &apos;server&apos;, &apos;watch&apos;]);
+<li>default<pre><code>gulp.task(&apos;default&apos;, [&apos;js&apos;, &apos;css&apos;, &apos;images&apos;,
+&apos;html&apos;, &apos;server&apos;, &apos;watch&apos;]);
 </code></pre></li>
 </ul>
 
