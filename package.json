@@ -153,9 +153,11 @@
             {
                 "node课程": [
                     "1.es6.md",
-                    "2.babel.md",
                     "3.gulp.md",
-                    "4.webpack.md"
+                    "2.promise.md",
+                    "3.babel.md",
+                    "4.gulp.md",
+                    "5.webpack.md"
                 ]
             }
         ]
