@@ -156,7 +156,10 @@
                     "2.promise.md",
                     "3.babel.md",
                     "4.gulp.md",
-                    "5.webpack.md"
+                    "5.webpack.md",
+                    "6.mongodb.md",
+                    "7.mongoose.md",
+                    "8.珠峰博客.md"
                 ]
             }
         ]
