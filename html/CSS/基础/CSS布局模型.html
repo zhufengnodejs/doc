@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>珠峰JS全栈</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logos"></div>
+        <div class="logo">
+
+            
+                珠峰JS全栈
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../../index.html">index</a></li><li><a href="#"><span></span>前端工程化</a><ul><li><a href="../../../html/前端工程化/gulp.html">gulp</a></li><li><a href="../../../html/前端工程化/webpack.html">webpack</a></li></ul></li><li><a href="#"><span></span>数据库</a><ul><li><a href="../../../html/数据库/mongoose.html">mongoose</a></li><li><a href="../../../html/数据库/mysql.html">mysql</a></li><li><a href="../../../html/数据库/mongodb.html">mongodb</a></li></ul></li><li><a href="#"><span></span>CSS</a><ul><li><a href="../../../html/CSS/less.html">less</a></li><li><a href="../../../html/CSS/jade.html">jade</a></li><li><a href="../../../html/CSS/CSS布局模型.html">CSS布局模型</a></li><li><a href="#"><span></span>基础</a><ul><li class="active"><a href="../../../html/CSS/基础/CSS布局模型.html">CSS布局模型</a></li><li><a href="../../../html/CSS/基础/盒子模型.html">盒子模型</a></li></ul></li><li><a href="#"><span></span>深入学习</a><ul><li><a href="../../../html/CSS/深入学习/margin.html">margin</a></li></ul></li></ul></li><li><a href="#"><span></span>Git</a><ul><li><a href="../../../html/Git/git入门.html">git入门</a></li></ul></li><li><a href="#"><span></span>工具</a><ul><li><a href="../../../html/工具/和谐.html">和谐</a></li><li><a href="../../../html/工具/webstorm安装与配置.html">webstorm安装与配置</a></li><li><a href="../../../html/工具/bower.html">bower</a></li><li><a href="../../../html/工具/babel.html">babel</a></li></ul></li><li><a href="#"><span></span>微信</a><ul><li><a href="../../../html/微信/微信开发.html">微信开发</a></li><li><a href="../../../html/微信/OAuth实现.html">OAuth实现</a></li><li><a href="../../../html/微信/OAuth理论.html">OAuth理论</a></li></ul></li><li><a href="#"><span></span>面试</a><ul><li><a href="../../../html/面试/CSS.html">CSS</a></li><li><a href="../../../html/面试/JAVASCRIPT.html">JAVASCRIPT</a></li><li><a href="../../../html/面试/其它.html">其它</a></li><li><a href="../../../html/面试/性能优化.html">性能优化</a></li><li><a href="../../../html/面试/angular.html">angular</a></li><li><a href="../../../html/面试/html.html">html</a></li><li><a href="../../../html/面试/网络.html">网络</a></li></ul></li><li><a href="#"><span></span>服务器</a><ul><li><a href="../../../html/服务器/ubuntu配置PHP.html">ubuntu配置PHP</a></li><li><a href="../../../html/服务器/linux基础.html">linux基础</a></li><li><a href="../../../html/服务器/linux布署.html">linux布署</a></li><li><a href="../../../html/服务器/ftp服务器.html">ftp服务器</a></li><li><a href="../../../html/服务器/linux用户管理.html">linux用户管理</a></li></ul></li><li><a href="#"><span></span>AngularJS</a><ul><li><a href="../../../html/AngularJS/angular入门.html">angular入门</a></li><li><a href="../../../html/AngularJS/angular基础.html">angular基础</a></li><li><a href="../../../html/AngularJS/route.html">route</a></li><li><a href="../../../html/AngularJS/指令.html">指令</a></li><li><a href="../../../html/AngularJS/服务.html">服务</a></li></ul></li><li><a href="#"><span></span>node基础</a><ul><li><a href="../../../html/node基础/buffer.html">buffer</a></li><li><a href="../../../html/node基础/文件上传.html">文件上传</a></li><li><a href="../../../html/node基础/文件操作.html">文件操作</a></li><li><a href="../../../html/node基础/模块.html">模块</a></li><li><a href="../../../html/node基础/流.html">流</a></li><li><a href="../../../html/node基础/node安装与配置.html">node安装与配置</a></li><li><a href="../../../html/node基础/NPM.html">NPM</a></li></ul></li><li><a href="#"><span></span>node进阶</a><ul><li><a href="../../../html/node进阶/cookie.html">cookie</a></li><li><a href="../../../html/node进阶/Express.html">Express</a></li><li><a href="../../../html/node进阶/session.html">session</a></li><li><a href="../../../html/node进阶/socketio.html">socketio</a></li><li><a href="../../../html/node进阶/websocket.html">websocket</a></li><li><a href="../../../html/node进阶/加密.html">加密</a></li><li><a href="../../../html/node进阶/动态服务器.html">动态服务器</a></li><li><a href="../../../html/node进阶/压缩.html">压缩</a></li><li><a href="../../../html/node进阶/静态文件服务器.html">静态文件服务器</a></li><li><a href="../../../html/node进阶/流高级.html">流高级</a></li></ul></li><li><a href="../../../html/首页.html">首页</a></li><li><a href="#"><span></span>node项目</a><ul><li><a href="../../../html/node项目/珠峰博客.html">珠峰博客</a></li><li><a href="../../../html/node项目/珠峰爬虫.html">珠峰爬虫</a></li><li><a href="../../../html/node项目/珠峰聊天室.html">珠峰聊天室</a></li></ul></li><li><a href="#"><span></span>react</a><ul><li><a href="../../../html/react/react-router.html">react-router</a></li><li><a href="../../../html/react/ReactNativeMac.html">ReactNativeMac</a></li><li><a href="../../../html/react/ReactNativeWin.html">ReactNativeWin</a></li><li><a href="../../../html/react/react基础应用.html">react基础应用</a></li><li><a href="../../../html/react/react入门.html">react入门</a></li><li><a href="../../../html/react/redux.html">redux</a></li></ul></li><li><a href="#"><span></span>vue</a><ul><li><a href="../../../html/vue/Vue入门.html">Vue入门</a></li><li><a href="../../../html/vue/Vue方法篇.html">Vue方法篇</a></li><li><a href="../../../html/vue/Vue方法篇2.html">Vue方法篇2</a></li><li><a href="../../../html/vue/Vue组件.html">Vue组件</a></li></ul></li><li><a href="#"><span></span>JAVASCRIPT</a><ul><li><a href="../../../html/JAVASCRIPT/ES6.html">ES6</a></li><li><a href="../../../html/JAVASCRIPT/jquery同步和异步.html">jquery同步和异步</a></li><li><a href="../../../html/JAVASCRIPT/js常用方法.html">js常用方法</a></li><li><a href="../../../html/JAVASCRIPT/promise.html">promise</a></li><li><a href="../../../html/JAVASCRIPT/webstorage.html">webstorage</a></li><li><a href="../../../html/JAVASCRIPT/初识JS.html">初识JS</a></li><li><a href="../../../html/JAVASCRIPT/原型链.html">原型链</a></li><li><a href="../../../html/JAVASCRIPT/字符编码.html">字符编码</a></li><li><a href="../../../html/JAVASCRIPT/属性设置.html">属性设置</a></li><li><a href="../../../html/JAVASCRIPT/模块化开发.html">模块化开发</a></li><li><a href="../../../html/JAVASCRIPT/正则表达式.html">正则表达式</a></li><li><a href="../../../html/JAVASCRIPT/缓存.html">缓存</a></li><li><a href="../../../html/JAVASCRIPT/预解析作用域闭包this.html">预解析作用域闭包this</a></li><li><a href="../../../html/JAVASCRIPT/DOM深入.html">DOM深入</a></li><li><a href="../../../html/JAVASCRIPT/JS盒子模型.html">JS盒子模型</a></li></ul></li><li><a href="#"><span></span>node课程</a><ul><li><a href="../../../html/node课程/1.es6.html">1.es6</a></li><li><a href="../../../html/node课程/2.promise.html">2.promise</a></li><li><a href="../../../html/node课程/3.babel.html">3.babel</a></li><li><a href="../../../html/node课程/4.gulp.html">4.gulp</a></li><li><a href="../../../html/node课程/5.webpack.html">5.webpack</a></li><li><a href="../../../html/node课程/6.mongodb.html">6.mongodb</a></li><li><a href="../../../html/node课程/7.mongoose.html">7.mongoose</a></li><li><a href="../../../html/node课程/8.珠峰博客.html">8.珠峰博客</a></li><li><a href="../../../html/node课程/内网使用.html">内网使用</a></li></ul></li><li><a href="#"><span></span>笔记</a><ul></ul></li><li><a href="#"><span></span>页面效果</a><ul><li><a href="../../../html/页面效果/次屏图片延迟加载.html">次屏图片延迟加载</a></li><li><a href="../../../html/页面效果/首屏图片延时加载.html">首屏图片延时加载</a></li></ul></li></ul>
+        </div>
+
+        
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+
+</div>
+
+
+
+
+
+<div class="container">
+    
+        <div class="page-toc">
+            <ul><li><a href="#t0css布局模型">css布局模型</a></li><li><a href="#t1流动模型（一）">流动模型（一）</a></li><li><a href="#t2流动模型（二）">流动模型（二）</a></li><li><a href="#t3浮动模型">浮动模型</a></li><li><a href="#t4什么是层模型？">什么是层模型？</a></li><li><a href="#t5层模型--绝对定位">层模型--绝对定位</a></li><li><a href="#t6层模型--相对定位">层模型--相对定位</a></li><li><a href="#t7层模型--固定定位">层模型--固定定位</a></li></ul>
+        </div>
+
+        <div class="content markdown-body">
+
+            <h3 id="t0css&#x5E03;&#x5C40;&#x6A21;&#x578B;">css&#x5E03;&#x5C40;&#x6A21;&#x578B; <a href="#t0css&#x5E03;&#x5C40;&#x6A21;&#x578B;"> # </a></h3>
+<p>&#x6E05;&#x695A;&#x4E86;CSS &#x76D2;&#x6A21;&#x578B;&#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;&#x3001; &#x76D2;&#x6A21;&#x578B;&#x7C7B;&#x578B;&#xFF0C; &#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x6DF1;&#x5165;&#x63A2;&#x8BA8;&#x7F51;&#x9875;&#x5E03;&#x5C40;&#x7684;&#x57FA;&#x672C;&#x6A21;&#x578B;&#x4E86;&#x3002;&#x5E03;&#x5C40;&#x6A21;&#x578B;&#x4E0E;&#x76D2;&#x6A21;&#x578B;&#x4E00;&#x6837;&#x90FD;&#x662F; CSS &#x6700;&#x57FA;&#x672C;&#x3001; &#x6700;&#x6838;&#x5FC3;&#x7684;&#x6982;&#x5FF5;&#x3002; &#x4F46;&#x5E03;&#x5C40;&#x6A21;&#x578B;&#x662F;&#x5EFA;&#x7ACB;&#x5728;&#x76D2;&#x6A21;&#x578B;&#x57FA;&#x7840;&#x4E4B;&#x4E0A;&#xFF0C;&#x53C8;&#x4E0D;&#x540C;&#x4E8E;&#x6211;&#x4EEC;&#x5E38;&#x8BF4;&#x7684; CSS &#x5E03;&#x5C40;&#x6837;&#x5F0F;&#x6216; CSS &#x5E03;&#x5C40;&#x6A21;&#x677F;&#x3002;&#x5982;&#x679C;&#x8BF4;&#x5E03;&#x5C40;&#x6A21;&#x578B;&#x662F;&#x672C;&#xFF0C;&#x90A3;&#x4E48; CSS &#x5E03;&#x5C40;&#x6A21;&#x677F;&#x5C31;&#x662F;&#x672B;&#x4E86;&#xFF0C;&#x662F;&#x5916;&#x5728;&#x7684;&#x8868;&#x73B0;&#x5F62;&#x5F0F;&#x3002;
+CSS&#x5305;&#x542B;3&#x79CD;&#x57FA;&#x672C;&#x7684;&#x5E03;&#x5C40;&#x6A21;&#x578B;&#xFF0C;&#x7528;&#x82F1;&#x6587;&#x6982;&#x62EC;&#x4E3A;&#xFF1A;Flow&#x3001;Layer &#x548C; Float&#x3002;
+&#x5728;&#x7F51;&#x9875;&#x4E2D;&#xFF0C;&#x5143;&#x7D20;&#x6709;&#x4E09;&#x79CD;&#x5E03;&#x5C40;&#x6A21;&#x578B;&#xFF1A;
+1&#x3001;&#x6D41;&#x52A8;&#x6A21;&#x578B;&#xFF08;Flow&#xFF09;
+2&#x3001;&#x6D6E;&#x52A8;&#x6A21;&#x578B; (Float)
+3&#x3001;&#x5C42;&#x6A21;&#x578B;&#xFF08;Layer&#xFF09;
+&#x8FD9;&#x4E09;&#x4E2A;&#x5E03;&#x5C40;&#x6A21;&#x578B;&#x7A76;&#x7ADF;&#x662F;&#x4EC0;&#x4E48;&#x5E03;&#x5C40;&#xFF1F;&#x4E0B;&#x9762;&#x51E0;&#x4E2A;&#x5C0F;&#x8282;&#x4F1A;&#x8BE6;&#x7EC6;&#x7ED9;&#x5927;&#x5BB6;&#x4ECB;&#x7ECD;&#x3002;</p>
+<h3 id="t1&#x6D41;&#x52A8;&#x6A21;&#x578B;&#xFF08;&#x4E00;&#xFF09;">&#x6D41;&#x52A8;&#x6A21;&#x578B;&#xFF08;&#x4E00;&#xFF09; <a href="#t1&#x6D41;&#x52A8;&#x6A21;&#x578B;&#xFF08;&#x4E00;&#xFF09;"> # </a></h3>
+<p>&#x5148;&#x6765;&#x8BF4;&#x4E00;&#x8BF4;&#x6D41;&#x52A8;&#x6A21;&#x578B;&#xFF0C;&#x6D41;&#x52A8;&#xFF08;Flow&#xFF09;&#x662F;&#x9ED8;&#x8BA4;&#x7684;&#x7F51;&#x9875;&#x5E03;&#x5C40;&#x6A21;&#x5F0F;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x7F51;&#x9875;&#x5728;&#x9ED8;&#x8BA4;&#x72B6;&#x6001;&#x4E0B;&#x7684; HTML &#x7F51;&#x9875;&#x5143;&#x7D20;&#x90FD;&#x662F;&#x6839;&#x636E;&#x6D41;&#x52A8;&#x6A21;&#x578B;&#x6765;&#x5206;&#x5E03;&#x7F51;&#x9875;&#x5185;&#x5BB9;&#x7684;&#x3002;
+&#x6D41;&#x52A8;&#x5E03;&#x5C40;&#x6A21;&#x578B;&#x5177;&#x6709;2&#x4E2A;&#x6BD4;&#x8F83;&#x5178;&#x578B;&#x7684;&#x7279;&#x5F81;&#xFF1A;
+&#x7B2C;&#x4E00;&#x70B9;&#xFF0C;&#x5757;&#x72B6;&#x5143;&#x7D20;&#x90FD;&#x4F1A;&#x5728;&#x6240;&#x5904;&#x7684;&#x5305;&#x542B;&#x5143;&#x7D20;&#x5185;&#x81EA;&#x4E0A;&#x800C;&#x4E0B;&#x6309;&#x987A;&#x5E8F;&#x5782;&#x76F4;&#x5EF6;&#x4F38;&#x5206;&#x5E03;&#xFF0C;&#x56E0;&#x4E3A;&#x5728;&#x9ED8;&#x8BA4;&#x72B6;&#x6001;&#x4E0B;&#xFF0C;&#x5757;&#x72B6;&#x5143;&#x7D20;&#x7684;&#x5BBD;&#x5EA6;&#x90FD;&#x4E3A;100%&#x3002;&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x5757;&#x72B6;&#x5143;&#x7D20;&#x90FD;&#x4F1A;&#x4EE5;&#x884C;&#x7684;&#x5F62;&#x5F0F;&#x5360;&#x636E;&#x4F4D;&#x7F6E;&#x3002;&#x5982;&#x53F3;&#x4FA7;&#x4EE3;&#x7801;&#x7F16;&#x8F91;&#x5668;&#x4E2D;&#x4E09;&#x4E2A;&#x5757;&#x72B6;&#x5143;&#x7D20;&#x6807;&#x7B7E;(div&#xFF0C;h1&#xFF0C;p)&#x5BBD;&#x5EA6;&#x663E;&#x793A;&#x4E3A;100%&#x3002;</p>
+<h3 id="t2&#x6D41;&#x52A8;&#x6A21;&#x578B;&#xFF08;&#x4E8C;&#xFF09;">&#x6D41;&#x52A8;&#x6A21;&#x578B;&#xFF08;&#x4E8C;&#xFF09; <a href="#t2&#x6D41;&#x52A8;&#x6A21;&#x578B;&#xFF08;&#x4E8C;&#xFF09;"> # </a></h3>
+<p>&#x7B2C;&#x4E8C;&#x70B9;&#xFF0C;&#x5728;&#x6D41;&#x52A8;&#x6A21;&#x578B;&#x4E0B;&#xFF0C;&#x5185;&#x8054;&#x5143;&#x7D20;&#x90FD;&#x4F1A;&#x5728;&#x6240;&#x5904;&#x7684;&#x5305;&#x542B;&#x5143;&#x7D20;&#x5185;&#x4ECE;&#x5DE6;&#x5230;&#x53F3;&#x6C34;&#x5E73;&#x5206;&#x5E03;&#x663E;&#x793A;&#x3002;&#xFF08;&#x5185;&#x8054;&#x5143;&#x7D20;&#x53EF;&#x4E0D;&#x50CF;&#x5757;&#x72B6;&#x5143;&#x7D20;&#x8FD9;&#x4E48;&#x9738;&#x9053;&#x72EC;&#x5360;&#x4E00;&#x884C;&#xFF09;
+&#x53F3;&#x4FA7;&#x4EE3;&#x7801;&#x7F16;&#x8F91;&#x5668;&#x4E2D;&#x5185;&#x8054;&#x5143;&#x7D20;&#x6807;&#x7B7E;a&#x3001;span&#x3001;em&#x3001;strong&#x90FD;&#x662F;&#x5185;&#x8054;&#x5143;&#x7D20;&#x3002;</p>
+<h3 id="t3&#x6D6E;&#x52A8;&#x6A21;&#x578B;">&#x6D6E;&#x52A8;&#x6A21;&#x578B; <a href="#t3&#x6D6E;&#x52A8;&#x6A21;&#x578B;"> # </a></h3>
+<p>&#x5757;&#x72B6;&#x5143;&#x7D20;&#x8FD9;&#x4E48;&#x9738;&#x9053;&#x90FD;&#x662F;&#x72EC;&#x5360;&#x4E00;&#x884C;&#xFF0C;&#x5982;&#x679C;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x60F3;&#x8BA9;&#x4E24;&#x4E2A;&#x5757;&#x72B6;&#x5143;&#x7D20;&#x5E76;&#x6392;&#x663E;&#x793A;&#xFF0C;&#x600E;&#x4E48;&#x529E;&#x5462;&#xFF1F;&#x4E0D;&#x8981;&#x7740;&#x6025;&#xFF0C;&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x6D6E;&#x52A8;&#x5C31;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x8FD9;&#x4E00;&#x613F;&#x671B;&#x3002;
+&#x4EFB;&#x4F55;&#x5143;&#x7D20;&#x5728;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x662F;&#x4E0D;&#x80FD;&#x6D6E;&#x52A8;&#x7684;&#xFF0C;&#x4F46;&#x53EF;&#x4EE5;&#x7528; CSS &#x5B9A;&#x4E49;&#x4E3A;&#x6D6E;&#x52A8;&#xFF0C;&#x5982; div&#x3001;p&#x3001;table&#x3001;img &#x7B49;&#x5143;&#x7D20;&#x90FD;&#x53EF;&#x4EE5;&#x88AB;&#x5B9A;&#x4E49;&#x4E3A;&#x6D6E;&#x52A8;&#x3002;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x4E24;&#x4E2A; div &#x5143;&#x7D20;&#x4E00;&#x884C;&#x663E;&#x793A;&#x3002;</p>
+<pre><code class="lang-css">div{
+    width:200px;
+    height:200px;
+    border:2px red solid;
+    float:left;
+}
+&lt;div id=&quot;div1&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;div2&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>&#x6548;&#x679C;&#x56FE;
+<img src="http://img.mukewang.com/540e62c60001c56a06760417.jpg" class="img-responsive">
+&#x5F53;&#x7136;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x8BBE;&#x7F6E;&#x4E24;&#x4E2A;&#x5143;&#x7D20;&#x53F3;&#x6D6E;&#x52A8;&#x4E5F;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x4E00;&#x884C;&#x663E;&#x793A;&#x3002;</p>
+<pre><code class="lang-css"><span class="hljs-tag">div</span><span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"><span class="hljs-number">200px</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"><span class="hljs-number">200px</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">border</span>:<span class="hljs-value"><span class="hljs-number">2px</span> red solid</span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">float</span>:<span class="hljs-value">right</span></span>;
+}</span>
+</code></pre>
+<p>&#x6548;&#x679C;&#x56FE;
+<img src="http://img.mukewang.com/540e632b0001f5f506760417.jpg" class="img-responsive">
+&#x53C8;&#x6709;&#x5C0F;&#x4F19;&#x4F34;&#x95EE;&#x4E86;&#xFF0C;&#x8BBE;&#x7F6E;&#x4E24;&#x4E2A;&#x5143;&#x7D20;&#x4E00;&#x5DE6;&#x4E00;&#x53F3;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x4E00;&#x884C;&#x663E;&#x793A;&#x5417;&#xFF1F;&#x5F53;&#x7136;&#x53EF;&#x4EE5;&#xFF1A;</p>
+<pre><code class="lang-css"><span class="hljs-tag">div</span><span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"><span class="hljs-number">200px</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"><span class="hljs-number">200px</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">border</span>:<span class="hljs-value"><span class="hljs-number">2px</span> red solid</span></span>;
+}</span>
+<span class="hljs-id">#div1</span><span class="hljs-rules">{<span class="hljs-rule"><span class="hljs-attribute">float</span>:<span class="hljs-value">left</span></span>;}</span>
+<span class="hljs-id">#div2</span><span class="hljs-rules">{<span class="hljs-rule"><span class="hljs-attribute">float</span>:<span class="hljs-value">right</span></span>;}</span>
+</code></pre>
+<p>&#x6548;&#x679C;&#x56FE;
+<img src="http://img.mukewang.com/540e63b50001f6a206760417.jpg" class="img-responsive"></p>
+<h3 id="t4&#x4EC0;&#x4E48;&#x662F;&#x5C42;&#x6A21;&#x578B;&#xFF1F;">&#x4EC0;&#x4E48;&#x662F;&#x5C42;&#x6A21;&#x578B;&#xFF1F; <a href="#t4&#x4EC0;&#x4E48;&#x662F;&#x5C42;&#x6A21;&#x578B;&#xFF1F;"> # </a></h3>
+<p>&#x4EC0;&#x4E48;&#x662F;&#x5C42;&#x5E03;&#x5C40;&#x6A21;&#x578B;&#xFF1F;&#x5C42;&#x5E03;&#x5C40;&#x6A21;&#x578B;&#x5C31;&#x50CF;&#x662F;&#x56FE;&#x50CF;&#x8F6F;&#x4EF6;PhotoShop&#x4E2D;&#x975E;&#x5E38;&#x6D41;&#x884C;&#x7684;&#x56FE;&#x5C42;&#x7F16;&#x8F91;&#x529F;&#x80FD;&#x4E00;&#x6837;&#xFF0C;&#x6BCF;&#x4E2A;&#x56FE;&#x5C42;&#x80FD;&#x591F;&#x7CBE;&#x786E;&#x5B9A;&#x4F4D;&#x64CD;&#x4F5C;&#xFF0C;&#x4F46;&#x5728;&#x7F51;&#x9875;&#x8BBE;&#x8BA1;&#x9886;&#x57DF;&#xFF0C;&#x7531;&#x4E8E;&#x7F51;&#x9875;&#x5927;&#x5C0F;&#x7684;&#x6D3B;&#x52A8;&#x6027;&#xFF0C;&#x5C42;&#x5E03;&#x5C40;&#x6CA1;&#x80FD;&#x53D7;&#x5230;&#x70ED;&#x6367;&#x3002;&#x4F46;&#x662F;&#x5728;&#x7F51;&#x9875;&#x4E0A;&#x5C40;&#x90E8;&#x4F7F;&#x7528;&#x5C42;&#x5E03;&#x5C40;&#x8FD8;&#x662F;&#x6709;&#x5176;&#x65B9;&#x4FBF;&#x4E4B;&#x5904;&#x7684;&#x3002;&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x6765;&#x5B66;&#x4E60;&#x4E00;&#x4E0B;html&#x4E2D;&#x7684;&#x5C42;&#x5E03;&#x5C40;&#x3002;
+&#x5982;&#x4F55;&#x8BA9;html&#x5143;&#x7D20;&#x5728;&#x7F51;&#x9875;&#x4E2D;&#x7CBE;&#x786E;&#x5B9A;&#x4F4D;&#xFF0C;&#x5C31;&#x50CF;&#x56FE;&#x50CF;&#x8F6F;&#x4EF6;PhotoShop&#x4E2D;&#x7684;&#x56FE;&#x5C42;&#x4E00;&#x6837;&#x53EF;&#x4EE5;&#x5BF9;&#x6BCF;&#x4E2A;&#x56FE;&#x5C42;&#x80FD;&#x591F;&#x7CBE;&#x786E;&#x5B9A;&#x4F4D;&#x64CD;&#x4F5C;&#x3002;CSS&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x7EC4;&#x5B9A;&#x4F4D;&#xFF08;positioning&#xFF09;&#x5C5E;&#x6027;&#x6765;&#x652F;&#x6301;&#x5C42;&#x5E03;&#x5C40;&#x6A21;&#x578B;&#x3002;
+&#x5C42;&#x6A21;&#x578B;&#x6709;&#x4E09;&#x79CD;&#x5F62;&#x5F0F;&#xFF1A;
+1&#x3001;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;(position: absolute)
+2&#x3001;&#x76F8;&#x5BF9;&#x5B9A;&#x4F4D;(position: relative)
+3&#x3001;&#x56FA;&#x5B9A;&#x5B9A;&#x4F4D;(position: fixed)</p>
+<h3 id="t5&#x5C42;&#x6A21;&#x578B;--&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;">&#x5C42;&#x6A21;&#x578B;--&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D; <a href="#t5&#x5C42;&#x6A21;&#x578B;--&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;"> # </a></h3>
+<p>&#x5982;&#x679C;&#x60F3;&#x4E3A;&#x5143;&#x7D20;&#x8BBE;&#x7F6E;&#x5C42;&#x6A21;&#x578B;&#x4E2D;&#x7684;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#xFF0C;&#x9700;&#x8981;&#x8BBE;&#x7F6E;position:absolute(&#x8868;&#x793A;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;)&#xFF0C;&#x8FD9;&#x6761;&#x8BED;&#x53E5;&#x7684;&#x4F5C;&#x7528;&#x5C06;&#x5143;&#x7D20;&#x4ECE;&#x6587;&#x6863;&#x6D41;&#x4E2D;&#x62D6;&#x51FA;&#x6765;&#xFF0C;&#x7136;&#x540E;&#x4F7F;&#x7528;left&#x3001;right&#x3001;top&#x3001;bottom&#x5C5E;&#x6027;&#x76F8;&#x5BF9;&#x4E8E;&#x5176;&#x6700;&#x63A5;&#x8FD1;&#x7684;&#x4E00;&#x4E2A;&#x5177;&#x6709;&#x5B9A;&#x4F4D;&#x5C5E;&#x6027;&#x7684;&#x7236;&#x5305;&#x542B;&#x5757;&#x8FDB;&#x884C;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#x3002;&#x5982;&#x679C;&#x4E0D;&#x5B58;&#x5728;&#x8FD9;&#x6837;&#x7684;&#x5305;&#x542B;&#x5757;&#xFF0C;&#x5219;&#x76F8;&#x5BF9;&#x4E8E;body&#x5143;&#x7D20;&#xFF0C;&#x5373;&#x76F8;&#x5BF9;&#x4E8E;&#x6D4F;&#x89C8;&#x5668;&#x7A97;&#x53E3;&#x3002;
+&#x5982;&#x4E0B;&#x9762;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;div&#x5143;&#x7D20;&#x76F8;&#x5BF9;&#x4E8E;&#x6D4F;&#x89C8;&#x5668;&#x7A97;&#x53E3;&#x5411;&#x53F3;&#x79FB;&#x52A8;100px&#xFF0C;&#x5411;&#x4E0B;&#x79FB;&#x52A8;50px&#x3002;</p>
+<pre><code class="lang-css">div{
+    width:200px;
+    height:200px;
+    border:2px red solid;
+    position:absolute;
+    left:100px;
+    top:50px;
+}
+&lt;div id=&quot;div1&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>&#x6548;&#x679C;&#x5982;&#x4E0B;&#xFF1A;
+<img src="http://img.mukewang.com/53a00b130001e86707360547.jpg" class="img-responsive"></p>
+<h3 id="t6&#x5C42;&#x6A21;&#x578B;--&#x76F8;&#x5BF9;&#x5B9A;&#x4F4D;">&#x5C42;&#x6A21;&#x578B;--&#x76F8;&#x5BF9;&#x5B9A;&#x4F4D; <a href="#t6&#x5C42;&#x6A21;&#x578B;--&#x76F8;&#x5BF9;&#x5B9A;&#x4F4D;"> # </a></h3>
+<p>&#x5982;&#x679C;&#x60F3;&#x4E3A;&#x5143;&#x7D20;&#x8BBE;&#x7F6E;&#x5C42;&#x6A21;&#x578B;&#x4E2D;&#x7684;&#x76F8;&#x5BF9;&#x5B9A;&#x4F4D;&#xFF0C;&#x9700;&#x8981;&#x8BBE;&#x7F6E;position:relative&#xFF08;&#x8868;&#x793A;&#x76F8;&#x5BF9;&#x5B9A;&#x4F4D;&#xFF09;&#xFF0C;&#x5B83;&#x901A;&#x8FC7;left&#x3001;right&#x3001;top&#x3001;bottom&#x5C5E;&#x6027;&#x786E;&#x5B9A;&#x5143;&#x7D20;&#x5728;&#x6B63;&#x5E38;&#x6587;&#x6863;&#x6D41;&#x4E2D;&#x7684;&#x504F;&#x79FB;&#x4F4D;&#x7F6E;&#x3002;&#x76F8;&#x5BF9;&#x5B9A;&#x4F4D;&#x5B8C;&#x6210;&#x7684;&#x8FC7;&#x7A0B;&#x662F;&#x9996;&#x5148;&#x6309;static(float)&#x65B9;&#x5F0F;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x5143;&#x7D20;(&#x5E76;&#x4E14;&#x5143;&#x7D20;&#x50CF;&#x5C42;&#x4E00;&#x6837;&#x6D6E;&#x52A8;&#x4E86;&#x8D77;&#x6765;)&#xFF0C;&#x7136;&#x540E;&#x76F8;&#x5BF9;&#x4E8E;&#x4EE5;&#x524D;&#x7684;&#x4F4D;&#x7F6E;&#x79FB;&#x52A8;&#xFF0C;&#x79FB;&#x52A8;&#x7684;&#x65B9;&#x5411;&#x548C;&#x5E45;&#x5EA6;&#x7531;left&#x3001;right&#x3001;top&#x3001;bottom&#x5C5E;&#x6027;&#x786E;&#x5B9A;&#xFF0C;&#x504F;&#x79FB;&#x524D;&#x7684;&#x4F4D;&#x7F6E;&#x4FDD;&#x7559;&#x4E0D;&#x52A8;&#x3002;
+&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;&#x76F8;&#x5BF9;&#x4E8E;&#x4EE5;&#x524D;&#x4F4D;&#x7F6E;&#x5411;&#x4E0B;&#x79FB;&#x52A8;50px&#xFF0C;&#x5411;&#x53F3;&#x79FB;&#x52A8;100px;</p>
+<pre><code class="lang-css">#div1{
+    width:200px;
+    height:200px;
+    border:2px red solid;
+    position:relative;
+    left:100px;
+    top:50px;
+}
+
+&lt;div id=&quot;div1&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>&#x6548;&#x679C;&#x56FE;&#xFF1A;
+<img src="http://img.mukewang.com/53a00d2b00015c4b06190509.jpg" class="img-responsive">
+&#x4EC0;&#x4E48;&#x53EB;&#x505A;&#x201C;&#x504F;&#x79FB;&#x524D;&#x7684;&#x4F4D;&#x7F6E;&#x4FDD;&#x7559;&#x4E0D;&#x52A8;&#x201D;&#x5462;&#xFF1F;
+&#x5927;&#x5BB6;&#x53EF;&#x4EE5;&#x505A;&#x4E00;&#x4E2A;&#x5B9E;&#x9A8C;&#xFF0C;&#x5728;&#x53F3;&#x4FA7;&#x4EE3;&#x7801;&#x7F16;&#x8F91;&#x5668;&#x7684;19&#x884C;div&#x6807;&#x7B7E;&#x7684;&#x540E;&#x9762;&#x52A0;&#x5165;&#x4E00;&#x4E2A;span&#x6807;&#x7B7E;&#xFF0C;&#x5728;&#x6807;&#x5E76;&#x5728;span&#x6807;&#x7B7E;&#x4E2D;&#x5199;&#x5165;&#x4E00;&#x4E9B;&#x6587;&#x5B57;&#x3002;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;</p>
+<p><body>
+    <div id="div1"></div><span>&#x504F;&#x79FB;&#x524D;&#x7684;&#x4F4D;&#x7F6E;&#x8FD8;&#x4FDD;&#x7559;&#x4E0D;&#x52A8;&#xFF0C;&#x8986;&#x76D6;&#x4E0D;&#x4E86;&#x524D;&#x9762;&#x7684;div&#x6CA1;&#x6709;&#x504F;&#x79FB;&#x524D;&#x7684;&#x4F4D;&#x7F6E;</span>
+</body>
+&#x6548;&#x679C;&#x56FE;&#xFF1A;
+<img src="http://img.mukewang.com/541a4bfc0001abef05940489.jpg" class="img-responsive">
+&#x4ECE;&#x6548;&#x679C;&#x56FE;&#x4E2D;&#x53EF;&#x4EE5;&#x660E;&#x663E;&#x7684;&#x770B;&#x51FA;&#xFF0C;&#x867D;&#x7136;div&#x5143;&#x7D20;&#x76F8;&#x5BF9;&#x4E8E;&#x4EE5;&#x524D;&#x7684;&#x4F4D;&#x7F6E;&#x4EA7;&#x751F;&#x4E86;&#x504F;&#x79FB;&#xFF0C;&#x4F46;&#x662F;div&#x5143;&#x7D20;&#x4EE5;&#x524D;&#x7684;&#x4F4D;&#x7F6E;&#x8FD8;&#x662F;&#x4FDD;&#x7559;&#x7740;&#xFF0C;&#x6240;&#x4EE5;&#x540E;&#x9762;&#x7684;span&#x5143;&#x7D20;&#x662F;&#x663E;&#x793A;&#x5728;&#x4E86;div&#x5143;&#x7D20;&#x4EE5;&#x524D;&#x4F4D;&#x7F6E;&#x7684;&#x540E;&#x9762;&#x3002;</p>
+<h3 id="t7&#x5C42;&#x6A21;&#x578B;--&#x56FA;&#x5B9A;&#x5B9A;&#x4F4D;">&#x5C42;&#x6A21;&#x578B;--&#x56FA;&#x5B9A;&#x5B9A;&#x4F4D; <a href="#t7&#x5C42;&#x6A21;&#x578B;--&#x56FA;&#x5B9A;&#x5B9A;&#x4F4D;"> # </a></h3>
+<p>fixed&#xFF1A;&#x8868;&#x793A;&#x56FA;&#x5B9A;&#x5B9A;&#x4F4D;&#xFF0C;&#x4E0E;absolute&#x5B9A;&#x4F4D;&#x7C7B;&#x578B;&#x7C7B;&#x4F3C;&#xFF0C;&#x4F46;&#x5B83;&#x7684;&#x76F8;&#x5BF9;&#x79FB;&#x52A8;&#x7684;&#x5750;&#x6807;&#x662F;&#x89C6;&#x56FE;&#xFF08;&#x5C4F;&#x5E55;&#x5185;&#x7684;&#x7F51;&#x9875;&#x7A97;&#x53E3;&#xFF09;&#x672C;&#x8EAB;&#x3002;&#x7531;&#x4E8E;&#x89C6;&#x56FE;&#x672C;&#x8EAB;&#x662F;&#x56FA;&#x5B9A;&#x7684;&#xFF0C;&#x5B83;&#x4E0D;&#x4F1A;&#x968F;&#x6D4F;&#x89C8;&#x5668;&#x7A97;&#x53E3;&#x7684;&#x6EDA;&#x52A8;&#x6761;&#x6EDA;&#x52A8;&#x800C;&#x53D8;&#x5316;&#xFF0C;&#x9664;&#x975E;&#x4F60;&#x5728;&#x5C4F;&#x5E55;&#x4E2D;&#x79FB;&#x52A8;&#x6D4F;&#x89C8;&#x5668;&#x7A97;&#x53E3;&#x7684;&#x5C4F;&#x5E55;&#x4F4D;&#x7F6E;&#xFF0C;&#x6216;&#x6539;&#x53D8;&#x6D4F;&#x89C8;&#x5668;&#x7A97;&#x53E3;&#x7684;&#x663E;&#x793A;&#x5927;&#x5C0F;&#xFF0C;&#x56E0;&#x6B64;&#x56FA;&#x5B9A;&#x5B9A;&#x4F4D;&#x7684;&#x5143;&#x7D20;&#x4F1A;&#x59CB;&#x7EC8;&#x4F4D;&#x4E8E;&#x6D4F;&#x89C8;&#x5668;&#x7A97;&#x53E3;&#x5185;&#x89C6;&#x56FE;&#x7684;&#x67D0;&#x4E2A;&#x4F4D;&#x7F6E;&#xFF0C;&#x4E0D;&#x4F1A;&#x53D7;&#x6587;&#x6863;&#x6D41;&#x52A8;&#x5F71;&#x54CD;&#xFF0C;&#x8FD9;&#x4E0E;background-attachment:fixed&#x37E;&#x5C5E;&#x6027;&#x529F;&#x80FD;&#x76F8;&#x540C;&#x3002;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x76F8;&#x5BF9;&#x4E8E;&#x6D4F;&#x89C8;&#x5668;&#x89C6;&#x56FE;&#x5411;&#x53F3;&#x79FB;&#x52A8;100px&#xFF0C;&#x5411;&#x4E0B;&#x79FB;&#x52A8;50px&#x3002;&#x5E76;&#x4E14;&#x62D6;&#x52A8;&#x6EDA;&#x52A8;&#x6761;&#x65F6;&#x4F4D;&#x7F6E;&#x56FA;&#x5B9A;&#x4E0D;&#x53D8;&#x3002;</p>
+<pre><code class="lang-css">#div1{
+    width:200px;
+    height:200px;
+    border:2px red solid;
+    position:fixed;
+    left:100px;
+    top:50px;
+}
+&lt;p&gt;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x6587;&#x672C;&#x3002;&lt;/p&gt;
+</code></pre>
+
+
+        </div>
+    
+</div>
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    /*url("/static/img/banner.jpg") no-repeat*/
+    .bs-docs-header{
+        background:linear-gradient(to right ,#333333 50%,#0d0b0c 50%) ;
+        padding: 0;
+    }
+    .new-back{
+        background-image: url("static/img/banner.jpg") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 88px;
+    }
+    .markdown-body pre code,.markdown-body code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .markdown-body code{
+      line-height: inherit;
+    }
+    .markdown-body h3{
+        font-size:1.4em;
+    }
+    .markdown-body h4{
+        font-size:1em;
+    }
+
+
+
+    /*index*/
+    .jw-style{
+        font-size: 1.75em;
+        color: #1d3e81;
+        line-height: 2em;
+    }
+
+    .understand-me {
+        text-align: center;
+        margin: 100px auto 0;
+    }
+
+    .understand-me li {
+        vertical-align: top;
+        width: 33.3333%;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+    }
+
+    .understand-me li span {
+        color: #1a1a1a;
+        font-size: 1.6em;
+
+    }
+
+    .understand-me p {
+        margin: 0 auto;
+        width: 90%;
+        text-align: left;
+        color: #4c4c4c;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    .understand-me img {
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .footers{
+        background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px
+    }
+    .understand-me img:hover {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    @media screen and (max-width: 479px) {
+        .understand-me li{
+            width: 100%;
+            margin-bottom: 2em;
+        }
+        .new-back{
+            padding: 28px;
+        }
+        .understand-me p {
+            width: 60%;
+        }
+        .footers{
+            height: 80px;
+            background-size:auto 100%;;
+        }
+    }
+
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+if(!$('.understand-me').length){
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h1,h2,h3,h4,h5,h6").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+}
+</script>
+
+</body>
+</html>
+
+
+<script>
+
+</script>

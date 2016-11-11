@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>珠峰JS全栈</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logos"></div>
+        <div class="logo">
+
+            
+                珠峰JS全栈
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>前端工程化</a><ul><li><a href="../../html/前端工程化/gulp.html">gulp</a></li><li><a href="../../html/前端工程化/webpack.html">webpack</a></li></ul></li><li><a href="#"><span></span>数据库</a><ul><li><a href="../../html/数据库/mongoose.html">mongoose</a></li><li><a href="../../html/数据库/mysql.html">mysql</a></li><li><a href="../../html/数据库/mongodb.html">mongodb</a></li></ul></li><li><a href="#"><span></span>CSS</a><ul><li><a href="../../html/CSS/less.html">less</a></li><li><a href="../../html/CSS/jade.html">jade</a></li><li><a href="../../html/CSS/CSS布局模型.html">CSS布局模型</a></li><li><a href="#"><span></span>基础</a><ul><li><a href="../../html/CSS/基础/CSS布局模型.html">CSS布局模型</a></li><li><a href="../../html/CSS/基础/盒子模型.html">盒子模型</a></li></ul></li><li><a href="#"><span></span>深入学习</a><ul><li><a href="../../html/CSS/深入学习/margin.html">margin</a></li></ul></li></ul></li><li><a href="#"><span></span>Git</a><ul><li><a href="../../html/Git/git入门.html">git入门</a></li></ul></li><li><a href="#"><span></span>工具</a><ul><li><a href="../../html/工具/和谐.html">和谐</a></li><li><a href="../../html/工具/webstorm安装与配置.html">webstorm安装与配置</a></li><li><a href="../../html/工具/bower.html">bower</a></li><li><a href="../../html/工具/babel.html">babel</a></li></ul></li><li><a href="#"><span></span>微信</a><ul><li><a href="../../html/微信/微信开发.html">微信开发</a></li><li><a href="../../html/微信/OAuth实现.html">OAuth实现</a></li><li><a href="../../html/微信/OAuth理论.html">OAuth理论</a></li></ul></li><li><a href="#"><span></span>面试</a><ul><li><a href="../../html/面试/CSS.html">CSS</a></li><li><a href="../../html/面试/JAVASCRIPT.html">JAVASCRIPT</a></li><li><a href="../../html/面试/其它.html">其它</a></li><li><a href="../../html/面试/性能优化.html">性能优化</a></li><li><a href="../../html/面试/angular.html">angular</a></li><li><a href="../../html/面试/html.html">html</a></li><li><a href="../../html/面试/网络.html">网络</a></li></ul></li><li><a href="#"><span></span>服务器</a><ul><li><a href="../../html/服务器/ubuntu配置PHP.html">ubuntu配置PHP</a></li><li><a href="../../html/服务器/linux基础.html">linux基础</a></li><li><a href="../../html/服务器/linux布署.html">linux布署</a></li><li><a href="../../html/服务器/ftp服务器.html">ftp服务器</a></li><li><a href="../../html/服务器/linux用户管理.html">linux用户管理</a></li></ul></li><li><a href="#"><span></span>AngularJS</a><ul><li><a href="../../html/AngularJS/angular入门.html">angular入门</a></li><li><a href="../../html/AngularJS/angular基础.html">angular基础</a></li><li><a href="../../html/AngularJS/route.html">route</a></li><li><a href="../../html/AngularJS/指令.html">指令</a></li><li><a href="../../html/AngularJS/服务.html">服务</a></li></ul></li><li><a href="#"><span></span>node基础</a><ul><li><a href="../../html/node基础/buffer.html">buffer</a></li><li><a href="../../html/node基础/文件上传.html">文件上传</a></li><li><a href="../../html/node基础/文件操作.html">文件操作</a></li><li><a href="../../html/node基础/模块.html">模块</a></li><li><a href="../../html/node基础/流.html">流</a></li><li><a href="../../html/node基础/node安装与配置.html">node安装与配置</a></li><li><a href="../../html/node基础/NPM.html">NPM</a></li></ul></li><li><a href="#"><span></span>node进阶</a><ul><li><a href="../../html/node进阶/cookie.html">cookie</a></li><li><a href="../../html/node进阶/Express.html">Express</a></li><li><a href="../../html/node进阶/session.html">session</a></li><li><a href="../../html/node进阶/socketio.html">socketio</a></li><li><a href="../../html/node进阶/websocket.html">websocket</a></li><li><a href="../../html/node进阶/加密.html">加密</a></li><li><a href="../../html/node进阶/动态服务器.html">动态服务器</a></li><li><a href="../../html/node进阶/压缩.html">压缩</a></li><li><a href="../../html/node进阶/静态文件服务器.html">静态文件服务器</a></li><li><a href="../../html/node进阶/流高级.html">流高级</a></li></ul></li><li><a href="../../html/首页.html">首页</a></li><li><a href="#"><span></span>node项目</a><ul><li><a href="../../html/node项目/珠峰博客.html">珠峰博客</a></li><li><a href="../../html/node项目/珠峰爬虫.html">珠峰爬虫</a></li><li><a href="../../html/node项目/珠峰聊天室.html">珠峰聊天室</a></li></ul></li><li><a href="#"><span></span>react</a><ul><li><a href="../../html/react/react-router.html">react-router</a></li><li><a href="../../html/react/ReactNativeMac.html">ReactNativeMac</a></li><li><a href="../../html/react/ReactNativeWin.html">ReactNativeWin</a></li><li><a href="../../html/react/react基础应用.html">react基础应用</a></li><li><a href="../../html/react/react入门.html">react入门</a></li><li><a href="../../html/react/redux.html">redux</a></li></ul></li><li><a href="#"><span></span>vue</a><ul><li><a href="../../html/vue/Vue入门.html">Vue入门</a></li><li><a href="../../html/vue/Vue方法篇.html">Vue方法篇</a></li><li><a href="../../html/vue/Vue方法篇2.html">Vue方法篇2</a></li><li><a href="../../html/vue/Vue组件.html">Vue组件</a></li></ul></li><li><a href="#"><span></span>JAVASCRIPT</a><ul><li><a href="../../html/JAVASCRIPT/ES6.html">ES6</a></li><li><a href="../../html/JAVASCRIPT/jquery同步和异步.html">jquery同步和异步</a></li><li><a href="../../html/JAVASCRIPT/js常用方法.html">js常用方法</a></li><li><a href="../../html/JAVASCRIPT/promise.html">promise</a></li><li><a href="../../html/JAVASCRIPT/webstorage.html">webstorage</a></li><li><a href="../../html/JAVASCRIPT/初识JS.html">初识JS</a></li><li><a href="../../html/JAVASCRIPT/原型链.html">原型链</a></li><li><a href="../../html/JAVASCRIPT/字符编码.html">字符编码</a></li><li><a href="../../html/JAVASCRIPT/属性设置.html">属性设置</a></li><li><a href="../../html/JAVASCRIPT/模块化开发.html">模块化开发</a></li><li><a href="../../html/JAVASCRIPT/正则表达式.html">正则表达式</a></li><li><a href="../../html/JAVASCRIPT/缓存.html">缓存</a></li><li><a href="../../html/JAVASCRIPT/预解析作用域闭包this.html">预解析作用域闭包this</a></li><li class="active"><a href="../../html/JAVASCRIPT/DOM深入.html">DOM深入</a></li><li><a href="../../html/JAVASCRIPT/JS盒子模型.html">JS盒子模型</a></li></ul></li><li><a href="#"><span></span>node课程</a><ul><li><a href="../../html/node课程/1.es6.html">1.es6</a></li><li><a href="../../html/node课程/2.promise.html">2.promise</a></li><li><a href="../../html/node课程/3.babel.html">3.babel</a></li><li><a href="../../html/node课程/4.gulp.html">4.gulp</a></li><li><a href="../../html/node课程/5.webpack.html">5.webpack</a></li><li><a href="../../html/node课程/6.mongodb.html">6.mongodb</a></li><li><a href="../../html/node课程/7.mongoose.html">7.mongoose</a></li><li><a href="../../html/node课程/8.珠峰博客.html">8.珠峰博客</a></li><li><a href="../../html/node课程/内网使用.html">内网使用</a></li></ul></li><li><a href="#"><span></span>笔记</a><ul></ul></li><li><a href="#"><span></span>页面效果</a><ul><li><a href="../../html/页面效果/次屏图片延迟加载.html">次屏图片延迟加载</a></li><li><a href="../../html/页面效果/首屏图片延时加载.html">首屏图片延时加载</a></li></ul></li></ul>
+        </div>
+
+        
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+
+</div>
+
+
+
+
+
+<div class="container">
+    
+        <div class="page-toc">
+            <ul><li><a href="#t0DOM">DOM</a></li><li><a href="#t1DOM获取节点">DOM获取节点</a><ul><li><a href="#t2获取当前页面中元素的方法">获取当前页面中元素的方法</a></li><li><a href="#t3把当前指定容器中子子孙孙辈份的所有标签名都获取到">把当前指定容器中子子孙孙辈份的所有标签名都获取到</a></li><li><a href="#t4把当前指定容器中子子孙孙辈份的所有类名元素都获取到">把当前指定容器中子子孙孙辈份的所有类名元素都获取到</a></li><li><a href="#t5有两种特殊的文档属性可用来访问根节点">有两种特殊的文档属性可用来访问根节点</a></li><li><a href="#t6通过它得到的集合是没有映射关系的属于 staticNodelist">通过它得到的集合是没有映射关系的属于 staticNodelist</a></li></ul></li><li><a href="#t7描述节点和节点之间的属性">描述节点和节点之间的属性</a><ul><li><a href="#t8获取子节点">获取子节点</a></li><li><a href="#t9获取子元素节点">获取子元素节点</a></li><li><a href="#t10父节点">父节点</a></li><li><a href="#t11上一个哥哥节点/获取上一个哥哥元素节点">上一个哥哥节点/获取上一个哥哥元素节点</a></li><li><a href="#t12下一个弟弟节点/下一个弟弟元素节点">下一个弟弟节点/下一个弟弟元素节点</a></li><li><a href="#t13最后一个节点/最后一个元素节点">最后一个节点/最后一个元素节点</a></li><li><a href="#t14第一个节点/第一个元素节点">第一个节点/第一个元素节点</a></li></ul></li><li><a href="#t15DOM操作">DOM操作</a><ul><li><a href="#t16创建文档碎片">创建文档碎片</a></li><li><a href="#t17追加新的子元素">追加新的子元素</a></li></ul></li><li><a href="#t18在当前元素之前插入">在当前元素之前插入</a><ul><li><a href="#t19克隆元素">克隆元素</a></li><li><a href="#t20替换子元素">替换子元素</a></li><li><a href="#t21移除子元素">移除子元素</a></li><li><a href="#t22获取/设置/移除自定义属性">获取/设置/移除自定义属性</a></li></ul></li><li><a href="#t23DOM盒子模型">DOM盒子模型</a></li></ul>
+        </div>
+
+        <div class="content markdown-body">
+
+            <h2 id="t0DOM">DOM <a href="#t0DOM"> # </a></h2>
+<p>&#x5728;&#x4E00;&#x4E2A;&#x9875;&#x9762;&#x4E2D;&#xFF0C;&#x6700;&#x5E38;&#x7528;&#x7684;&#x6709;&#x56DB;&#x79CD;: &#x5143;&#x7D20;&#x3001;&#x6587;&#x672C;&#x3001;&#x6CE8;&#x91CA;
+&#x5143;&#x7D20; nodeType=1 nodeName=&#x5927;&#x5199;&#x7684;&#x6807;&#x7B7E;&#x540D; nodeValue=null
+&#x6587;&#x672C; nodeType=3 nodeName=#text nodeValue=&#x6587;&#x672C;&#x5185;&#x5BB9;
+&#x6CE8;&#x91CA; nodeType=8 nodeName=#comment nodeValue=&#x6CE8;&#x91CA;&#x5185;&#x5BB9;</p>
+<p>document
+document nodeType=9 nodeName=#document nodeValue=null</p>
+<h2 id="t1DOM&#x83B7;&#x53D6;&#x8282;&#x70B9;">DOM&#x83B7;&#x53D6;&#x8282;&#x70B9; <a href="#t1DOM&#x83B7;&#x53D6;&#x8282;&#x70B9;"> # </a></h2>
+<h3 id="t2&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x9875;&#x9762;&#x4E2D;&#x5143;&#x7D20;&#x7684;&#x65B9;&#x6CD5;">&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x9875;&#x9762;&#x4E2D;&#x5143;&#x7D20;&#x7684;&#x65B9;&#x6CD5; <a href="#t2&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x9875;&#x9762;&#x4E2D;&#x5143;&#x7D20;&#x7684;&#x65B9;&#x6CD5;"> # </a></h3>
+<pre><code class="lang-javascript"> <span class="hljs-built_in">document</span>.getElementById();
+</code></pre>
+<h3 id="t3&#x628A;&#x5F53;&#x524D;&#x6307;&#x5B9A;&#x5BB9;&#x5668;&#x4E2D;&#x5B50;&#x5B50;&#x5B59;&#x5B59;&#x8F88;&#x4EFD;&#x7684;&#x6240;&#x6709;&#x6807;&#x7B7E;&#x540D;&#x90FD;&#x83B7;&#x53D6;&#x5230;">&#x628A;&#x5F53;&#x524D;&#x6307;&#x5B9A;&#x5BB9;&#x5668;&#x4E2D;&#x5B50;&#x5B50;&#x5B59;&#x5B59;&#x8F88;&#x4EFD;&#x7684;&#x6240;&#x6709;&#x6807;&#x7B7E;&#x540D;&#x90FD;&#x83B7;&#x53D6;&#x5230; <a href="#t3&#x628A;&#x5F53;&#x524D;&#x6307;&#x5B9A;&#x5BB9;&#x5668;&#x4E2D;&#x5B50;&#x5B50;&#x5B59;&#x5B59;&#x8F88;&#x4EFD;&#x7684;&#x6240;&#x6709;&#x6807;&#x7B7E;&#x540D;&#x90FD;&#x83B7;&#x53D6;&#x5230;"> # </a></h3>
+<pre><code class="lang-javascript">   <span class="hljs-comment">///context.getElementByTagName(TAG_NAME)</span>
+</code></pre>
+<h3 id="t4&#x628A;&#x5F53;&#x524D;&#x6307;&#x5B9A;&#x5BB9;&#x5668;&#x4E2D;&#x5B50;&#x5B50;&#x5B59;&#x5B59;&#x8F88;&#x4EFD;&#x7684;&#x6240;&#x6709;&#x7C7B;&#x540D;&#x5143;&#x7D20;&#x90FD;&#x83B7;&#x53D6;&#x5230;">&#x628A;&#x5F53;&#x524D;&#x6307;&#x5B9A;&#x5BB9;&#x5668;&#x4E2D;&#x5B50;&#x5B50;&#x5B59;&#x5B59;&#x8F88;&#x4EFD;&#x7684;&#x6240;&#x6709;&#x7C7B;&#x540D;&#x5143;&#x7D20;&#x90FD;&#x83B7;&#x53D6;&#x5230; <a href="#t4&#x628A;&#x5F53;&#x524D;&#x6307;&#x5B9A;&#x5BB9;&#x5668;&#x4E2D;&#x5B50;&#x5B50;&#x5B59;&#x5B59;&#x8F88;&#x4EFD;&#x7684;&#x6240;&#x6709;&#x7C7B;&#x540D;&#x5143;&#x7D20;&#x90FD;&#x83B7;&#x53D6;&#x5230;"> # </a></h3>
+<pre><code class="lang-javascript">   <span class="hljs-comment">//var spans = oDiv.getElementsByClassName(&apos;.span&apos;);//IE 6-8&#x4E0D;&#x517C;&#x5BB9;</span>
+</code></pre>
+<h3 id="t5&#x6709;&#x4E24;&#x79CD;&#x7279;&#x6B8A;&#x7684;&#x6587;&#x6863;&#x5C5E;&#x6027;&#x53EF;&#x7528;&#x6765;&#x8BBF;&#x95EE;&#x6839;&#x8282;&#x70B9;">&#x6709;&#x4E24;&#x79CD;&#x7279;&#x6B8A;&#x7684;&#x6587;&#x6863;&#x5C5E;&#x6027;&#x53EF;&#x7528;&#x6765;&#x8BBF;&#x95EE;&#x6839;&#x8282;&#x70B9; <a href="#t5&#x6709;&#x4E24;&#x79CD;&#x7279;&#x6B8A;&#x7684;&#x6587;&#x6863;&#x5C5E;&#x6027;&#x53EF;&#x7528;&#x6765;&#x8BBF;&#x95EE;&#x6839;&#x8282;&#x70B9;"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-built_in">document</span>.documentElement;  <span class="hljs-comment">//&#x7B2C;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x53EF;&#x8FD4;&#x56DE;&#x5B58;&#x5728;&#x4E8E; XML &#x4EE5;&#x53CA; HTML &#x6587;&#x6863;&#x4E2D;&#x7684;&#x6587;&#x6863;&#x6839;&#x8282;&#x70B9;</span>
+<span class="hljs-built_in">document</span>.body;  <span class="hljs-comment">//&#x7B2C;&#x4E8C;&#x4E2A;&#x5C5E;&#x6027;&#x662F;&#x5BF9; HTML &#x9875;&#x9762;&#x7684;&#x7279;&#x6B8A;&#x6269;&#x5C55;&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;&#x5BF9; &lt;body&gt; &#x6807;&#x7B7E;&#x7684;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#x3002;</span>
+</code></pre>
+<h3 id="t6&#x901A;&#x8FC7;&#x5B83;&#x5F97;&#x5230;&#x7684;&#x96C6;&#x5408;&#x662F;&#x6CA1;&#x6709;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#x7684;&#x5C5E;&#x4E8E; staticNodelist">&#x901A;&#x8FC7;&#x5B83;&#x5F97;&#x5230;&#x7684;&#x96C6;&#x5408;&#x662F;&#x6CA1;&#x6709;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#x7684;&#x5C5E;&#x4E8E; staticNodelist <a href="#t6&#x901A;&#x8FC7;&#x5B83;&#x5F97;&#x5230;&#x7684;&#x96C6;&#x5408;&#x662F;&#x6CA1;&#x6709;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#x7684;&#x5C5E;&#x4E8E; staticNodelist"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-built_in">document</span>.querySelector();
+<span class="hljs-built_in">document</span>.querySelectorAll();
+</code></pre>
+<h2 id="t7&#x63CF;&#x8FF0;&#x8282;&#x70B9;&#x548C;&#x8282;&#x70B9;&#x4E4B;&#x95F4;&#x7684;&#x5C5E;&#x6027;">&#x63CF;&#x8FF0;&#x8282;&#x70B9;&#x548C;&#x8282;&#x70B9;&#x4E4B;&#x95F4;&#x7684;&#x5C5E;&#x6027; <a href="#t7&#x63CF;&#x8FF0;&#x8282;&#x70B9;&#x548C;&#x8282;&#x70B9;&#x4E4B;&#x95F4;&#x7684;&#x5C5E;&#x6027;"> # </a></h2>
+<h3 id="t8&#x83B7;&#x53D6;&#x5B50;&#x8282;&#x70B9;">&#x83B7;&#x53D6;&#x5B50;&#x8282;&#x70B9; <a href="#t8&#x83B7;&#x53D6;&#x5B50;&#x8282;&#x70B9;"> # </a></h3>
+<p>&#x5143;&#x7D20; &#x6587;&#x672C; &#x6CE8;&#x91CA; &#xFF0C;&#x5728;&#x6807;&#x51C6;&#x6D4F;&#x89C8;&#x5668;&#x5F53;&#x4E2D;&#x628A;&#x7A7A;&#x683C;&#x548C;&#x6362;&#x884C;&#x5F53;&#x4F5C;&#x6587;&#x672C;&#x8282;&#x70B9;&#x5904;&#x7406;,childNodes&#x5305;&#x62EC;tag&#x4E4B;&#x95F4;&#x9690;&#x5F62;&#x5B58;&#x5728;&#x7684;TextNode&#x5BF9;&#x8C61;</p>
+<pre><code class="lang-javascript">childNodes
+</code></pre>
+<h3 id="t9&#x83B7;&#x53D6;&#x5B50;&#x5143;&#x7D20;&#x8282;&#x70B9;">&#x83B7;&#x53D6;&#x5B50;&#x5143;&#x7D20;&#x8282;&#x70B9; <a href="#t9&#x83B7;&#x53D6;&#x5B50;&#x5143;&#x7D20;&#x8282;&#x70B9;"> # </a></h3>
+<p>children&#x662F;&#x6307;DOM Object&#x7C7B;&#x578B;&#x7684;&#x5B50;&#x5BF9;&#x8C61;&#xFF0C;&#x4E0D;&#x5305;&#x62EC;tag&#x4E4B;&#x95F4;&#x9690;&#x5F62;&#x5B58;&#x5728;&#x7684;TextNode</p>
+<pre><code class="lang-javascript">children
+</code></pre>
+<h3 id="t10&#x7236;&#x8282;&#x70B9;">&#x7236;&#x8282;&#x70B9; <a href="#t10&#x7236;&#x8282;&#x70B9;"> # </a></h3>
+<pre><code class="lang-javascript">parentNode
+</code></pre>
+<h3 id="t11&#x4E0A;&#x4E00;&#x4E2A;&#x54E5;&#x54E5;&#x8282;&#x70B9;/&#x83B7;&#x53D6;&#x4E0A;&#x4E00;&#x4E2A;&#x54E5;&#x54E5;&#x5143;&#x7D20;&#x8282;&#x70B9;">&#x4E0A;&#x4E00;&#x4E2A;&#x54E5;&#x54E5;&#x8282;&#x70B9;/&#x83B7;&#x53D6;&#x4E0A;&#x4E00;&#x4E2A;&#x54E5;&#x54E5;&#x5143;&#x7D20;&#x8282;&#x70B9; <a href="#t11&#x4E0A;&#x4E00;&#x4E2A;&#x54E5;&#x54E5;&#x8282;&#x70B9;/&#x83B7;&#x53D6;&#x4E0A;&#x4E00;&#x4E2A;&#x54E5;&#x54E5;&#x5143;&#x7D20;&#x8282;&#x70B9;"> # </a></h3>
+<pre><code class="lang-javascript">previousSibling/previousElementSibling
+</code></pre>
+<h3 id="t12&#x4E0B;&#x4E00;&#x4E2A;&#x5F1F;&#x5F1F;&#x8282;&#x70B9;/&#x4E0B;&#x4E00;&#x4E2A;&#x5F1F;&#x5F1F;&#x5143;&#x7D20;&#x8282;&#x70B9;">&#x4E0B;&#x4E00;&#x4E2A;&#x5F1F;&#x5F1F;&#x8282;&#x70B9;/&#x4E0B;&#x4E00;&#x4E2A;&#x5F1F;&#x5F1F;&#x5143;&#x7D20;&#x8282;&#x70B9; <a href="#t12&#x4E0B;&#x4E00;&#x4E2A;&#x5F1F;&#x5F1F;&#x8282;&#x70B9;/&#x4E0B;&#x4E00;&#x4E2A;&#x5F1F;&#x5F1F;&#x5143;&#x7D20;&#x8282;&#x70B9;"> # </a></h3>
+<pre><code class="lang-javascript">nextSibling/nextElementSibling
+</code></pre>
+<h3 id="t13&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x8282;&#x70B9;/&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x8282;&#x70B9;">&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x8282;&#x70B9;/&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x8282;&#x70B9; <a href="#t13&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x8282;&#x70B9;/&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x8282;&#x70B9;"> # </a></h3>
+<pre><code class="lang-javascript">lastChild/lastElementChild
+</code></pre>
+<h3 id="t14&#x7B2C;&#x4E00;&#x4E2A;&#x8282;&#x70B9;/&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x8282;&#x70B9;">&#x7B2C;&#x4E00;&#x4E2A;&#x8282;&#x70B9;/&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x8282;&#x70B9; <a href="#t14&#x7B2C;&#x4E00;&#x4E2A;&#x8282;&#x70B9;/&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x8282;&#x70B9;"> # </a></h3>
+<pre><code class="lang-javascript">firstChild/firstElementChild
+</code></pre>
+<h2 id="t15DOM&#x64CD;&#x4F5C;">DOM&#x64CD;&#x4F5C; <a href="#t15DOM&#x64CD;&#x4F5C;"> # </a></h2>
+<p>&#x521B;&#x5EFA;&#x5143;&#x7D20;</p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">document</span>.createElement
+</code></pre>
+<h3 id="t16&#x521B;&#x5EFA;&#x6587;&#x6863;&#x788E;&#x7247;">&#x521B;&#x5EFA;&#x6587;&#x6863;&#x788E;&#x7247; <a href="#t16&#x521B;&#x5EFA;&#x6587;&#x6863;&#x788E;&#x7247;"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-built_in">document</span>.createDocumentFragment
+</code></pre>
+<h3 id="t17&#x8FFD;&#x52A0;&#x65B0;&#x7684;&#x5B50;&#x5143;&#x7D20;">&#x8FFD;&#x52A0;&#x65B0;&#x7684;&#x5B50;&#x5143;&#x7D20; <a href="#t17&#x8FFD;&#x52A0;&#x65B0;&#x7684;&#x5B50;&#x5143;&#x7D20;"> # </a></h3>
+<pre><code class="lang-javascript">appendChild
+</code></pre>
+<h2 id="t18&#x5728;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x4E4B;&#x524D;&#x63D2;&#x5165;">&#x5728;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x4E4B;&#x524D;&#x63D2;&#x5165; <a href="#t18&#x5728;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x4E4B;&#x524D;&#x63D2;&#x5165;"> # </a></h2>
+<pre><code class="lang-javascript">insertBefore
+</code></pre>
+<h3 id="t19&#x514B;&#x9686;&#x5143;&#x7D20;">&#x514B;&#x9686;&#x5143;&#x7D20; <a href="#t19&#x514B;&#x9686;&#x5143;&#x7D20;"> # </a></h3>
+<pre><code class="lang-javascript">cloneNode(<span class="hljs-literal">true</span>/<span class="hljs-literal">false</span>); &#x4E3A;<span class="hljs-literal">true</span>&#x8868;&#x793A;&#x4E5F;&#x514B;&#x9686;&#x5B50;&#x5143;&#x7D20;/&#x4E3A; <span class="hljs-literal">false</span>&#x8868;&#x793A; &#x53EA;&#x514B;&#x9686;&#x5F53;&#x524D;&#x6807;&#x7B7E;
+<span class="hljs-string">`
+</span></code></pre>
+<h3 id="t20&#x66FF;&#x6362;&#x5B50;&#x5143;&#x7D20;">&#x66FF;&#x6362;&#x5B50;&#x5143;&#x7D20; <a href="#t20&#x66FF;&#x6362;&#x5B50;&#x5143;&#x7D20;"> # </a></h3>
+<pre><code class="lang-javascript">replaceChild
+</code></pre>
+<h3 id="t21&#x79FB;&#x9664;&#x5B50;&#x5143;&#x7D20;">&#x79FB;&#x9664;&#x5B50;&#x5143;&#x7D20; <a href="#t21&#x79FB;&#x9664;&#x5B50;&#x5143;&#x7D20;"> # </a></h3>
+<pre><code class="lang-javascript">removeChild
+</code></pre>
+<h3 id="t22&#x83B7;&#x53D6;/&#x8BBE;&#x7F6E;/&#x79FB;&#x9664;&#x81EA;&#x5B9A;&#x4E49;&#x5C5E;&#x6027;">&#x83B7;&#x53D6;/&#x8BBE;&#x7F6E;/&#x79FB;&#x9664;&#x81EA;&#x5B9A;&#x4E49;&#x5C5E;&#x6027; <a href="#t22&#x83B7;&#x53D6;/&#x8BBE;&#x7F6E;/&#x79FB;&#x9664;&#x81EA;&#x5B9A;&#x4E49;&#x5C5E;&#x6027;"> # </a></h3>
+<pre><code class="lang-javascript"> get set removeAttribute
+</code></pre>
+<h2 id="t23DOM&#x76D2;&#x5B50;&#x6A21;&#x578B;">DOM&#x76D2;&#x5B50;&#x6A21;&#x578B; <a href="#t23DOM&#x76D2;&#x5B50;&#x6A21;&#x578B;"> # </a></h2>
+<pre><code>clientHeight
+clientWidth
+clientTop
+clientLeft
+
+offsetHeight
+offsetWidth
+offsetTop
+offsetLeft
+offsetParent
+
+scrollWidth
+scrollHeight
+scrollTop
+scrollLeft
+
+getComputedStyle
+currentStyle
+</code></pre>
+
+        </div>
+    
+</div>
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    /*url("/static/img/banner.jpg") no-repeat*/
+    .bs-docs-header{
+        background:linear-gradient(to right ,#333333 50%,#0d0b0c 50%) ;
+        padding: 0;
+    }
+    .new-back{
+        background-image: url("static/img/banner.jpg") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 88px;
+    }
+    .markdown-body pre code,.markdown-body code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .markdown-body code{
+      line-height: inherit;
+    }
+    .markdown-body h3{
+        font-size:1.4em;
+    }
+    .markdown-body h4{
+        font-size:1em;
+    }
+
+
+
+    /*index*/
+    .jw-style{
+        font-size: 1.75em;
+        color: #1d3e81;
+        line-height: 2em;
+    }
+
+    .understand-me {
+        text-align: center;
+        margin: 100px auto 0;
+    }
+
+    .understand-me li {
+        vertical-align: top;
+        width: 33.3333%;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+    }
+
+    .understand-me li span {
+        color: #1a1a1a;
+        font-size: 1.6em;
+
+    }
+
+    .understand-me p {
+        margin: 0 auto;
+        width: 90%;
+        text-align: left;
+        color: #4c4c4c;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    .understand-me img {
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .footers{
+        background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px
+    }
+    .understand-me img:hover {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    @media screen and (max-width: 479px) {
+        .understand-me li{
+            width: 100%;
+            margin-bottom: 2em;
+        }
+        .new-back{
+            padding: 28px;
+        }
+        .understand-me p {
+            width: 60%;
+        }
+        .footers{
+            height: 80px;
+            background-size:auto 100%;;
+        }
+    }
+
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+if(!$('.understand-me').length){
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h1,h2,h3,h4,h5,h6").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+}
+</script>
+
+</body>
+</html>
+
+
+<script>
+
+</script>
