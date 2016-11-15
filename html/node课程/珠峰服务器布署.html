@@ -38,7 +38,7 @@
 <div class="container">
     
         <div class="page-toc">
-            <ul><li><a href="#t01. 珠峰服务器说明">1. 珠峰服务器说明</a><ul><li><a href="#t11.1 账号开通">1.1 账号开通</a></li><li><a href="#t21.2 布署静态项目">1.2 布署静态项目</a><ul><li><a href="#t31.2.1. 下载任意的ftp客户端">1.2.1. 下载任意的ftp客户端</a></li><li><a href="#t41.2.2. 连接服务器">1.2.2. 连接服务器</a></li><li><a href="#t51.2.2 创建主页">1.2.2 创建主页</a></li><li><a href="#t61.2.3 布署静态项目">1.2.3 布署静态项目</a></li><li><a href="#t71.2.4 布署动态项目">1.2.4 布署动态项目</a></li></ul></li></ul></li></ul>
+            <ul><li><a href="#t01. 珠峰服务器说明">1. 珠峰服务器说明</a><ul><li><a href="#t11.1 账号开通">1.1 账号开通</a></li><li><a href="#t21.2 布署静态项目">1.2 布署静态项目</a><ul><li><a href="#t31.2.1. 下载任意的ftp客户端">1.2.1. 下载任意的ftp客户端</a></li><li><a href="#t41.2.2. 连接服务器">1.2.2. 连接服务器</a></li><li><a href="#t51.2.2 创建主页">1.2.2 创建主页</a></li><li><a href="#t61.2.3 布署静态项目">1.2.3 布署静态项目</a></li><li><a href="#t71.2.4 布署动态项目">1.2.4 布署动态项目</a></li><li><a href="#t81.2.5 永久启动动态项目">1.2.5 永久启动动态项目</a></li></ul></li></ul></li></ul>
         </div>
 
         <div class="content markdown-body">
@@ -105,7 +105,14 @@ qq 888
 /home/stu83687401/server.js
 &#x90A3;&#x4E48;&#x4F60;&#x9700;&#x8981;&#x901A;&#x8FC7;xshell&#x8FDB;&#x5165;&#x670D;&#x52A1;&#x5668;&#x5E76;&#x542F;&#x52A8;node&#x670D;&#x52A1;&#xFF0C;&#x7136;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;ip:&#x7AEF;&#x53E3;&#x53F7;&#x6765;&#x8BBF;&#x95EE;&#x6B64;&#x670D;&#x52A1; &#x4E86;</p>
 <p><a href="http://jingyan.baidu.com/article/295430f13fb4db0c7f005065.html">xshell&#x4F7F;&#x7528;&#x6559;&#x7A0B;</a></p>
-
+<h3 id="t81.2.5 &#x6C38;&#x4E45;&#x542F;&#x52A8;&#x52A8;&#x6001;&#x9879;&#x76EE;">1.2.5 &#x6C38;&#x4E45;&#x542F;&#x52A8;&#x52A8;&#x6001;&#x9879;&#x76EE; <a href="#t81.2.5 &#x6C38;&#x4E45;&#x542F;&#x52A8;&#x52A8;&#x6001;&#x9879;&#x76EE;"> # </a></h3>
+<p>&#x7528; <code>node &#x811A;&#x672C;&#x540D;.js</code>&#x542F;&#x7528;&#x7684;&#x670D;&#x52A1;&#x4F1A;&#x5728;&#x8FDE;&#x63A5;&#x7A97;&#x53E3;&#x5173;&#x95ED;&#x540E;&#x505C;&#x6B62;&#x670D;&#x52A1;&#xFF0C;&#x5982;&#x679C;&#x8981;&#x6C38;&#x4E45;&#x542F;&#x52A8;&#x9700;&#x8981;&#x7684;&#x8BDD;&#x9700;&#x8981;&#x4F7F;&#x7528;pm2</p>
+<pre><code>pm2 start &#x811A;&#x672C;&#x540D;.js --name &quot;zhufengnodejs-server&quot;
+</code></pre><p>&#x505C;&#x6B62;&#x670D;&#x52A1;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;</p>
+<pre><code>pm2 stop zhufengnodejs-server
+</code></pre><p>&#x91CD;&#x542F;&#x670D;&#x52A1;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;</p>
+<pre><code>pm2 restart zhufengnodejs-server
+</code></pre>
 
         </div>
     
