@@ -6,9 +6,14 @@
 ### 2.1 windows安装
 [Windows官方安装指南](https://www.mongodb.org/downloads)
 
-- 百度云 32位 http://pan.baidu.com/s/1c1Y26Py
-- 百度云 64位 http://pan.baidu.com/s/1hsDBRRu
-- windows客户端 http://pan.baidu.com/s/1bpdorRD
+- mongodb32位安装版
+http://pan.baidu.com/s/1mhQVHl2
+
+- MongoDB64位绿色版
+http://pan.baidu.com/s/1cMM9oq
+
+- mongo客户端
+http://pan.baidu.com/s/1kUIQlUZ
 
 ### 2.2 mac安装
 [Mac官方安装指南](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/)
