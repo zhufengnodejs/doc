@@ -1,8 +1,16 @@
 ## 1. Express介绍
-Express是一个简洁、灵活的node.js Web应用开发框架, 它提供一系列强大的功能，比如：模板解析、静态文件服务、中间件、路由控制等等,并且还可以使用插件或整合其他模块来帮助你创建各种 Web和移动设备应用,是目前最流行的基于Node.js的Web开发框架，并且支持Ejs、jade等多种模板，可以快速地搭建一个具有完整功能的网站。
+Express是一个简洁、灵活的node.js Web应用开发框架,是目前最流行的基于Node.js的Web开发框架.
+它提供一系列强大的功能，比如：
+- 模板解析
+- 静态文件服务
+- 中间件
+- 路由控制
+
+还可以使用其他模块来帮助你创建各种Web和移动设备应用   
+
 
 ## 2. 使用express
-安装
+本地安装
 ```
 $ npm install express
 ```
@@ -12,8 +20,11 @@ $ npm install express
 ```
 var express = require('express');
 var app = express();
+
 app.listen(3000);
 ```
+
+思考: express的本质上是什么，是如何工作的
 
 ## 3. get请求
 根据请求路径来处理客户端发出的GET请求
@@ -30,26 +41,38 @@ app.get(path,function(request, response));
 var express = require('express');
 var app = express();
 app.get('/',function(req,res){
-    res.end('welcome to  homepage');
+    res.end('welcome to  首页');
 });
 app.get('/about',function(req,res){
- res.end('welcome to about page');
-})
-app.get("*",function(req,res){
- res.end("404");
+ res.end('欢迎来到关于我们');
 })
 app.listen(3000);
 ```
 
-## 4. all
+## 4.curl客户端使用方法
+- 指定请求头
+```
+curl -H 'content-type:application/json;charset=utf-8' http://localhost:8080/users
+```
+- 指定方法名
+```
+curl -X POST http://localhost:8080/users
+```
+- 指定请求体
+```
+curl --data "name=zfpx&age=8" http://localhost:8080/users
+```
+
+## 5. all
 app.all()函数可以匹配所有的HTTP动词
+路由中的星号能匹配所有的路径
 语法
-``` 
+```javascript
 app.all(path,function(request, response));
 ```
 
 示例
-```
+```javascript
 var express = require('express');//引入express
 var app = express();
 app.all("*",function(req,res){
@@ -58,27 +81,13 @@ app.all("*",function(req,res){
 app.listen(3000);
 ```
 
-## 5. 中间件
-中间件就是处理HTTP请求的函数，用来完成各种特定的任务
-比如检查用户是否登录、检测用户是否有权限访问等，它的特点是:
-- 一个中间件处理完请求和响应可以把相应数据再传递给下一个中间件
-- 回调函数的`next`参数,表示接受其他中间件的调用，函数体中的next(),表示将请求数据传递给下一个中间件
-- 还可以根据路径来区分进行返回执行不同的中间件
+### 5.1 练习:
+1. 访问 /signup 返回字段符串 "注册"
+2. 访问 /signin 返回字段符串 "登录"
+3. 访问 /signout 返回字段符串 "退出"
+4. 访问其它路径，返回字符串 "你访问的路径不存在"
 
-```javascript
-var express = require('express');
-var app = express();
-var path = require('path');
-function filter(req,res,next){
- console.log('filter');
- next();
-}
-app.use('/',filter);
-
-app.listen(3000);
-```
-
-## 6. 获取参数
+## 6. 获取请求参数
 - req.host 返回请求头里取的主机名(不包含端口号)
 - req.path 返回请求的URL的路径名
 
@@ -96,7 +105,7 @@ app.get('/',function(req,res){
 });
 ```
 
-## 8. params
+## 8. params路径参数
 req.params可以用来获取请求URL中的参数值
 
 ```javascript
@@ -105,7 +114,38 @@ app.get('/:id/:name',function(req,res){
 });
 ```
 
-## 9. send
+## 9. 中间件
+中间件就是处理HTTP请求的函数，用来完成各种特定的任务
+比如检查用户是否登录、检测用户是否有权限访问等，它的特点是:
+- 一个中间件处理完请求和响应可以把相应数据再传递给下一个中间件
+- 回调函数的`next`参数,表示接受其他中间件的调用，函数体中的next(),表示将请求数据传递给下一个中间件
+- 还可以根据路径来区分进行返回执行不同的中间件
+
+```javascript
+var express = require('express');
+var app = express();
+var path = require('path');
+
+app.use(function(req,res,next){
+ res.setHeader('Content-Type','text/plain;charset=utf-8');
+ next();
+});
+
+app.get('/',function(req,res){
+ res.end('首页');
+});
+app.get('/about',function(req,res){
+ res.end('关于我们');
+});
+
+app.listen(3000);
+```
+
+### 9.1 练习:
+编写一个请求日志中间件，不管客户端访问什么路径，都在控制台打印出
+方法名 路径
+
+## 10. send
 `send`方法向浏览器发送一个响应信息，并可以智能处理不同类型的数据
 并在输出响应时会自动进行一些设置，比如HEAD信息、HTTP缓存支持等等。
 语法
@@ -131,14 +171,14 @@ res.send(404); // Not Found
 res.send(500); // Internal Server Error
 ```
 
-## 10.模板
+## 11.模板
 在nodejs中使用express框架，它默认的是ejs和jade渲染模板
-### 10.1 安装模板
+### 11.1 安装模板
 ```javascript
 npm install ejs
 ```
 
-### 10.2 使用模板
+### 11.2 使用模板
 使用ejs模板
 ```javascript
 //指定渲染模板文件的后缀名为ejs
@@ -156,7 +196,7 @@ app.set('views',path.join(__dirname,'views'));
 app.engine( '.html', require( 'ejs' ).__express ); //__express是ejs模块的一个公共属性，表示要渲染的文件扩展名
 ```
 
-### 10.3 渲染视图
+### 11.3 渲染视图
 语法
 - 参数`view`就是模板的文件名
 - 在渲染模板时`locals`可为其模板传入变量值
@@ -166,7 +206,7 @@ app.engine( '.html', require( 'ejs' ).__express ); //__express是ejs模块的一
 res.render(view, [locals], callback);
 ```
 
-### 10.4 模板原理
+### 11.4 模板原理
 ```javascript
 var tmpl = '<h1>{{name}}</h1><h1>{{age}}</h1>';
 var data = {name:'zfpx',age:30};
@@ -177,13 +217,13 @@ var html= tmpl.replace(/\{\{(\w+)\}\}/g,function(input,group){
 console.log(html);
 ```
 
-## 11. 静态文件服务器
+## 12. 静态文件服务器
 如果要在网页中加载静态文件（css、js、img），就需要另外指定一个存放静态文件的目录，当浏览器发出非HTML文件请求时，服务器端就会到这个目录下去寻找相关文件
 ```javascript
 app.use(express.static(path.join(__dirname,'/')));
 ```
 
-## 12. 重定向
+## 13. 重定向
 redirect方法允许网址的重定向，跳转到指定的url并且可以指定status，默认为302方式。
 语法
 ```javascript
@@ -195,7 +235,7 @@ res.redirect([status], url);
 res.redirect("http://www.baidu.com");
 ```
 
-## 13. post请求
+## 14. post请求
 post方法 根据请求路径来处理客户端发出的Post请求
 语法
 ```
@@ -211,11 +251,78 @@ app.post('/login',function(req,res){
 });
 ```
 
-## 14. 注册登陆实战
+## 15. 作业: 注册登陆实战
+实现一个注册登录的功功，描述如下
+1. 客户端以GET方法访问  /signup ,会返回一个注册的包含用户名和密码两个字段的空白表单
+2. 填写这个空白表单，会向当前路径提交post请求，提交到后台后把此用户名和密码保存到用户数组里，然后重定向到登录页
+3. 在登录页，填写用户名和密码，如果输入正确跳转到欢迎页，如果填写不正确返回登录页。
+
+
+## 16. 中间件原理
+```javascript
+// 当请求到来的时候执行app,这是会对数组里的配置项一次匹配，匹配上的执行，匹配不上执行
+var app = function(req,res){
+   var i=0;//定义一个变量每次执行next后加一
+    //每执行一次next,会取出一个中间件函数执行，并且把next传进去
+   function next(){
+       var fn = app.routes[i++];
+       if(fn)
+        fn(req,res,next);
+   }
+    next();
+}
+//存放中间件函数的数组
+app.routes = [];
+//配置函数
+app.use = function(fn){
+    //往数组里添加函数
+    app.routes.push(fn);
+}
+//------------------------
+app.use(function(req,res,next){
+    console.log(req.url);
+    console.log(1);
+    next();
+});
+app.use(function(req,res,next){
+    console.log(2);
+    res.end('ok');
+    next();
+});
+//-------------------
+var http = require('http');
+var server = http.createServer(app);
+server.listen(9090);
+```
+
+## 17. params原理
+```javascript
+//是路由里的路径
+var path = '/users/:name/:age';
+//真实请求的URL
+var url = '/users/zfpx/8';
+//存放所有的参数名
+var paramNames = [];
+var regStr = path.replace(/:(\w+)/g,function(matchedStr,group1){
+    paramNames.push(group1);// name age 添加进来的
+    return '(\\w+)';
+});
+console.log(regStr);//   \/users\/(\w+)\/(\w+)
+var reg = new RegExp(regStr);
+var result = url.match(reg);
+//[ '/users/zfpx/8', 'zfpx', '8', index: 0, input: '/users/zfpx/8' ]
+console.log(result);
+var params = {};
+//循环数组名 值就是 result中的分组
+for(var i=0;i<paramNames.length;i++){
+    params[paramNames[i]] = result[i+1];
+}
+console.log(params);
+
+```
 
 
 
 
-
-## 资源 
+## 资源
 [从express源码中探析其路由机制](https://cnodejs.org/topic/545720506537f4d52c414d87)
