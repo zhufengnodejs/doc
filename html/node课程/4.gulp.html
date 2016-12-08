@@ -38,7 +38,7 @@
 <div class="container">
     
         <div class="page-toc">
-            <ul><li><a href="#t01. 什么是gulp">1. 什么是gulp</a></li><li><a href="#t12. 安装gulp">2. 安装gulp</a></li><li><a href="#t22. 1 安装node">2. 1 安装node</a></li><li><a href="#t32. 2 gulp 命令行工具">2. 2 gulp 命令行工具</a></li><li><a href="#t42. 3 本地安装gulp">2. 3 本地安装gulp</a></li><li><a href="#t52. 4  在项目目录下初始化项目配置文件">2. 4  在项目目录下初始化项目配置文件</a></li><li><a href="#t62. 5 在项目下安装 gulp">2. 5 在项目下安装 gulp</a></li><li><a href="#t73. 运行gulp">3. 运行gulp</a><ul><li><a href="#t83.1 创建配置文件">3.1 创建配置文件</a></li><li><a href="#t93.2 创建gulp的任务">3.2 创建gulp的任务</a></li><li><a href="#t103.3 执行gulp任务">3.3 执行gulp任务</a></li></ul></li><li><a href="#t114. gulp.js工作方式">4. gulp.js工作方式</a></li><li><a href="#t125. gulp插件">5. gulp插件</a><ul><li><a href="#t135.1 使用插件步骤">5.1 使用插件步骤</a></li><li><a href="#t145.2  less">5.2  less</a></li><li><a href="#t155.3 gulp-load-plugins">5.3 gulp-load-plugins</a></li><li><a href="#t165.4 gulp-concat">5.4 gulp-concat</a></li><li><a href="#t175.5  gulp-uglify">5.5  gulp-uglify</a></li><li><a href="#t185.7  gulp-minify-css">5.7  gulp-minify-css</a></li><li><a href="#t195.8  gulp-minify-html">5.8  gulp-minify-html</a></li><li><a href="#t205.9  gulp-inject">5.9  gulp-inject</a></li><li><a href="#t215.10  gulp-babel">5.10  gulp-babel</a></li><li><a href="#t225.11 gulp-connect">5.11 gulp-connect</a></li><li><a href="#t235.12 自动刷新">5.12 自动刷新</a></li><li><a href="#t245.13  练习">5.13  练习</a></li></ul></li></ul>
+            <ul><li><a href="#t01. 什么是gulp">1. 什么是gulp</a></li><li><a href="#t12. 安装gulp">2. 安装gulp</a></li><li><a href="#t22. 1 安装node">2. 1 安装node</a></li><li><a href="#t32. 2 gulp 命令行工具">2. 2 gulp 命令行工具</a></li><li><a href="#t42. 3 本地安装gulp">2. 3 本地安装gulp</a></li><li><a href="#t52. 4  在项目目录下初始化项目配置文件">2. 4  在项目目录下初始化项目配置文件</a></li><li><a href="#t62. 5 在项目下安装 gulp">2. 5 在项目下安装 gulp</a></li><li><a href="#t73. 运行gulp">3. 运行gulp</a><ul><li><a href="#t83.1 创建配置文件">3.1 创建配置文件</a></li><li><a href="#t93.2 创建gulp的任务">3.2 创建gulp的任务</a></li><li><a href="#t103.3 执行gulp任务">3.3 执行gulp任务</a></li></ul></li><li><a href="#t114. gulp.js工作方式">4. gulp.js工作方式</a></li><li><a href="#t125. gulp插件">5. gulp插件</a><ul><li><a href="#t135.1 使用插件步骤">5.1 使用插件步骤</a></li><li><a href="#t145.2  less">5.2  less</a></li><li><a href="#t155.3 gulp-load-plugins">5.3 gulp-load-plugins</a></li><li><a href="#t165.4 gulp-concat">5.4 gulp-concat</a></li><li><a href="#t175.5  gulp-uglify">5.5  gulp-uglify</a></li><li><a href="#t185.7 gulp-clean-css">5.7 gulp-clean-css</a></li><li><a href="#t195.8  gulp-minify-html">5.8  gulp-minify-html</a></li><li><a href="#t205.9  gulp-inject">5.9  gulp-inject</a></li><li><a href="#t215.10  gulp-babel">5.10  gulp-babel</a></li><li><a href="#t225.11 gulp-connect">5.11 gulp-connect</a></li><li><a href="#t235.12 自动刷新">5.12 自动刷新</a></li><li><a href="#t245.13  练习">5.13  练习</a></li></ul></li></ul>
         </div>
 
         <div class="content markdown-body">
@@ -235,19 +235,19 @@ gulp.task(&apos;default&apos;,[&apos;uglify&apos;]);
     });
 
     gulp.task(&apos;default&apos;,[&apos;uglify&apos;]);
-</code></pre><h3 id="t185.7  gulp-minify-css">5.7  gulp-minify-css <a href="#t185.7  gulp-minify-css"> # </a></h3>
+</code></pre><h3 id="t185.7 gulp-clean-css">5.7 gulp-clean-css <a href="#t185.7 gulp-clean-css"> # </a></h3>
 <p>&#x538B;&#x7F29;css</p>
-<pre><code>$    npm install gulp-minify-css --save-dev
+<pre><code>$    npm install gulp-clean-css --save-dev
 </code></pre><pre><code class="lang-javascript">   <span class="hljs-keyword">var</span> gulp = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;gulp&apos;</span>);
     <span class="hljs-keyword">var</span> less = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;gulp-less&apos;</span>);
     <span class="hljs-comment">//&#x5728;&#x6587;&#x4EF6;&#x7684;&#x9876;&#x90E8;&#x53BB;&#x5305;&#x542B;&#x8FD9;&#x4E2A;&#x63D2;&#x4EF6;&#xFF0C;&#x8D77;&#x4E2A;&#x540D;&#x5B57;&#xFF0C;&#x53EB;&#x505A; minify</span>
-    <span class="hljs-keyword">var</span> minify = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;gulp-minify-css&apos;</span>);
+    <span class="hljs-keyword">var</span> cleanCss = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;gulp-minify-css&apos;</span>);
     <span class="hljs-keyword">var</span> rename = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;gulp-rename&apos;</span>);
     gulp.task(<span class="hljs-string">&apos;minify&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
         <span class="hljs-keyword">return</span> gulp.src(<span class="hljs-string">&apos;app/less/page.less&apos;</span>)<span class="hljs-comment">//&#x6307;&#x5B9A; less&#x6587;&#x4EF6;</span>
             .pipe(less())<span class="hljs-comment">//&#x628A;less&#x7F16;&#x8BD1;&#x6210;css</span>
             .pipe(gulp.dest(<span class="hljs-string">&apos;dist/css&apos;</span>))<span class="hljs-comment">//&#x8F93;&#x51FA;&#x5230;&#x76EE;&#x7684;&#x5730;</span>
-            .pipe(minify())<span class="hljs-comment">//&#x5BF9; css&#x518D;&#x8FDB;&#x884C;&#x538B;&#x7F29;</span>
+            .pipe(cleanCss())<span class="hljs-comment">//&#x5BF9; css&#x518D;&#x8FDB;&#x884C;&#x538B;&#x7F29;</span>
             .pipe(rename(<span class="hljs-string">&apos;page.min.css&apos;</span>))<span class="hljs-comment">//&#x91CD;&#x547D;&#x540D;</span>
             .pipe(gulp.dest(<span class="hljs-string">&apos;dist/css&apos;</span>));<span class="hljs-comment">//&#x8F93;&#x51FA;&#x5230;&#x76EE;&#x7684;&#x5730;</span>
     });
