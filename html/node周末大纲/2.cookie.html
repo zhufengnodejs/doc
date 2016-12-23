@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>珠峰JS全栈</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logos"></div>
+        <div class="logo">
+
+            
+                珠峰JS全栈
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>前端工程化</a><ul><li><a href="../../html/前端工程化/gulp.html">gulp</a></li><li><a href="../../html/前端工程化/webpack.html">webpack</a></li></ul></li><li><a href="#"><span></span>数据库</a><ul><li><a href="../../html/数据库/mongoose.html">mongoose</a></li><li><a href="../../html/数据库/mysql.html">mysql</a></li><li><a href="../../html/数据库/mongodb.html">mongodb</a></li></ul></li><li><a href="#"><span></span>CSS</a><ul><li><a href="../../html/CSS/less.html">less</a></li><li><a href="../../html/CSS/jade.html">jade</a></li><li><a href="../../html/CSS/CSS布局模型.html">CSS布局模型</a></li><li><a href="#"><span></span>基础</a><ul><li><a href="../../html/CSS/基础/CSS布局模型.html">CSS布局模型</a></li><li><a href="../../html/CSS/基础/盒子模型.html">盒子模型</a></li></ul></li><li><a href="#"><span></span>深入学习</a><ul><li><a href="../../html/CSS/深入学习/margin.html">margin</a></li></ul></li></ul></li><li><a href="#"><span></span>Git</a><ul><li><a href="../../html/Git/git入门.html">git入门</a></li></ul></li><li><a href="#"><span></span>工具</a><ul><li><a href="../../html/工具/和谐.html">和谐</a></li><li><a href="../../html/工具/webstorm安装与配置.html">webstorm安装与配置</a></li><li><a href="../../html/工具/bower.html">bower</a></li><li><a href="../../html/工具/babel.html">babel</a></li></ul></li><li><a href="#"><span></span>微信</a><ul><li><a href="../../html/微信/微信开发.html">微信开发</a></li><li><a href="../../html/微信/OAuth实现.html">OAuth实现</a></li><li><a href="../../html/微信/OAuth理论.html">OAuth理论</a></li></ul></li><li><a href="#"><span></span>面试</a><ul><li><a href="../../html/面试/CSS.html">CSS</a></li><li><a href="../../html/面试/JAVASCRIPT.html">JAVASCRIPT</a></li><li><a href="../../html/面试/其它.html">其它</a></li><li><a href="../../html/面试/性能优化.html">性能优化</a></li><li><a href="../../html/面试/angular.html">angular</a></li><li><a href="../../html/面试/html.html">html</a></li><li><a href="../../html/面试/网络.html">网络</a></li></ul></li><li><a href="#"><span></span>服务器</a><ul><li><a href="../../html/服务器/ubuntu配置PHP.html">ubuntu配置PHP</a></li><li><a href="../../html/服务器/linux基础.html">linux基础</a></li><li><a href="../../html/服务器/linux布署.html">linux布署</a></li><li><a href="../../html/服务器/ftp服务器.html">ftp服务器</a></li><li><a href="../../html/服务器/linux用户管理.html">linux用户管理</a></li></ul></li><li><a href="#"><span></span>AngularJS</a><ul><li><a href="../../html/AngularJS/angular入门.html">angular入门</a></li><li><a href="../../html/AngularJS/angular基础.html">angular基础</a></li><li><a href="../../html/AngularJS/route.html">route</a></li><li><a href="../../html/AngularJS/指令.html">指令</a></li><li><a href="../../html/AngularJS/服务.html">服务</a></li></ul></li><li><a href="#"><span></span>node基础</a><ul><li><a href="../../html/node基础/buffer.html">buffer</a></li><li><a href="../../html/node基础/文件上传.html">文件上传</a></li><li><a href="../../html/node基础/文件操作.html">文件操作</a></li><li><a href="../../html/node基础/模块.html">模块</a></li><li><a href="../../html/node基础/流.html">流</a></li><li><a href="../../html/node基础/node安装与配置.html">node安装与配置</a></li><li><a href="../../html/node基础/NPM.html">NPM</a></li></ul></li><li><a href="#"><span></span>node进阶</a><ul><li><a href="../../html/node进阶/cookie.html">cookie</a></li><li><a href="../../html/node进阶/Express.html">Express</a></li><li><a href="../../html/node进阶/session.html">session</a></li><li><a href="../../html/node进阶/socketio.html">socketio</a></li><li><a href="../../html/node进阶/websocket.html">websocket</a></li><li><a href="../../html/node进阶/加密.html">加密</a></li><li><a href="../../html/node进阶/动态服务器.html">动态服务器</a></li><li><a href="../../html/node进阶/压缩.html">压缩</a></li><li><a href="../../html/node进阶/静态文件服务器.html">静态文件服务器</a></li><li><a href="../../html/node进阶/流高级.html">流高级</a></li></ul></li><li><a href="../../html/首页.html">首页</a></li><li><a href="#"><span></span>react</a><ul><li><a href="../../html/react/react-router.html">react-router</a></li><li><a href="../../html/react/ReactNativeMac.html">ReactNativeMac</a></li><li><a href="../../html/react/ReactNativeWin.html">ReactNativeWin</a></li><li><a href="../../html/react/react基础应用.html">react基础应用</a></li><li><a href="../../html/react/react入门.html">react入门</a></li><li><a href="../../html/react/redux.html">redux</a></li></ul></li><li><a href="#"><span></span>vue</a><ul><li><a href="../../html/vue/Vue入门.html">Vue入门</a></li><li><a href="../../html/vue/Vue方法篇.html">Vue方法篇</a></li><li><a href="../../html/vue/Vue方法篇2.html">Vue方法篇2</a></li><li><a href="../../html/vue/Vue组件.html">Vue组件</a></li></ul></li><li><a href="#"><span></span>JAVASCRIPT</a><ul><li><a href="../../html/JAVASCRIPT/ES6.html">ES6</a></li><li><a href="../../html/JAVASCRIPT/jquery同步和异步.html">jquery同步和异步</a></li><li><a href="../../html/JAVASCRIPT/js常用方法.html">js常用方法</a></li><li><a href="../../html/JAVASCRIPT/promise.html">promise</a></li><li><a href="../../html/JAVASCRIPT/webstorage.html">webstorage</a></li><li><a href="../../html/JAVASCRIPT/初识JS.html">初识JS</a></li><li><a href="../../html/JAVASCRIPT/原型链.html">原型链</a></li><li><a href="../../html/JAVASCRIPT/字符编码.html">字符编码</a></li><li><a href="../../html/JAVASCRIPT/属性设置.html">属性设置</a></li><li><a href="../../html/JAVASCRIPT/模块化开发.html">模块化开发</a></li><li><a href="../../html/JAVASCRIPT/正则表达式.html">正则表达式</a></li><li><a href="../../html/JAVASCRIPT/缓存.html">缓存</a></li><li><a href="../../html/JAVASCRIPT/预解析作用域闭包this.html">预解析作用域闭包this</a></li><li><a href="../../html/JAVASCRIPT/DOM深入.html">DOM深入</a></li><li><a href="../../html/JAVASCRIPT/JS盒子模型.html">JS盒子模型</a></li></ul></li><li><a href="#"><span></span>笔记</a><ul></ul></li><li><a href="#"><span></span>页面效果</a><ul><li><a href="../../html/页面效果/次屏图片延迟加载.html">次屏图片延迟加载</a></li><li><a href="../../html/页面效果/首屏图片延时加载.html">首屏图片延时加载</a></li></ul></li><li><a href="#"><span></span>node大纲</a><ul><li><a href="../../html/node大纲/1.es6.html">1.es6</a></li><li><a href="../../html/node大纲/2.promise.html">2.promise</a></li><li><a href="../../html/node大纲/3.babel.html">3.babel</a></li><li><a href="../../html/node大纲/4.gulp.html">4.gulp</a></li><li><a href="../../html/node大纲/5.webpack.html">5.webpack</a></li><li><a href="../../html/node大纲/6.react入门.html">6.react入门</a></li><li><a href="../../html/node大纲/7.react基础应用.html">7.react基础应用</a></li><li><a href="../../html/node大纲/内网使用.html">内网使用</a></li><li><a href="../../html/node大纲/珠峰服务器布署.html">珠峰服务器布署</a></li></ul></li><li><a href="#"><span></span>node周末大纲</a><ul><li><a href="../../html/node周末大纲/1.Express.html">1.Express</a></li><li class="active"><a href="../../html/node周末大纲/2.cookie.html">2.cookie</a></li><li><a href="../../html/node周末大纲/3.session.html">3.session</a></li><li><a href="../../html/node周末大纲/4.mongodb.html">4.mongodb</a></li><li><a href="../../html/node周末大纲/5.mongoose.html">5.mongoose</a></li><li><a href="../../html/node周末大纲/6.珠峰博客.html">6.珠峰博客</a></li><li><a href="../../html/node周末大纲/7.websocket.html">7.websocket</a></li><li><a href="../../html/node周末大纲/8.socketio.html">8.socketio</a></li><li><a href="../../html/node周末大纲/9.珠峰爬虫.html">9.珠峰爬虫</a></li><li><a href="../../html/node周末大纲/3.加密.html">3.加密</a></li></ul></li><li><a href="#"><span></span>node项目</a><ul><li><a href="../../html/node项目/珠峰博客.html">珠峰博客</a></li><li><a href="../../html/node项目/珠峰爬虫.html">珠峰爬虫</a></li><li><a href="../../html/node项目/珠峰聊天室.html">珠峰聊天室</a></li></ul></li></ul>
+        </div>
+
+        
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+
+</div>
+
+
+
+
+
+<div class="container">
+    
+        <div class="page-toc">
+            <ul><li><a href="#t01. cookie是什么">1. cookie是什么</a></li><li><a href="#t12. Cookie的处理流程">2. Cookie的处理流程</a></li><li><a href="#t23. 使用步骤">3. 使用步骤</a></li><li><a href="#t34. cookie的重要属性">4. cookie的重要属性</a></li><li><a href="#t45.读写cookie">5.读写cookie</a><ul><li><a href="#t55.1 http中设置cookie">5.1 http中设置cookie</a></li><li><a href="#t65.2 express中设置cookie">5.2 express中设置cookie</a></li><li><a href="#t75.3 获取cookie">5.3 获取cookie</a></li><li><a href="#t85.4 记录客户端的访问次数">5.4 记录客户端的访问次数</a></li></ul></li><li><a href="#t96. cookieParser原理解析">6. cookieParser原理解析</a></li><li><a href="#t107. 加密cookie">7. 加密cookie</a></li><li><a href="#t118. 权限控制">8. 权限控制</a></li><li><a href="#t129. 记住密码">9. 记住密码</a></li><li><a href="#t1310. cookie使用注意事项">10. cookie使用注意事项</a></li></ul>
+        </div>
+
+        <div class="content markdown-body">
+
+            <h2 id="t01. cookie&#x662F;&#x4EC0;&#x4E48;">1. cookie&#x662F;&#x4EC0;&#x4E48; <a href="#t01. cookie&#x662F;&#x4EC0;&#x4E48;"> # </a></h2>
+<p>HTTP1.0&#x4E2D;&#x534F;&#x8BAE;&#x662F;&#x65E0;&#x72B6;&#x6001;&#x7684;&#xFF0C;&#x4F46;&#x5728;WEB&#x5E94;&#x7528;&#x4E2D;&#xFF0C;&#x5728;&#x591A;&#x4E2A;&#x8BF7;&#x6C42;&#x4E4B;&#x95F4;&#x5171;&#x4EAB;&#x4F1A;&#x8BDD;&#x662F;&#x975E;&#x5E38;&#x5FC5;&#x8981;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x51FA;&#x73B0;&#x4E86;Cookie<br>cookie&#x662F;&#x4E3A;&#x4E86;&#x8FA9;&#x522B;&#x7528;&#x6237;&#x8EAB;&#x4EFD;&#xFF0C;&#x8FDB;&#x884C;&#x4F1A;&#x8BDD;&#x8DDF;&#x8E2A;&#x800C;<em>&#x5B58;&#x50A8;&#x5728;&#x5BA2;&#x6237;&#x7AEF;</em>&#x4E0A;&#x7684;&#x6570;&#x636E;</p>
+<h2 id="t12. Cookie&#x7684;&#x5904;&#x7406;&#x6D41;&#x7A0B;">2. Cookie&#x7684;&#x5904;&#x7406;&#x6D41;&#x7A0B; <a href="#t12. Cookie&#x7684;&#x5904;&#x7406;&#x6D41;&#x7A0B;"> # </a></h2>
+<p><img src="http://7xjf2l.com1.z0.glb.clouddn.com/cookies.png" class="img-responsive"></p>
+<h2 id="t23. &#x4F7F;&#x7528;&#x6B65;&#x9AA4;">3. &#x4F7F;&#x7528;&#x6B65;&#x9AA4; <a href="#t23. &#x4F7F;&#x7528;&#x6B65;&#x9AA4;"> # </a></h2>
+<ol>
+<li>&#x5BA2;&#x6237;&#x7AEF;&#x7B2C;&#x4E00;&#x6B21;&#x8BBF;&#x95EE;&#x670D;&#x52A1;&#x5668;&#x7684;&#x65F6;&#x5019;&#x670D;&#x52A1;&#x5668;&#x901A;&#x8FC7;&#x54CD;&#x5E94;&#x5934;&#x5411;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;Cookie,&#x5C5E;&#x6027;&#x4E4B;&#x95F4;&#x7528;&#x5206;&#x53F7;&#x7A7A;&#x683C;&#x5206;&#x9694;<pre><code class="lang-javascript">Set-Cookie:name=zfpx; Path=/
+</code></pre>
+</li>
+<li><p>&#x5BA2;&#x6237;&#x7AEF;&#x63A5;&#x6536;&#x5230;Cookie&#x4E4B;&#x540E;&#x4FDD;&#x5B58;&#x5728;&#x672C;&#x5730;
+<img src="http://7xjf2l.com1.z0.glb.clouddn.com/localcookie.jpg" class="img-responsive"></p>
+</li>
+<li><p>&#x4EE5;&#x540E;&#x5BA2;&#x6237;&#x7AEF;&#x518D;&#x8BF7;&#x6C42;&#x670D;&#x52A1;&#x5668;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x628A;&#x6B64;Cookie&#x53D1;&#x9001;&#x5230;&#x670D;&#x52A1;&#x5668;&#x7AEF;</p>
+<pre><code class="lang-javascript">Cookie:name=zfpx
+</code></pre>
+</li>
+</ol>
+<h2 id="t34. cookie&#x7684;&#x91CD;&#x8981;&#x5C5E;&#x6027;">4. cookie&#x7684;&#x91CD;&#x8981;&#x5C5E;&#x6027; <a href="#t34. cookie&#x7684;&#x91CD;&#x8981;&#x5C5E;&#x6027;"> # </a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x5C5E;&#x6027;</th>
+<th style="text-align:left">&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">name=value</td>
+<td style="text-align:left">&#x952E;&#x503C;&#x5BF9;&#xFF0C;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x8981;&#x4FDD;&#x5B58;&#x7684; Key/Value</td>
+</tr>
+<tr>
+<td style="text-align:left">Domain</td>
+<td style="text-align:left">&#x57DF;&#x540D;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;&#x5F53;&#x524D;&#x57DF;&#x540D;</td>
+</tr>
+<tr>
+<td style="text-align:left">maxAge</td>
+<td style="text-align:left">&#x6700;&#x5927;&#x5931;&#x6548;&#x65F6;&#x95F4;(&#x6BEB;&#x79D2;),&#x8BBE;&#x7F6E;&#x5728;&#x591A;&#x5C11;&#x540E;&#x5931;&#x6548;</td>
+</tr>
+<tr>
+<td style="text-align:left">secure</td>
+<td style="text-align:left">&#x5F53; secure &#x503C;&#x4E3A; true &#x65F6;&#xFF0C;cookie &#x5728; HTTP &#x4E2D;&#x662F;&#x65E0;&#x6548;&#xFF0C;&#x5728; HTTPS &#x4E2D;&#x624D;&#x6709;&#x6548;</td>
+</tr>
+<tr>
+<td style="text-align:left">Path</td>
+<td style="text-align:left">&#x8868;&#x793A; cookie &#x5F71;&#x54CD;&#x5230;&#x7684;&#x8DEF;&#xFF0C;&#x5982; path=/&#x3002;&#x5982;&#x679C;&#x8DEF;&#x5F84;&#x4E0D;&#x80FD;&#x5339;&#x914D;&#x65F6;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x5219;&#x4E0D;&#x53D1;&#x9001;&#x8FD9;&#x4E2A;Cookie</td>
+</tr>
+<tr>
+<td style="text-align:left">Expires</td>
+<td style="text-align:left">&#x8FC7;&#x671F;&#x65F6;&#x95F4;(&#x79D2;)&#xFF0C;&#x5728;&#x8BBE;&#x7F6E;&#x7684;&#x67D0;&#x4E2A;&#x65F6;&#x95F4;&#x70B9;&#x540E;&#x8BE5; Cookie &#x5C31;&#x4F1A;&#x5931;&#x6548;&#xFF0C;&#x5982; expires=Money, 05-Dec-11 11:11:11 GMT</td>
+</tr>
+<tr>
+<td style="text-align:left">httpOnly</td>
+<td style="text-align:left">&#x5982;&#x679C;&#x5728;COOKIE&#x4E2D;&#x8BBE;&#x7F6E;&#x4E86;<code>httpOnly</code>&#x5C5E;&#x6027;&#xFF0C;&#x5219;&#x901A;&#x8FC7;&#x7A0B;&#x5E8F;(JS&#x811A;&#x672C;)&#x5C06;&#x65E0;&#x6CD5;&#x8BFB;&#x53D6;&#x5230;COOKIE&#x4FE1;&#x606F;&#xFF0C;&#x9632;&#x6B62;XSS&#x653B;&#x51FB;&#x4EA7;&#x751F;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="t45.&#x8BFB;&#x5199;cookie">5.&#x8BFB;&#x5199;cookie <a href="#t45.&#x8BFB;&#x5199;cookie"> # </a></h2>
+<h3 id="t55.1 http&#x4E2D;&#x8BBE;&#x7F6E;cookie">5.1 http&#x4E2D;&#x8BBE;&#x7F6E;cookie <a href="#t55.1 http&#x4E2D;&#x8BBE;&#x7F6E;cookie"> # </a></h3>
+<pre><code>res.setHeader(&apos;Set-Cookie&apos;,&apos;name=zfpx&apos;);
+</code></pre><h3 id="t65.2 express&#x4E2D;&#x8BBE;&#x7F6E;cookie">5.2 express&#x4E2D;&#x8BBE;&#x7F6E;cookie <a href="#t65.2 express&#x4E2D;&#x8BBE;&#x7F6E;cookie"> # </a></h3>
+<pre><code> res.cookie(name,value,[,options]);
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:left">&#x53C2;&#x6570;</th>
+<th style="text-align:left">chrome&#x5BF9;&#x5E94;&#x5C5E;&#x6027;</th>
+<th style="text-align:left">&#x7C7B;&#x578B;</th>
+<th style="text-align:left">&#x8BF4;&#x660E;</th>
+<th style="text-align:left">&#x793A;&#x4F8B;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">domain</td>
+<td style="text-align:left">Domain</td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">&#x57DF;&#x540D;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;&#x5F53;&#x524D;&#x57DF;&#x540D;</td>
+<td style="text-align:left">{domain:&apos;a.zfpx.cn&apos;}</td>
+</tr>
+<tr>
+<td style="text-align:left">path</td>
+<td style="text-align:left">Path</td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">&#x8DEF;&#x5F84;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;/</td>
+<td style="text-align:left">{path:&apos;/visit&apos;}</td>
+</tr>
+<tr>
+<td style="text-align:left">expires</td>
+<td style="text-align:left">Expires</td>
+<td style="text-align:left">Date</td>
+<td style="text-align:left">&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x4EE5;&#x6709;&#x6307;&#x5B9A;&#x6216;&#x4E3A;0&#x8868;&#x793A;&#x5F53;&#x524D;&#x4F1A;&#x8BDD;&#x6709;&#x6548;</td>
+<td style="text-align:left">{expires:new Date(Date.now()+20*1000)}</td>
+</tr>
+<tr>
+<td style="text-align:left">maxAge</td>
+<td style="text-align:left">Max-Age</td>
+<td style="text-align:left">Number</td>
+<td style="text-align:left">&#x6709;&#x6548;&#x65F6;&#x95F4;(&#x5355;&#x4F4D;&#x662F;&#x6BEB;&#x79D2;)</td>
+<td style="text-align:left">{maxAge:20*1000}</td>
+</tr>
+<tr>
+<td style="text-align:left">httpOnly</td>
+<td style="text-align:left">HTTP</td>
+<td style="text-align:left">Boolean</td>
+<td style="text-align:left">&#x4E0D;&#x80FD;&#x901A;&#x8FC7;&#x6D4F;&#x89C8;&#x5668;javascript&#x8BBF;&#x95EE;</td>
+<td style="text-align:left">{httpOnly:true}</td>
+</tr>
+<tr>
+<td style="text-align:left">secure</td>
+<td style="text-align:left">Secure</td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">&#x53EA;&#x901A;&#x8FC7;https&#x534F;&#x8BAE;&#x8BBF;&#x95EE;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="t75.3 &#x83B7;&#x53D6;cookie">5.3 &#x83B7;&#x53D6;cookie <a href="#t75.3 &#x83B7;&#x53D6;cookie"> # </a></h3>
+<p>&#x4F7F;&#x7528;cookie-parser&#x4E2D;&#x95F4;&#x4EF6;</p>
+<pre><code class="lang-javascript">$ npm install cookie-parser --save
+</code></pre>
+<pre><code class="lang-javascript">app.use(<span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;cookie-parser&apos;</span>)());    <span class="hljs-comment">//&#x4F7F;&#x7528;&#x4E2D;&#x95F4;&#x4EF6;</span>
+request.cookies                         <span class="hljs-comment">//&#x83B7;&#x53D6;&#x8BF7;&#x6C42;&#x4E2D;&#x7684;cookie&#x5BF9;&#x8C61;</span>
+</code></pre>
+<h3 id="t85.4 &#x8BB0;&#x5F55;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x8BBF;&#x95EE;&#x6B21;&#x6570;">5.4 &#x8BB0;&#x5F55;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x8BBF;&#x95EE;&#x6B21;&#x6570; <a href="#t85.4 &#x8BB0;&#x5F55;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x8BBF;&#x95EE;&#x6B21;&#x6570;"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;express&apos;</span>);
+<span class="hljs-keyword">var</span> cookieParser = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;cookie-parser&apos;</span>);
+<span class="hljs-keyword">var</span> app = express();
+<span class="hljs-comment">/**
+ * &#x5982;&#x679C;&#x8981;&#x52A0;&#x5BC6;&#x7684;&#x8BDD; cookieParser&#x91CC;&#x8981;&#x6307;&#x5B9A;&#x5BC6;&#x7801;&#xFF0C;&#x800C;&#x4E14;signed&#x8981;&#x7B49;&#x4E8E;true
+ */</span>
+app.use(cookieParser(<span class="hljs-string">&apos;zfpx&apos;</span>));
+app.get(<span class="hljs-string">&apos;/write&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req,res</span>)</span>{
+    <span class="hljs-comment">//1.&#x666E;&#x901A;&#x8BBE;&#x7F6E;</span>
+    <span class="hljs-comment">//res.cookie(&apos;name&apos;,&apos;value&apos;);</span>
+
+    <span class="hljs-comment">//2.&#x8BBE;&#x7F6E;&#x57DF;&#x540D;</span>
+    <span class="hljs-comment">//res.cookie(&apos;name&apos;,&apos;zfpx&apos;,{domain:&apos;a.zfpx.cn&apos;});</span>
+
+    <span class="hljs-comment">//3.&#x8BBE;&#x7F6E;&#x8DEF;&#x5F84;</span>
+    <span class="hljs-comment">//res.cookie(&apos;name&apos;,&apos;zfpx&apos;,{path:&apos;/visit&apos;});</span>
+
+    <span class="hljs-comment">//4.&#x8FC7;&#x671F;&#x65F6;&#x95F4;</span>
+    <span class="hljs-comment">//res.cookie(&apos;name&apos;,&apos;zfpx&apos;,{expires:new Date(Date.now()+20*1000)});//&#x6BEB;&#x79D2;</span>
+    <span class="hljs-comment">//res.cookie(&apos;name&apos;,&apos;zfpx&apos;,{maxAge:20*1000});//&#x8FC7;&#x671F;&#x65F6;&#x95F4; &#x6BEB;&#x79D2;</span>
+
+    <span class="hljs-comment">//httpOnly true&#x8FD8;&#x662F;false&#x65E0;&#x610F;&#x4E49; document.cookie&#x53D6;&#x4E0D;&#x5230;</span>
+    <span class="hljs-comment">//res.cookie(&apos;name&apos;,&apos;zfpx&apos;,{httpOnly:true});</span>
+    res.cookie(<span class="hljs-string">&apos;age&apos;</span>,<span class="hljs-string">&apos;123&apos;</span>,{signed:<span class="hljs-literal">true</span>});
+    res.end(<span class="hljs-string">&apos;ok&apos;</span>);
+});
+
+app.get(<span class="hljs-string">&apos;/read&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req,res</span>)</span>{
+    <span class="hljs-built_in">console</span>.log(req.signedCookies);
+    res.send(req.cookies);
+});
+
+<span class="hljs-comment">//&#x8BB0;&#x5F55;&#x8FD9;&#x662F;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x7B2C;&#x51E0;&#x6B21;&#x8BBF;&#x95EE;</span>
+app.get(<span class="hljs-string">&apos;/visit&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req,res</span>)</span>{
+    res.cookie(<span class="hljs-string">&apos;count&apos;</span>,<span class="hljs-built_in">isNaN</span>(req.cookies.count)?<span class="hljs-number">0</span>:<span class="hljs-built_in">parseInt</span>(req.cookies.count)+<span class="hljs-number">1</span>);
+    res.send(req.cookies);
+});
+
+
+app.listen(<span class="hljs-number">9090</span>);
+</code></pre>
+<h2 id="t96. cookieParser&#x539F;&#x7406;&#x89E3;&#x6790;">6. cookieParser&#x539F;&#x7406;&#x89E3;&#x6790; <a href="#t96. cookieParser&#x539F;&#x7406;&#x89E3;&#x6790;"> # </a></h2>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">cookieParser</span>(<span class="hljs-params">req, res, next</span>)</span>{
+    <span class="hljs-keyword">if</span> (!req.headers.cookie) {
+        <span class="hljs-keyword">return</span> next();
+    }
+    req.cookies =  <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;querystring&apos;</span>).parse(req.headers.cookie,<span class="hljs-string">&apos;; &apos;</span>,<span class="hljs-string">&apos;=&apos;</span>);
+    res.cookie = cookie;
+    next();
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">cookie</span>(<span class="hljs-params">name, val, options</span>) </span>{
+    <span class="hljs-keyword">var</span> opt = options || {};
+
+    <span class="hljs-keyword">var</span> value = <span class="hljs-built_in">encodeURIComponent</span>(val);
+
+    <span class="hljs-keyword">var</span> pairs = [name + <span class="hljs-string">&apos;=&apos;</span> + value];
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-literal">null</span> != opt.maxAge) {
+        <span class="hljs-keyword">var</span> maxAge = opt.maxAge - <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">isNaN</span>(maxAge)) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;maxAge should be a Number&apos;</span>);
+        pairs.push(<span class="hljs-string">&apos;Max-Age=&apos;</span> + <span class="hljs-built_in">Math</span>.floor(maxAge));
+    }
+
+    <span class="hljs-keyword">if</span> (opt.domain) {
+        pairs.push(<span class="hljs-string">&apos;Domain=&apos;</span> + opt.domain);
+    }
+
+    <span class="hljs-keyword">if</span> (opt.path) {
+        pairs.push(<span class="hljs-string">&apos;Path=&apos;</span> + opt.path);
+    }
+
+    <span class="hljs-keyword">if</span> (opt.expires) pairs.push(<span class="hljs-string">&apos;Expires=&apos;</span> + opt.expires.toUTCString());
+    <span class="hljs-keyword">if</span> (opt.httpOnly) pairs.push(<span class="hljs-string">&apos;HttpOnly&apos;</span>);
+    <span class="hljs-keyword">if</span> (opt.secure) pairs.push(<span class="hljs-string">&apos;Secure&apos;</span>);
+
+    <span class="hljs-keyword">return</span> pairs.join(<span class="hljs-string">&apos;; &apos;</span>);
+}
+</code></pre>
+<h2 id="t107. &#x52A0;&#x5BC6;cookie">7. &#x52A0;&#x5BC6;cookie <a href="#t107. &#x52A0;&#x5BC6;cookie"> # </a></h2>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> crypto = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;crypto&apos;</span>);
+<span class="hljs-keyword">var</span> sign = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">val, secret</span>)</span>{
+    <span class="hljs-keyword">return</span> val + <span class="hljs-string">&apos;.&apos;</span> + crypto
+            .createHmac(<span class="hljs-string">&apos;sha256&apos;</span>, secret)
+            .update(val)
+            .digest(<span class="hljs-string">&apos;base64&apos;</span>)
+            .replace(<span class="hljs-regexp">/\=+$/</span>, <span class="hljs-string">&apos;&apos;</span>);
+};
+
+<span class="hljs-built_in">console</span>.log(sign(<span class="hljs-string">&apos;123&apos;</span>,<span class="hljs-string">&apos;zfpx&apos;</span>));
+</code></pre>
+<h2 id="t118. &#x6743;&#x9650;&#x63A7;&#x5236;">8. &#x6743;&#x9650;&#x63A7;&#x5236; <a href="#t118. &#x6743;&#x9650;&#x63A7;&#x5236;"> # </a></h2>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;express&apos;</span>);
+<span class="hljs-keyword">var</span> cookieParser = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;cookie-parser&apos;</span>);
+<span class="hljs-keyword">var</span> app = express();
+app.set(<span class="hljs-string">&apos;view engine&apos;</span>,<span class="hljs-string">&apos;html&apos;</span>);
+app.engine(<span class="hljs-string">&apos;html&apos;</span>,<span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;ejs&apos;</span>).__express);
+app.set(<span class="hljs-string">&apos;views&apos;</span>,__dirname);
+
+app.use(cookieParser());
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkUser</span>(<span class="hljs-params">req,res,next</span>)</span>{
+    <span class="hljs-keyword">if</span>(req.cookies &amp;&amp; req.cookies.username)
+      next();
+    <span class="hljs-keyword">else</span>
+      res.redirect(<span class="hljs-string">&apos;/&apos;</span>);
+}
+
+<span class="hljs-comment">//&#x8FDB;&#x5165;&#x767B;&#x5F55;&#x9875;</span>
+app.get(<span class="hljs-string">&apos;/&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req,res</span>)</span>{
+    res.render(<span class="hljs-string">&apos;index&apos;</span>);
+});
+
+<span class="hljs-comment">//&#x767B;&#x5F55;</span>
+app.get(<span class="hljs-string">&apos;/login&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req,res</span>)</span>{
+    res.cookie(<span class="hljs-string">&apos;username&apos;</span>,req.query.username,{httpOnly:<span class="hljs-literal">true</span>});
+    res.redirect(<span class="hljs-string">&apos;/user&apos;</span>);
+});
+
+<span class="hljs-comment">//&#x7528;&#x6237;&#x9875;&#x9762;</span>
+app.get(<span class="hljs-string">&apos;/user&apos;</span>,checkUser,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req,res</span>)</span>{
+    res.render(<span class="hljs-string">&apos;user&apos;</span>,{username:req.cookies.username});
+});
+
+<span class="hljs-comment">//&#x7528;&#x6237;&#x9000;&#x51FA;</span>
+app.get(<span class="hljs-string">&apos;/logout&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req,res</span>)</span>{
+    res.clearCookie(<span class="hljs-string">&apos;username&apos;</span>);<span class="hljs-comment">//&#x6E05;&#x9664;cookie</span>
+    res.redirect(<span class="hljs-string">&apos;/&apos;</span>);
+});
+
+
+app.listen(<span class="hljs-number">8080</span>);
+</code></pre>
+<h2 id="t129. &#x8BB0;&#x4F4F;&#x5BC6;&#x7801;">9. &#x8BB0;&#x4F4F;&#x5BC6;&#x7801; <a href="#t129. &#x8BB0;&#x4F4F;&#x5BC6;&#x7801;"> # </a></h2>
+<pre><code class="lang-javascript">&lt;!DOCTYPE html&gt;
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">html</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;en&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">meta</span> <span class="hljs-attribute">charset</span>=<span class="hljs-value">&quot;UTF-8&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setCookie</span>(<span class="hljs-params">key,value</span>)</span>{
+            <span class="hljs-built_in">document</span>.cookie = key+<span class="hljs-string">&quot;=&quot;</span>+value;
+        }
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getCookie</span>(<span class="hljs-params">key</span>)</span>{
+            <span class="hljs-keyword">if</span>(<span class="hljs-built_in">document</span>.cookie){
+                <span class="hljs-keyword">var</span> parts = <span class="hljs-built_in">document</span>.cookie.split(<span class="hljs-string">&apos;; &apos;</span>);
+                <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>;i&lt;parts.length;i++){
+                    <span class="hljs-keyword">var</span> vals = parts[i].split(<span class="hljs-string">&apos;=&apos;</span>);
+                    <span class="hljs-keyword">if</span>(vals[<span class="hljs-number">0</span>]==key){
+                        <span class="hljs-keyword">return</span> vals[<span class="hljs-number">1</span>];
+                    }
+                }
+                <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&quot;</span>;
+            }<span class="hljs-keyword">else</span>{
+                <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&quot;</span>;
+            }
+        }
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkCookie</span>(<span class="hljs-params"></span>)</span>{
+            <span class="hljs-keyword">var</span> username = getCookie(<span class="hljs-string">&apos;username&apos;</span>);
+            <span class="hljs-keyword">if</span>(username){
+                alert(<span class="hljs-string">&apos;&#x6B22;&#x8FCE;&apos;</span>+username+<span class="hljs-string">&apos;&#x518D;&#x6B21;&#x8BBF;&#x95EE;&apos;</span>);
+                <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&apos;#username&apos;</span>).value = username;
+            }<span class="hljs-keyword">else</span>{
+                username = prompt(<span class="hljs-string">&apos;&#x8BF7;&#x8F93;&#x5165;&#x7528;&#x6237;&#x540D;:&apos;</span>);
+                <span class="hljs-keyword">if</span>(username){
+                    setCookie(<span class="hljs-string">&apos;username&apos;</span>,username);
+                }
+            }
+        }
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">body</span> <span class="hljs-attribute">onLoad</span>=<span class="hljs-value">&quot;checkCookie()&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;username&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+</span></code></pre>
+<h2 id="t1310. cookie&#x4F7F;&#x7528;&#x6CE8;&#x610F;&#x4E8B;&#x9879;">10. cookie&#x4F7F;&#x7528;&#x6CE8;&#x610F;&#x4E8B;&#x9879; <a href="#t1310. cookie&#x4F7F;&#x7528;&#x6CE8;&#x610F;&#x4E8B;&#x9879;"> # </a></h2>
+<ul>
+<li>&#x53EF;&#x80FD;&#x88AB;&#x5BA2;&#x6237;&#x7AEF;&#x7BE1;&#x6539;&#xFF0C;&#x4F7F;&#x7528;&#x524D;&#x9A8C;&#x8BC1;&#x5408;&#x6CD5;&#x6027;</li>
+<li>&#x4E0D;&#x8981;&#x5B58;&#x50A8;&#x654F;&#x611F;&#x6570;&#x636E;&#xFF0C;&#x6BD4;&#x5982;&#x7528;&#x6237;&#x5BC6;&#x7801;&#xFF0C;&#x8D26;&#x6237;&#x4F59;&#x989D;</li>
+<li>&#x4F7F;&#x7528;httpOnly&#x4FDD;&#x8BC1;&#x5B89;&#x5168;</li>
+<li>&#x5C3D;&#x91CF;&#x51CF;&#x5C11;cookie&#x7684;&#x4F53;&#x79EF;</li>
+<li>&#x8BBE;&#x7F6E;&#x6B63;&#x786E;&#x7684;domain&#x548C;path&#xFF0C;&#x51CF;&#x5C11;&#x6570;&#x636E;&#x4F20;&#x8F93;</li>
+</ul>
+
+
+        </div>
+    
+</div>
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    /*url("/static/img/banner.jpg") no-repeat*/
+    .bs-docs-header{
+        background:linear-gradient(to right ,#333333 50%,#0d0b0c 50%) ;
+        padding: 0;
+    }
+    .new-back{
+        background-image: url("static/img/banner.jpg") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 88px;
+    }
+    .markdown-body pre code,.markdown-body code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .markdown-body code{
+      line-height: inherit;
+    }
+    .markdown-body h3{
+        font-size:1.4em;
+    }
+    .markdown-body h4{
+        font-size:1em;
+    }
+
+
+
+    /*index*/
+    .jw-style{
+        font-size: 1.75em;
+        color: #1d3e81;
+        line-height: 2em;
+    }
+
+    .understand-me {
+        text-align: center;
+        margin: 100px auto 0;
+    }
+
+    .understand-me li {
+        vertical-align: top;
+        width: 33.3333%;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+    }
+
+    .understand-me li span {
+        color: #1a1a1a;
+        font-size: 1.6em;
+
+    }
+
+    .understand-me p {
+        margin: 0 auto;
+        width: 90%;
+        text-align: left;
+        color: #4c4c4c;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    .understand-me img {
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .footers{
+        background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px
+    }
+    .understand-me img:hover {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    @media screen and (max-width: 479px) {
+        .understand-me li{
+            width: 100%;
+            margin-bottom: 2em;
+        }
+        .new-back{
+            padding: 28px;
+        }
+        .understand-me p {
+            width: 60%;
+        }
+        .footers{
+            height: 80px;
+            background-size:auto 100%;;
+        }
+    }
+
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+if(!$('.understand-me').length){
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h1,h2,h3,h4,h5,h6").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+}
+</script>
+
+</body>
+</html>
+
+
+<script>
+
+</script>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>珠峰JS全栈</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logos"></div>
+        <div class="logo">
+
+            
+                珠峰JS全栈
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>前端工程化</a><ul><li><a href="../../html/前端工程化/gulp.html">gulp</a></li><li><a href="../../html/前端工程化/webpack.html">webpack</a></li></ul></li><li><a href="#"><span></span>数据库</a><ul><li><a href="../../html/数据库/mongoose.html">mongoose</a></li><li><a href="../../html/数据库/mysql.html">mysql</a></li><li><a href="../../html/数据库/mongodb.html">mongodb</a></li></ul></li><li><a href="#"><span></span>CSS</a><ul><li><a href="../../html/CSS/less.html">less</a></li><li><a href="../../html/CSS/jade.html">jade</a></li><li><a href="../../html/CSS/CSS布局模型.html">CSS布局模型</a></li><li><a href="#"><span></span>基础</a><ul><li><a href="../../html/CSS/基础/CSS布局模型.html">CSS布局模型</a></li><li><a href="../../html/CSS/基础/盒子模型.html">盒子模型</a></li></ul></li><li><a href="#"><span></span>深入学习</a><ul><li><a href="../../html/CSS/深入学习/margin.html">margin</a></li></ul></li></ul></li><li><a href="#"><span></span>Git</a><ul><li><a href="../../html/Git/git入门.html">git入门</a></li></ul></li><li><a href="#"><span></span>工具</a><ul><li><a href="../../html/工具/和谐.html">和谐</a></li><li><a href="../../html/工具/webstorm安装与配置.html">webstorm安装与配置</a></li><li><a href="../../html/工具/bower.html">bower</a></li><li><a href="../../html/工具/babel.html">babel</a></li></ul></li><li><a href="#"><span></span>微信</a><ul><li><a href="../../html/微信/微信开发.html">微信开发</a></li><li><a href="../../html/微信/OAuth实现.html">OAuth实现</a></li><li><a href="../../html/微信/OAuth理论.html">OAuth理论</a></li></ul></li><li><a href="#"><span></span>面试</a><ul><li><a href="../../html/面试/CSS.html">CSS</a></li><li><a href="../../html/面试/JAVASCRIPT.html">JAVASCRIPT</a></li><li><a href="../../html/面试/其它.html">其它</a></li><li><a href="../../html/面试/性能优化.html">性能优化</a></li><li><a href="../../html/面试/angular.html">angular</a></li><li><a href="../../html/面试/html.html">html</a></li><li><a href="../../html/面试/网络.html">网络</a></li></ul></li><li><a href="#"><span></span>服务器</a><ul><li><a href="../../html/服务器/ubuntu配置PHP.html">ubuntu配置PHP</a></li><li><a href="../../html/服务器/linux基础.html">linux基础</a></li><li><a href="../../html/服务器/linux布署.html">linux布署</a></li><li><a href="../../html/服务器/ftp服务器.html">ftp服务器</a></li><li><a href="../../html/服务器/linux用户管理.html">linux用户管理</a></li></ul></li><li><a href="#"><span></span>AngularJS</a><ul><li><a href="../../html/AngularJS/angular入门.html">angular入门</a></li><li><a href="../../html/AngularJS/angular基础.html">angular基础</a></li><li><a href="../../html/AngularJS/route.html">route</a></li><li><a href="../../html/AngularJS/指令.html">指令</a></li><li><a href="../../html/AngularJS/服务.html">服务</a></li></ul></li><li><a href="#"><span></span>node基础</a><ul><li><a href="../../html/node基础/buffer.html">buffer</a></li><li><a href="../../html/node基础/文件上传.html">文件上传</a></li><li><a href="../../html/node基础/文件操作.html">文件操作</a></li><li><a href="../../html/node基础/模块.html">模块</a></li><li><a href="../../html/node基础/流.html">流</a></li><li><a href="../../html/node基础/node安装与配置.html">node安装与配置</a></li><li><a href="../../html/node基础/NPM.html">NPM</a></li></ul></li><li><a href="#"><span></span>node进阶</a><ul><li><a href="../../html/node进阶/cookie.html">cookie</a></li><li><a href="../../html/node进阶/Express.html">Express</a></li><li><a href="../../html/node进阶/session.html">session</a></li><li><a href="../../html/node进阶/socketio.html">socketio</a></li><li><a href="../../html/node进阶/websocket.html">websocket</a></li><li><a href="../../html/node进阶/加密.html">加密</a></li><li><a href="../../html/node进阶/动态服务器.html">动态服务器</a></li><li><a href="../../html/node进阶/压缩.html">压缩</a></li><li><a href="../../html/node进阶/静态文件服务器.html">静态文件服务器</a></li><li><a href="../../html/node进阶/流高级.html">流高级</a></li></ul></li><li><a href="../../html/首页.html">首页</a></li><li><a href="#"><span></span>react</a><ul><li><a href="../../html/react/react-router.html">react-router</a></li><li><a href="../../html/react/ReactNativeMac.html">ReactNativeMac</a></li><li><a href="../../html/react/ReactNativeWin.html">ReactNativeWin</a></li><li><a href="../../html/react/react基础应用.html">react基础应用</a></li><li><a href="../../html/react/react入门.html">react入门</a></li><li><a href="../../html/react/redux.html">redux</a></li></ul></li><li><a href="#"><span></span>vue</a><ul><li><a href="../../html/vue/Vue入门.html">Vue入门</a></li><li><a href="../../html/vue/Vue方法篇.html">Vue方法篇</a></li><li><a href="../../html/vue/Vue方法篇2.html">Vue方法篇2</a></li><li><a href="../../html/vue/Vue组件.html">Vue组件</a></li></ul></li><li><a href="#"><span></span>JAVASCRIPT</a><ul><li><a href="../../html/JAVASCRIPT/ES6.html">ES6</a></li><li><a href="../../html/JAVASCRIPT/jquery同步和异步.html">jquery同步和异步</a></li><li><a href="../../html/JAVASCRIPT/js常用方法.html">js常用方法</a></li><li><a href="../../html/JAVASCRIPT/promise.html">promise</a></li><li><a href="../../html/JAVASCRIPT/webstorage.html">webstorage</a></li><li><a href="../../html/JAVASCRIPT/初识JS.html">初识JS</a></li><li><a href="../../html/JAVASCRIPT/原型链.html">原型链</a></li><li><a href="../../html/JAVASCRIPT/字符编码.html">字符编码</a></li><li><a href="../../html/JAVASCRIPT/属性设置.html">属性设置</a></li><li><a href="../../html/JAVASCRIPT/模块化开发.html">模块化开发</a></li><li><a href="../../html/JAVASCRIPT/正则表达式.html">正则表达式</a></li><li><a href="../../html/JAVASCRIPT/缓存.html">缓存</a></li><li><a href="../../html/JAVASCRIPT/预解析作用域闭包this.html">预解析作用域闭包this</a></li><li><a href="../../html/JAVASCRIPT/DOM深入.html">DOM深入</a></li><li><a href="../../html/JAVASCRIPT/JS盒子模型.html">JS盒子模型</a></li></ul></li><li><a href="#"><span></span>笔记</a><ul></ul></li><li><a href="#"><span></span>页面效果</a><ul><li><a href="../../html/页面效果/次屏图片延迟加载.html">次屏图片延迟加载</a></li><li><a href="../../html/页面效果/首屏图片延时加载.html">首屏图片延时加载</a></li></ul></li><li><a href="#"><span></span>node大纲</a><ul><li><a href="../../html/node大纲/1.es6.html">1.es6</a></li><li><a href="../../html/node大纲/2.promise.html">2.promise</a></li><li><a href="../../html/node大纲/3.babel.html">3.babel</a></li><li><a href="../../html/node大纲/4.gulp.html">4.gulp</a></li><li><a href="../../html/node大纲/5.webpack.html">5.webpack</a></li><li><a href="../../html/node大纲/6.react入门.html">6.react入门</a></li><li><a href="../../html/node大纲/7.react基础应用.html">7.react基础应用</a></li><li><a href="../../html/node大纲/内网使用.html">内网使用</a></li><li><a href="../../html/node大纲/珠峰服务器布署.html">珠峰服务器布署</a></li></ul></li><li><a href="#"><span></span>node周末大纲</a><ul><li><a href="../../html/node周末大纲/1.Express.html">1.Express</a></li><li><a href="../../html/node周末大纲/2.cookie.html">2.cookie</a></li><li><a href="../../html/node周末大纲/3.session.html">3.session</a></li><li><a href="../../html/node周末大纲/4.mongodb.html">4.mongodb</a></li><li><a href="../../html/node周末大纲/5.mongoose.html">5.mongoose</a></li><li><a href="../../html/node周末大纲/6.珠峰博客.html">6.珠峰博客</a></li><li><a href="../../html/node周末大纲/7.websocket.html">7.websocket</a></li><li class="active"><a href="../../html/node周末大纲/8.socketio.html">8.socketio</a></li><li><a href="../../html/node周末大纲/9.珠峰爬虫.html">9.珠峰爬虫</a></li><li><a href="../../html/node周末大纲/3.加密.html">3.加密</a></li></ul></li><li><a href="#"><span></span>node项目</a><ul><li><a href="../../html/node项目/珠峰博客.html">珠峰博客</a></li><li><a href="../../html/node项目/珠峰爬虫.html">珠峰爬虫</a></li><li><a href="../../html/node项目/珠峰聊天室.html">珠峰聊天室</a></li></ul></li></ul>
+        </div>
+
+        
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+
+</div>
+
+
+
+
+
+<div class="container">
+    
+        <div class="page-toc">
+            <ul><li><a href="#t01. socket.io">1. socket.io</a></li><li><a href="#t12. socket.io的特点">2. socket.io的特点</a></li><li><a href="#t23. 初步使用">3. 初步使用</a><ul><li><a href="#t33.1 安装部署">3.1 安装部署</a></li><li><a href="#t43.2 启动服务">3.2 启动服务</a></li><li><a href="#t53.3 客户端引用">3.3 客户端引用</a></li><li><a href="#t63.4 发送消息">3.4 发送消息</a></li></ul></li><li><a href="#t74. 深入分析">4. 深入分析</a><ul><li><a href="#t84.1 send方法">4.1 send方法</a></li><li><a href="#t94.2 服务端事件">4.2 服务端事件</a></li><li><a href="#t104.3 客户端事件">4.3 客户端事件</a></li></ul></li><li><a href="#t115. 划分房间">5. 划分房间</a><ul><li><a href="#t125.1 命名空间">5.1 命名空间</a></li><li><a href="#t135.2 广播">5.2 广播</a></li><li><a href="#t145.3 聊天室">5.3 聊天室</a></li></ul></li><li><a href="#t15扩展阅读">扩展阅读</a></li></ul>
+        </div>
+
+        <div class="content markdown-body">
+
+            <h2 id="t01. socket.io">1. socket.io <a href="#t01. socket.io"> # </a></h2>
+<p>Socket.IO&#x662F;&#x4E00;&#x4E2A;WebSocket&#x5E93;&#xFF0C;&#x5305;&#x62EC;&#x4E86;&#x5BA2;&#x6237;&#x7AEF;&#x7684;js&#x548C;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x7684;nodejs&#xFF0C;&#x5B83;&#x7684;&#x76EE;&#x6807;&#x662F;&#x6784;&#x5EFA;&#x53EF;&#x4EE5;&#x5728;&#x4E0D;&#x540C;&#x6D4F;&#x89C8;&#x5668;&#x548C;&#x79FB;&#x52A8;&#x8BBE;&#x5907;&#x4E0A;&#x4F7F;&#x7528;&#x7684;&#x5B9E;&#x65F6;&#x5E94;&#x7528;&#x3002;</p>
+<h2 id="t12. socket.io&#x7684;&#x7279;&#x70B9;">2. socket.io&#x7684;&#x7279;&#x70B9; <a href="#t12. socket.io&#x7684;&#x7279;&#x70B9;"> # </a></h2>
+<ul>
+<li>&#x6613;&#x7528;&#x6027;&#xFF1A;socket.io&#x5C01;&#x88C5;&#x4E86;&#x670D;&#x52A1;&#x7AEF;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x4F7F;&#x7528;&#x8D77;&#x6765;&#x975E;&#x5E38;&#x7B80;&#x5355;&#x65B9;&#x4FBF;&#x3002;</li>
+<li>&#x8DE8;&#x5E73;&#x53F0;&#xFF1A;socket.io&#x652F;&#x6301;&#x8DE8;&#x5E73;&#x53F0;&#xFF0C;&#x8FD9;&#x5C31;&#x610F;&#x5473;&#x7740;&#x4F60;&#x6709;&#x4E86;&#x66F4;&#x591A;&#x7684;&#x9009;&#x62E9;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x81EA;&#x5DF1;&#x559C;&#x6B22;&#x7684;&#x5E73;&#x53F0;&#x4E0B;&#x5F00;&#x53D1;&#x5B9E;&#x65F6;&#x5E94;&#x7528;&#x3002;</li>
+<li>&#x81EA;&#x9002;&#x5E94;&#xFF1A;&#x5B83;&#x4F1A;&#x81EA;&#x52A8;&#x6839;&#x636E;&#x6D4F;&#x89C8;&#x5668;&#x4ECE;WebSocket&#x3001;AJAX&#x957F;&#x8F6E;&#x8BE2;&#x3001;Iframe&#x6D41;&#x7B49;&#x7B49;&#x5404;&#x79CD;&#x65B9;&#x5F0F;&#x4E2D;&#x9009;&#x62E9;&#x6700;&#x4F73;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x5B9E;&#x73B0;&#x7F51;&#x7EDC;&#x5B9E;&#x65F6;&#x5E94;&#x7528;&#xFF0C;&#x975E;&#x5E38;&#x65B9;&#x4FBF;&#x548C;&#x4EBA;&#x6027;&#x5316;&#xFF0C;&#x800C;&#x4E14;&#x652F;&#x6301;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x6700;&#x4F4E;&#x8FBE;IE5.5&#x3002;</li>
+</ul>
+<h2 id="t23. &#x521D;&#x6B65;&#x4F7F;&#x7528;">3. &#x521D;&#x6B65;&#x4F7F;&#x7528; <a href="#t23. &#x521D;&#x6B65;&#x4F7F;&#x7528;"> # </a></h2>
+<h3 id="t33.1 &#x5B89;&#x88C5;&#x90E8;&#x7F72;">3.1 &#x5B89;&#x88C5;&#x90E8;&#x7F72; <a href="#t33.1 &#x5B89;&#x88C5;&#x90E8;&#x7F72;"> # </a></h3>
+<p>&#x4F7F;&#x7528;npm&#x5B89;&#x88C5;socket.io</p>
+<pre><code class="lang-javascript">$ npm install socket.io
+</code></pre>
+<h3 id="t43.2 &#x542F;&#x52A8;&#x670D;&#x52A1;">3.2 &#x542F;&#x52A8;&#x670D;&#x52A1; <a href="#t43.2 &#x542F;&#x52A8;&#x670D;&#x52A1;"> # </a></h3>
+<p>&#x521B;&#x5EFA; <code>app.js</code> &#x6587;&#x4EF6;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;express&apos;</span>);
+<span class="hljs-keyword">var</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;path&apos;</span>);
+<span class="hljs-keyword">var</span> app = express();
+
+app.get(<span class="hljs-string">&apos;/&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req, res</span>) </span>{
+    res.sendFile(path.resolve(<span class="hljs-string">&apos;index.html&apos;</span>));
+});
+
+<span class="hljs-keyword">var</span> server = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;http&apos;</span>).createServer(app);
+<span class="hljs-keyword">var</span> io = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;socket.io&apos;</span>)(server);
+
+io.on(<span class="hljs-string">&apos;connection&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">socket</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&#x5BA2;&#x6237;&#x7AEF;&#x5DF2;&#x7ECF;&#x8FDE;&#x63A5;&apos;</span>);
+    socket.on(<span class="hljs-string">&apos;message&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">msg</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(msg);
+        socket.send(<span class="hljs-string">&apos;sever:&apos;</span> + msg);
+    });
+});
+server.listen(<span class="hljs-number">80</span>);
+</code></pre>
+<h3 id="t53.3 &#x5BA2;&#x6237;&#x7AEF;&#x5F15;&#x7528;">3.3 &#x5BA2;&#x6237;&#x7AEF;&#x5F15;&#x7528; <a href="#t53.3 &#x5BA2;&#x6237;&#x7AEF;&#x5F15;&#x7528;"> # </a></h3>
+<p>&#x670D;&#x52A1;&#x7AEF;&#x8FD0;&#x884C;&#x540E;&#x4F1A;&#x5728;&#x6839;&#x76EE;&#x5F55;&#x52A8;&#x6001;&#x751F;&#x6210;socket.io&#x7684;&#x5BA2;&#x6237;&#x7AEF;js&#x6587;&#x4EF6; 
+&#x5BA2;&#x6237;&#x7AEF;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x56FA;&#x5B9A;&#x8DEF;&#x5F84;<code>/socket.io/socket.io.js</code>&#x6DFB;&#x52A0;&#x5F15;&#x7528;<br>&#x5BA2;&#x6237;&#x7AEF;&#x52A0;&#x8F7D;socket.io&#x6587;&#x4EF6;&#x540E;&#x4F1A;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x7684;&#x5BF9;&#x8C61;io<br><code>connect</code>&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;<code>url</code>&#x53C2;&#x6570;&#xFF0C;url&#x53EF;&#x4EE5;socket&#x670D;&#x52A1;&#x7684;http&#x5B8C;&#x6574;&#x5730;&#x5740;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#xFF0C;&#x5982;&#x679C;&#x7701;&#x7565;&#x5219;&#x8868;&#x793A;&#x9ED8;&#x8BA4;&#x8FDE;&#x63A5;&#x5F53;&#x524D;&#x8DEF;&#x5F84;
+&#x521B;&#x5EFA;index.html&#x6587;&#x4EF6;</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;/socket.io/socket.io.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+ window.onload = function(){
+    var socket = io.connect(&apos;/&apos;);
+    //&#x76D1;&#x542C;&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x7684;&#x8FDE;&#x63A5;&#x6210;&#x529F;&#x4E8B;&#x4EF6;
+    socket.on(&apos;connect&apos;,function(){
+        console.log(&apos;&#x8FDE;&#x63A5;&#x6210;&#x529F;&apos;);
+    });
+    //&#x76D1;&#x542C;&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x65AD;&#x5F00;&#x8FDE;&#x63A5;&#x4E8B;&#x4EF6;
+    socket.on(&apos;disconnect&apos;,function(){
+       console.log(&apos;&#x65AD;&#x5F00;&#x8FDE;&#x63A5;&apos;);
+    });
+ };
+</code></pre>
+<h3 id="t63.4 &#x53D1;&#x9001;&#x6D88;&#x606F;">3.4 &#x53D1;&#x9001;&#x6D88;&#x606F; <a href="#t63.4 &#x53D1;&#x9001;&#x6D88;&#x606F;"> # </a></h3>
+<p>&#x6210;&#x529F;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>socket</code>&#x5BF9;&#x8C61;&#x7684;<code>send</code>&#x51FD;&#x6570;&#x6765;&#x4E92;&#x76F8;&#x53D1;&#x9001;&#x6D88;&#x606F;
+&#x4FEE;&#x6539;index.html</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> socket = io.connect(<span class="hljs-string">&apos;/&apos;</span>);
+socket.on(<span class="hljs-string">&apos;connect&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+   <span class="hljs-comment">//&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;&#x6210;&#x529F;&#x540E;&#x53D1;&#x9001;&#x6D88;&#x606F;&apos;welcome&apos;</span>
+   socket.send(<span class="hljs-string">&apos;welcome&apos;</span>);
+});
+<span class="hljs-comment">//&#x5BA2;&#x6237;&#x7AEF;&#x6536;&#x5230;&#x670D;&#x52A1;&#x5668;&#x53D1;&#x8FC7;&#x6765;&#x7684;&#x6D88;&#x606F;&#x540E;&#x89E6;&#x53D1;</span>
+socket.on(<span class="hljs-string">&apos;message&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">message</span>)</span>{
+   <span class="hljs-built_in">console</span>.log(message);
+});
+</code></pre>
+<p>&#x4FEE;&#x6539;app.js</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> io = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;scoket.io&apos;</span>);
+io.on(<span class="hljs-string">&apos;connection&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">socket</span>)</span>{
+  <span class="hljs-comment">//&#x5411;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;&#x6D88;&#x606F;</span>
+  socket.send(<span class="hljs-string">&apos;&#x6B22;&#x8FCE;&#x5149;&#x4E34;&apos;</span>);
+  <span class="hljs-comment">//&#x63A5;&#x6536;&#x5230;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x8FC7;&#x6765;&#x7684;&#x6D88;&#x606F;&#x65F6;&#x89E6;&#x53D1;</span>
+  socket.on(<span class="hljs-string">&apos;message&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>)</span>{
+      <span class="hljs-built_in">console</span>.log(data);
+  });
+});
+</code></pre>
+<h2 id="t74. &#x6DF1;&#x5165;&#x5206;&#x6790;">4. &#x6DF1;&#x5165;&#x5206;&#x6790; <a href="#t74. &#x6DF1;&#x5165;&#x5206;&#x6790;"> # </a></h2>
+<h3 id="t84.1 send&#x65B9;&#x6CD5;">4.1 send&#x65B9;&#x6CD5; <a href="#t84.1 send&#x65B9;&#x6CD5;"> # </a></h3>
+<p><code>send</code>&#x51FD;&#x6570;&#x53EA;&#x662F;<code>emit</code>&#x7684;&#x5C01;&#x88C5;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">send</span>(<span class="hljs-params"></span>)</span>{
+  <span class="hljs-keyword">var</span> args = toArray(<span class="hljs-built_in">arguments</span>);
+  args.unshift(<span class="hljs-string">&apos;message&apos;</span>);
+  <span class="hljs-keyword">this</span>.emit.apply(<span class="hljs-keyword">this</span>, args);
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+}
+</code></pre>
+<p><code>emit</code>&#x51FD;&#x6570;&#x6709;&#x4E24;&#x4E2A;&#x53C2;&#x6570;</p>
+<ul>
+<li>&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x4E8B;&#x4EF6;&#x540D;&#x79F0;,&#x53D1;&#x9001;&#x65B9;&#x53D1;&#x9001;&#x4EC0;&#x4E48;&#x7C7B;&#x578B;&#x7684;&#x4E8B;&#x4EF6;&#x540D;&#x79F0;,&#x63A5;&#x6536;&#x65B9;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5BF9;&#x5E94;&#x7684;&#x4E8B;&#x4EF6;&#x540D;&#x79F0;&#x6765;&#x76D1;&#x542C;&#x63A5;&#x6536;</li>
+<li>&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x8981;&#x53D1;&#x9001;&#x7684;&#x6570;&#x636E;</li>
+</ul>
+<h3 id="t94.2 &#x670D;&#x52A1;&#x7AEF;&#x4E8B;&#x4EF6;">4.2 &#x670D;&#x52A1;&#x7AEF;&#x4E8B;&#x4EF6; <a href="#t94.2 &#x670D;&#x52A1;&#x7AEF;&#x4E8B;&#x4EF6;"> # </a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x4E8B;&#x4EF6;&#x540D;&#x79F0;</th>
+<th style="text-align:left">&#x542B;&#x4E49;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">connection</td>
+<td style="text-align:left">&#x5BA2;&#x6237;&#x7AEF;&#x6210;&#x529F;&#x8FDE;&#x63A5;&#x5230;&#x670D;&#x52A1;&#x5668;</td>
+</tr>
+<tr>
+<td style="text-align:left">message</td>
+<td style="text-align:left">&#x63A5;&#x6536;&#x5230;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;&#x7684;&#x6D88;&#x606F;</td>
+</tr>
+<tr>
+<td style="text-align:left">disconnect</td>
+<td style="text-align:left">&#x5BA2;&#x6237;&#x7AEF;&#x65AD;&#x5F00;&#x8FDE;&#x63A5;</td>
+</tr>
+<tr>
+<td style="text-align:left">error</td>
+<td style="text-align:left">&#x76D1;&#x542C;&#x9519;&#x8BEF;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="t104.3 &#x5BA2;&#x6237;&#x7AEF;&#x4E8B;&#x4EF6;">4.3 &#x5BA2;&#x6237;&#x7AEF;&#x4E8B;&#x4EF6; <a href="#t104.3 &#x5BA2;&#x6237;&#x7AEF;&#x4E8B;&#x4EF6;"> # </a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x4E8B;&#x4EF6;&#x540D;&#x79F0;</th>
+<th style="text-align:left">&#x542B;&#x4E49;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">connect</td>
+<td style="text-align:left">&#x6210;&#x529F;&#x8FDE;&#x63A5;&#x5230;&#x670D;&#x52A1;&#x5668;</td>
+</tr>
+<tr>
+<td style="text-align:left">message</td>
+<td style="text-align:left">&#x63A5;&#x6536;&#x5230;&#x670D;&#x52A1;&#x5668;&#x53D1;&#x9001;&#x7684;&#x6D88;&#x606F;</td>
+</tr>
+<tr>
+<td style="text-align:left">disconnect</td>
+<td style="text-align:left">&#x5BA2;&#x6237;&#x7AEF;&#x65AD;&#x5F00;&#x8FDE;&#x63A5;</td>
+</tr>
+<tr>
+<td style="text-align:left">error</td>
+<td style="text-align:left">&#x76D1;&#x542C;&#x9519;&#x8BEF;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="t115. &#x5212;&#x5206;&#x623F;&#x95F4;">5. &#x5212;&#x5206;&#x623F;&#x95F4; <a href="#t115. &#x5212;&#x5206;&#x623F;&#x95F4;"> # </a></h2>
+<h3 id="t125.1 &#x547D;&#x540D;&#x7A7A;&#x95F4;">5.1 &#x547D;&#x540D;&#x7A7A;&#x95F4; <a href="#t125.1 &#x547D;&#x540D;&#x7A7A;&#x95F4;"> # </a></h3>
+<p>&#x53EF;&#x4EE5;&#x5728;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x8FDB;&#x5165;&#x4E0D;&#x540C;&#x7684;&#x623F;&#x95F4;,&#x5728;&#x623F;&#x95F4;&#x91CC;&#x7684;&#x5E7F;&#x64AD;&#x548C;&#x901A;&#x4FE1;&#x90FD;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x5230;&#x623F;&#x95F4;&#x4EE5;&#x5916;&#x7684;&#x5BA2;&#x6237;&#x7AEF;</p>
+<pre><code class="lang-javascript">socket.join(<span class="hljs-string">&apos;chat&apos;</span>);<span class="hljs-comment">//&#x8FDB;&#x5165;chat&#x623F;&#x95F4;</span>
+socket.leave(<span class="hljs-string">&apos;chat&apos;</span>);<span class="hljs-comment">//&#x79BB;&#x5F00;chat&#x623F;&#x95F4;</span>
+</code></pre>
+<h3 id="t135.2 &#x5E7F;&#x64AD;">5.2 &#x5E7F;&#x64AD; <a href="#t135.2 &#x5E7F;&#x64AD;"> # </a></h3>
+<p>&#x5168;&#x5C40;&#x5E7F;&#x64AD;&#x5C31;&#x662F;&#x6240;&#x6709;&#x8FDE;&#x63A5;&#x5230;&#x670D;&#x52A1;&#x5668;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x90FD;&#x4F1A;&#x53D7;&#x5230;&#x5E7F;&#x64AD;&#x7684;&#x4FE1;&#x606F;</p>
+<pre><code class="lang-javascript">io.emit(<span class="hljs-string">&apos;message&apos;</span>,<span class="hljs-string">&apos;&#x5168;&#x5C40;&#x5E7F;&#x64AD;&apos;</span>);
+</code></pre>
+<p>&#x4E5F;&#x53EF;&#x4EE5;&#x53EA;&#x5728;&#x67D0;&#x4E2A;&#x623F;&#x95F4;&#x5185;&#x53D1;&#x9001;&#x5E7F;&#x64AD;</p>
+<pre><code class="lang-javascript">io.in(<span class="hljs-string">&apos;room&apos;</span>).emit(<span class="hljs-string">&apos;message&apos;</span>,<span class="hljs-string">&apos;&#x623F;&#x95F4;&#x5185;&#x5E7F;&#x64AD;&apos;</span>);
+</code></pre>
+<h3 id="t145.3 &#x804A;&#x5929;&#x5BA4;">5.3 &#x804A;&#x5929;&#x5BA4; <a href="#t145.3 &#x804A;&#x5929;&#x5BA4;"> # </a></h3>
+<p>app.js</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;express&apos;</span>);
+<span class="hljs-keyword">var</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;path&apos;</span>);
+<span class="hljs-keyword">var</span> app = express();
+
+app.get(<span class="hljs-string">&apos;/&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req, res</span>) </span>{
+    res.sendFile(path.resolve(<span class="hljs-string">&apos;index.html&apos;</span>));
+});
+
+<span class="hljs-keyword">var</span> server = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;http&apos;</span>).createServer(app);
+<span class="hljs-keyword">var</span> io = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;socket.io&apos;</span>)(server);
+
+io.on(<span class="hljs-string">&apos;connection&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">socket</span>) </span>{
+    <span class="hljs-keyword">var</span> inRoom;
+    socket.on(<span class="hljs-string">&apos;message&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">msg</span>) </span>{
+        <span class="hljs-keyword">if</span>(inRoom){
+            io.in(inRoom).emit(<span class="hljs-string">&apos;message&apos;</span>,msg);
+        }<span class="hljs-keyword">else</span>{
+            io.emit(<span class="hljs-string">&apos;message&apos;</span>,msg);
+        }
+
+    });
+    socket.on(<span class="hljs-string">&apos;join&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">room</span>) </span>{
+        socket.join(room);
+        io.emit(<span class="hljs-string">&apos;message&apos;</span>,<span class="hljs-string">&apos;&#x52A0;&#x5165;&apos;</span>+room);
+        inRoom = room;
+    });
+});
+
+server.listen(<span class="hljs-number">80</span>);
+</code></pre>
+<p>index.html</p>
+<pre><code class="lang-html"><span class="hljs-doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">html</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;en&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">meta</span> <span class="hljs-attribute">charset</span>=<span class="hljs-value">&quot;UTF-8&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>&#x804A;&#x5929;&#x5BA4;<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">&quot;stylesheet&quot;</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;container&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;panel panel-default&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;panel-heading&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn-primary&quot;</span> <span class="hljs-attribute">onclick</span>=<span class="hljs-value">&quot;join(&apos;chat&apos;)&quot;</span>&gt;</span>&#x8FDB;&#x5165;&#x804A;&#x5929;&#x623F;&#x95F4;<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn-primary&quot;</span> <span class="hljs-attribute">onclick</span>=<span class="hljs-value">&quot;join(&apos;study&apos;)&quot;</span>&gt;</span>&#x8FDB;&#x5165;&#x5B66;&#x4E60;&#x623F;&#x95F4;<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;room&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;panel-body&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;list-group&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;messages&quot;</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;panel-footer&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;form-control&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;msg&quot;</span>/&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">onclick</span>=<span class="hljs-value">&quot;send()&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn-primary&quot;</span>&gt;</span>&#x53D1;&#x8A00;<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;/socket.io/socket.io.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+
+    <span class="hljs-built_in">window</span>.onload = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-keyword">var</span> socket = io.connect(<span class="hljs-string">&apos;/&apos;</span>);
+        socket.on(<span class="hljs-string">&apos;message&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">msg</span>)</span>{
+            <span class="hljs-keyword">var</span> messages = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&apos;#messages&apos;</span>);
+            <span class="hljs-keyword">var</span> li = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&apos;li&apos;</span>);
+            li.innerHTML = msg;
+            li.className = <span class="hljs-string">&apos;list-group-item&apos;</span>;
+            messages.appendChild(li);
+        });
+
+        <span class="hljs-built_in">window</span>.send = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+            <span class="hljs-keyword">var</span> input = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&apos;#msg&apos;</span>);
+            socket.send(input.value);
+            input.value = <span class="hljs-string">&apos;&apos;</span>;
+        }
+
+        <span class="hljs-built_in">window</span>.join = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">room</span>)</span>{
+            socket.emit(<span class="hljs-string">&apos;join&apos;</span>,room);
+            <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&apos;#room&apos;</span>).innerHTML = room;
+        }
+    };
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+</code></pre>
+<h2 id="t15&#x6269;&#x5C55;&#x9605;&#x8BFB;">&#x6269;&#x5C55;&#x9605;&#x8BFB; <a href="#t15&#x6269;&#x5C55;&#x9605;&#x8BFB;"> # </a></h2>
+<p><a href="http://socket.io">socket.io</a></p>
+
+
+        </div>
+    
+</div>
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    /*url("/static/img/banner.jpg") no-repeat*/
+    .bs-docs-header{
+        background:linear-gradient(to right ,#333333 50%,#0d0b0c 50%) ;
+        padding: 0;
+    }
+    .new-back{
+        background-image: url("static/img/banner.jpg") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 88px;
+    }
+    .markdown-body pre code,.markdown-body code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .markdown-body code{
+      line-height: inherit;
+    }
+    .markdown-body h3{
+        font-size:1.4em;
+    }
+    .markdown-body h4{
+        font-size:1em;
+    }
+
+
+
+    /*index*/
+    .jw-style{
+        font-size: 1.75em;
+        color: #1d3e81;
+        line-height: 2em;
+    }
+
+    .understand-me {
+        text-align: center;
+        margin: 100px auto 0;
+    }
+
+    .understand-me li {
+        vertical-align: top;
+        width: 33.3333%;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+    }
+
+    .understand-me li span {
+        color: #1a1a1a;
+        font-size: 1.6em;
+
+    }
+
+    .understand-me p {
+        margin: 0 auto;
+        width: 90%;
+        text-align: left;
+        color: #4c4c4c;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    .understand-me img {
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .footers{
+        background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px
+    }
+    .understand-me img:hover {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    @media screen and (max-width: 479px) {
+        .understand-me li{
+            width: 100%;
+            margin-bottom: 2em;
+        }
+        .new-back{
+            padding: 28px;
+        }
+        .understand-me p {
+            width: 60%;
+        }
+        .footers{
+            height: 80px;
+            background-size:auto 100%;;
+        }
+    }
+
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+if(!$('.understand-me').length){
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h1,h2,h3,h4,h5,h6").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+}
+</script>
+
+</body>
+</html>
+
+
+<script>
+
+</script>

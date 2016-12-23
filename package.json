@@ -123,13 +123,6 @@
             },
             "首页.md",
             {
-                "node项目": [
-                    "珠峰博客.md",
-                    "珠峰爬虫.md",
-                    "珠峰聊天室.md"
-                ]
-            },
-            {
                 "react": [
                     "react-router.md",
                     "ReactNativeMac.md",
@@ -176,18 +169,6 @@
                 ]
             },
             {
-                "node全大纲": [
-                    "1.Express.md",
-                    "2.cookie.md",
-                    "3.session.md",
-                    "4.mongodb.md",
-                    "5.mongoose.md",
-                    "6.珠峰博客.md",
-                    "7.websocket.md",
-                    "8.socketio.md"
-                ]
-            },
-            {
                 "node大纲": [
                     "1.es6.md",
                     "2.promise.md",
@@ -198,6 +179,27 @@
                     "7.react基础应用.md",
                     "内网使用.md",
                     "珠峰服务器布署.md"
+                ]
+            },
+            {
+                "node周末大纲": [
+                    "1.Express.md",
+                    "2.cookie.md",
+                    "3.session.md",
+                    "4.mongodb.md",
+                    "5.mongoose.md",
+                    "6.珠峰博客.md",
+                    "7.websocket.md",
+                    "8.socketio.md",
+                    "9.珠峰爬虫.md",
+                    "3.加密.md"
+                ]
+            },
+            {
+                "node项目": [
+                    "珠峰博客.md",
+                    "珠峰爬虫.md",
+                    "珠峰聊天室.md"
                 ]
             }
         ]
